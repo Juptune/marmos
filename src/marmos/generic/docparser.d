@@ -23,6 +23,16 @@ private struct LineInfo
     bool isBaseAligned;
 }
 
+private enum ListLineType
+{
+    FAILSAFE,
+    isNewItem,
+    isNewNestedItem,
+    isContinuation,
+    isEmpty,
+    isNotPartOfList
+}
+
 DocComment parseDocComment(string comment)
 {
     DocComment result;
@@ -52,7 +62,8 @@ DocComment parseDocComment(string comment)
         }
         else
         {
-            auto block = tryBlock(context, line);
+            const isFreshSection = (currentSection.blocks.length == 0);
+            auto block = tryBlock(context, line, isFreshSection);
             if(!block.isNull)
             {
                 currentSection.blocks ~= block.get;
@@ -61,7 +72,7 @@ DocComment parseDocComment(string comment)
         }
     }
 
-    if(currentSection != DocCommentSection.init)
+    if(currentSection.blocks.length > 0)
         result.sections ~= currentSection;
 
     return result;
@@ -178,7 +189,7 @@ Nullable!DocCommentSection trySection(LineInfo info)
     return DocCommentSection(info.line[0..$-1]).nullable;
 }
 
-Nullable!DocCommentBlock tryBlock(ref DocParseContext context, LineInfo info)
+Nullable!DocCommentBlock tryBlock(ref DocParseContext context, LineInfo info, bool isFreshSection)
 {
     if(info.line.length == 0 || info.line == "\n")
         return typeof(return).init;
@@ -191,7 +202,10 @@ Nullable!DocCommentBlock tryBlock(ref DocParseContext context, LineInfo info)
                 return DocCommentBlock(block.get).nullable;
             goto default;
 
-        default: return DocCommentBlock(nextParagraphBlock(context, info)).nullable;
+        default:
+            if(isFreshSection)
+                return DocCommentBlock(nextParagraphBlock(context, info)).nullable;
+            return DocCommentBlock(nextParagraphBlock(context, info)).nullable;
     }
 }
 
@@ -212,29 +226,18 @@ DocCommentParagraphBlock nextParagraphBlock(ref DocParseContext context, LineInf
 
 Nullable!DocCommentOrderedListBlock tryOrderedListBlock(ref DocParseContext context, LineInfo info)
 {
-    import std.uni   : isNumber, isWhite;
-    import std.utf   : decode;
-    import std.conv  : to;
-
-    enum LineType
-    {
-        FAILSAFE,
-        isNewItem,
-        isNewNestedItem,
-        isContinuation,
-        isEmpty,
-        isNotPartOfList
-    }
+    import std.uni : isNumber, isWhite;
+    import std.utf : decode;
 
     uint extraIndent = info.prefixWhitespace;
-    LineType getLineType(LineInfo info, ref size_t cursor)
+    ListLineType getLineType(LineInfo info, ref size_t cursor)
     {
         if(info.line.length == 0 || info.line == "\n")
-            return LineType.isEmpty;
+            return ListLineType.isEmpty;
         else if(info.prefixWhitespace < extraIndent || !info.isBaseAligned)
-            return LineType.isNotPartOfList;
+            return ListLineType.isNotPartOfList;
         else if(cursor >= info.line.length)
-            return LineType.isEmpty;
+            return ListLineType.isEmpty;
 
         if(info.prefixWhitespace > extraIndent)
         {
@@ -242,12 +245,12 @@ Nullable!DocCommentOrderedListBlock tryOrderedListBlock(ref DocParseContext cont
             size_t copyCursor = 0;
             auto infoCopy = info;
             infoCopy.prefixWhitespace = extraIndent;
-            if(getLineType(infoCopy, copyCursor) == LineType.isNewItem)
+            if(getLineType(infoCopy, copyCursor) == ListLineType.isNewItem)
             {
                 cursor = copyCursor;
-                return LineType.isNewNestedItem;
+                return ListLineType.isNewNestedItem;
             }
-            return LineType.isContinuation;
+            return ListLineType.isContinuation;
         }
 
         // Check if the line starts with digits and dots, followed by whitespace
@@ -257,7 +260,7 @@ Nullable!DocCommentOrderedListBlock tryOrderedListBlock(ref DocParseContext cont
             if(!ch.isNumber && ch != '.')
             {
                 if(!ch.isWhite)
-                    return LineType.isNotPartOfList;
+                    return ListLineType.isNotPartOfList;
                 break;
             }
         }
@@ -273,20 +276,29 @@ Nullable!DocCommentOrderedListBlock tryOrderedListBlock(ref DocParseContext cont
             }
         }
 
-        return LineType.isNewItem;
+        return ListLineType.isNewItem;
     }
 
+    return tryListBlock!(DocCommentOrderedListBlock, DocCommentOrderedListBlock.Item)(context, info, &getLineType);
+}
+
+Nullable!ListT tryListBlock(ListT, ListItemT)(
+    ref DocParseContext context, 
+    LineInfo info,
+    ListLineType delegate(LineInfo info, ref size_t cursor) getLineType,
+)
+{
     typeof(return) result;
-    DocCommentOrderedListBlock.Item item;
+    ListItemT item;
 
     void push()
     {
         if(item.block.inlines.length > 0)
         {
             if(result.isNull)
-                result = DocCommentOrderedListBlock();
+                result = ListT();
             result.get.items ~= item;
-            item = DocCommentOrderedListBlock.Item();
+            item = ListItemT();
         }
     }
 
@@ -295,7 +307,7 @@ Nullable!DocCommentOrderedListBlock tryOrderedListBlock(ref DocParseContext cont
         size_t cursor;
         const lineType = getLineType(info, cursor);
 
-        final switch(lineType) with(LineType)
+        final switch(lineType) with(ListLineType)
         {
             case FAILSAFE: assert(false);
             case isEmpty: break;
@@ -305,7 +317,9 @@ Nullable!DocCommentOrderedListBlock tryOrderedListBlock(ref DocParseContext cont
                 push();
                 info.line = info.line[cursor..$];
                 item.block = DocCommentParagraphBlock(parseInlines(info));
-                item.isNested = (lineType == isNewNestedItem);
+
+                static if(__traits(hasMember, ListItemT, "isNested"))
+                    item.isNested = (lineType == isNewNestedItem);
                 break;
 
             case isContinuation:
@@ -394,7 +408,7 @@ DocCommentInline[] parseInlines(LineInfo info)
                     push!DocCommentCodeInline();
                 break; // Don't interpret as a grammar character
 
-            default:break;
+            default: break;
         }
         lastWasSpace = ch.isWhite;
     }
