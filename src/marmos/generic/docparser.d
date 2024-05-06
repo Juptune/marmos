@@ -204,7 +204,11 @@ Nullable!DocCommentBlock tryBlock(ref DocParseContext context, LineInfo info, bo
 
         default:
             if(isFreshSection)
-                return DocCommentBlock(nextParagraphBlock(context, info)).nullable;
+            {
+                auto block = tryEqualListBlock(context, info);
+                if(!block.isNull)
+                    return DocCommentBlock(block.get).nullable;
+            }
             return DocCommentBlock(nextParagraphBlock(context, info)).nullable;
     }
 }
@@ -265,21 +269,114 @@ Nullable!DocCommentOrderedListBlock tryOrderedListBlock(ref DocParseContext cont
             }
         }
 
-        // Trim leading whitespace, as parseInlines semi-expects it to be gone
-        while(cursor < info.line.length)
-        {
-            auto oldCursor = cursor;
-            if(!decode(info.line, cursor).isWhite)
-            {
-                cursor = oldCursor;
-                break;
-            }
-        }
-
         return ListLineType.isNewItem;
     }
 
     return tryListBlock!(DocCommentOrderedListBlock, DocCommentOrderedListBlock.Item)(context, info, &getLineType);
+}
+
+Nullable!DocCommentEqualListBlock tryEqualListBlock(ref DocParseContext context, LineInfo info)
+{
+    import std.uni : isAlphaNum, isWhite;
+    import std.utf : decode;
+
+    uint extraIndent = info.prefixWhitespace;
+    ListLineType getLineType(LineInfo info, ref size_t cursor, out string paramKey)
+    {
+        if(info.line.length == 0 || info.line == "\n")
+            return ListLineType.isEmpty;
+        else if(info.prefixWhitespace < extraIndent || !info.isBaseAligned)
+            return ListLineType.isNotPartOfList;
+        else if(cursor >= info.line.length)
+            return ListLineType.isEmpty;
+
+        if(info.prefixWhitespace > extraIndent)
+            return ListLineType.isContinuation;
+
+        // Read until the first whitespace character; consume the whitespace, then check if the next character is a '='
+        enum State { reading, whitespace }
+        State state = State.reading;
+
+        while(cursor < info.line.length)
+        {
+            const endCursor = cursor;
+            auto ch = decode(info.line, cursor);
+            
+            final switch(state) with(State)
+            {
+                case reading:
+                    if(ch.isWhite)
+                    {
+                        state = State.whitespace;
+                        paramKey = info.line[0..endCursor];
+                    }
+                    else if(!ch.isAlphaNum)
+                        return ListLineType.isNotPartOfList;
+                    break;
+
+                case whitespace:
+                    if(ch == '=')
+                        return ListLineType.isNewItem;
+                    else if(!ch.isWhite)
+                        return ListLineType.isNotPartOfList;
+                    break;
+            }
+        }
+        if(cursor >= info.line.length)
+            return ListLineType.isNotPartOfList;
+
+        return ListLineType.isNewItem;
+    }
+
+    typeof(return) result;
+    DocCommentParagraphBlock item;
+    string paramKey;
+
+    void push()
+    {
+        if(item.inlines.length > 0)
+        {
+            if(result.isNull)
+                result = DocCommentEqualListBlock();
+            result.get.items ~= DocCommentEqualListBlock.Item(paramKey, item);
+            item = DocCommentParagraphBlock();
+        }
+    }
+
+    while(info.line.length > 0)
+    {
+        size_t cursor;
+        string newParamKey;
+        const lineType = getLineType(info, cursor, newParamKey);
+
+        final switch(lineType) with(ListLineType)
+        {
+            case FAILSAFE: assert(false);
+            case isEmpty: break;
+
+            case isNewNestedItem:
+            case isNewItem:
+                push();
+                info.line = info.line[cursor..$];
+                item = DocCommentParagraphBlock(parseInlines(info));
+                paramKey = newParamKey;
+                break;
+
+            case isContinuation:
+                item.inlines ~= parseInlines(info);
+                break;
+
+            case isNotPartOfList:
+                push();
+                return result;
+
+        }
+
+        info = readGenericLine(context);
+    }
+    push();
+
+    return result;
 }
 
 Nullable!ListT tryListBlock(ListT, ListItemT)(
@@ -317,9 +414,7 @@ Nullable!ListT tryListBlock(ListT, ListItemT)(
                 push();
                 info.line = info.line[cursor..$];
                 item.block = DocCommentParagraphBlock(parseInlines(info));
-
-                static if(__traits(hasMember, ListItemT, "isNested"))
-                    item.isNested = (lineType == isNewNestedItem);
+                item.isNested = (lineType == isNewNestedItem);
                 break;
 
             case isContinuation:
