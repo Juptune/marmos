@@ -34,7 +34,7 @@ extern(C++) class DocVisitor : SemanticTimePermissiveVisitor
         import std.array   : Appender;
         import std.string  : fromStringz;
 
-        result.name = node.ident.toString.idup;
+        result.name = (node.ident is null) ? "__anonymous" : node.ident.toString.idup;
         result.location = DocLocation.from(node.loc, this.basePath);
 
         static if(__traits(compiles, { auto a = NodeT.init.storage_class; }))
@@ -44,12 +44,7 @@ extern(C++) class DocVisitor : SemanticTimePermissiveVisitor
         static if(__traits(compiles, { auto a = NodeT.init.visibility; }))
             result.visibility = fromDmdEnum!DocVisibility(node.visibility.kind);
 
-        if(node.comment is null || node.comment.fromStringz.length == 0)
-        {
-            // TODO: See if we can use the original type's comment
-        }
-        else
-            result.comment = parseDocComment(node.comment.fromStringz.idup);
+        result.comment = parseDocComment(node.comment.fromStringz.idup);
     }
 
     private void genericTypeVisit(TypeT, NodeT)(

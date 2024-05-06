@@ -212,19 +212,19 @@ if(is(StructT == struct) && !isInstanceOf!(SumType, StructT))
 
     json.putObject((uint i, scope ref JsonWriter json)
     {
-        static foreach(tupI; 0..StructT.tupleof.length)
-        if(i == tupI)
-        {
-            json.putKey(StructT.tupleof[tupI].stringof);
-            toJson(obj.tupleof[tupI], json);
-            return true;
-        }
-
-        if(i == StructT.tupleof.length)
+        if(i == 0)
         {
             json.putKey("@type");
             json.putString(DocTypeStringOf!StructT);
-            return false;
+            return true;
+        }
+        
+        static foreach(tupI; 0..StructT.tupleof.length)
+        if(i-1 == tupI)
+        {
+            json.putKey(StructT.tupleof[tupI].stringof);
+            toJson(obj.tupleof[tupI], json);
+            return i != StructT.tupleof.length;
         }
 
         return false;
