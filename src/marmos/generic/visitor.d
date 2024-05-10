@@ -16,8 +16,8 @@ extern(C++) class DocVisitor : SemanticTimePermissiveVisitor
 {
     alias visit = SemanticTimePermissiveVisitor.visit;
 
-    DocType[] types;
-    DocNonType[] nonTypes;
+    DocAggregateType[] types;
+    DocSoloType[] soloTypes;
     string basePath;
 
     extern(D) this(string basePath)
@@ -25,7 +25,7 @@ extern(C++) class DocVisitor : SemanticTimePermissiveVisitor
         this.basePath = basePath;
     }
 
-    private void genericNonTypeVisit(TypeT, NodeT)(
+    private void genericSoloTypeVisit(TypeT, NodeT)(
         scope ref TypeT result,
         scope NodeT node
     )
@@ -52,14 +52,14 @@ extern(C++) class DocVisitor : SemanticTimePermissiveVisitor
         scope NodeT node
     )
     {
-        this.genericNonTypeVisit(result, node);
+        this.genericSoloTypeVisit(result, node);
 
         if(node.members !is null)
         {
             scope visitor = new DocVisitor(this.basePath);
             foreach(member; *node.members)
                 member.accept(visitor);
-            result.members = visitor.nonTypes;
+            result.members = visitor.soloTypes;
             result.nestedTypes = visitor.types;
         }
     }
@@ -93,7 +93,7 @@ extern(C++) class DocVisitor : SemanticTimePermissiveVisitor
             scope visitor = new DocVisitor(basePath);
             foreach(member; *mod.members)
                 member.accept(visitor);
-            result.nonTypes = visitor.nonTypes;
+            result.soloTypes = visitor.soloTypes;
             result.types = visitor.types;
         }
 
@@ -105,7 +105,7 @@ extern(C++) class DocVisitor : SemanticTimePermissiveVisitor
         DocStruct result;
         this.genericTypeVisit(result, node);
 
-        this.types ~= DocType(result);
+        this.types ~= DocAggregateType(result);
     }
     
     override void visit(ASTCodegen.ClassDeclaration node)
@@ -113,7 +113,7 @@ extern(C++) class DocVisitor : SemanticTimePermissiveVisitor
         DocClass result;
         this.genericTypeVisit(result, node);
 
-        this.types ~= DocType(result);
+        this.types ~= DocAggregateType(result);
     }
 
     override void visit(ASTCodegen.InterfaceDeclaration node)
@@ -121,7 +121,7 @@ extern(C++) class DocVisitor : SemanticTimePermissiveVisitor
         DocInterface result;
         this.genericTypeVisit(result, node);
 
-        this.types ~= DocType(result);
+        this.types ~= DocAggregateType(result);
     }
 
     override void visit(ASTCodegen.UnionDeclaration node)
@@ -129,7 +129,7 @@ extern(C++) class DocVisitor : SemanticTimePermissiveVisitor
         DocUnion result;
         this.genericTypeVisit(result, node);
 
-        this.types ~= DocType(result);
+        this.types ~= DocAggregateType(result);
     }
 
     override void visit(ASTCodegen.TemplateDeclaration node)
@@ -144,39 +144,39 @@ extern(C++) class DocVisitor : SemanticTimePermissiveVisitor
         DocTemplate result;
         this.genericTypeVisit(result, node);
 
-        this.types ~= DocType(result);
+        this.types ~= DocAggregateType(result);
     }
 
     override void visit(ASTCodegen.EnumDeclaration node)
     {
         DocEnum result;
-        this.genericNonTypeVisit(result, node);
+        this.genericSoloTypeVisit(result, node);
 
-        this.nonTypes ~= DocNonType(result);
+        this.soloTypes ~= DocSoloType(result);
     }
 
     override void visit(ASTCodegen.AliasDeclaration node)
     {
         DocAlias result;
-        this.genericNonTypeVisit(result, node);
+        this.genericSoloTypeVisit(result, node);
 
-        this.nonTypes ~= DocNonType(result);
+        this.soloTypes ~= DocSoloType(result);
     }
 
     override void visit(ASTCodegen.FuncDeclaration node)
     {
         DocFunction result;
-        this.genericNonTypeVisit(result, node);
+        this.genericSoloTypeVisit(result, node);
 
-        this.nonTypes ~= DocNonType(result);
+        this.soloTypes ~= DocSoloType(result);
     }
 
     override void visit(ASTCodegen.VarDeclaration node)
     {
         DocVariable result;
-        this.genericNonTypeVisit(result, node);
+        this.genericSoloTypeVisit(result, node);
 
-        this.nonTypes ~= DocNonType(result);
+        this.soloTypes ~= DocSoloType(result);
     }
 
     override void visit(ASTCodegen.AttribDeclaration node)

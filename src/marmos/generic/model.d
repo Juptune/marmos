@@ -191,7 +191,7 @@ enum DocLinkage : string
 
 /++++ Definitions ++++/
 
-alias DocType = SumType!(
+alias DocAggregateType = SumType!(
     DocStruct,
     DocClass,
     DocInterface,
@@ -200,8 +200,8 @@ alias DocType = SumType!(
     DocMixinTemplate,
 );
 
-alias DocNonType = SumType!(
-    DocEnum, // Doesn't allow nested types, so is a "non-type". I need to find a better name for this...
+alias DocSoloType = SumType!(
+    DocEnum, // Doesn't allow nested types, so is a "solo-type".
     DocAlias,
     DocFunction,
     DocVariable
@@ -211,13 +211,13 @@ struct DocModule
 {
     import dmd.dmodule : Module;
 
-    string[]          nameComponents; // ["abc", "def"] -> abc.def
-    bool              isPackageFile;  // For package.d files
-    Edition           languageEdition;
-    DocComment        comment;
-    DocLocation       location;
-    DocType[]         types;
-    DocNonType[]      nonTypes;
+    string[]            nameComponents; // ["abc", "def"] -> abc.def
+    bool                isPackageFile;  // For package.d files
+    Edition             languageEdition;
+    DocComment          comment;
+    DocLocation         location;
+    DocAggregateType[]  types;
+    DocSoloType[]       soloTypes;
 }
 
 private mixin template DocCommon()
@@ -232,8 +232,8 @@ private mixin template DocCommon()
 
 private mixin template DocTypeCommon()
 {
-    DocType[] nestedTypes;
-    DocNonType[] members;
+    DocAggregateType[] nestedTypes;
+    DocSoloType[] members;
 }
 
 struct DocStruct
