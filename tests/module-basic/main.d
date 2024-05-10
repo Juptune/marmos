@@ -1,10 +1,9 @@
-/++ 
+/++
  + RequestFlow:
- +  1. Call `readRequestLine` to read the request line.
- +      1.1. Process the request line and destroy the returned `Http1RequestLine` struct before continuing.
- +  2. While `checkEndOfHeaders` returns `false`:
- +      2.1. Call `readHeader` to read a header.
- +      2.2. Process the header and destroy the returned `Http1Header` struct before continuing.
+ +  * Call `readRequestLine` to read the request line.
+ +      - Process the request line and destroy the returned `Http1RequestLine` struct before continuing.
+ +  - While `checkEndOfHeaders` returns `false`:
+ +      * Call `readHeader` to read a header.
  +  3. While `readBody`'s return value's `hasDataLeft` is `true`:
  +      3.1. Process the body chunk and destroy the returned `Http1BodyChunk` struct before continuing.
  +  4. Call `finishMessage` to finish the request, and if the `Http1MessageSummary.connectionClosed` is `false`,

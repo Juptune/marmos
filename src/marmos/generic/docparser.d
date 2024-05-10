@@ -202,6 +202,13 @@ Nullable!DocCommentBlock tryBlock(ref DocParseContext context, LineInfo info, bo
                 return DocCommentBlock(block.get).nullable;
             goto default;
 
+        case '-':
+        case '*':
+            auto block = tryUnorderedListBlock(context, info);
+            if(!block.isNull)
+                return DocCommentBlock(block.get).nullable;
+            goto default;
+
         default:
             if(isFreshSection)
             {
@@ -273,6 +280,54 @@ Nullable!DocCommentOrderedListBlock tryOrderedListBlock(ref DocParseContext cont
     }
 
     return tryListBlock!(DocCommentOrderedListBlock, DocCommentOrderedListBlock.Item)(context, info, &getLineType);
+}
+
+Nullable!DocCommentUnorderedListBlock tryUnorderedListBlock(ref DocParseContext context, LineInfo info)
+{
+    import std.uni : isNumber, isWhite;
+    import std.utf : decode;
+
+    uint extraIndent = info.prefixWhitespace;
+    ListLineType getLineType(LineInfo info, ref size_t cursor)
+    {
+        if(info.line.length == 0 || info.line == "\n")
+            return ListLineType.isEmpty;
+        else if(info.prefixWhitespace < extraIndent || !info.isBaseAligned)
+            return ListLineType.isNotPartOfList;
+        else if(cursor >= info.line.length)
+            return ListLineType.isEmpty;
+
+        if(info.prefixWhitespace > extraIndent)
+        {
+            // See if we can treat the line as a new item instead.
+            size_t copyCursor = 0;
+            auto infoCopy = info;
+            infoCopy.prefixWhitespace = extraIndent;
+            if(getLineType(infoCopy, copyCursor) == ListLineType.isNewItem)
+            {
+                cursor = copyCursor;
+                return ListLineType.isNewNestedItem;
+            }
+            return ListLineType.isContinuation;
+        }
+
+        // Check if the line starts with a bullet point or hyphen, followed by whitespace
+        if(cursor >= info.line.length)
+            return ListLineType.isEmpty;
+        auto ch = decode(info.line, cursor);
+        if(ch != '-' && ch != '*')
+            return ListLineType.isNotPartOfList;
+
+        if(cursor >= info.line.length)
+            return ListLineType.isNotPartOfList;
+        ch = decode(info.line, cursor);
+        if(!ch.isWhite)
+            return ListLineType.isNotPartOfList;
+
+        return ListLineType.isNewItem;
+    }
+
+    return tryListBlock!(DocCommentUnorderedListBlock, DocCommentUnorderedListBlock.Item)(context, info, &getLineType);
 }
 
 Nullable!DocCommentEqualListBlock tryEqualListBlock(ref DocParseContext context, LineInfo info)
@@ -369,7 +424,6 @@ Nullable!DocCommentEqualListBlock tryEqualListBlock(ref DocParseContext context,
             case isNotPartOfList:
                 push();
                 return result;
-
         }
 
         info = readGenericLine(context);
@@ -424,7 +478,6 @@ Nullable!ListT tryListBlock(ListT, ListItemT)(
             case isNotPartOfList:
                 push();
                 return result;
-
         }
 
         info = readGenericLine(context);
