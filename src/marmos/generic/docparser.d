@@ -36,11 +36,11 @@ private enum ListLineType
 DocComment parseDocComment(string comment)
 {
     DocComment result;
-    debug result.sections ~= DocCommentSection("__debug",[
-        DocCommentBlock(DocCommentParagraphBlock([
-            DocCommentInline(DocCommentTextInline(comment))
-        ]))
-    ]);
+    // debug result.sections ~= DocCommentSection("__debug",[
+    //     DocCommentBlock(DocCommentParagraphBlock([
+    //         DocCommentInline(DocCommentTextInline(comment))
+    //     ]))
+    // ]);
 
     while(comment.length > 0 && (comment[0] == '\n' || comment[0] == '\r'))
         comment = comment[1..$];

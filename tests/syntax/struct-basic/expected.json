@@ -1,0 +1,112 @@
+{
+  "@type": "marmos.generic.model.DocModule",
+  "nameComponents": [
+    "__anonymous"
+  ],
+  "isPackageFile": false,
+  "languageEdition": "legacy",
+  "comment": {
+    "@type": "marmos.generic.model.DocComment",
+    "sections": [
+      
+    ]
+  },
+  "location": {
+    "@type": "marmos.generic.model.DocLocation",
+    "path": {
+      "@type": "marmos.generic.model.DocPath",
+      "path": "",
+      "basePath": ""
+    },
+    "line": 0,
+    "column": 0
+  },
+  "types": [
+    {
+      "@type": "marmos.generic.model.DocStruct",
+      "name": "A",
+      "comment": {
+        "@type": "marmos.generic.model.DocComment",
+        "sections": [
+          {
+            "@type": "marmos.generic.model.DocCommentSection",
+            "title": "__default",
+            "blocks": [
+              {
+                "@type": "marmos.generic.model.DocCommentParagraphBlock",
+                "inlines": [
+                  {
+                    "@type": "marmos.generic.model.DocCommentTextInline",
+                    "text": "This is a struct."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "linkage": "extern(D)",
+      "location": {
+        "@type": "marmos.generic.model.DocLocation",
+        "path": {
+          "@type": "marmos.generic.model.DocPath",
+          "path": "",
+          "basePath": ""
+        },
+        "line": 2,
+        "column": 1
+      },
+      "visibility": "public",
+      "storageClasses": [
+        
+      ],
+      "nestedTypes": [
+        
+      ],
+      "members": [
+        {
+          "@type": "marmos.generic.model.DocVariable",
+          "name": "b",
+          "comment": {
+            "@type": "marmos.generic.model.DocComment",
+            "sections": [
+              {
+                "@type": "marmos.generic.model.DocCommentSection",
+                "title": "__default",
+                "blocks": [
+                  {
+                    "@type": "marmos.generic.model.DocCommentParagraphBlock",
+                    "inlines": [
+                      {
+                        "@type": "marmos.generic.model.DocCommentTextInline",
+                        "text": "This is a struct member."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "linkage": "extern(D)",
+          "location": {
+            "@type": "marmos.generic.model.DocLocation",
+            "path": {
+              "@type": "marmos.generic.model.DocPath",
+              "path": "",
+              "basePath": ""
+            },
+            "line": 5,
+            "column": 7
+          },
+          "visibility": "not explicitly defined",
+          "storageClasses": [
+            
+          ]
+        }
+      ]
+    }
+  ],
+  "soloTypes": [
+    
+  ]
+}

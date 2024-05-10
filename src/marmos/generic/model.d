@@ -198,10 +198,10 @@ alias DocAggregateType = SumType!(
     DocUnion,
     DocTemplate,
     DocMixinTemplate,
+    DocEnum,
 );
 
 alias DocSoloType = SumType!(
-    DocEnum, // Doesn't allow nested types, so is a "solo-type".
     DocAlias,
     DocFunction,
     DocVariable
@@ -275,6 +275,7 @@ struct DocMixinTemplate
 struct DocEnum
 {
     mixin DocCommon;
+    mixin DocTypeCommon;
 }
 
 struct DocAlias

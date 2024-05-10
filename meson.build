@@ -20,7 +20,17 @@ marmos_lib_srcs = files(
 )
 
 marmos_test_dirs = [
-    'module-basic'
+    'syntax/alias-basic',
+    'syntax/class-basic',
+    'syntax/enum-basic',
+    'syntax/function-basic',
+    'syntax/interface-basic',
+    'syntax/module-basic',
+    'syntax/struct-basic',
+    'syntax/template-basic',
+    'syntax/template-mixin-basic',
+    'syntax/union-basic',
+    'syntax/variable-basic',
 ]
 
 #### Dependencies ####
