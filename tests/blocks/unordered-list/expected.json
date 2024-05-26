@@ -1,0 +1,265 @@
+{
+  "@type": "marmos.generic.model.DocModule",
+  "nameComponents": [
+    "__anonymous"
+  ],
+  "isPackageFile": false,
+  "languageEdition": "legacy",
+  "comment": {
+    "@type": "marmos.generic.model.DocComment",
+    "sections": [
+      
+    ]
+  },
+  "location": {
+    "@type": "marmos.generic.model.DocLocation",
+    "path": {
+      "@type": "marmos.generic.model.DocPath",
+      "path": "",
+      "basePath": ""
+    },
+    "line": 0,
+    "column": 0
+  },
+  "types": [
+    
+  ],
+  "soloTypes": [
+    {
+      "@type": "marmos.generic.model.DocAlias",
+      "name": "a",
+      "comment": {
+        "@type": "marmos.generic.model.DocComment",
+        "sections": [
+          {
+            "@type": "marmos.generic.model.DocCommentSection",
+            "title": "__default",
+            "blocks": [
+              {
+                "@type": "marmos.generic.model.DocCommentUnorderedListBlock",
+                "items": [
+                  {
+                    "@type": "marmos.generic.model.DocCommentUnorderedListBlock.Item",
+                    "block": {
+                      "@type": "marmos.generic.model.DocCommentParagraphBlock",
+                      "inlines": [
+                        {
+                          "@type": "marmos.generic.model.DocCommentTextInline",
+                          "text": "Item 1"
+                        }
+                      ]
+                    },
+                    "isNested": false
+                  },
+                  {
+                    "@type": "marmos.generic.model.DocCommentUnorderedListBlock.Item",
+                    "block": {
+                      "@type": "marmos.generic.model.DocCommentParagraphBlock",
+                      "inlines": [
+                        {
+                          "@type": "marmos.generic.model.DocCommentTextInline",
+                          "text": "Item 2"
+                        }
+                      ]
+                    },
+                    "isNested": false
+                  },
+                  {
+                    "@type": "marmos.generic.model.DocCommentUnorderedListBlock.Item",
+                    "block": {
+                      "@type": "marmos.generic.model.DocCommentParagraphBlock",
+                      "inlines": [
+                        {
+                          "@type": "marmos.generic.model.DocCommentTextInline",
+                          "text": "Item 3"
+                        }
+                      ]
+                    },
+                    "isNested": false
+                  }
+                ]
+              },
+              {
+                "@type": "marmos.generic.model.DocCommentParagraphBlock",
+                "inlines": [
+                  {
+                    "@type": "marmos.generic.model.DocCommentTextInline",
+                    "text": "Not in list"
+                  }
+                ]
+              },
+              {
+                "@type": "marmos.generic.model.DocCommentParagraphBlock",
+                "inlines": [
+                  {
+                    "@type": "marmos.generic.model.DocCommentTextInline",
+                    "text": "Not in list"
+                  },
+                  {
+                    "@type": "marmos.generic.model.DocCommentTextInline",
+                    "text": "Item 4"
+                  },
+                  {
+                    "@type": "marmos.generic.model.DocCommentTextInline",
+                    "text": "Item 5"
+                  },
+                  {
+                    "@type": "marmos.generic.model.DocCommentTextInline",
+                    "text": "Item 6"
+                  }
+                ]
+              },
+              {
+                "@type": "marmos.generic.model.DocCommentParagraphBlock",
+                "inlines": [
+                  {
+                    "@type": "marmos.generic.model.DocCommentTextInline",
+                    "text": "-Not in list"
+                  }
+                ]
+              },
+              {
+                "@type": "marmos.generic.model.DocCommentUnorderedListBlock",
+                "items": [
+                  {
+                    "@type": "marmos.generic.model.DocCommentUnorderedListBlock.Item",
+                    "block": {
+                      "@type": "marmos.generic.model.DocCommentParagraphBlock",
+                      "inlines": [
+                        {
+                          "@type": "marmos.generic.model.DocCommentTextInline",
+                          "text": "Item 7"
+                        }
+                      ]
+                    },
+                    "isNested": false
+                  }
+                ]
+              },
+              {
+                "@type": "marmos.generic.model.DocCommentParagraphBlock",
+                "inlines": [
+                  {
+                    "@type": "marmos.generic.model.DocCommentTextInline",
+                    "text": "Not in list"
+                  },
+                  {
+                    "@type": "marmos.generic.model.DocCommentTextInline",
+                    "text": "- Item 8"
+                  }
+                ]
+              },
+              {
+                "@type": "marmos.generic.model.DocCommentUnorderedListBlock",
+                "items": [
+                  {
+                    "@type": "marmos.generic.model.DocCommentUnorderedListBlock.Item",
+                    "block": {
+                      "@type": "marmos.generic.model.DocCommentParagraphBlock",
+                      "inlines": [
+                        {
+                          "@type": "marmos.generic.model.DocCommentTextInline",
+                          "text": "Item 1"
+                        }
+                      ]
+                    },
+                    "isNested": false
+                  },
+                  {
+                    "@type": "marmos.generic.model.DocCommentUnorderedListBlock.Item",
+                    "block": {
+                      "@type": "marmos.generic.model.DocCommentParagraphBlock",
+                      "inlines": [
+                        {
+                          "@type": "marmos.generic.model.DocCommentTextInline",
+                          "text": "Item 1.1"
+                        }
+                      ]
+                    },
+                    "isNested": true
+                  },
+                  {
+                    "@type": "marmos.generic.model.DocCommentUnorderedListBlock.Item",
+                    "block": {
+                      "@type": "marmos.generic.model.DocCommentParagraphBlock",
+                      "inlines": [
+                        {
+                          "@type": "marmos.generic.model.DocCommentTextInline",
+                          "text": "Item 1.1.1"
+                        }
+                      ]
+                    },
+                    "isNested": true
+                  },
+                  {
+                    "@type": "marmos.generic.model.DocCommentUnorderedListBlock.Item",
+                    "block": {
+                      "@type": "marmos.generic.model.DocCommentParagraphBlock",
+                      "inlines": [
+                        {
+                          "@type": "marmos.generic.model.DocCommentTextInline",
+                          "text": "Item 1.2"
+                        }
+                      ]
+                    },
+                    "isNested": false
+                  },
+                  {
+                    "@type": "marmos.generic.model.DocCommentUnorderedListBlock.Item",
+                    "block": {
+                      "@type": "marmos.generic.model.DocCommentParagraphBlock",
+                      "inlines": [
+                        {
+                          "@type": "marmos.generic.model.DocCommentTextInline",
+                          "text": "Item 1.2.1"
+                        }
+                      ]
+                    },
+                    "isNested": true
+                  }
+                ]
+              },
+              {
+                "@type": "marmos.generic.model.DocCommentUnorderedListBlock",
+                "items": [
+                  {
+                    "@type": "marmos.generic.model.DocCommentUnorderedListBlock.Item",
+                    "block": {
+                      "@type": "marmos.generic.model.DocCommentParagraphBlock",
+                      "inlines": [
+                        {
+                          "@type": "marmos.generic.model.DocCommentTextInline",
+                          "text": "Item that"
+                        },
+                        {
+                          "@type": "marmos.generic.model.DocCommentTextInline",
+                          "text": "spans multiple lines"
+                        }
+                      ]
+                    },
+                    "isNested": false
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "linkage": "extern(D)",
+      "location": {
+        "@type": "marmos.generic.model.DocLocation",
+        "path": {
+          "@type": "marmos.generic.model.DocPath",
+          "path": "",
+          "basePath": ""
+        },
+        "line": 27,
+        "column": 1
+      },
+      "visibility": "not explicitly defined",
+      "storageClasses": [
+        
+      ]
+    }
+  ]
+}

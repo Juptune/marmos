@@ -20,6 +20,11 @@ marmos_lib_srcs = files(
 )
 
 marmos_test_dirs = [
+    'blocks/equal-list',
+    'blocks/paragraph',
+    'blocks/ordered-list',
+    'blocks/unordered-list',
+
     'inlines/bold',
     'inlines/code',
     'inlines/italic',

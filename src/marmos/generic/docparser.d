@@ -265,12 +265,14 @@ Nullable!DocCommentOrderedListBlock tryOrderedListBlock(ref DocParseContext cont
         }
 
         // Check if the line starts with digits and dots, followed by whitespace
+        bool foundDot = false;
         while(cursor < info.line.length)
         {
             auto ch = decode(info.line, cursor);
+            foundDot = (foundDot || ch == '.');
             if(!ch.isNumber && ch != '.')
             {
-                if(!ch.isWhite)
+                if(!ch.isWhite || !foundDot)
                     return ListLineType.isNotPartOfList;
                 break;
             }
@@ -365,7 +367,7 @@ Nullable!DocCommentEqualListBlock tryEqualListBlock(ref DocParseContext context,
                         state = State.whitespace;
                         paramKey = info.line[0..endCursor];
                     }
-                    else if(!ch.isAlphaNum)
+                    else if(!ch.isAlphaNum && ch != '_')
                         return ListLineType.isNotPartOfList;
                     break;
 
@@ -398,6 +400,7 @@ Nullable!DocCommentEqualListBlock tryEqualListBlock(ref DocParseContext context,
         }
     }
 
+    auto oldContext = context;
     while(info.line.length > 0)
     {
         size_t cursor;
@@ -407,7 +410,6 @@ Nullable!DocCommentEqualListBlock tryEqualListBlock(ref DocParseContext context,
         final switch(lineType) with(ListLineType)
         {
             case FAILSAFE: assert(false);
-            case isEmpty: break;
 
             case isNewNestedItem:
             case isNewItem:
@@ -421,8 +423,10 @@ Nullable!DocCommentEqualListBlock tryEqualListBlock(ref DocParseContext context,
                 item.inlines ~= parseInlines(info);
                 break;
 
+            case isEmpty:
             case isNotPartOfList:
                 push();
+                context = oldContext; // Restore previous line
                 return result;
         }
 
@@ -453,6 +457,7 @@ Nullable!ListT tryListBlock(ListT, ListItemT)(
         }
     }
 
+    auto oldContext = context;
     while(info.line.length > 0)
     {
         size_t cursor;
@@ -461,7 +466,6 @@ Nullable!ListT tryListBlock(ListT, ListItemT)(
         final switch(lineType) with(ListLineType)
         {
             case FAILSAFE: assert(false);
-            case isEmpty: break;
 
             case isNewNestedItem:
             case isNewItem:
@@ -475,11 +479,14 @@ Nullable!ListT tryListBlock(ListT, ListItemT)(
                 item.block.inlines ~= parseInlines(info);
                 break;
 
+            case isEmpty:
             case isNotPartOfList:
                 push();
+                context = oldContext; // Restore previous line
                 return result;
         }
 
+        oldContext = context;
         info = readGenericLine(context);
     }
     push();

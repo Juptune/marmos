@@ -1,0 +1,198 @@
+{
+  "@type": "marmos.generic.model.DocModule",
+  "nameComponents": [
+    "__anonymous"
+  ],
+  "isPackageFile": false,
+  "languageEdition": "legacy",
+  "comment": {
+    "@type": "marmos.generic.model.DocComment",
+    "sections": [
+      
+    ]
+  },
+  "location": {
+    "@type": "marmos.generic.model.DocLocation",
+    "path": {
+      "@type": "marmos.generic.model.DocPath",
+      "path": "",
+      "basePath": ""
+    },
+    "line": 0,
+    "column": 0
+  },
+  "types": [
+    
+  ],
+  "soloTypes": [
+    {
+      "@type": "marmos.generic.model.DocAlias",
+      "name": "a",
+      "comment": {
+        "@type": "marmos.generic.model.DocComment",
+        "sections": [
+          {
+            "@type": "marmos.generic.model.DocCommentSection",
+            "title": "__default",
+            "blocks": [
+              {
+                "@type": "marmos.generic.model.DocCommentEqualListBlock",
+                "items": [
+                  {
+                    "@type": "marmos.generic.model.DocCommentEqualListBlock.Item",
+                    "key": "Item1",
+                    "value": {
+                      "@type": "marmos.generic.model.DocCommentParagraphBlock",
+                      "inlines": [
+                        {
+                          "@type": "marmos.generic.model.DocCommentTextInline",
+                          "text": "Item 1"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "@type": "marmos.generic.model.DocCommentEqualListBlock.Item",
+                    "key": "Item2",
+                    "value": {
+                      "@type": "marmos.generic.model.DocCommentParagraphBlock",
+                      "inlines": [
+                        {
+                          "@type": "marmos.generic.model.DocCommentTextInline",
+                          "text": "Item 2"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "@type": "marmos.generic.model.DocCommentEqualListBlock.Item",
+                    "key": "Item_3",
+                    "value": {
+                      "@type": "marmos.generic.model.DocCommentParagraphBlock",
+                      "inlines": [
+                        {
+                          "@type": "marmos.generic.model.DocCommentTextInline",
+                          "text": "Item 3"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "@type": "marmos.generic.model.DocCommentParagraphBlock",
+                "inlines": [
+                  {
+                    "@type": "marmos.generic.model.DocCommentTextInline",
+                    "text": "Item2 = Item 2"
+                  },
+                  {
+                    "@type": "marmos.generic.model.DocCommentTextInline",
+                    "text": "Item_3 = Item 3"
+                  },
+                  {
+                    "@type": "marmos.generic.model.DocCommentTextInline",
+                    "text": "Not in list"
+                  }
+                ]
+              },
+              {
+                "@type": "marmos.generic.model.DocCommentParagraphBlock",
+                "inlines": [
+                  {
+                    "@type": "marmos.generic.model.DocCommentTextInline",
+                    "text": "Not in list"
+                  },
+                  {
+                    "@type": "marmos.generic.model.DocCommentTextInline",
+                    "text": "a = Item 4"
+                  },
+                  {
+                    "@type": "marmos.generic.model.DocCommentTextInline",
+                    "text": "a = Item 5"
+                  },
+                  {
+                    "@type": "marmos.generic.model.DocCommentTextInline",
+                    "text": "a = Item 6"
+                  }
+                ]
+              },
+              {
+                "@type": "marmos.generic.model.DocCommentParagraphBlock",
+                "inlines": [
+                  {
+                    "@type": "marmos.generic.model.DocCommentTextInline",
+                    "text": "= Not in list"
+                  }
+                ]
+              },
+              {
+                "@type": "marmos.generic.model.DocCommentParagraphBlock",
+                "inlines": [
+                  {
+                    "@type": "marmos.generic.model.DocCommentTextInline",
+                    "text": "Also Not = In a list"
+                  }
+                ]
+              },
+              {
+                "@type": "marmos.generic.model.DocCommentParagraphBlock",
+                "inlines": [
+                  {
+                    "@type": "marmos.generic.model.DocCommentTextInline",
+                    "text": "Also-also = Not in a list"
+                  }
+                ]
+              },
+              {
+                "@type": "marmos.generic.model.DocCommentParagraphBlock",
+                "inlines": [
+                  {
+                    "@type": "marmos.generic.model.DocCommentTextInline",
+                    "text": "Item7 = Item 7"
+                  },
+                  {
+                    "@type": "marmos.generic.model.DocCommentTextInline",
+                    "text": "Not in list"
+                  },
+                  {
+                    "@type": "marmos.generic.model.DocCommentTextInline",
+                    "text": "Item8 = Item 8"
+                  }
+                ]
+              },
+              {
+                "@type": "marmos.generic.model.DocCommentParagraphBlock",
+                "inlines": [
+                  {
+                    "@type": "marmos.generic.model.DocCommentTextInline",
+                    "text": "Item9 = Item that"
+                  },
+                  {
+                    "@type": "marmos.generic.model.DocCommentTextInline",
+                    "text": "spans multiple lines"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "linkage": "extern(D)",
+      "location": {
+        "@type": "marmos.generic.model.DocLocation",
+        "path": {
+          "@type": "marmos.generic.model.DocPath",
+          "path": "",
+          "basePath": ""
+        },
+        "line": 25,
+        "column": 1
+      },
+      "visibility": "not explicitly defined",
+      "storageClasses": [
+        
+      ]
+    }
+  ]
+}
