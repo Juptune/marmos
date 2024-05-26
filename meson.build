@@ -20,6 +20,11 @@ marmos_lib_srcs = files(
 )
 
 marmos_test_dirs = [
+    'inlines/bold',
+    'inlines/code',
+    'inlines/italic',
+    'inlines/text',
+
     'syntax/alias-basic',
     'syntax/class-basic',
     'syntax/enum-basic',
