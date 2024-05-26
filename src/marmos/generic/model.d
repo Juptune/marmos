@@ -264,6 +264,7 @@ struct DocTemplate
 {
     mixin DocCommon;
     mixin DocTypeCommon;
+    bool isEponymous;
 }
 
 struct DocMixinTemplate

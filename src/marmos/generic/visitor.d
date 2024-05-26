@@ -134,17 +134,9 @@ extern(C++) class DocVisitor : SemanticTimePermissiveVisitor
 
     override void visit(ASTCodegen.TemplateDeclaration node)
     {
-        if(node.onemember && node.ident == node.onemember.ident) // Eponymous template with no extra members
-        {
-            // Quirk: This appends the template comment to the member comment.
-            //        I'd prefer this to be the other way around but there's no functionality for that in Dsymbol currently.
-            node.onemember.addComment(node.comment);
-            node.onemember.accept(this);
-            return;
-        }
-
         DocTemplate result;
         this.genericTypeVisit(result, node);
+        result.isEponymous = (node.onemember && node.ident == node.onemember.ident);
 
         this.types ~= DocAggregateType(result);
     }

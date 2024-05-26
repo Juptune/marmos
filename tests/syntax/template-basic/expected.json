@@ -22,11 +22,8 @@
     "column": 0
   },
   "types": [
-    
-  ],
-  "soloTypes": [
     {
-      "@type": "marmos.generic.model.DocFunction",
+      "@type": "marmos.generic.model.DocTemplate",
       "name": "Eponymous",
       "comment": {
         "@type": "marmos.generic.model.DocComment",
@@ -35,15 +32,6 @@
             "@type": "marmos.generic.model.DocCommentSection",
             "title": "__default",
             "blocks": [
-              {
-                "@type": "marmos.generic.model.DocCommentParagraphBlock",
-                "inlines": [
-                  {
-                    "@type": "marmos.generic.model.DocCommentTextInline",
-                    "text": "Eponymous member comment."
-                  }
-                ]
-              },
               {
                 "@type": "marmos.generic.model.DocCommentParagraphBlock",
                 "inlines": [
@@ -65,13 +53,61 @@
           "path": "",
           "basePath": ""
         },
-        "line": 5,
-        "column": 10
+        "line": 2,
+        "column": 1
       },
       "visibility": "not explicitly defined",
       "storageClasses": [
         
-      ]
+      ],
+      "nestedTypes": [
+        
+      ],
+      "members": [
+        {
+          "@type": "marmos.generic.model.DocFunction",
+          "name": "Eponymous",
+          "comment": {
+            "@type": "marmos.generic.model.DocComment",
+            "sections": [
+              {
+                "@type": "marmos.generic.model.DocCommentSection",
+                "title": "__default",
+                "blocks": [
+                  {
+                    "@type": "marmos.generic.model.DocCommentParagraphBlock",
+                    "inlines": [
+                      {
+                        "@type": "marmos.generic.model.DocCommentTextInline",
+                        "text": "Eponymous member comment."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "linkage": "extern(D)",
+          "location": {
+            "@type": "marmos.generic.model.DocLocation",
+            "path": {
+              "@type": "marmos.generic.model.DocPath",
+              "path": "",
+              "basePath": ""
+            },
+            "line": 5,
+            "column": 10
+          },
+          "visibility": "not explicitly defined",
+          "storageClasses": [
+            
+          ]
+        }
+      ],
+      "isEponymous": true
     }
+  ],
+  "soloTypes": [
+    
   ]
 }
