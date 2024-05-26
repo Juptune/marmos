@@ -424,6 +424,9 @@ Nullable!DocCommentEqualListBlock tryEqualListBlock(ref DocParseContext context,
                 break;
 
             case isEmpty:
+                push();
+                return result;
+            
             case isNotPartOfList:
                 push();
                 context = oldContext; // Restore previous line
@@ -480,6 +483,9 @@ Nullable!ListT tryListBlock(ListT, ListItemT)(
                 break;
 
             case isEmpty:
+                push();
+                return result;
+
             case isNotPartOfList:
                 push();
                 context = oldContext; // Restore previous line
