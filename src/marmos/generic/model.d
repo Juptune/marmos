@@ -287,9 +287,21 @@ struct DocAlias
 struct DocFunction
 {
     mixin DocCommon;
+    DocRuntimeParameter[] parameters;
 }
 
 struct DocVariable
 {
     mixin DocCommon;
+}
+
+struct DocTypeReference
+{
+    string[] nameComponents;
+}
+
+struct DocRuntimeParameter
+{
+    string name;
+    DocTypeReference type;
 }

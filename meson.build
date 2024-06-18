@@ -34,6 +34,7 @@ marmos_test_dirs = [
     'syntax/class-basic',
     'syntax/enum-basic',
     'syntax/function-basic',
+    'syntax/function-parameters',
     'syntax/interface-basic',
     'syntax/module-basic',
     'syntax/struct-basic',

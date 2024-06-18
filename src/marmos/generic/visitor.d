@@ -161,6 +161,7 @@ extern(C++) class DocVisitor : SemanticTimePermissiveVisitor
     {
         DocFunction result;
         this.genericSoloTypeVisit(result, node);
+        result.parameters = extractRuntimeParameters(node);
 
         this.soloTypes ~= DocSoloType(result);
     }
@@ -180,6 +181,41 @@ extern(C++) class DocVisitor : SemanticTimePermissiveVisitor
             foreach(member; *node.decl)
                 member.accept(this);
         }
+    }
+}
+
+extern(C++) class DocTypeVisitor : SemanticTimePermissiveVisitor
+{
+    import std.string : fromStringz;
+    alias visit = SemanticTimePermissiveVisitor.visit;
+
+    DocTypeReference result;
+
+    extern(D) this()
+    {
+    }
+
+    void reset()
+    {
+        this.result = DocTypeReference.init;
+    }
+
+    override void visit(ASTCodegen.TypeBasic node)
+    {
+        this.result.nameComponents ~= node.kind.fromStringz.idup;
+    }
+
+    override void visit(ASTCodegen.TypeIdentifier node)
+    {
+        this.result.nameComponents ~= node.ident.toString.idup;
+    }
+
+    override void visit(ASTCodegen.TypeInstance node)
+    {
+        this.result.nameComponents ~= [node.tempinst.name.toString.idup, "!("];
+        foreach(arg; *node.tempinst.tiargs)
+            this.result.nameComponents ~= arg.toString.idup;
+        this.result.nameComponents ~= ")";
     }
 }
 
@@ -228,4 +264,31 @@ unittest
     const list = listFromDmdBitFlags!DocStorageClass(STC.static_ | STC.abstract_ | STC.final_);
     const expected = [DocStorageClass.static_, DocStorageClass.final_, DocStorageClass.abstract_];
     assert(list == expected, format("%s != %s", list, expected));
+}
+
+DocRuntimeParameter[] extractRuntimeParameters(ASTCodegen.FuncDeclaration node)
+{
+    DocRuntimeParameter[] params;
+
+    auto type = node.originalType ? node.originalType : node.type;
+    if(!type)
+        return params;
+
+    auto funcType = type.isTypeFunction();
+    auto paramList = funcType.parameterList;
+
+    scope typeVisitor = new DocTypeVisitor();
+    foreach(i, param; paramList)
+    {
+        typeVisitor.reset();
+        param.type.accept(typeVisitor);
+
+        DocRuntimeParameter docParam;
+        docParam.type = typeVisitor.result;
+        docParam.name = param.ident ? param.ident.toString.idup : "__anonymous";
+
+        params ~= docParam;
+    }
+
+    return params;
 }
