@@ -83,6 +83,7 @@ marmos_unittest_exe = executable(
 marmos_exe = executable(
     'marmos', 
     dependencies: [marmos_exe_dep],
+    install: true,
 )
 
 marmos_test_exe = executable(
