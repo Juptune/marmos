@@ -101,7 +101,13 @@
           "visibility": "not explicitly defined",
           "storageClasses": [
             
-          ]
+          ],
+          "type": {
+            "@type": "marmos.generic.model.DocTypeReference",
+            "nameComponents": [
+              "__enumMember"
+            ]
+          }
         }
       ]
     }

@@ -36,6 +36,21 @@ cmd_button(
     argv=['bash', '-c', 'cd build; ./marmos-test --test-dir ../tests/$TEST_NAME'],
     inputs=[text_input('TEST_NAME', 'Test Name')]
 )
+cmd_button(
+    'doc-tests:diff',
+    resource='doc-tests',
+    text='Diff Test',
+    argv=['bash', '-c', 'diff tests/$TEST_NAME/expected.json tests/$TEST_NAME/got.json'],
+    inputs=[text_input('TEST_NAME', 'Test Name')]
+)
+cmd_button(
+    'doc-tests:update',
+    resource='doc-tests',
+    text='Update Test',
+    argv=['bash', '-c', 'mv tests/$TEST_NAME/got.json tests/$TEST_NAME/expected.json'],
+    inputs=[text_input('TEST_NAME', 'Test Name')],
+    requires_confirmation=True
+)
 
 #### Manual Actions ####
 

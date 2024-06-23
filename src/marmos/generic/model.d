@@ -293,6 +293,7 @@ struct DocFunction
 struct DocVariable
 {
     mixin DocCommon;
+    DocTypeReference type;
 }
 
 struct DocTypeReference

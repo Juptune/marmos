@@ -10,6 +10,7 @@ import dmd.astcodegen : ASTCodegen;
 import dmd.dmodule    : Module;
 import dmd.visitor    : SemanticTimePermissiveVisitor;
 import std.file       : getcwd;
+import std.typecons   : Nullable, nullable;
 import marmos.generic.model, marmos.generic.docparser;
 
 extern(C++) class DocVisitor : SemanticTimePermissiveVisitor
@@ -171,6 +172,12 @@ extern(C++) class DocVisitor : SemanticTimePermissiveVisitor
         DocVariable result;
         this.genericSoloTypeVisit(result, node);
 
+        auto type = parseTypeReference(node.type, node.originalType);
+        if(!type.isNull)
+            result.type = type.get;
+        else
+            result.type.nameComponents = ["__enumMember"];
+
         this.soloTypes ~= DocSoloType(result);
     }
 
@@ -291,4 +298,16 @@ DocRuntimeParameter[] extractRuntimeParameters(ASTCodegen.FuncDeclaration node)
     }
 
     return params;
+}
+
+Nullable!DocTypeReference parseTypeReference(ASTCodegen.Type type, ASTCodegen.Type originalType)
+{
+    auto node = originalType ? originalType : type;
+    if(node is null)
+        return typeof(return).init;
+
+    scope visitor = new DocTypeVisitor();
+    visitor.reset();
+    node.accept(visitor);
+    return visitor.result.nullable;
 }
