@@ -277,6 +277,7 @@ struct DocEnum
 {
     mixin DocCommon;
     mixin DocTypeCommon;
+    DocTypeReference baseType;
 }
 
 struct DocAlias

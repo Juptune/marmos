@@ -147,6 +147,12 @@ extern(C++) class DocVisitor : SemanticTimePermissiveVisitor
         DocEnum result;
         this.genericTypeVisit(result, node);
 
+        auto type = parseTypeReference(node.memtype, null);
+        if(!type.isNull)
+            result.baseType = type.get;
+        else
+            result.baseType.nameComponents = ["int"];
+
         this.types ~= DocAggregateType(result);
     }
 
