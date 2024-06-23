@@ -170,6 +170,13 @@ extern(C++) class DocVisitor : SemanticTimePermissiveVisitor
         this.genericSoloTypeVisit(result, node);
         result.parameters = extractRuntimeParameters(node);
 
+        if(node.type && node.type.isTypeFunction())
+        {
+            auto returnType = parseTypeReference(node.type.isTypeFunction().next, null);
+            if(!returnType.isNull)
+                result.returnType = returnType.get;
+        }
+
         this.soloTypes ~= DocSoloType(result);
     }
 

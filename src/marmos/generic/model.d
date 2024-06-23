@@ -289,6 +289,7 @@ struct DocFunction
 {
     mixin DocCommon;
     DocRuntimeParameter[] parameters;
+    DocTypeReference returnType;
 }
 
 struct DocVariable

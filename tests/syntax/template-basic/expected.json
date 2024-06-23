@@ -104,7 +104,13 @@
           ],
           "parameters": [
             
-          ]
+          ],
+          "returnType": {
+            "@type": "marmos.generic.model.DocTypeReference",
+            "nameComponents": [
+              "void"
+            ]
+          }
         }
       ],
       "isEponymous": true
