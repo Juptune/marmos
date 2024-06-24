@@ -1,7 +1,7 @@
 name: Unittests
 
 on:
-  pull_request: 
+  pull_request:
   push:
 
 jobs:
@@ -14,16 +14,16 @@ jobs:
       - name: Install Tooling (apt)
         shell: sh
         run: sudo apt update && sudo apt install -y python3-pip libsodium-dev
-  
+
       - name: Install Tooling (pip)
         shell: sh
         run: pip3 install meson ninja
-  
+
       - name: Install Dlang
         uses: dlang-community/setup-dlang@v1
         with:
           compiler: ldc-latest
-  
+
       - name: Configure Meson
         shell: sh
         run: meson setup build --prefix $(pwd)/install

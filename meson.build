@@ -15,6 +15,7 @@ marmos_lib_srcs = files(
     './src/marmos/generic/visitor.d',
     
     './src/marmos/output/json.d',
+    './src/marmos/output/typescript.d',
 
     './src/marmos/package.d',
 )

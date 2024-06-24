@@ -27,26 +27,26 @@ You can technically get this to work with dub as well, but honestly I don't care
 
 ## Packages
 
-| Package Name(s)             | Distro              | Status |
-| --------------------------- | ------------------- | ------ |
-| `marmos`  | OpenSUSE Tumbleweed | [![build result](https://build.opensuse.org/projects/home:bchatha:juptune/packages/marmos/badge.svg?type=default)](https://build.opensuse.org/package/show/home:bchatha:juptune/marmos) |
+| Package Name(s) | Distro              | Status                                                                                                                                                                                  |
+| --------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `marmos`        | OpenSUSE Tumbleweed | [![build result](https://build.opensuse.org/projects/home:bchatha:juptune/packages/marmos/badge.svg?type=default)](https://build.opensuse.org/package/show/home:bchatha:juptune/marmos) |
 
 # Features
 
-* Uses dmd-as-a-library, so parsing is only as buggy as DMD's frontend is.
-* Currently only performs up to syntax analysis - you don't need to feed the tool your entire compiler args just to make it work (e.g. since it doesn't need to lookup imports).
-* Outputs typed JSON so there's no guessing what the object's fields are.
-* Generates libraries for other languages for parsing the typed JSON (easier integration into other tooling).
-* Output is a separate AST structure from the compiler's, to mitigate internal changes to AST structure.
+- Uses dmd-as-a-library, so parsing is only as buggy as DMD's frontend is.
+- Currently only performs up to syntax analysis - you don't need to feed the tool your entire compiler args just to make it work (e.g. since it doesn't need to lookup imports).
+- Outputs typed JSON so there's no guessing what the object's fields are.
+- Generates libraries for other languages for parsing the typed JSON (easier integration into other tooling).
+- Output is a separate AST structure from the compiler's, to mitigate internal changes to AST structure.
 
 # Roadmap/Wishlist
 
 This is an ever changing list of stuff I want to work on. Whether I get around to it is another question...
 
-* Add flags to optionally enable semantic passes that enrich the output
-* Add additional "documentation friendly" helpers to the output, e.g. a simple array listing all symbols rather than expecting tools to traverse the entire documentation AST.
-* Moar language support.
-* Maybe add in more models than just the "generic" one, e.g. specifically target certain tools.
+- Add flags to optionally enable semantic passes that enrich the output
+- Add additional "documentation friendly" helpers to the output, e.g. a simple array listing all symbols rather than expecting tools to traverse the entire documentation AST.
+- Moar language support.
+- Maybe add in more models than just the "generic" one, e.g. specifically target certain tools.
 
 # Development
 
@@ -54,9 +54,9 @@ To streamline the main development workflows, a [Tiltfile](https://docs.tilt.dev
 
 After installing tilt, you can simply run `tilt up && tilt down` within the root directory, and you'll benefit from the following:
 
-* Automatic setup of the meson build directory.
-* Automatic test runs on file save.
-* Helper buttons and commands for various purposes (e.g. running stuff from [./devops/scripts](./devops/scripts/))
+- Automatic setup of the meson build directory.
+- Automatic test runs on file save.
+- Helper buttons and commands for various purposes (e.g. running stuff from [./devops/scripts](./devops/scripts/))
 
 ## Tests
 
@@ -64,10 +64,10 @@ Meson builds a test binary using the [test_main.d](./src/marmos/test_main.d) ent
 
 This test binary performs the following:
 
-* It will generate a documentation AST for the `main.d` file within the target directory.
-    * This AST is slightly different than a normal one, as specific fields (such as filenames) are blanked out.
-* It will compare the raw JSON output with the `expected.json` file within the target directory. The test passes if these two JSON strings match.
-* If it fails, it will output a `got.json` file within the target directory, allowing inspection of where things differ.
+- It will generate a documentation AST for the `main.d` file within the target directory.
+  - This AST is slightly different than a normal one, as specific fields (such as filenames) are blanked out.
+- It will compare the raw JSON output with the `expected.json` file within the target directory. The test passes if these two JSON strings match.
+- If it fails, it will output a `got.json` file within the target directory, allowing inspection of where things differ.
 
 In the future I'd like to implement a proper json-aware compare for better diagnostics, but this is good enough for now.
 
@@ -77,12 +77,12 @@ You can add a test by making a new test folder and adding it into the [meson.bui
 
 Required:
 
-* meson
+- meson
 
 Optionally:
 
-* act (used by Tilt to test our Github Actions)
-* tilt
+- act (used by Tilt to test our Github Actions)
+- tilt
 
 ## Packaging
 
