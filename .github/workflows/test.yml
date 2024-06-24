@@ -31,5 +31,11 @@ jobs:
       - name: Build
         run: meson compile -C build
 
-      - name: Test
+      - name: Meson Test
         run: meson test -C build
+
+      - name: Generate Model
+        run: ./build/marmos generate-generic /usr/lib64/ldc/*/include/d/std/array.d
+
+      - name: Generate TypeScript
+        run: ./build/marmos generate-typescript
