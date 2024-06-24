@@ -35,7 +35,7 @@ jobs:
         run: meson test -C build
 
       - name: Generate Model
-        run: ./build/marmos generate-generic /opt/hostedtoolcache/dc/ldc2-*/x64/ldc2-*/lib64/import/std/array.d
+        run: ./build/marmos generate-generic /opt/hostedtoolcache/dc/ldc2-*/x64/ldc2-*/import/std/array.d
 
       - name: Generate TypeScript
         run: ./build/marmos generate-typescript
