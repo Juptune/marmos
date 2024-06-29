@@ -1,0 +1,32 @@
+{
+  "build": {
+    "content": [
+      {
+        "files": [
+          "**/*.{yml,md}"
+        ],
+        "exclude": [
+          "_site/**"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**"
+        ]
+      }
+    ],
+    "output": "_site",
+    "template": [
+      "default",
+      "modern"
+    ],
+    "globalMetadata": {
+      "_appName": "Juptune",
+      "_appTitle": "Juptune",
+      "_enableSearch": true,
+      "pdf": false
+    }
+  }
+}
