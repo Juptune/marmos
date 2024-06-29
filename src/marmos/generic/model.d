@@ -121,6 +121,7 @@ struct DocLocation
 
     static DocLocation from(scope const Loc loc, string basePath = getcwd)
     {
+        import core.stdc.stdlib : free;
         import std.string : fromStringz;
 
         DocLocation result;
@@ -128,7 +129,12 @@ struct DocLocation
         result.column = loc.charnum;
 
         version(MesonTest) {}
-        else result.path = DocPath(loc.filename.fromStringz.idup, basePath);
+        else
+        {
+            const chars = loc.toChars;
+            scope(exit) if(chars) free(cast(void*)chars);
+            result.path = DocPath(chars.fromStringz.idup, basePath);
+        }
         return result;
     }
 }

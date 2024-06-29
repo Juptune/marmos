@@ -52,6 +52,71 @@ cmd_button(
     requires_confirmation=True
 )
 
+#### TypeScript Dogfooding ####
+
+local_resource(
+    'typescript:generate',
+    cmd=['bash', '-c', './build/marmos generate-typescript --format --output-file dogfood/typescript/src/marmos.ts'],
+    resource_deps=['unittests'],
+    labels=['typescript'],
+    deps=['./build/marmos'],
+    auto_init=False,
+)
+
+local_resource(
+    'typescript:test',
+    cmd=['bash', '-c', '''
+        if [ ! -d node_modules ]; then
+            pnpm install
+        fi
+
+        pnpm run test
+        pnpm run build
+    '''],
+    labels=['typescript'],
+    deps=['dogfood/typescript/package.json', 'dogfood/typescript/tsconfig.json', 'dogfood/typescript/src/', 'dogfood/typescript/test/'],
+    resource_deps=['typescript:generate'],
+    dir='dogfood/typescript/',
+    auto_init=False,
+)
+cmd_button(
+    'typescript:test:convert',
+    resource='typescript:test',
+    text='Run Convert',
+    argv=['bash', '-c', '''
+        set -euo pipefail
+        cd dogfood/typescript
+        ../../build/marmos generate-generic --output-file marmos_test.json $INPUT_FILE
+        ./bin/dev.js convert marmos_test.json
+    '''],
+    inputs=[
+        text_input('INPUT_FILE', 'Input File'),
+    ]
+)
+
+local_resource(
+    'typescript:test-juptune',
+    serve_cmd=['bash', '-c', '''
+        set -euo pipefail
+        mkdir -p _test/docfx
+        cd _test
+
+        for file in $(find ../../../../juptune/src/ -name '*.d'); do
+            ../../../build/marmos generate-generic $file
+        done
+
+        ../bin/dev.js convert *.json
+        cd docfx
+        docfx --serve
+    '''],
+    labels=['typescript'],
+    resource_deps=['typescript:test'],
+    serve_dir='dogfood/typescript/',
+    auto_init=False,
+    trigger_mode=TRIGGER_MODE_MANUAL,
+    links=['http://localhost:8080'],
+)
+
 #### Manual Actions ####
 
 local_resource(

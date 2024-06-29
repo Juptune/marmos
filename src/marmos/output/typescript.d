@@ -35,6 +35,9 @@ void generateAllTypeScriptDefinitions(scope ref Appender!(char[]) code)
 void generateTypeScriptDefinition(T)(scope ref Appender!(char[]) code)
 if(is(T == struct) && !isInstanceOf!(SumType, T))
 {
+    import std.algorithm : substitute, splitter;
+    import std.string    : lineSplitter;
+
     scope Appender!(char[]) fields;
     scope Appender!(char[]) validateBody;
 
@@ -44,9 +47,17 @@ if(is(T == struct) && !isInstanceOf!(SumType, T))
 
     fields.put("typename_ : '");
     fields.put(fullyQualifiedName!T);
-    fields.put("';\n");
+    fields.put("' = '");
+    fields.put(fullyQualifiedName!T);
+    fields.put("' \n");
 
     validateBody.put("if(!obj || typeof obj !== 'object') throw Error('obj is not an object');\n");
+    validateBody.put("obj.typename_ = obj.typename_ || obj[\"@type\"];\n");
+    validateBody.put("if(obj.typename_ !== '");
+    validateBody.put(fullyQualifiedName!T);
+    validateBody.put("') throw Error(`typename '${obj.typename_}' is not valid for type ");
+    validateBody.put(fullyQualifiedName!T);
+    validateBody.put("`);\n");
 
     static foreach(i, Member; __traits(allMembers, T))
     {{
@@ -62,21 +73,54 @@ if(is(T == struct) && !isInstanceOf!(SumType, T))
 
     const TypeName = FieldNameOf!T;
 
+    auto fieldDataNoTypename = fields.data;
+    int newLineCount = 0;
+    foreach(i, ch; fieldDataNoTypename)
+    {
+        if(ch == '\n')
+            newLineCount++;
+        if(newLineCount == 2)
+        {
+            fieldDataNoTypename = fieldDataNoTypename[i+1..$];
+            break;
+        }
+    }
+
     code.put("export class ");
     code.put(TypeName);
     code.put("\n{\n");
+    
     code.put(fields.data);
+
+    code.put("\nconstructor(");
+    code.put(fieldDataNoTypename.substitute!('\n', ','));
+    code.put(")\n{\n");
+    foreach(line; fieldDataNoTypename.splitter('\n'))
+    {
+        auto nameRange = line.splitter(':');
+        if(nameRange.empty)
+            continue;
+        code.put("this.");
+        code.put(nameRange.front);
+        code.put(" = ");
+        code.put(nameRange.front);
+        code.put(";\n");
+    }
+    code.put("}\n\n");
+
     code.put("\nstatic validate(obj: any): asserts obj is ");
     code.put(TypeName);
     code.put("\n{\n");
     code.put(validateBody.data);
-    code.put("\n}\n}\n\n");
+    code.put("\n}\n");
+
+    code.put("}\n\n");
 }
 
 void generateTypeScriptDefinition(T)(scope ref Appender!(char[]) code)
 if(is(T == struct) && isInstanceOf!(SumType, T))
 {
-    code.put("// NOTE: Only typename__ is intended to be a common field for all types, do not rely on other fields\n");
+    code.put("// NOTE: Only typename_ is intended to be a common field for all types, do not rely on other fields\n");
     code.put("//       to be present in all types in the future.\n");
     code.put("export type ");
     code.put(FieldNameOf!T);
@@ -87,20 +131,23 @@ if(is(T == struct) && isInstanceOf!(SumType, T))
             code.put(" | ");
         code.put(FieldNameOf!Arg);
     }}
-    code.put(";\n\n");
+    code.put("\n\n");
 
     code.put("export function validateSumType");
     code.put(FieldNameOf!T);
-    code.put("(obj: object): asserts obj is ");
+    code.put("(obj: any): asserts obj is ");
     code.put(FieldNameOf!T);
     code.put("\n{\n");
-    code.put("const typename = (obj as any).typename__;\n");
-    code.put("if(!typename) throw Error('obj does not provide a typename__');\n");
+    code.put("obj.typename_ = obj.typename_ || obj[\"@type\"];\n");
+    code.put("const typename = obj.typename_;\n");
+    code.put("if(!typename) throw Error('obj does not provide a typename_');\n");
     static foreach(i, Arg; TemplateArgsOf!T)
     {{
         code.put("if(typename === ");
         code.put(FieldNameOf!Arg);
-        code.put(".typename__) return;\n");
+        code.put(".typename__) { ");
+        code.put(FieldNameOf!Arg);
+        code.put(".validate(obj); return; }\n");
     }}
     code.put("throw Error(`typename '${typename}' is not valid for Sum Type ");
     code.put(FieldNameOf!T);
@@ -151,7 +198,7 @@ void addField(Type, string Name)(scope ref Appender!(char[]) fields, scope ref A
 if(isNumeric!Type && !is(Type == enum))
 {
     fields.put(Name);
-    fields.put(" : number;\n");
+    fields.put(" : number\n");
 
     addFieldTypeOfValidator(validate, Name, "number");
 }
@@ -160,7 +207,7 @@ void addField(Type, string Name)(scope ref Appender!(char[]) fields, scope ref A
 if(is(Type == string) && !is(Type == enum))
 {
     fields.put(Name);
-    fields.put(" : string;\n");
+    fields.put(" : string\n");
 
     addFieldTypeOfValidator(validate, Name, "string");
 }
@@ -169,7 +216,7 @@ void addField(Type, string Name)(scope ref Appender!(char[]) fields, scope ref A
 if(is(Type == bool))
 {
     fields.put(Name);
-    fields.put(" : boolean;\n");
+    fields.put(" : boolean\n");
 
     addFieldTypeOfValidator(validate, Name, "boolean");
 }
@@ -180,7 +227,7 @@ if(is(Type == enum))
     fields.put(Name);
     fields.put(" : ");
     fields.put(FieldNameOf!Type);
-    fields.put(";\n");
+    fields.put("\n");
 
     validate.put("validateEnum");
     validate.put(Type.stringof);
@@ -200,7 +247,7 @@ if(isDynamicArray!Type && !is(Type == string) && !is(Type == enum))
         fields.put(" : ");
         fields.put("Array<");
         fields.put(ElementName);
-        fields.put(">;\n");
+        fields.put(">\n");
 
         addFieldValidator(validate, Name, delegate(scope ref expression) {
             expression.put("!Array.isArray(obj.");
@@ -247,7 +294,12 @@ if(is(Type == struct))
     fields.put(Name);
     fields.put(" : ");
     fields.put(FieldNameOf!Type);
-    fields.put(";\n");
+    fields.put("\n");
+
+    validate.put(FieldNameOf!Type);
+    validate.put(".validate(obj.");
+    validate.put(Name);
+    validate.put(");\n");
 }
 
 void addFieldTypeOfValidator(
