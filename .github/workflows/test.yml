@@ -34,13 +34,10 @@ jobs:
       - name: Meson Test
         run: meson test -C build
 
-      # - uses: actions/checkout@v4
-      #   with:
-      #     repository: 'Juptune/juptune'
-      #     path: 'juptune'
-
-      - name: TE
-        run: git clone https://github.com/Juptune/juptune
+      - uses: actions/checkout@v4
+        with:
+          repository: 'Juptune/juptune'
+          path: 'juptune'
 
       - uses: actions/setup-node@v4
         with:
