@@ -34,8 +34,38 @@ jobs:
       - name: Meson Test
         run: meson test -C build
 
-      - name: Generate Model
-        run: ./build/marmos generate-generic /opt/hostedtoolcache/dc/ldc2-*/x64/ldc2-*/import/std/array.d
+      # - uses: actions/checkout@v4
+      #   with:
+      #     repository: 'Juptune/juptune'
+      #     path: 'juptune'
 
-      - name: Generate TypeScript
-        run: ./build/marmos generate-typescript
+      - name: TE
+        run: git clone https://github.com/Juptune/juptune
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 'latest'
+      
+      - name: Node Install
+        run: |
+          cd dogfood/typescript
+          corepack enable pnpm
+          pnpm install
+
+      - name: Generate Models
+        run: |
+          mkdir dogfood/typescript/_models
+          cd dogfood/typescript/_models
+          for file in $(find ../../../../juptune/src/ -name '*.d'); do
+            ../../../build/marmos generate-generic $file
+          done
+
+          ../../../build/marmos generate-typescript --output-file ../src/marmos.ts
+
+      - name: Convert Models
+        run: |
+          cd dogfood/typescript
+          ./bin/dev.js convert --outputFolder _test/docfx/ $(find "_models/" -name "*.json")
+
+      # TODO: Add docfx build?
+      # TODO: Maybe go auto update the demo repo?

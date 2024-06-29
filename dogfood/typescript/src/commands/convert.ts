@@ -1,4 +1,4 @@
-import { Args, Command } from '@oclif/core'
+import { Args, Command, Flags } from '@oclif/core'
 import fs from 'fs'
 import { DocClass, DocFunction, DocModule, DocStruct } from '../marmos.js'
 import { Docfx, DocfxPageType, TypeSet, renderFunctionSignature, generateReferenceTable, marmosCommentGetSummary, marmosCommentToDocfx, organiseTypes, DocfxHeading, DocfxParam, DocfxParams, renderTypeReference, renderAggregateTypeSignature, DocfxPageOptions, DocfxApiPage, ReferenceItem, DocfxFacts } from '../internal/docfx/index.js'
@@ -10,6 +10,7 @@ export default class Convert extends Command {
   }
 
   static override flags = {
+    outputFolder: Flags.directory({ description: 'output folder for the docfx model', required: true })
   }
 
   static override description = 'describe the command here'
@@ -21,7 +22,7 @@ export default class Convert extends Command {
   public async run(): Promise<void> {
     const { argv, flags } = await this.parse(Convert)
     const docfx = new Docfx({
-      outputFolder: 'docfx', // TODO:
+      outputFolder: flags.outputFolder,
     })
 
     argv.forEach((inputFile: unknown) => convertToDocfxModel(inputFile as string, docfx))
