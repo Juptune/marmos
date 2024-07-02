@@ -105,7 +105,8 @@ local_resource(
             ../../../build/marmos generate-generic $file
         done
 
-        ../bin/dev.js convert *.json
+        rm -rf docfx/juptune
+        ../bin/dev.js convert *.json --outputFolder docfx/
         cd docfx
         docfx --serve
     '''],

@@ -1,7 +1,7 @@
 import { Args, Command, Flags } from '@oclif/core'
 import fs from 'fs'
-import { DocClass, DocFunction, DocModule, DocStruct } from '../marmos.js'
-import { Docfx, DocfxPageType, TypeSet, renderFunctionSignature, generateReferenceTable, marmosCommentGetSummary, marmosCommentToDocfx, organiseTypes, DocfxHeading, DocfxParam, DocfxParams, renderTypeReference, renderAggregateTypeSignature, DocfxPageOptions, DocfxApiPage, ReferenceItem, DocfxFacts } from '../internal/docfx/index.js'
+import { DocAggregateType, DocAlias, DocClass, DocFunction, DocModule, DocSoloType, DocStruct, DocVariable } from '../marmos.js'
+import { Docfx, DocfxPageType, TypeSet, renderFunctionSignature, generateReferenceTable, marmosCommentGetSummary, marmosCommentToDocfx, organiseTypes, DocfxHeading, DocfxParam, DocfxParams, renderTypeReference, renderAggregateTypeSignature, DocfxPageOptions, DocfxApiPage, ReferenceItem, DocfxFacts, renderSoloTypeSignature } from '../internal/docfx/index.js'
 
 export default class Convert extends Command {
   static strict = false
@@ -37,10 +37,90 @@ function convertToDocfxModel(inputFile: string, docfx: Docfx) {
   DocModule.validate(docModule)
 
   const types = organiseTypes(docModule.types, docModule.soloTypes)
-  types.classes.forEach((cls) => generateClassOrStruct(docModule.nameComponents, null, docfx, cls))
-  types.structs.forEach((struct) => generateClassOrStruct(docModule.nameComponents, null, docfx, struct))
-  types.functions.forEach((func) => generateFunction(docModule.nameComponents, null, docfx, types.overloads.get(func.name)!))
+  generateTypeSetPages(types, null, docModule.nameComponents, docfx)
   generateOverview(docModule.nameComponents, docfx, docModule, types)
+}
+
+function generateTypeSetPages(
+  types: TypeSet, 
+  parentPage: DocfxPageOptions | null,
+  moduleName: string[],
+  docfx: Docfx) {
+  types.aliases.forEach((alias) => generateGenericSoloType(moduleName, parentPage, docfx, alias, DocfxPageType.alias, "Alias"))
+  types.classes.forEach((cls) => generateGenericAggregateType(moduleName, parentPage, docfx, cls, DocfxPageType.class_, "Class"))
+  types.enums.forEach((enum_) => generateGenericAggregateType(moduleName, parentPage, docfx, enum_, DocfxPageType.enum_, "Enum"))
+  types.functions.forEach((func) => generateFunction(moduleName, parentPage, docfx, types.overloads.get(func.name)!))
+  types.interfaces.forEach((interface_) => generateGenericAggregateType(moduleName, parentPage, docfx, interface_, DocfxPageType.interface_, "Interface"))
+  types.mixinTemplates.forEach((mixinTemplate) => generateGenericAggregateType(moduleName, parentPage, docfx, mixinTemplate, DocfxPageType.mixinTemplate, "MixinTemplate"))
+  types.structs.forEach((struct) => generateGenericAggregateType(moduleName, parentPage, docfx, struct, DocfxPageType.struct, "Struct"))
+  types.templates.forEach((template) => generateGenericAggregateType(moduleName, parentPage, docfx, template, DocfxPageType.template, "Template"))
+  types.unions.forEach((union) => generateGenericAggregateType(moduleName, parentPage, docfx, union, DocfxPageType.union, "Union"))
+  types.variables.forEach((variable) => generateGenericSoloType(moduleName, parentPage, docfx, variable, DocfxPageType.variable, "Variable"))
+}
+
+function generateTypeSetReferenceTables(
+  types: TypeSet,
+  page: DocfxApiPage,
+  relativeHrefPrefix: string) {
+    maybeAddReferenceTable(page, "Aliases", types.aliases, alias => ({
+      name: alias.name,
+      description: marmosCommentGetSummary(alias.comment),
+      relativeHref: `${relativeHrefPrefix}Aliases/${alias.name}.html`
+    }))
+
+    maybeAddReferenceTable(page, "Classes", types.classes, cls => ({
+      name: cls.name,
+      description: marmosCommentGetSummary(cls.comment),
+      relativeHref: `${relativeHrefPrefix}Classes/${cls.name}.html`
+    }))
+
+    maybeAddReferenceTable(page, "Enums", types.enums, enum_ => ({
+      name: enum_.name,
+      description: marmosCommentGetSummary(enum_.comment),
+      relativeHref: `${relativeHrefPrefix}Enums/${enum_.name}.html`
+    }))
+
+    maybeAddReferenceTable(page, "Functions", types.functions, func => ({
+      name: func.name,
+      description: marmosCommentGetSummary(func.comment),
+      relativeHref: `${relativeHrefPrefix}Functions/${func.name}.html`
+    }))
+
+    maybeAddReferenceTable(page, "Interfaces", types.interfaces, interface_ => ({
+      name: interface_.name,
+      description: marmosCommentGetSummary(interface_.comment),
+      relativeHref: `${relativeHrefPrefix}Interfaces/${interface_.name}.html`
+    }))
+
+    maybeAddReferenceTable(page, "MixinTemplates", types.mixinTemplates, mixinTemplate => ({
+      name: mixinTemplate.name,
+      description: marmosCommentGetSummary(mixinTemplate.comment),
+      relativeHref: `${relativeHrefPrefix}MixinTemplates/${mixinTemplate.name}.html`
+    }))
+
+    maybeAddReferenceTable(page, "Structs", types.structs, struct => ({
+      name: struct.name,
+      description: marmosCommentGetSummary(struct.comment),
+      relativeHref: `${relativeHrefPrefix}Structs/${struct.name}.html`
+    }))
+
+    maybeAddReferenceTable(page, "Templates", types.templates, template => ({
+      name: template.name,
+      description: marmosCommentGetSummary(template.comment),
+      relativeHref: `${relativeHrefPrefix}Templates/${template.name}.html`
+    }))
+
+    maybeAddReferenceTable(page, "Unions", types.unions, union => ({
+      name: union.name,
+      description: marmosCommentGetSummary(union.comment),
+      relativeHref: `${relativeHrefPrefix}Unions/${union.name}.html`
+    }))
+
+    maybeAddReferenceTable(page, "Variables", types.variables, variable => ({
+      name: variable.name,
+      description: marmosCommentGetSummary(variable.comment),
+      relativeHref: `${relativeHrefPrefix}Variables/${variable.name}.html`
+    }))
 }
 
 function generateFunction(
@@ -86,15 +166,44 @@ function generateFunction(
   })
 }
 
-function generateClassOrStruct(
+function generateGenericSoloType(
   moduleName: string[],
   parentPage: DocfxPageOptions | null,
   docfx: Docfx,
-  type: DocClass | DocStruct) {
+  soloType: DocSoloType,
+  pageType: DocfxPageType,
+  titlePrefix: string) {
 
-  const isClass = type.typename_ === DocClass.typename__
-  const pageType = isClass ? DocfxPageType.class_ : DocfxPageType.struct
-  const titlePrefix = isClass ? "Class" : "Struct"
+  const facts : DocfxFacts = { facts: [] }
+  facts.facts.push({ name: "Module", value: moduleName.join('.') })
+  if(parentPage)
+    facts.facts.push({ name: "Parent", value: parentPage.pageRawName })
+
+  docfx.newPage({
+    moduleName: moduleName,
+    parentPage: parentPage,
+    pageRawName: soloType.name,
+    pageType: pageType
+  }, (page) => {
+    page.title = `${titlePrefix} - ${soloType.name}`
+    page.languageId = "d"
+
+    page.body.push({ h1: page.title })
+    page.body.push(facts)
+    page.body.push({ api2: soloType.name })
+    page.body.push(renderSoloTypeSignature(soloType))
+    page.body.push(...marmosCommentToDocfx(soloType.comment, {}))
+  })
+}
+
+function generateGenericAggregateType(
+  moduleName: string[],
+  parentPage: DocfxPageOptions | null,
+  docfx: Docfx,
+  type: DocAggregateType,
+  pageType: DocfxPageType,
+  titlePrefix: string) {
+
   const types = organiseTypes([], type.members)
   
   const facts : DocfxFacts = { facts: [] }
@@ -118,26 +227,9 @@ function generateClassOrStruct(
     page.body.push(renderAggregateTypeSignature(type))
     page.body.push(...marmosCommentToDocfx(type.comment, {}))
 
-    maybeAddReferenceTable(page, "Aliases", types.aliases, alias => ({
-      name: alias.name,
-      description: marmosCommentGetSummary(alias.comment),
-      relativeHref: `../${type.name}/Aliases/${alias.name}.html`
-    }))
-
-    maybeAddReferenceTable(page, "Functions", types.functions, func => ({
-      name: func.name,
-      description: marmosCommentGetSummary(func.comment),
-      relativeHref: `../${type.name}/Functions/${func.name}.html`
-    }))
-
-    maybeAddReferenceTable(page, "Variables", types.variables, variable => ({
-      name: variable.name,
-      description: marmosCommentGetSummary(variable.comment),
-      relativeHref: `../${type.name}/Variables/${variable.name}.html`
-    }))
+    generateTypeSetReferenceTables(types, page, `../${type.name}/${type.name}/`)
   })
-
-  types.functions.forEach(func => generateFunction(moduleName, pageOptions, docfx, types.overloads.get(func.name)!))
+  generateTypeSetPages(types, pageOptions, moduleName.concat(type.name), docfx)
 }
 
 function generateOverview(
@@ -158,35 +250,7 @@ function generateOverview(
       page.body.push({ h1: page.title })
       page.body.push(...marmosCommentToDocfx(docModule.comment, {}))
 
-      maybeAddReferenceTable(page, "Aliases", types.aliases, alias => ({
-        name: alias.name,
-        description: marmosCommentGetSummary(alias.comment),
-        relativeHref: `Aliases/${alias.name}.html`
-      }))
-
-      maybeAddReferenceTable(page, "Classes", types.classes, cls => ({
-        name: cls.name,
-        description: marmosCommentGetSummary(cls.comment),
-        relativeHref: `Classes/${cls.name}.html`
-      }))
-
-      maybeAddReferenceTable(page, "Structs", types.structs, struct => ({
-        name: struct.name,
-        description: marmosCommentGetSummary(struct.comment),
-        relativeHref: `Structs/${struct.name}.html`
-      }))
-
-      maybeAddReferenceTable(page, "Functions", types.functions, func => ({
-        name: func.name,
-        description: marmosCommentGetSummary(func.comment),
-        relativeHref: `Functions/${func.name}.html`
-      }))
-
-      maybeAddReferenceTable(page, "Variables", types.variables, variable => ({
-        name: variable.name,
-        description: marmosCommentGetSummary(variable.comment),
-        relativeHref: `Variables/${variable.name}.html`
-      }))
+      generateTypeSetReferenceTables(types, page, "")
     })
 }
 
