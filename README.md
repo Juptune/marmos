@@ -31,6 +31,77 @@ You can technically get this to work with dub as well, but honestly I don't care
 | --------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `marmos`        | OpenSUSE Tumbleweed | [![build result](https://build.opensuse.org/projects/home:bchatha:juptune/packages/marmos/badge.svg?type=default)](https://build.opensuse.org/package/show/home:bchatha:juptune/marmos) |
 
+# Getting Started
+
+Usage is very raw right now, if you'd like to see a premade script that creates an example site for Phobos and [Juptune](https://github.com/Juptune/juptune) then please see the demo site's script at: https://github.com/Juptune/marmos-docfx-demo/blob/5dd208cf0aca204147606f13c027942c21c5d743/update.sh
+
+Otherwise the process is currently as follows (I want to make this better, especially regarding the Typescript stuff, but this is super early and raw still):
+
+* Download/build marmos (if you build it, then your path to marmos will be `./build/marmos`)
+* Run the following commands to setup the docfx converter:
+
+```bash
+# IF BUILDING FROM SOURCE: alias marmos=$(pwd)/build/marmos
+marmos generate-typescript --output-file dogfood/typescript/src/marmos.ts
+cd dogfood/typescript/
+pnpm i
+pnpm run build
+alias marmos-docfx=$(pwd)/bin/run.js
+```
+
+* Create a new folder anywhere you want, and initialise a docfx project in it:
+
+```bash
+mkdir -p /tmp/marmos_test/docfx
+cd /tmp/marmos_test/docfx
+docfx init # NOTE: Might want to disable PDF generation.
+mkdir myapi
+```
+
+* Update the `toc.yml` file that gets created with the following:
+
+```yaml
+# NOTE: Marmos creates a folder for each module.
+#
+#       So in this example, since we have modules like `juptune.http`, `juptune.core`, etc.
+#       marmos will generate `myapi/juptune/http/...`, `myapi/juptune/core/...`
+#
+#       Hence why you need to specify a subpath relevant to your project.
+items:
+  - name: API Reference
+    href: myapi/juptune/ # The end slash is important
+```
+
+* Use marmos to generate a model for all the D files in your project:
+
+```bash
+cd /tmp/marmos_test
+git clone https://github.com/Juptune/juptune
+
+mkdir models
+cd models
+
+for file in $(find ../juptune -name "*.d"); do
+  marmos generate-generic "$file"
+done
+```
+
+* Use marmos-docfx to convert the models into docfx api pages:
+
+```bash
+cd /tmp/marmos_test
+marmos-docfx convert models/*.json --outputFolder docfx/myapi
+```
+
+* Build the docfx site, and have a look around to make sure it's worked:
+
+```bash
+cd /tmp/marmos_test/docfx
+docfx --serve # Open http://localhost:8080
+```
+
+Again, I know it's really jank right now and I could make it easier (especially by uploading the Typescript project to npm), but that's all for the near/immediate future.
+
 # Features
 
 - Uses dmd-as-a-library, so parsing is only as buggy as DMD's frontend is.
