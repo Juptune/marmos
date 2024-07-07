@@ -166,6 +166,8 @@ extern(C++) class DocVisitor : SemanticTimePermissiveVisitor
 
     override void visit(ASTCodegen.FuncDeclaration node)
     {
+        import std.algorithm : countUntil, remove;
+
         DocFunction result;
         this.genericSoloTypeVisit(result, node);
         result.parameters = extractRuntimeParameters(node);
@@ -175,6 +177,13 @@ extern(C++) class DocVisitor : SemanticTimePermissiveVisitor
             auto returnType = parseTypeReference(node.type.isTypeFunction().next, null);
             if(!returnType.isNull)
                 result.returnType = returnType.get;
+
+            const autoIndex = result.storageClasses.countUntil(DocStorageClass.auto_);
+            if(returnType.isNull && autoIndex != -1)
+            {
+                result.returnType.nameComponents = ["auto"];
+                result.storageClasses = result.storageClasses.remove(autoIndex);
+            }
         }
 
         this.soloTypes ~= DocSoloType(result);
