@@ -30,6 +30,22 @@ void generateAllTypeScriptDefinitions(scope ref Appender!(char[]) code)
     // TODO: Support enums that use their names rather than values.
     code.put("export enum Edition { none, legacy, v2024 }\n");
     code.put("export function validateEnumEdition(_obj: any): asserts _obj is Edition { }\n");
+
+    code.put(`
+        /// Returns the user data of a node, creating it if it doesn't exist.
+        ///
+        /// The user data is a field that can be used to store arbitrary data on a node,
+        /// it is not used by this library or marmos itself.
+        export function getUserData<UserDataT>(
+            node: { userdata_: any } ,
+            def: UserDataT | {} = {}
+        ): UserDataT
+        {
+            if(!node.userdata_)
+                node.userdata_ = def;
+            return node.userdata_ as UserDataT;
+        }
+    `);
 }
 
 void generateTypeScriptDefinition(T)(scope ref Appender!(char[]) code)
@@ -50,6 +66,8 @@ if(is(T == struct) && !isInstanceOf!(SumType, T))
     fields.put("' = '");
     fields.put(fullyQualifiedName!T);
     fields.put("' \n");
+
+    fields.put("userdata_ : any = null\n");
 
     validateBody.put("if(!obj || typeof obj !== 'object') throw Error('obj is not an object');\n");
     validateBody.put("obj.typename_ = obj.typename_ || obj[\"@type\"];\n");

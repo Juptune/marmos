@@ -1,4 +1,4 @@
-import { DocAlias, DocFunction, DocVariable, DocClass, DocStruct, DocEnum, DocInterface, DocTemplate, DocMixinTemplate, DocAggregateType, DocSoloType, DocVisibility, DocUnion, DocTypeReference, DocLinkage } from "../../marmos.js";
+import { DocAlias, DocFunction, DocVariable, DocClass, DocStruct, DocEnum, DocInterface, DocTemplate, DocMixinTemplate, DocAggregateType, DocSoloType, DocVisibility, DocUnion, DocTypeReference, DocLinkage, getUserData } from "../../marmos.js";
 import { marmosCommentGetSummary } from "./comments.js";
 import { DocfxBlock, DocfxCode, MarkdownString } from "./model.js";
 
@@ -221,6 +221,12 @@ export type TypeSet = {
   others: (DocAggregateType | DocSoloType)[],
 }
 
+export type TypeUserData = {
+  // If a type is part of an eponymous template, it will usually be collapsed and normally lose the
+  // template info such as the template parameters. This field is used to preserve the template for certain purposes.
+  eponymousTemplate?: DocTemplate,
+}
+
 export function organiseTypes(types: DocAggregateType[], soloTypes: DocSoloType[]): TypeSet {
   const typeSet: TypeSet = {
     aliases: [],
@@ -247,8 +253,17 @@ export function organiseTypes(types: DocAggregateType[], soloTypes: DocSoloType[
     if (!template.isEponymous)
       continue
 
-    template.nestedTypes.forEach(t => t.comment = template.comment)
-    template.members.forEach(t => t.comment = template.comment)
+    const updateType = (t: DocAggregateType | DocSoloType) => {
+      t.comment = template.comment
+      t.storageClasses.push(...template.storageClasses)
+      t.linkage = template.linkage
+      t.visibility = template.visibility
+
+      getUserData<TypeUserData>(t).eponymousTemplate = template;
+    }
+
+    template.nestedTypes.forEach(updateType)
+    template.members.forEach(updateType)
 
     types.push(...template.nestedTypes)
     soloTypes.push(...template.members)
