@@ -194,11 +194,61 @@ extern(C++) class DocVisitor : SemanticTimePermissiveVisitor
         DocVariable result;
         this.genericSoloTypeVisit(result, node);
 
-        auto type = parseTypeReference(node.type, node.originalType);
+        auto origType = node.originalType;
+        if(auto member = node.isEnumMember()) // Try to extract type from enum member's special fields.
+            origType = (member.origValue !is null) ? member.origValue.type : member.origType;
+
+        auto type = parseTypeReference(node.type, origType);
         if(!type.isNull)
             result.type = type.get;
-        else
-            result.type.nameComponents = ["__enumMember"];
+        else // No type usually indicates an enum of some kind, so assume int if we couldn't figure it out.
+        {
+            result.type.nameComponents = ["int"];
+            result.comment.addMarmosNoteComment("Type may be inaccurate as it is assumed to be an enum member.");
+        }
+
+        if(node._init)
+        {
+            import dmd.astenums : InitKind;
+            final switch(node._init.kind) with(InitKind)
+            {
+                case void_:
+                    result.initialValue = "void";
+                    break;
+
+                case default_:
+                    result.initialValue = "{}";
+                    break;
+
+                case error:
+                    result.initialValue = "<Error?>";
+                    break;
+
+                case struct_:
+                    result.initialValue = "<todo: support struct literal>";
+                    break;
+
+                case array:
+                    result.initialValue = "<todo: support array literal>";
+                    break;
+
+                case exp:
+                    if(auto exp = node._init.isExpInitializer())
+                    {
+                        if(exp.exp)
+                            result.initialValue = exp.exp.toString.idup;
+                        else
+                            result.initialValue = ""; // No initializer, despite being an expression initializer
+                    }
+                    else
+                        result.initialValue = "<?: Not an ExpInitializer despite being an exp kind>";
+                    break;
+
+                case C_:
+                    result.initialValue = "<todo: support C-style initializer>";
+                    break;
+            }
+        }
 
         this.soloTypes ~= DocSoloType(result);
     }
@@ -382,4 +432,20 @@ Nullable!DocTypeReference parseTypeReference(ASTCodegen.Type type, ASTCodegen.Ty
     visitor.reset();
     node.accept(visitor);
     return visitor.result.nullable;
+}
+
+void addMarmosNoteComment(ref DocComment comment, string note)
+{
+    auto block = DocCommentBlock(
+        DocCommentParagraphBlock([
+            DocCommentInline(
+                DocCommentTextInline(note)
+            )
+        ])
+    );
+    
+    if(comment.sections.length > 0 && comment.sections[$-1].title == "(Marmos Notes)")
+        comment.sections[$-1].blocks ~= block;
+    else
+        comment.sections ~= DocCommentSection("(Marmos Notes)", [block]);
 }

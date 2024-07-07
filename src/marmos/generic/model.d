@@ -302,6 +302,7 @@ struct DocVariable
 {
     mixin DocCommon;
     DocTypeReference type;
+    string initialValue; // TODO: This will likely change once we handle expressions better
 }
 
 struct DocTypeReference

@@ -102,6 +102,7 @@ local_resource(
         cd _test
 
         for file in $(find ../../../../juptune/src/ -name '*.d'); do
+            echo "Generating generic model for $file"
             ../../../build/marmos generate-generic $file
         done
 

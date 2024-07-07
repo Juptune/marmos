@@ -65,8 +65,7 @@ export function renderAggregateTypeSignature(type: DocAggregateType): DocfxCode 
       break
 
     case DocEnum.typename__:
-      keyword = "enum"
-      break
+      return renderEnumTypeSignature(type as DocEnum)
 
     case DocInterface.typename__:
       keyword = "interface"
@@ -137,7 +136,11 @@ export function renderSoloTypeSignature(type: DocSoloType): DocfxCode {
       break
 
     case DocVariable.typename__:
-      output += `${renderTypeReference((type as DocVariable).type)} ${type.name}`
+      const variable = type as DocVariable
+      output += `${renderTypeReference(variable.type)} ${type.name}`
+
+      if(variable.initialValue && variable.initialValue.length)
+        output += ` = ${variable.initialValue}`
       break
 
     case DocFunction.typename__:
@@ -160,6 +163,39 @@ export function onlyPublicMembers(members: DocSoloType[]): DocSoloType[] {
     (m.visibility === DocVisibility.public_ || m.visibility === DocVisibility.undefined)
     && !m.name.startsWith('_')
   )
+}
+
+function renderEnumTypeSignature(type: DocEnum): DocfxCode {
+  let output = ""
+
+  if (type.visibility !== DocVisibility.undefined)
+    output += `${type.visibility} `
+  if (type.linkage !== DocLinkage.d)
+    output += `${type.linkage} `
+  if (type.storageClasses.length > 0)
+    output += `${type.storageClasses.join(' ')} `
+
+  output += `enum ${type.name} `
+  if(type.baseType.nameComponents.length > 0)
+    output += `: ${renderTypeReference(type.baseType)}\n{`
+  else
+    output += "\n{"
+
+  type.members.forEach(m => {
+    if(m.typename_ !== DocVariable.typename__)
+      throw Error("Enum member is not a variable")
+
+    output += `\n  // ${marmosCommentGetSummary(m.comment)}`
+
+    const variable = m as DocVariable
+    if(variable.initialValue && variable.initialValue.length)
+      output += `\n  ${variable.name} = ${variable.initialValue},`
+    else
+      output += `\n  ${variable.name},`
+  })
+
+  output += "\n}"
+  return { code: output }
 }
 
 export type TypeSet = {
