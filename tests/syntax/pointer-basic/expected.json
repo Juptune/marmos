@@ -1,0 +1,94 @@
+{
+  "@type": "marmos.generic.model.DocModule",
+  "nameComponents": [
+    "__anonymous"
+  ],
+  "isPackageFile": false,
+  "languageEdition": "legacy",
+  "comment": {
+    "@type": "marmos.generic.model.DocComment",
+    "sections": [
+      
+    ]
+  },
+  "location": {
+    "@type": "marmos.generic.model.DocLocation",
+    "path": {
+      "@type": "marmos.generic.model.DocPath",
+      "path": "",
+      "basePath": ""
+    },
+    "line": 0,
+    "column": 0
+  },
+  "types": [
+    
+  ],
+  "soloTypes": [
+    {
+      "@type": "marmos.generic.model.DocVariable",
+      "name": "a",
+      "comment": {
+        "@type": "marmos.generic.model.DocComment",
+        "sections": [
+          
+        ]
+      },
+      "linkage": "extern(D)",
+      "location": {
+        "@type": "marmos.generic.model.DocLocation",
+        "path": {
+          "@type": "marmos.generic.model.DocPath",
+          "path": "",
+          "basePath": ""
+        },
+        "line": 1,
+        "column": 6
+      },
+      "visibility": "not explicitly defined",
+      "storageClasses": [
+        
+      ],
+      "type": {
+        "@type": "marmos.generic.model.DocTypeReference",
+        "nameComponents": [
+          "int",
+          "*"
+        ]
+      }
+    },
+    {
+      "@type": "marmos.generic.model.DocVariable",
+      "name": "b",
+      "comment": {
+        "@type": "marmos.generic.model.DocComment",
+        "sections": [
+          
+        ]
+      },
+      "linkage": "extern(D)",
+      "location": {
+        "@type": "marmos.generic.model.DocLocation",
+        "path": {
+          "@type": "marmos.generic.model.DocPath",
+          "path": "",
+          "basePath": ""
+        },
+        "line": 2,
+        "column": 7
+      },
+      "visibility": "not explicitly defined",
+      "storageClasses": [
+        
+      ],
+      "type": {
+        "@type": "marmos.generic.model.DocTypeReference",
+        "nameComponents": [
+          "int",
+          "*",
+          "*"
+        ]
+      }
+    }
+  ]
+}

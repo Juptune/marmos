@@ -39,6 +39,7 @@ marmos_test_dirs = [
     'syntax/function-parameters',
     'syntax/interface-basic',
     'syntax/module-basic',
+    'syntax/pointer-basic',
     'syntax/struct-basic',
     'syntax/template-basic',
     'syntax/template-mixin-basic',

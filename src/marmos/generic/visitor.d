@@ -254,6 +254,12 @@ extern(C++) class DocTypeVisitor : SemanticTimePermissiveVisitor
         this.result.nameComponents ~= "]";
     }
 
+    override void visit(ASTCodegen.TypePointer node)
+    {
+        node.next.accept(this);
+        this.result.nameComponents ~= "*";
+    }
+
     override void visit(ASTCodegen.TypeInstance node)
     {
         bool isFirst = true;
