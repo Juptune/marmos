@@ -230,11 +230,41 @@ extern(C++) class DocTypeVisitor : SemanticTimePermissiveVisitor
         this.result.nameComponents ~= node.ident.toString.idup;
     }
 
+    override void visit(ASTCodegen.TypeSArray node)
+    {
+        node.next.accept(this);
+        this.result.nameComponents ~= "[";
+        if(node.dim)
+            this.result.nameComponents ~= node.dim.toString.idup; // TODO: Try ctfe
+        this.result.nameComponents ~= "]";
+    }
+
+    override void visit(ASTCodegen.TypeDArray node)
+    {
+        node.next.accept(this);
+        this.result.nameComponents ~= ["[", "]"];
+    }
+
+    override void visit(ASTCodegen.TypeAArray node)
+    {
+        node.next.accept(this);
+        this.result.nameComponents ~= "[";
+        if(node.index)
+            node.index.accept(this);
+        this.result.nameComponents ~= "]";
+    }
+
     override void visit(ASTCodegen.TypeInstance node)
     {
+        bool isFirst = true;
         this.result.nameComponents ~= [node.tempinst.name.toString.idup, "!("];
         foreach(arg; *node.tempinst.tiargs)
+        {
+            if(!isFirst)
+                this.result.nameComponents ~= ",";
+            isFirst = false;
             this.result.nameComponents ~= arg.toString.idup;
+        }
         this.result.nameComponents ~= ")";
     }
 }

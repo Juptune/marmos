@@ -1,0 +1,301 @@
+{
+  "@type": "marmos.generic.model.DocModule",
+  "nameComponents": [
+    "__anonymous"
+  ],
+  "isPackageFile": false,
+  "languageEdition": "legacy",
+  "comment": {
+    "@type": "marmos.generic.model.DocComment",
+    "sections": [
+      
+    ]
+  },
+  "location": {
+    "@type": "marmos.generic.model.DocLocation",
+    "path": {
+      "@type": "marmos.generic.model.DocPath",
+      "path": "",
+      "basePath": ""
+    },
+    "line": 0,
+    "column": 0
+  },
+  "types": [
+    
+  ],
+  "soloTypes": [
+    {
+      "@type": "marmos.generic.model.DocVariable",
+      "name": "a",
+      "comment": {
+        "@type": "marmos.generic.model.DocComment",
+        "sections": [
+          
+        ]
+      },
+      "linkage": "extern(D)",
+      "location": {
+        "@type": "marmos.generic.model.DocLocation",
+        "path": {
+          "@type": "marmos.generic.model.DocPath",
+          "path": "",
+          "basePath": ""
+        },
+        "line": 2,
+        "column": 8
+      },
+      "visibility": "not explicitly defined",
+      "storageClasses": [
+        
+      ],
+      "type": {
+        "@type": "marmos.generic.model.DocTypeReference",
+        "nameComponents": [
+          "int",
+          "[",
+          "3",
+          "]"
+        ]
+      }
+    },
+    {
+      "@type": "marmos.generic.model.DocVariable",
+      "name": "b",
+      "comment": {
+        "@type": "marmos.generic.model.DocComment",
+        "sections": [
+          
+        ]
+      },
+      "linkage": "extern(D)",
+      "location": {
+        "@type": "marmos.generic.model.DocLocation",
+        "path": {
+          "@type": "marmos.generic.model.DocPath",
+          "path": "",
+          "basePath": ""
+        },
+        "line": 3,
+        "column": 12
+      },
+      "visibility": "not explicitly defined",
+      "storageClasses": [
+        
+      ],
+      "type": {
+        "@type": "marmos.generic.model.DocTypeReference",
+        "nameComponents": [
+          "int",
+          "[",
+          "1 + 2",
+          "]"
+        ]
+      }
+    },
+    {
+      "@type": "marmos.generic.model.DocVariable",
+      "name": "c",
+      "comment": {
+        "@type": "marmos.generic.model.DocComment",
+        "sections": [
+          
+        ]
+      },
+      "linkage": "extern(D)",
+      "location": {
+        "@type": "marmos.generic.model.DocLocation",
+        "path": {
+          "@type": "marmos.generic.model.DocPath",
+          "path": "",
+          "basePath": ""
+        },
+        "line": 6,
+        "column": 7
+      },
+      "visibility": "not explicitly defined",
+      "storageClasses": [
+        
+      ],
+      "type": {
+        "@type": "marmos.generic.model.DocTypeReference",
+        "nameComponents": [
+          "int",
+          "[",
+          "]"
+        ]
+      }
+    },
+    {
+      "@type": "marmos.generic.model.DocVariable",
+      "name": "d",
+      "comment": {
+        "@type": "marmos.generic.model.DocComment",
+        "sections": [
+          
+        ]
+      },
+      "linkage": "extern(D)",
+      "location": {
+        "@type": "marmos.generic.model.DocLocation",
+        "path": {
+          "@type": "marmos.generic.model.DocPath",
+          "path": "",
+          "basePath": ""
+        },
+        "line": 9,
+        "column": 11
+      },
+      "visibility": "not explicitly defined",
+      "storageClasses": [
+        
+      ],
+      "type": {
+        "@type": "marmos.generic.model.DocTypeReference",
+        "nameComponents": [
+          "int",
+          "[",
+          "3",
+          "]",
+          "[",
+          "2",
+          "]"
+        ]
+      }
+    },
+    {
+      "@type": "marmos.generic.model.DocVariable",
+      "name": "e",
+      "comment": {
+        "@type": "marmos.generic.model.DocComment",
+        "sections": [
+          
+        ]
+      },
+      "linkage": "extern(D)",
+      "location": {
+        "@type": "marmos.generic.model.DocLocation",
+        "path": {
+          "@type": "marmos.generic.model.DocPath",
+          "path": "",
+          "basePath": ""
+        },
+        "line": 10,
+        "column": 9
+      },
+      "visibility": "not explicitly defined",
+      "storageClasses": [
+        
+      ],
+      "type": {
+        "@type": "marmos.generic.model.DocTypeReference",
+        "nameComponents": [
+          "int",
+          "[",
+          "]",
+          "[",
+          "]"
+        ]
+      }
+    },
+    {
+      "@type": "marmos.generic.model.DocVariable",
+      "name": "i",
+      "comment": {
+        "@type": "marmos.generic.model.DocComment",
+        "sections": [
+          
+        ]
+      },
+      "linkage": "extern(D)",
+      "location": {
+        "@type": "marmos.generic.model.DocLocation",
+        "path": {
+          "@type": "marmos.generic.model.DocPath",
+          "path": "",
+          "basePath": ""
+        },
+        "line": 13,
+        "column": 11
+      },
+      "visibility": "not explicitly defined",
+      "storageClasses": [
+        "const"
+      ],
+      "type": {
+        "@type": "marmos.generic.model.DocTypeReference",
+        "nameComponents": [
+          "int"
+        ]
+      }
+    },
+    {
+      "@type": "marmos.generic.model.DocVariable",
+      "name": "f",
+      "comment": {
+        "@type": "marmos.generic.model.DocComment",
+        "sections": [
+          
+        ]
+      },
+      "linkage": "extern(D)",
+      "location": {
+        "@type": "marmos.generic.model.DocLocation",
+        "path": {
+          "@type": "marmos.generic.model.DocPath",
+          "path": "",
+          "basePath": ""
+        },
+        "line": 14,
+        "column": 8
+      },
+      "visibility": "not explicitly defined",
+      "storageClasses": [
+        
+      ],
+      "type": {
+        "@type": "marmos.generic.model.DocTypeReference",
+        "nameComponents": [
+          "int",
+          "[",
+          "i",
+          "]"
+        ]
+      }
+    },
+    {
+      "@type": "marmos.generic.model.DocVariable",
+      "name": "g",
+      "comment": {
+        "@type": "marmos.generic.model.DocComment",
+        "sections": [
+          
+        ]
+      },
+      "linkage": "extern(D)",
+      "location": {
+        "@type": "marmos.generic.model.DocLocation",
+        "path": {
+          "@type": "marmos.generic.model.DocPath",
+          "path": "",
+          "basePath": ""
+        },
+        "line": 15,
+        "column": 13
+      },
+      "visibility": "not explicitly defined",
+      "storageClasses": [
+        
+      ],
+      "type": {
+        "@type": "marmos.generic.model.DocTypeReference",
+        "nameComponents": [
+          "int",
+          "[",
+          "string",
+          "]"
+        ]
+      }
+    }
+  ]
+}

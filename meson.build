@@ -32,6 +32,7 @@ marmos_test_dirs = [
     'inlines/text',
 
     'syntax/alias-basic',
+    'syntax/arrays-basic',
     'syntax/class-basic',
     'syntax/enum-basic',
     'syntax/function-basic',
