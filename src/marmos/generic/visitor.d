@@ -201,10 +201,12 @@ extern(C++) class DocVisitor : SemanticTimePermissiveVisitor
         auto type = parseTypeReference(node.type, origType);
         if(!type.isNull)
             result.type = type.get;
-        else // No type usually indicates an enum of some kind, so assume int if we couldn't figure it out.
+        else
         {
-            result.type.nameComponents = ["int"];
-            result.comment.addMarmosNoteComment("Type may be inaccurate as it is assumed to be an enum member.");
+            result.type.nameComponents = ["__enumMember"];
+            result.comment.addMarmosNoteComment(
+                "Type may be inaccurate as marmos couldn't figure it out - potentially needs semantic analysis."
+            );
         }
 
         if(node._init)

@@ -155,7 +155,13 @@ export function renderSoloTypeSignature(type: DocSoloType): DocfxCode {
 }
 
 export function renderTypeReference(type: DocTypeReference): string {
-  return type.nameComponents.length == 0 ? "<bug: unknown>" : type.nameComponents.join('')
+  if(type.nameComponents.length == 0)
+    return "<bug: unknown>"
+
+  if(type.nameComponents.length == 1 && type.nameComponents[0] == "__enumMember")
+    return "<enum or auto>"
+
+  return type.nameComponents.join('')
 }
 
 export function onlyPublicMembers(members: DocSoloType[]): DocSoloType[] {
