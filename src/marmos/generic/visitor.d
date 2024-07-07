@@ -138,6 +138,7 @@ extern(C++) class DocVisitor : SemanticTimePermissiveVisitor
         DocTemplate result;
         this.genericTypeVisit(result, node);
         result.isEponymous = (node.onemember && node.ident == node.onemember.ident);
+        result.parameters = extractTemplateParameters(node);
 
         this.types ~= DocAggregateType(result);
     }
@@ -419,6 +420,80 @@ DocRuntimeParameter[] extractRuntimeParameters(ASTCodegen.FuncDeclaration node)
         docParam.name = param.ident ? param.ident.toString.idup : "__anonymous";
 
         params ~= docParam;
+    }
+
+    return params;
+}
+
+DocTemplateParameter[] extractTemplateParameters(ASTCodegen.TemplateDeclaration node)
+{
+    DocTemplateParameter[] params;
+
+    foreach(param_; *node.parameters)
+    {
+        import dmd.dtemplate : TemplateParameter;
+        TemplateParameter param = param_; // For intellisense
+
+        if(auto tp = param.isTemplateTypeParameter())
+        {
+            DocTypeTemplateParameter docParam;
+            docParam.name = tp.ident.toString.idup;
+
+            scope typeVisitor = new DocTypeVisitor();
+
+            if(tp.specType)
+            {
+                typeVisitor.reset();
+                tp.specType.accept(typeVisitor);
+                docParam.specType = typeVisitor.result;
+            }
+
+            if(tp.defaultType)
+            {
+                typeVisitor.reset();
+                tp.defaultType.accept(typeVisitor);
+                docParam.defaultType = typeVisitor.result;
+            }
+
+            params ~= DocTemplateParameter(docParam);
+        }
+        else if(auto ap = param.isTemplateAliasParameter())
+        {
+            DocAliasTemplateParameter docParam;
+            docParam.name = ap.ident.toString.idup;
+            docParam.initialValue = ap.hasDefaultArg() ? ap.defaultAlias.toString.idup : "";
+
+            params ~= DocTemplateParameter(docParam);
+        }
+        else if(auto vp = param.isTemplateValueParameter())
+        {
+            DocVariable docParam;
+            docParam.name = vp.ident.toString.idup;
+            docParam.initialValue = vp.hasDefaultArg() ? vp.defaultValue.toString.idup : "";
+
+            if(vp.valType)
+            {
+                scope typeVisitor = new DocTypeVisitor();
+                typeVisitor.reset();
+                vp.valType.accept(typeVisitor);
+                docParam.type = typeVisitor.result;
+            }
+
+            params ~= DocTemplateParameter(docParam);
+        }
+        else if(auto tp = param.isTemplateTupleParameter())
+        {
+            DocTupleTemplateParameter docParam;
+            docParam.name = tp.ident.toString.idup;
+
+            params ~= DocTemplateParameter(docParam);
+        }
+        else if(auto tp = param.isTemplateThisParameter())
+        {
+            DocVariable docParam;
+            docParam.name = tp.ident.toString.idup;
+            docParam.type.nameComponents = ["this"];
+        }
     }
 
     return params;

@@ -213,6 +213,13 @@ alias DocSoloType = SumType!(
     DocVariable
 );
 
+alias DocTemplateParameter = SumType!(
+    DocTypeTemplateParameter,  // (T)
+    DocAliasTemplateParameter, // (alias T)
+    DocVariable,               // (string T)
+    DocTupleTemplateParameter  // (T...)
+);
+
 struct DocModule
 {
     import dmd.dmodule : Module;
@@ -271,12 +278,14 @@ struct DocTemplate
     mixin DocCommon;
     mixin DocTypeCommon;
     bool isEponymous;
+    DocTemplateParameter[] parameters;
 }
 
 struct DocMixinTemplate
 {
     mixin DocCommon;
     mixin DocTypeCommon;
+    DocTemplateParameter[] parameters;
 }
 
 struct DocEnum
@@ -314,4 +323,22 @@ struct DocRuntimeParameter
 {
     string name;
     DocTypeReference type;
+}
+
+struct DocTypeTemplateParameter
+{
+    string name;
+    DocTypeReference specType;
+    DocTypeReference defaultType;
+}
+
+struct DocAliasTemplateParameter
+{
+    string name;
+    string initialValue; // TODO: This will likely change once we handle expressions better
+}
+
+struct DocTupleTemplateParameter
+{
+    string name;
 }

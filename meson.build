@@ -44,6 +44,7 @@ marmos_test_dirs = [
     'syntax/struct-basic',
     'syntax/template-basic',
     'syntax/template-mixin-basic',
+    'syntax/template-parameters',
     'syntax/typeof-basic',
     'syntax/union-basic',
     'syntax/variable-basic',

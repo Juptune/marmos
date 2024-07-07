@@ -1,4 +1,4 @@
-import { DocAlias, DocFunction, DocVariable, DocClass, DocStruct, DocEnum, DocInterface, DocTemplate, DocMixinTemplate, DocAggregateType, DocSoloType, DocVisibility, DocUnion, DocTypeReference, DocLinkage, getUserData } from "../../marmos.js";
+import { DocAlias, DocFunction, DocVariable, DocClass, DocStruct, DocEnum, DocInterface, DocTemplate, DocMixinTemplate, DocAggregateType, DocSoloType, DocVisibility, DocUnion, DocTypeReference, DocLinkage, getUserData, DocTypeTemplateParameter, DocTupleTemplateParameter, DocAliasTemplateParameter } from "../../marmos.js";
 import { marmosCommentGetSummary } from "./comments.js";
 import { DocfxBlock, DocfxCode, MarkdownString } from "./model.js";
 
@@ -26,6 +26,7 @@ export function generateReferenceTable(items: ReferenceItem[]): DocfxBlock {
 export function renderFunctionSignature(func: DocFunction, options: RenderFunctionOptions): DocfxCode {
   const newLine = options.multiLine ? "\n" : " "
   const indent = options.multiLine ? "  " : ""
+  const userData = getUserData<TypeUserData>(func)
 
   let output = ""
   if (func.visibility !== DocVisibility.undefined)
@@ -34,7 +35,15 @@ export function renderFunctionSignature(func: DocFunction, options: RenderFuncti
   if (func.linkage !== DocLinkage.d)
     output += `${func.linkage} `
 
-  output += `${renderTypeReference(func.returnType)} ${func.name}(${newLine}`
+  output += `${renderTypeReference(func.returnType)} ${func.name}`
+  
+  // Template parameters
+  if(userData.eponymousTemplate) {
+    output += renderTemplateParameters(userData.eponymousTemplate, options)
+  }
+
+  // Runtime parameters
+  output += `(${newLine}`
   func.parameters.forEach(p => {
     output += `${indent}${renderTypeReference(p.type)} ${p.name}`
     if(p !== func.parameters[func.parameters.length - 1])
@@ -54,6 +63,7 @@ export function renderAggregateTypeSignature(type: DocAggregateType): DocfxCode 
   let visibility = type.visibility
   let members = type.members
   let nestedTypes = type.nestedTypes
+  const userData = getUserData<TypeUserData>(type)
 
   switch (type.typename_) {
     case DocClass.typename__:
@@ -95,7 +105,9 @@ export function renderAggregateTypeSignature(type: DocAggregateType): DocfxCode 
     output += `${linkage} `
   if (storageClasses.length > 0)
     output += `${storageClasses.join(' ')} `
-  output += `${keyword} ${type.name}` // TODO: Template parameters whenever the marmos model supports them
+  output += `${keyword} ${type.name}`
+  if(userData.eponymousTemplate)
+    output += renderTemplateParameters(userData.eponymousTemplate, { multiLine: true })
   output += "\n{"
 
   // Order members by type then name
@@ -202,6 +214,53 @@ function renderEnumTypeSignature(type: DocEnum): DocfxCode {
 
   output += "\n}"
   return { code: output }
+}
+
+function renderTemplateParameters(template: DocTemplate, options: RenderFunctionOptions): string {
+  const newLine = options.multiLine ? "\n" : " "
+  const indent = options.multiLine ? "  " : ""
+  
+  let output = "("
+
+  template.parameters.forEach(p => {
+    output += `${newLine}${indent}`
+
+    switch(p.typename_)
+    {
+      case DocTypeTemplateParameter.typename__:
+        const param = p as DocTypeTemplateParameter
+        output += param.name
+        if(param.specType.nameComponents.length > 0)
+          output += ` : ${renderTypeReference(param.specType)}`
+        if(param.defaultType.nameComponents.length > 0)
+          output += ` = ${renderTypeReference(param.defaultType)}`
+        break;
+
+      case DocTupleTemplateParameter.typename__:
+        output += `${p.name}...`
+        break;
+
+      case DocAliasTemplateParameter.typename__:
+        const aliasParam = p as DocAliasTemplateParameter
+        output += `alias ${aliasParam.name}`
+        if(aliasParam.initialValue)
+          output += ` = ${aliasParam.initialValue}`
+        break;
+
+      case DocVariable.typename__:
+        const variable = p as DocVariable
+        output += `${renderTypeReference(variable.type)} ${variable.name}`
+        if(variable.initialValue && variable.initialValue.length)
+          output += ` = ${variable.initialValue}`
+        break;
+    }
+
+    if(p !== template.parameters[template.parameters.length - 1])
+      output += ","
+  })
+
+  output += `${newLine})`
+  return output
 }
 
 export type TypeSet = {

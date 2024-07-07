@@ -373,6 +373,8 @@ template FieldNameOf(T)
             immutable FieldNameOf = "DocAggregateType";
         else static if(is(T == DocSoloType))
             immutable FieldNameOf = "DocSoloType";
+        else static if(is(T == DocTemplateParameter))
+            immutable FieldNameOf = "DocTemplateParameter";
         else
             static assert(false, "Need to manually specify FieldNameOf for SumType " ~ T.stringof);
     }

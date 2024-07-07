@@ -204,7 +204,7 @@ function generateGenericAggregateType(
   pageType: DocfxPageType,
   titlePrefix: string) {
 
-  const types = organiseTypes([], type.members)
+  const types = organiseTypes(type.nestedTypes, type.members)
   
   const facts : DocfxFacts = { facts: [] }
   facts.facts.push({ name: "Module", value: moduleName.join('.') })
