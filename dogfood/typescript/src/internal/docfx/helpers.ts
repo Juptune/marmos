@@ -1,6 +1,6 @@
 import { DocAlias, DocFunction, DocVariable, DocClass, DocStruct, DocEnum, DocInterface, DocTemplate, DocMixinTemplate, DocAggregateType, DocSoloType, DocVisibility, DocUnion, DocTypeReference, DocLinkage, getUserData, DocTypeTemplateParameter, DocTupleTemplateParameter, DocAliasTemplateParameter } from "../../marmos.js";
 import { marmosCommentGetSummary } from "./comments.js";
-import { DocfxBlock, DocfxCode, MarkdownString } from "./model.js";
+import { DocfxBlock, DocfxCode } from "./model.js";
 
 export type ReferenceItem = {
   name: string,
@@ -119,7 +119,6 @@ export function renderAggregateTypeSignature(type: DocAggregateType): DocfxCode 
     })
 
     let lastTypeName = membersCopy[0].typename_
-    
     onlyPublicMembers(membersCopy).forEach(m => {
       if (lastTypeName !== m.typename_)
         output += "\n"

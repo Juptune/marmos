@@ -175,7 +175,14 @@
       "members": [
         
       ],
-      "isEponymous": true
+      "isEponymous": true,
+      "parameters": [
+        {
+          "@type": "marmos.generic.model.DocAliasTemplateParameter",
+          "name": "a",
+          "initialValue": ""
+        }
+      ]
     }
   ],
   "soloTypes": [

@@ -8,7 +8,7 @@ module marmos.generic.model;
 
 import std.sumtype  : SumType;
 import std.file     : getcwd;
-import dmd.astenums : Edition, STC, LINK;
+import dmd.astenums : Edition, STC, LINK, TRUST;
 import dmd.dsymbol  : Visibility;
 
 /++++ Documentation Comments ++++/
@@ -161,18 +161,21 @@ enum DocStorageClass : string
     @(STC.returnScope)  returnScope         = "ref return scope",
     @(STC.immutable_)   immutable_          = "immutable",
     @(STC.nothrow_)     nothrow_            = "nothrow",
-    @(STC.pure_)        pure_               = "pure",
     @(STC.alias_)       alias_              = "alias",
     @(STC.shared_)      shared_             = "shared",
     @(STC.gshared)      gshared             = "__gshared",
     @(STC.property)     property            = "@property",
-    @(STC.safe)         safe                = "@safe",
-    @(STC.trusted)      trusted             = "@trusted",
-    @(STC.system)       system              = "@system",
     @(STC.disable)      disable             = "@disable",
     @(STC.nogc)         nogc                = "@nogc",
     @(STC.autoref)      autoref             = "auto ref",
     @(STC.live)         live                = "@live",
+                        inout_              = "inout",
+    
+    @(STC.pure_) pure_ = "pure", // Special cased as the PURE enum has 'levels' of purity
+    
+    @(STC.trusted) @(TRUST.trusted) trusted             = "@trusted",
+    @(STC.safe)    @(TRUST.safe)    safe                = "@safe",
+    @(STC.system)  @(TRUST.system)  system              = "@system",
 }
 
 enum DocVisibility : string

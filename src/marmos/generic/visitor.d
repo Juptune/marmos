@@ -39,7 +39,7 @@ extern(C++) class DocVisitor : SemanticTimePermissiveVisitor
         result.location = DocLocation.from(node.loc, this.basePath);
 
         static if(__traits(compiles, { auto a = NodeT.init.storage_class; }))
-            result.storageClasses = listFromDmdBitFlags!DocStorageClass(node.storage_class);
+            result.storageClasses = listFromDmdBitFlags!DocStorageClass(cast(STC)node.storage_class);
         static if(__traits(compiles, { auto a = NodeT.init.linkage; }))
             result.linkage = fromDmdEnum!DocLinkage(node.linkage);
         static if(__traits(compiles, { auto a = NodeT.init.visibility; }))
@@ -185,6 +185,33 @@ extern(C++) class DocVisitor : SemanticTimePermissiveVisitor
                 result.returnType.nameComponents = ["auto"];
                 result.storageClasses = result.storageClasses.remove(autoIndex);
             }
+            
+            auto func = node.type.toTypeFunction();
+            if(func.isnogc)
+                result.storageClasses ~= DocStorageClass.nogc;
+            if(func.isproperty)
+                result.storageClasses ~= DocStorageClass.property;
+            const trust = fromDmdEnum!DocStorageClass(func.trust);
+            if(trust != DocStorageClass.FAILSAFE)
+                result.storageClasses ~= trust;
+            if(func.isnothrow)
+                result.storageClasses ~= DocStorageClass.nothrow_;
+            if(func.isScopeQual)
+                result.storageClasses ~= DocStorageClass.scope_;
+            if(func.islive)
+                result.storageClasses ~= DocStorageClass.live;
+            if(func.isInOutQual)
+                result.storageClasses ~= DocStorageClass.inout_;
+            if(func.isreturnscope)
+                result.storageClasses ~= DocStorageClass.returnScope;
+            else if(func.isreturn)
+                result.storageClasses ~= DocStorageClass.return_;
+            else if(func.isref)
+                result.storageClasses ~= DocStorageClass.ref_;
+            const purity = fromDmdEnum!DocStorageClass(func.purity);
+            if(purity != DocStorageClass.FAILSAFE)
+                result.storageClasses ~= purity;
+            result.linkage = fromDmdEnum!DocLinkage(func.linkage);
         }
 
         this.soloTypes ~= DocSoloType(result);
@@ -353,21 +380,31 @@ extern(C++) class DocTypeVisitor : SemanticTimePermissiveVisitor
 
 private:
 
-import dmd.astenums : STC, LINK;
+import dmd.astenums : STC, LINK, PURE;
 import dmd.dsymbol  : Visibility;
 
 DocT fromDmdEnum(DocT, EnumT)(EnumT value)
 {
     import std.traits : getUDAs;
 
-    alias DocTMembers = __traits(allMembers, DocT);
-    static foreach(MemberName; DocTMembers)
-    {{
-        alias MemberSymbol = __traits(getMember, DocT, MemberName);
-        enum DmdFlag = __traits(getAttributes, MemberSymbol)[0];
-        if(value == DmdFlag)
-            return MemberSymbol;
-    }}
+    static if(is(EnumT == PURE)) // As PURE has multiple levels that correspond to one keyword, we need to special case it.
+    {
+        return value != PURE.impure ? DocStorageClass.pure_ : DocStorageClass.FAILSAFE;
+    }
+    else
+    {
+        alias DocTMembers = __traits(allMembers, DocT);
+        static foreach(MemberName; DocTMembers)
+        {{
+            alias MemberSymbol = __traits(getMember, DocT, MemberName);
+            static foreach(DmdFlag; __traits(getAttributes, MemberSymbol))
+            {
+                static if(is(typeof(DmdFlag) == EnumT))
+                if(value == DmdFlag)
+                    return MemberSymbol;
+            }
+        }}
+    }
 
     return DocT.init;
 }
@@ -382,9 +419,14 @@ DocT[] listFromDmdBitFlags(DocT, EnumT)(EnumT flags)
     static foreach(MemberName; DocTMembers)
     {{
         alias MemberSymbol = __traits(getMember, DocT, MemberName);
-        enum DmdFlag = __traits(getAttributes, MemberSymbol)[0];
-        if(flags & DmdFlag)
-            result ~= MemberSymbol;
+        static foreach(DmdFlag; __traits(getAttributes, MemberSymbol))
+        {
+            static if(is(typeof(DmdFlag) == EnumT))
+            {
+                if(flags & DmdFlag)
+                    result ~= MemberSymbol;
+            }
+        }
     }}
 
     return result;

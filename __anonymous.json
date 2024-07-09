@@ -1,0 +1,64 @@
+{
+  "@type": "marmos.generic.model.DocModule",
+  "nameComponents": [
+    "__anonymous"
+  ],
+  "isPackageFile": false,
+  "languageEdition": "legacy",
+  "comment": {
+    "@type": "marmos.generic.model.DocComment",
+    "sections": [
+      
+    ]
+  },
+  "location": {
+    "@type": "marmos.generic.model.DocLocation",
+    "path": {
+      "@type": "marmos.generic.model.DocPath",
+      "path": "",
+      "basePath": "/home/bradleyc/Desktop/projects/juptune/marmos"
+    },
+    "line": 0,
+    "column": 0
+  },
+  "types": [
+    
+  ],
+  "soloTypes": [
+    {
+      "@type": "marmos.generic.model.DocFunction",
+      "name": "func",
+      "comment": {
+        "@type": "marmos.generic.model.DocComment",
+        "sections": [
+          
+        ]
+      },
+      "linkage": "extern(D)",
+      "location": {
+        "@type": "marmos.generic.model.DocLocation",
+        "path": {
+          "@type": "marmos.generic.model.DocPath",
+          "path": "tests/syntax/function-storageclasses/main.d(1)",
+          "basePath": "/home/bradleyc/Desktop/projects/juptune/marmos"
+        },
+        "line": 1,
+        "column": 10
+      },
+      "visibility": "not explicitly defined",
+      "storageClasses": [
+        "@trusted",
+        "pure"
+      ],
+      "parameters": [
+        
+      ],
+      "returnType": {
+        "@type": "marmos.generic.model.DocTypeReference",
+        "nameComponents": [
+          "void"
+        ]
+      }
+    }
+  ]
+}

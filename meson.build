@@ -38,6 +38,7 @@ marmos_test_dirs = [
     'syntax/function-auto',
     'syntax/function-basic',
     'syntax/function-parameters',
+    'syntax/function-storageclasses',
     'syntax/interface-basic',
     'syntax/module-basic',
     'syntax/pointer-basic',
