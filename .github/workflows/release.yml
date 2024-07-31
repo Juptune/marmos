@@ -1,13 +1,8 @@
 name: Release
 
-# on:
-#   release:
-#     types: [released]
-
 on:
-  push:
-    branches:
-      - master
+  release:
+    types: [released]
 
 jobs:
   build_marmos:
@@ -52,9 +47,43 @@ jobs:
         working-directory: dogfood/typescript
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          # TAG=$(echo "${{ github.event.release.tag_name }}" | sed 's/v//') # Remove the 'v' prefix
         run: |
-          TAG=$(echo v0.0.1 | sed 's/v//') # Remove the 'v' prefix
+          TAG=$(echo "${{ github.event.release.tag_name }}" | sed 's/v//') # Remove the 'v' prefix
           npm version --allow-same-version --no-commit-hooks --no-git-tag-version $TAG
           npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
           npm publish --access public
+
+  update_demo_repo:
+    name: Update Docfx Demo Repo
+    runs-on: ubuntu-latest
+    needs: build_marmos
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/download-marmos
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - uses: actions/checkout@v4
+        with:
+          repository: 'juptune/marmos-docfx-demo'
+          token: ${{ secrets.DOCFX_DEMO_PAT }}
+          path: 'marmos-docfx-demo'
+
+      - name: Run update.sh in marmos-docfx-demo
+        working-directory: marmos-docfx-demo
+        run: |
+          TAG=$(echo "${{ github.event.release.tag_name }}" | sed 's/v//') # Remove the 'v' prefix
+          npx --yes marmos-docfx@${TAG} # Install the new version of marmos-docfx
+          bash update.sh $GITHUB_WORKSPACE/marmos
+
+      - name: Commit and push changes
+        working-directory: marmos-docfx-demo
+        run: |
+          git config --global user.email "bradley@chatha.dev"
+          git config --global user.name "Bradley Chatha (CI)"
+          git add .
+          git commit -m "Update marmos-docfx-demo due to new marmos release"
+          git push
