@@ -1,0 +1,40 @@
+name: "Build Marmos & Upload Artifact"
+description: "Build Marmos & Upload Artifact"
+runs:
+  using: composite
+  steps:
+      - name: Install Tooling (apt)
+        shell: sh
+        run: sudo apt update && sudo apt install -y python3-pip libsodium-dev
+
+      - name: Install Tooling (pip)
+        shell: sh
+        run: pip3 install meson ninja
+
+      - name: Install Dlang
+        uses: dlang-community/setup-dlang@v1
+        with:
+          compiler: ldc-latest
+
+      - name: Configure Meson
+        shell: sh
+        run: meson setup build --prefix $(pwd)/install
+
+      - name: Build
+        shell: sh
+        run: meson compile -C build
+
+      - name: Move marmos executables to their own folder
+        shell: sh
+        run: |
+          mkdir marmos-executables
+          mv build/marmos marmos-executables/marmos
+          mv build/marmos-test marmos-executables/marmos-test
+          mv build/marmos-unittest marmos-executables/marmos-unittest
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: marmos-executables
+          path: marmos-executables/
+          if-no-files-found: error
+          retention-days: 1
