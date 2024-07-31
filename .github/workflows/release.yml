@@ -30,7 +30,6 @@ jobs:
 
       - name: Generate marmos.ts
         run: |
-          chown $USER:$USER ./marmos
           chmod +x ./marmos
           ./marmos generate-typescript --output-file dogfood/typescript/src/marmos.ts
 
