@@ -26,9 +26,7 @@ jobs:
       - uses: ./.github/actions/download-marmos
 
       - name: Generate marmos.ts
-        run: |
-          chmod +x ./marmos
-          ./marmos generate-typescript --output-file dogfood/typescript/src/marmos.ts
+        run: ./marmos generate-typescript --output-file dogfood/typescript/src/marmos.ts
 
       - uses: pnpm/action-setup@v4
         with:
@@ -51,6 +49,7 @@ jobs:
         run: pnpm run build
 
       - name: Release
+        working-directory: dogfood/typescript
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           # TAG=$(echo "${{ github.event.release.tag_name }}" | sed 's/v//') # Remove the 'v' prefix
