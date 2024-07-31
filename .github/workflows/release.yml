@@ -56,4 +56,5 @@ jobs:
         run: |
           TAG=$(echo v0.0.1 | sed 's/v//') # Remove the 'v' prefix
           npm version --allow-same-version --no-commit-hooks --no-git-tag-version $TAG
+          npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
           npm publish --access public
