@@ -36,7 +36,7 @@ function sectionToBlocks(section: DocCommentSection, config: CommentConversionCo
 
     if(section.title !== DEFAULT_SECTION)
         blocks.push({ h3: section.title })
-    else if(config.createAboutHeader === undefined || config.createAboutHeader === true)
+    else if(config.createAboutHeader ?? true)
         blocks.push({ h2: "About" })
 
     for(const block of section.blocks) {

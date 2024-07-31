@@ -203,9 +203,16 @@ extern(C++) class DocVisitor : SemanticTimePermissiveVisitor
             if(func.isInOutQual)
                 result.storageClasses ~= DocStorageClass.inout_;
             if(func.isreturnscope)
-                result.storageClasses ~= DocStorageClass.returnScope;
-            else if(func.isreturn)
+            {
                 result.storageClasses ~= DocStorageClass.return_;
+                result.storageClasses ~= DocStorageClass.ref_;
+                result.storageClasses ~= DocStorageClass.scope_;
+            }
+            else if(func.isreturn)
+            {
+                result.storageClasses ~= DocStorageClass.return_;
+                result.storageClasses ~= DocStorageClass.ref_;
+            }
             else if(func.isref)
                 result.storageClasses ~= DocStorageClass.ref_;
             const purity = fromDmdEnum!DocStorageClass(func.purity);
@@ -423,8 +430,34 @@ DocT[] listFromDmdBitFlags(DocT, EnumT)(EnumT flags)
         {
             static if(is(typeof(DmdFlag) == EnumT))
             {
-                if(flags & DmdFlag)
-                    result ~= MemberSymbol;
+                // Special case, the way the compiler handles `ref return` (and similar) doesn't make much sense for documentation,
+                // so split them into separate flags.
+                static if(is(EnumT == STC))
+                {
+                    if(DmdFlag == STC.returnScope && (flags & DmdFlag))
+                    {
+                        result ~= DocStorageClass.return_;
+                        result ~= DocStorageClass.ref_;
+                        result ~= DocStorageClass.scope_;
+                    }
+                    else if(DmdFlag == STC.return_ && (flags & DmdFlag))
+                    {
+                        result ~= DocStorageClass.return_;
+                        result ~= DocStorageClass.ref_;
+                    }
+                    else if(DmdFlag == STC.autoref && (flags & DmdFlag))
+                    {
+                        result ~= DocStorageClass.auto_;
+                        result ~= DocStorageClass.ref_;
+                    }
+                    else if(flags & DmdFlag)
+                        result ~= MemberSymbol;
+                }
+                else
+                {
+                    if(flags & DmdFlag)
+                        result ~= MemberSymbol;
+                }
             }
         }
     }}
@@ -442,6 +475,7 @@ unittest
 
 DocRuntimeParameter[] extractRuntimeParameters(ASTCodegen.FuncDeclaration node)
 {
+    import std.algorithm : countUntil, remove;
     DocRuntimeParameter[] params;
 
     auto type = node.originalType ? node.originalType : node.type;
@@ -460,6 +494,7 @@ DocRuntimeParameter[] extractRuntimeParameters(ASTCodegen.FuncDeclaration node)
         DocRuntimeParameter docParam;
         docParam.type = typeVisitor.result;
         docParam.name = param.ident ? param.ident.toString.idup : "__anonymous";
+        docParam.storageClasses = listFromDmdBitFlags!DocStorageClass(cast(STC)param.storageClass);
 
         params ~= docParam;
     }

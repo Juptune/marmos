@@ -160,7 +160,7 @@ function generateFunction(
       })
 
       page.body.push({ api2: nameWithBareParams })
-      page.body.push(renderFunctionSignature(overload, { multiLine: true }))
+      page.body.push(renderFunctionSignature(overload, { multiLine: false }))
       page.body.push(...commentBlocks)
     }
   })

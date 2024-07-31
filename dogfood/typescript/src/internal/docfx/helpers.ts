@@ -2,6 +2,8 @@ import { DocAlias, DocFunction, DocVariable, DocClass, DocStruct, DocEnum, DocIn
 import { marmosCommentGetSummary } from "./comments.js";
 import { DocfxBlock, DocfxCode } from "./model.js";
 
+const DEFAULT_MULTI_LINE_THRESHOLD = 90
+
 export type ReferenceItem = {
   name: string,
   relativeHref: string,
@@ -9,7 +11,8 @@ export type ReferenceItem = {
 }
 
 export type RenderFunctionOptions = {
-  multiLine: boolean
+  multiLine: boolean,
+  autoMultiLineThreshold?: number,
 }
 
 export function generateReferenceTable(items: ReferenceItem[]): DocfxBlock {
@@ -35,6 +38,12 @@ export function renderFunctionSignature(func: DocFunction, options: RenderFuncti
   if (func.linkage !== DocLinkage.d)
     output += `${func.linkage} `
 
+  // Move some storage classes to the prefix
+  if (func.storageClasses.find(sc => sc === "static"))
+    output += "static "
+  if (func.storageClasses.find(sc => sc === "ref"))
+    output += "ref "
+
   output += `${renderTypeReference(func.returnType)} ${func.name}`
   
   // Template parameters
@@ -43,15 +52,19 @@ export function renderFunctionSignature(func: DocFunction, options: RenderFuncti
   }
 
   // Runtime parameters
-  output += `(${newLine}`
+  output += `(${func.parameters.length ? newLine : ""}`
   func.parameters.forEach(p => {
-    output += `${indent}${renderTypeReference(p.type)} ${p.name}`
+    const storageClasses = p.storageClasses.join(' ')
+    output += `${indent}${storageClasses}${storageClasses.length ? " " : ""}${renderTypeReference(p.type)} ${p.name}`
     if(p !== func.parameters[func.parameters.length - 1])
       output += `,${newLine}`
     else
       output += newLine
   })
-  output += `) ${func.storageClasses.join(' ')}`
+  output += `) ${func.storageClasses.filter(sc => sc != "static" && sc != "ref").join(' ')}`
+
+  if(!options.multiLine && output.length > (options.autoMultiLineThreshold ?? DEFAULT_MULTI_LINE_THRESHOLD))
+    return renderFunctionSignature(func, { ...options, multiLine: true })
 
   return { code: output }
 }
@@ -107,7 +120,7 @@ export function renderAggregateTypeSignature(type: DocAggregateType): DocfxCode 
     output += `${storageClasses.join(' ')} `
   output += `${keyword} ${type.name}`
   if(userData.eponymousTemplate)
-    output += renderTemplateParameters(userData.eponymousTemplate, { multiLine: true })
+    output += renderTemplateParameters(userData.eponymousTemplate, { multiLine: false})
   output += "\n{"
 
   // Order members by type then name
@@ -124,7 +137,9 @@ export function renderAggregateTypeSignature(type: DocAggregateType): DocfxCode 
         output += "\n"
       lastTypeName = m.typename_
       output += `\n  // ${marmosCommentGetSummary(m.comment)}`
-      output += `\n  ${renderSoloTypeSignature(m).code};`
+
+      const signatureLines = renderSoloTypeSignature(m).code.split('\n');
+      output += signatureLines.map(l => `\n  ${l}`).join('');
     })
   }
 
@@ -257,6 +272,9 @@ function renderTemplateParameters(template: DocTemplate, options: RenderFunction
     if(p !== template.parameters[template.parameters.length - 1])
       output += ","
   })
+
+  if(!options.multiLine && output.length > (options.autoMultiLineThreshold ?? DEFAULT_MULTI_LINE_THRESHOLD))
+    return renderTemplateParameters(template, { ...options, multiLine: true })
 
   output += `${newLine})`
   return output

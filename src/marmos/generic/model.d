@@ -157,7 +157,7 @@ enum DocStorageClass : string
     @(STC.variadic)     variadic            = "variadic",
     @(STC.ref_)         ref_                = "ref",
     @(STC.scope_)       scope_              = "scope",
-    @(STC.return_)      return_             = "return ref",
+    @(STC.return_)      return_             = "return", // Note: This is normally "return ref" internally, but changed for documentation purposes
     @(STC.returnScope)  returnScope         = "ref return scope",
     @(STC.immutable_)   immutable_          = "immutable",
     @(STC.nothrow_)     nothrow_            = "nothrow",
@@ -326,6 +326,7 @@ struct DocRuntimeParameter
 {
     string name;
     DocTypeReference type;
+    DocStorageClass[] storageClasses;
 }
 
 struct DocTypeTemplateParameter

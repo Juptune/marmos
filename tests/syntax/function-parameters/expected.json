@@ -39,7 +39,7 @@
           "path": "",
           "basePath": ""
         },
-        "line": 12,
+        "line": 18,
         "column": 1
       },
       "visibility": "public",
@@ -70,7 +70,7 @@
           "path": "",
           "basePath": ""
         },
-        "line": 13,
+        "line": 19,
         "column": 1
       },
       "visibility": "public",
@@ -101,7 +101,7 @@
           "path": "",
           "basePath": ""
         },
-        "line": 14,
+        "line": 20,
         "column": 1
       },
       "visibility": "public",
@@ -132,7 +132,7 @@
           "path": "",
           "basePath": ""
         },
-        "line": 16,
+        "line": 22,
         "column": 1
       },
       "visibility": "not explicitly defined",
@@ -157,7 +157,7 @@
               "path": "",
               "basePath": ""
             },
-            "line": 16,
+            "line": 22,
             "column": 1
           },
           "visibility": "public",
@@ -233,7 +233,10 @@
             "nameComponents": [
               "int"
             ]
-          }
+          },
+          "storageClasses": [
+            
+          ]
         },
         {
           "@type": "marmos.generic.model.DocRuntimeParameter",
@@ -243,7 +246,10 @@
             "nameComponents": [
               "bool"
             ]
-          }
+          },
+          "storageClasses": [
+            
+          ]
         },
         {
           "@type": "marmos.generic.model.DocRuntimeParameter",
@@ -253,7 +259,10 @@
             "nameComponents": [
               "string"
             ]
-          }
+          },
+          "storageClasses": [
+            
+          ]
         },
         {
           "@type": "marmos.generic.model.DocRuntimeParameter",
@@ -263,7 +272,10 @@
             "nameComponents": [
               "S"
             ]
-          }
+          },
+          "storageClasses": [
+            
+          ]
         },
         {
           "@type": "marmos.generic.model.DocRuntimeParameter",
@@ -273,7 +285,10 @@
             "nameComponents": [
               "C"
             ]
-          }
+          },
+          "storageClasses": [
+            
+          ]
         },
         {
           "@type": "marmos.generic.model.DocRuntimeParameter",
@@ -283,7 +298,10 @@
             "nameComponents": [
               "I"
             ]
-          }
+          },
+          "storageClasses": [
+            
+          ]
         },
         {
           "@type": "marmos.generic.model.DocRuntimeParameter",
@@ -296,7 +314,85 @@
               "int",
               ")"
             ]
-          }
+          },
+          "storageClasses": [
+            
+          ]
+        }
+      ],
+      "returnType": {
+        "@type": "marmos.generic.model.DocTypeReference",
+        "nameComponents": [
+          "void"
+        ]
+      }
+    },
+    {
+      "@type": "marmos.generic.model.DocFunction",
+      "name": "func2",
+      "comment": {
+        "@type": "marmos.generic.model.DocComment",
+        "sections": [
+          
+        ]
+      },
+      "linkage": "extern(D)",
+      "location": {
+        "@type": "marmos.generic.model.DocLocation",
+        "path": {
+          "@type": "marmos.generic.model.DocPath",
+          "path": "",
+          "basePath": ""
+        },
+        "line": 12,
+        "column": 6
+      },
+      "visibility": "not explicitly defined",
+      "storageClasses": [
+        
+      ],
+      "parameters": [
+        {
+          "@type": "marmos.generic.model.DocRuntimeParameter",
+          "name": "a",
+          "type": {
+            "@type": "marmos.generic.model.DocTypeReference",
+            "nameComponents": [
+              "int"
+            ]
+          },
+          "storageClasses": [
+            "const"
+          ]
+        },
+        {
+          "@type": "marmos.generic.model.DocRuntimeParameter",
+          "name": "b",
+          "type": {
+            "@type": "marmos.generic.model.DocTypeReference",
+            "nameComponents": [
+              "bool"
+            ]
+          },
+          "storageClasses": [
+            "immutable"
+          ]
+        },
+        {
+          "@type": "marmos.generic.model.DocRuntimeParameter",
+          "name": "c",
+          "type": {
+            "@type": "marmos.generic.model.DocTypeReference",
+            "nameComponents": [
+              "string"
+            ]
+          },
+          "storageClasses": [
+            "ref",
+            "scope",
+            "return",
+            "ref"
+          ]
         }
       ],
       "returnType": {

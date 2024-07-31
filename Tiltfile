@@ -51,6 +51,19 @@ cmd_button(
     inputs=[text_input('TEST_NAME', 'Test Name')],
     requires_confirmation=True
 )
+cmd_button(
+    'doc-tests:update-all',
+    resource='doc-tests',
+    text='Update ALL Tests',
+    argv=['bash', '-c', '''
+        for folder in $(find tests -type d); do
+            pushd $folder
+            mv got.json expected.json
+            popd
+        done
+    '''],
+    requires_confirmation=True
+)
 
 #### TypeScript Dogfooding ####
 
