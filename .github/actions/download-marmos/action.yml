@@ -1,0 +1,18 @@
+name: Download Marmos
+description: Download Marmos
+runs:
+  using: composite
+  steps:
+    - name: Install Dlang
+      uses: dlang-community/setup-dlang@v1
+      with:
+        compiler: ldc-latest
+
+    - uses: actions/download-artifact@v4
+      with:
+        name: marmos-executables
+
+    - name: Make marmos executable
+      shell: bash
+      run: |
+        chmod +x ./marmos

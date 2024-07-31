@@ -23,10 +23,7 @@ jobs:
     needs: build_marmos
     steps:
       - uses: actions/checkout@v4
-
-      - uses: actions/download-artifact@v4
-        with:
-          name: marmos-executables
+      - uses: ./.github/actions/download-marmos
 
       - name: Generate marmos.ts
         run: |
