@@ -496,6 +496,9 @@ DocRuntimeParameter[] extractRuntimeParameters(ASTCodegen.FuncDeclaration node)
         docParam.name = param.ident ? param.ident.toString.idup : "__anonymous";
         docParam.storageClasses = listFromDmdBitFlags!DocStorageClass(cast(STC)param.storageClass);
 
+        if(param.defaultArg)
+            docParam.initialValue = param.defaultArg.toString.idup;
+
         params ~= docParam;
     }
 

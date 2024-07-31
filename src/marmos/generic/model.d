@@ -327,6 +327,7 @@ struct DocRuntimeParameter
     string name;
     DocTypeReference type;
     DocStorageClass[] storageClasses;
+    string initialValue; // TODO: This will likely change once we handle expressions better
 }
 
 struct DocTypeTemplateParameter

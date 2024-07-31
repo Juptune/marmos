@@ -56,6 +56,10 @@ export function renderFunctionSignature(func: DocFunction, options: RenderFuncti
   func.parameters.forEach(p => {
     const storageClasses = p.storageClasses.join(' ')
     output += `${indent}${storageClasses}${storageClasses.length ? " " : ""}${renderTypeReference(p.type)} ${p.name}`
+
+    if(p.initialValue.length)
+      output += ` = ${p.initialValue}`
+
     if(p !== func.parameters[func.parameters.length - 1])
       output += `,${newLine}`
     else
