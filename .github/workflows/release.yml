@@ -12,6 +12,22 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/build-marmos
 
+  build_and_release_docker:
+    name: Build and Release Docker
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Build and push images
+        run: |
+          TAG=$(echo "${{ github.event.release.tag_name }}" | sed 's/v//') # Remove the 'v' prefix
+          MARMOS_TAG=bradchatha/marmos:$TAG
+
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+          
+          docker build -f ./devops/pkg/docker/Dockerfile -t $MARMOS_TAG .
+          docker push $MARMOS_TAG
+
   build_and_release_npm:
     name: Build and Release marmos-docfx
     runs-on: ubuntu-latest
