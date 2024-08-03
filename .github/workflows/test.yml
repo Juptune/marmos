@@ -63,6 +63,3 @@ jobs:
         run: |
           cd dogfood/typescript
           ./bin/dev.js convert --outputFolder _test/docfx/ $(find "_models/" -name "*.json")
-
-      # TODO: Add docfx build?
-      # TODO: Maybe go auto update the demo repo?

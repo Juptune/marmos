@@ -11,7 +11,7 @@ COPY ./subprojects/dmd-fe.wrap ./subprojects/dmd-fe.wrap
 COPY ./subprojects/packagefiles/ ./subprojects/packagefiles/
 
 SHELL ["bash", "-c"]
-RUN ls -l **/* && source ~/dlang/ldc-*/activate \
+RUN source ~/dlang/ldc-*/activate \
     && meson setup build --buildtype=release \
     && cd build \
     && ninja
