@@ -56,7 +56,6 @@ language, as part of a wider solution for generating a documentation site.
     --sysconfdir=%{_sysconfdir} \
     --localstatedir=%{_localstatedir} \
     --sharedstatedir=%{_sharedstatedir} \
-    --wrap-mode=nodownload \
     --auto-features=enabled \
     --strip \
     %{_vpath_srcdir} \

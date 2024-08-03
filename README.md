@@ -8,9 +8,11 @@ Currently the D compilers do not have an easy to use way of generating a documen
 
 Thus Marmos was born to help strive towards the goal of better documentation in D by acting as a bridge between the compiler's AST and external, existing tooling for generating the full HTML/PDFs/whatever.
 
-# Building/Downloading Marmos
+# Getting Marmos
 
-There's a few distros which Marmos already has packages for, but if you still want to build it locally then:
+## Building From Source
+
+There's a few distros which Marmos already has packages for - and even a docker image - but if you still want to build it locally then:
 
 ```bash
 your-package-manager install meson
@@ -25,28 +27,45 @@ install ./marmos /usr/local/bin/marmos
 
 You can technically get this to work with dub as well, but honestly I don't care enough about dub to bother with it myself.
 
-## Packages
+## Building the Docker Image
+
+If you want to build the docker image locally rather than use the prebuilt image, then simply run the following
+
+```bash
+git clone https://github.com/Juptune/marmos
+cd marmos
+docker build -f devops/pkg/docker/Dockerfile -t marmos-local .
+```
+
+## Prebuilt Linux Packages
 
 | Package Name(s) | Distro              | Status                                                                                                                                                                                  |
 | --------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `marmos`        | OpenSUSE Tumbleweed | [![build result](https://build.opensuse.org/projects/home:bchatha:juptune/packages/marmos/badge.svg?type=default)](https://build.opensuse.org/package/show/home:bchatha:juptune/marmos) |
 
+## Prebuild Docker Image
+
+This image is currently hosted on [Docker Hub](https://hub.docker.com/r/bradchatha/marmos), and can be referenced under the name `bradchatha/marmos`.
+
+For example:
+
+```
+docker run --rm -it -v $(pwd)/src/:/src/ bradchatha/marmos generate-generic /src/dummy_main.d --output-file /src/dummy_main.json
+```
+
 # Getting Started
 
 Usage is very raw right now, if you'd like to see a premade script that creates an example site for Phobos and [Juptune](https://github.com/Juptune/juptune) then please see the demo site's script at: https://github.com/Juptune/marmos-docfx-demo/blob/5dd208cf0aca204147606f13c027942c21c5d743/update.sh
 
-Otherwise the process is currently as follows (I want to make this better, especially regarding the Typescript stuff, but this is super early and raw still):
+Otherwise the process is currently as follows:
+
+* Download [docfx](https://dotnet.github.io/docfx/)
 
 * Download/build marmos (if you build it, then your path to marmos will be `./build/marmos`)
-* Run the following commands to setup the docfx converter:
 
 ```bash
-# IF BUILDING FROM SOURCE: alias marmos=$(pwd)/build/marmos
-marmos generate-typescript --output-file dogfood/typescript/src/marmos.ts
-cd dogfood/typescript/
-pnpm i
-pnpm run build
-alias marmos-docfx=$(pwd)/bin/run.js
+# (If building locally)
+alias marmos=$(pwd)/build/marmos
 ```
 
 * Create a new folder anywhere you want, and initialise a docfx project in it:
@@ -90,7 +109,7 @@ done
 
 ```bash
 cd /tmp/marmos_test
-marmos-docfx convert models/*.json --outputFolder docfx/myapi
+npx marmos-docfx convert models/*.json --outputFolder docfx/myapi
 ```
 
 * Build the docfx site, and have a look around to make sure it's worked:
@@ -99,8 +118,6 @@ marmos-docfx convert models/*.json --outputFolder docfx/myapi
 cd /tmp/marmos_test/docfx
 docfx --serve # Open http://localhost:8080
 ```
-
-Again, I know it's really jank right now and I could make it easier (especially by uploading the Typescript project to npm), but that's all for the near/immediate future.
 
 # Features
 
