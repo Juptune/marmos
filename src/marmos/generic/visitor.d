@@ -187,37 +187,7 @@ extern(C++) class DocVisitor : SemanticTimePermissiveVisitor
             }
             
             auto func = node.type.toTypeFunction();
-            if(func.isnogc)
-                result.storageClasses ~= DocStorageClass.nogc;
-            if(func.isproperty)
-                result.storageClasses ~= DocStorageClass.property;
-            const trust = fromDmdEnum!DocStorageClass(func.trust);
-            if(trust != DocStorageClass.FAILSAFE)
-                result.storageClasses ~= trust;
-            if(func.isnothrow)
-                result.storageClasses ~= DocStorageClass.nothrow_;
-            if(func.isScopeQual)
-                result.storageClasses ~= DocStorageClass.scope_;
-            if(func.islive)
-                result.storageClasses ~= DocStorageClass.live;
-            if(func.isInOutQual)
-                result.storageClasses ~= DocStorageClass.inout_;
-            if(func.isreturnscope)
-            {
-                result.storageClasses ~= DocStorageClass.return_;
-                result.storageClasses ~= DocStorageClass.ref_;
-                result.storageClasses ~= DocStorageClass.scope_;
-            }
-            else if(func.isreturn)
-            {
-                result.storageClasses ~= DocStorageClass.return_;
-                result.storageClasses ~= DocStorageClass.ref_;
-            }
-            else if(func.isref)
-                result.storageClasses ~= DocStorageClass.ref_;
-            const purity = fromDmdEnum!DocStorageClass(func.purity);
-            if(purity != DocStorageClass.FAILSAFE)
-                result.storageClasses ~= purity;
+            result.storageClasses = extractStorageClasses(func);
             result.linkage = fromDmdEnum!DocLinkage(func.linkage);
         }
 
@@ -370,6 +340,12 @@ extern(C++) class DocTypeVisitor : SemanticTimePermissiveVisitor
         this.result.nameComponents ~= ["typeof(", "return", ")"];
     }
 
+    override void visit(ASTCodegen.TypeReference node)
+    {
+        if(node.next)
+            node.next.accept(this);
+    }
+
     override void visit(ASTCodegen.TypeInstance node)
     {
         bool isFirst = true;
@@ -382,6 +358,61 @@ extern(C++) class DocTypeVisitor : SemanticTimePermissiveVisitor
             this.result.nameComponents ~= arg.toString.idup;
         }
         this.result.nameComponents ~= ")";
+    }
+
+    override void visit(ASTCodegen.TypeFunction node)
+    {
+        this.visitFunction(node, "function(");
+    }
+
+    override void visit(ASTCodegen.TypeDelegate node)
+    {
+        import std.array : Appender;
+
+        if(!node.next)
+            return;
+        auto func = node.next.isTypeFunction();
+        if(!func || !func.next)
+            return;
+
+        this.visitFunction(func, "delegate(");
+    }
+
+    extern(D) private void visitFunction(ASTCodegen.TypeFunction node, string mainNameComponent)
+    {
+        import std.array : Appender;
+
+        if(!node.next)
+            return;
+        
+        node.next.accept(this);
+
+        this.result.nameComponents ~= [" ", mainNameComponent];
+        foreach(i, param; node.parameterList)
+        {
+            if(i != 0)
+                this.result.nameComponents ~= ",";
+
+            const storageClasses = listFromDmdBitFlags!DocStorageClass(cast(STC)param.storageClass);
+            foreach(storageClass; storageClasses)
+            {
+                this.result.nameComponents ~= cast(string)storageClass;
+                this.result.nameComponents ~= " ";
+            }
+
+            param.type.accept(this);
+        }
+        this.result.nameComponents ~= ")";
+
+        const storageClasses = extractStorageClasses(node);
+        if(storageClasses.length > 0)
+        {
+            foreach(storageClass; storageClasses)
+            {
+                this.result.nameComponents ~= " ";
+                this.result.nameComponents ~= cast(string)storageClass;
+            }
+        }
     }
 }
 
@@ -605,4 +636,44 @@ void addMarmosNoteComment(ref DocComment comment, string note)
         comment.sections[$-1].blocks ~= block;
     else
         comment.sections ~= DocCommentSection("(Marmos Notes)", [block]);
+}
+
+DocStorageClass[] extractStorageClasses(ASTCodegen.TypeFunction func)
+{
+    import std.algorithm : countUntil, remove;
+    DocStorageClass[] storageClasses;
+
+    if(func.isnogc)
+        storageClasses ~= DocStorageClass.nogc;
+    if(func.isproperty)
+        storageClasses ~= DocStorageClass.property;
+    const trust = fromDmdEnum!DocStorageClass(func.trust);
+    if(trust != DocStorageClass.FAILSAFE)
+        storageClasses ~= trust;
+    if(func.isnothrow)
+        storageClasses ~= DocStorageClass.nothrow_;
+    if(func.isScopeQual)
+        storageClasses ~= DocStorageClass.scope_;
+    if(func.islive)
+        storageClasses ~= DocStorageClass.live;
+    if(func.isInOutQual)
+        storageClasses ~= DocStorageClass.inout_;
+    if(func.isreturnscope)
+    {
+        storageClasses ~= DocStorageClass.return_;
+        storageClasses ~= DocStorageClass.ref_;
+        storageClasses ~= DocStorageClass.scope_;
+    }
+    else if(func.isreturn)
+    {
+        storageClasses ~= DocStorageClass.return_;
+        storageClasses ~= DocStorageClass.ref_;
+    }
+    else if(func.isref)
+        storageClasses ~= DocStorageClass.ref_;
+    const purity = fromDmdEnum!DocStorageClass(func.purity);
+    if(purity != DocStorageClass.FAILSAFE)
+        storageClasses ~= purity;
+
+    return storageClasses;
 }
