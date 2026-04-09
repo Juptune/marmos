@@ -10,46 +10,8 @@ project(
 #### Sources ####
 
 marmos_lib_srcs = files(
-    './src/marmos/generic/docparser.d',
-    './src/marmos/generic/model.d',
-    './src/marmos/generic/visitor.d',
-    
-    './src/marmos/output/json.d',
-    './src/marmos/output/typescript.d',
-
-    './src/marmos/package.d',
+    './src/marmos/context.d',
 )
-
-marmos_test_dirs = [
-    'blocks/equal-list',
-    'blocks/paragraph',
-    'blocks/ordered-list',
-    'blocks/unordered-list',
-
-    'inlines/bold',
-    'inlines/code',
-    'inlines/italic',
-    'inlines/text',
-
-    'syntax/alias-basic',
-    'syntax/arrays-basic',
-    'syntax/class-basic',
-    'syntax/enum-basic',
-    'syntax/function-auto',
-    'syntax/function-basic',
-    'syntax/function-parameters',
-    'syntax/function-storageclasses',
-    'syntax/interface-basic',
-    'syntax/module-basic',
-    'syntax/pointer-basic',
-    'syntax/struct-basic',
-    'syntax/template-basic',
-    'syntax/template-mixin-basic',
-    'syntax/template-parameters',
-    'syntax/typeof-basic',
-    'syntax/union-basic',
-    'syntax/variable-basic',
-]
 
 #### Dependencies ####
 
@@ -65,17 +27,12 @@ marmos_all_dep = declare_dependency(
 )
 
 marmos_exe_dep = declare_dependency(
-    sources: './src/marmos/main.d',
+    sources: './src/app.d',
     dependencies: [marmos_all_dep],
 )
 
 marmos_unittest_dep = declare_dependency(
     sources: './src/dummy_main.d',
-    dependencies: [marmos_all_dep],
-)
-
-marmos_test_dep = declare_dependency(
-    sources: './src/marmos/test_main.d',
     dependencies: [marmos_all_dep],
 )
 
@@ -93,23 +50,8 @@ marmos_exe = executable(
     install: true,
 )
 
-marmos_test_exe = executable(
-    'marmos-test', 
-    dependencies: [marmos_test_dep],
-    d_module_versions: ['MesonTest'],
-)
-
 #### Install ####
 
 #### Tests ####
 
 test('marmos-unittest', marmos_unittest_exe, suite: 'unittest')
-
-foreach dir : marmos_test_dirs
-    test(
-        'marmos-test-'+dir, 
-        marmos_test_exe, 
-        suite: 'doc-tests', 
-        args: ['--test-dir', meson.current_source_dir()+'/tests/'+dir]
-    )
-endforeach
