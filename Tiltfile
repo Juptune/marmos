@@ -23,3 +23,11 @@ cmd_button(
     argv=['bash', '-c', '$GUI_EDITOR build/meson-logs/testlog.txt'],
     inputs=[text_input('GUI_EDITOR', 'Editor', default='code')]
 )
+
+local_resource(
+    'drift-tests',
+    cmd='meson test -C build --suite drift-tests || cat build/meson-logs/testlog.txt',
+    deps=['meson.build', 'src/', 'subprojects/packagefiles/'],
+    resource_deps=['unittests'],
+    labels=['development']
+)

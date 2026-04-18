@@ -1,3 +1,9 @@
+/*
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ * Author: Bradley Chatha
+ */
 module marmos.context;
 
 final class MarmosContext
@@ -5,6 +11,8 @@ final class MarmosContext
     import std.logger : infof;
 
     import dmd.dmodule : Module;
+
+    import marmos.converter.model : DocModelRoot;
 
     // NOTE: This is a bit mask
     enum Features
@@ -67,7 +75,10 @@ final class MarmosContext
     in(this._dmdHasInit)
     {
         import std.exception : enforce;
+        import std.logger : infof;
         import dmd.frontend : parseModule;
+
+        infof("parsing module at %s", file);
 
         auto mod = parseModule(file).module_;
         enforce(mod.md !is null, "module at '"~file~"' does not have a `module` statement - this is currently required by marmos"); // @suppress(dscanner.style.long_line)
@@ -79,7 +90,10 @@ final class MarmosContext
     void onDoneParsing()
     in(this._dmdHasInit)
     {
+        import std.exception : enforce;
+        import dmd.globals : global;
         import dmd.dsymbolsem : importAll, dsymbolSemantic, runDeferredSemantic;
+        import dmd.semantic2 : semantic2;
 
         if(this.isFeatureEnabled(Features.semanticPass))
         {
@@ -91,8 +105,23 @@ final class MarmosContext
 
                 mod.dsymbolSemantic(null);
                 runDeferredSemantic();
+
+                mod.semantic2(null);
+                runDeferredSemantic();
             }
         }
+
+        enforce(global.errors == 0, "One or more errors were encountered by dmd-fe");
+    }
+
+    DocModelRoot[] convertAllToDocModel()
+    {
+        import std.array     : array;
+        import std.algorithm : map;
+
+        import marmos.converter.convert : convertModuleToDocModel;
+
+        return this._parsedModulesByFqn.byValue.map!(mod => convertModuleToDocModel(mod, this)).array;
     }
 
     /++ Setters ++/
@@ -135,8 +164,16 @@ final class MarmosContext
 
     /++ Getters ++/
 
+    Features getFeatures() => this._features;
     bool isFeatureEnabled(Features feature) => (this._features & feature) == feature;
     string[] getImportPaths() => this._importPaths;
     string[] getStringImportPaths() => this._stringImportPaths;
     bool useDefaultConf() => this._useDefaultConf;
 }
+
+@nogc nothrow:
+
+void test() {}
+
+import std.typecons : RefCounted;
+alias ThisIsATesticle = RefCounted!string;

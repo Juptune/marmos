@@ -1,0 +1,37 @@
+{
+    "@type": "marmos.converter.model.DocModelRoot",
+    "features": [],
+    "module_": {
+        "@type": "marmos.converter.model.DocModule",
+        "comment": {
+            "@type": "marmos.converter.model.DocComment",
+            "sections": []
+        },
+        "fqnComponents": [
+            "tests",
+            "typerefs",
+            "basic",
+            "test"
+        ],
+        "members": [
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": {
+                    "@type": "marmos.converter.model.DocComment",
+                    "sections": []
+                },
+                "line": 3,
+                "linkage": "default",
+                "name": "a",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocBasicType",
+                    "name": "int"
+                },
+                "udas": [],
+                "visibility": "not explicitly defined"
+            }
+        ],
+        "nestedTypes": []
+    }
+}

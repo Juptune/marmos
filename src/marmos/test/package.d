@@ -4,13 +4,8 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  * Author: Bradley Chatha
  */
-module marmos.converter;
+module marmos.test;
 
 public import 
-    marmos.converter.command,
-    marmos.converter.convert,
-    marmos.converter.docparser,
-    marmos.converter.json,
-    marmos.converter.model,
-    marmos.converter.visitors
+    marmos.test.command
 ;

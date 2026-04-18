@@ -10,10 +10,18 @@ project(
 #### Sources ####
 
 marmos_lib_srcs = files(
+    './src/marmos/converter/command.d',
+    './src/marmos/converter/common.d',
     './src/marmos/converter/convert.d',
+    './src/marmos/converter/docparser.d',
+    './src/marmos/converter/json.d',
     './src/marmos/converter/model.d',
     './src/marmos/converter/package.d',
     './src/marmos/converter/visitors.d',
+
+    './src/marmos/test/command.d',
+    './src/marmos/test/package.d',
+    './src/marmos/test/runner.d',
 
     './src/marmos/context.d',
 )
@@ -44,12 +52,6 @@ marmos_unittest_dep = declare_dependency(
 
 #### Executables ####
 
-marmos_unittest_exe = executable(
-    'marmos-unittest', 
-    dependencies: [marmos_unittest_dep],
-    d_unittest: true,
-)
-
 marmos_exe = executable(
     'marmos', 
     dependencies: [marmos_exe_dep],
@@ -60,4 +62,18 @@ marmos_exe = executable(
 
 #### Tests ####
 
-test('marmos-unittest', marmos_unittest_exe, suite: 'unittest')
+test_dirs = [
+    './tests/typerefs/basic',
+]
+
+foreach test_dir : test_dirs
+    # Convert e.g. './tests/typerefs/basic' -> 'marmos-unittest-typerefs-basic'
+    subdir = test_dir.substring(8)
+    subdirs = subdir.split('/')
+    test_name = 'marmos-unittest'
+    foreach dir : subdirs
+        test_name += '-' + dir
+    endforeach
+
+    test(test_name, marmos_exe, suite: 'drift-tests', args: ['test', '../'+test_dir])
+endforeach
