@@ -6,7 +6,7 @@
  */
 module marmos.test.command;
 
-import argparse : Command, PositionalArgument, Description;
+import argparse : Command, PositionalArgument, NamedArgument, Description;
 
 @Command("test")
 struct TestCommand
@@ -16,6 +16,12 @@ struct TestCommand
         .Description("A directory containing a singular test to run.")
     )
     string testDir;
+
+	@(
+		NamedArgument("refresh")
+		.Description("If specified, then the test will forcefully be passed, allowing for any 'main' result files to be updated.") // @suppress(dscanner.style.long_line)
+	)
+	bool refresh = false;
 }
 
 int runTest(TestCommand args)
@@ -25,7 +31,7 @@ int runTest(TestCommand args)
 
     try
 	{
-		loadAndRunTest(args.testDir);
+		loadAndRunTest(args.testDir, args.refresh);
 		return 0;
 	}
 	catch(Exception ex)

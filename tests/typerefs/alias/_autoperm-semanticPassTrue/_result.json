@@ -1,0 +1,63 @@
+{
+    "@type": "marmos.converter.model.DocModelRoot",
+    "features": [
+        "semanticPass"
+    ],
+    "module_": {
+        "@type": "marmos.converter.model.DocModule",
+        "comment": null,
+        "fqnComponents": [
+            "test"
+        ],
+        "members": [
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": null,
+                "line": 3,
+                "linkage": "default",
+                "name": "a",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocBasicType",
+                        "name": "int"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": null,
+                "line": 4,
+                "linkage": "default",
+                "name": "b",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": {
+                        "@type": "marmos.converter.model.DocSymbolReference",
+                        "items": [
+                            {
+                                "@type": "marmos.converter.model.DocSymbolDirectReference",
+                                "symbolName": "a"
+                            }
+                        ],
+                        "moduleFqnComponents": []
+                    },
+                    "raw": {
+                        "@type": "marmos.converter.model.DocBasicType",
+                        "name": "int"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "public"
+            }
+        ],
+        "nestedTypes": []
+    }
+}

@@ -1,8 +1,6 @@
 {
     "@type": "marmos.converter.model.DocModelRoot",
-    "features": [
-        "semanticPass"
-    ],
+    "features": [],
     "module_": {
         "@type": "marmos.converter.model.DocModule",
         "comment": null,
@@ -21,13 +19,22 @@
                     "@type": "marmos.converter.model.DocTypeRef",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocBasicType",
-                        "name": "int"
+                        "@type": "marmos.converter.model.DocFunctionType",
+                        "parameters": [],
+                        "returnType": {
+                            "@type": "marmos.converter.model.DocTypeRef",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "marmos.converter.model.DocBasicType",
+                                "name": "void"
+                            },
+                            "storageClasses": []
+                        }
                     },
                     "storageClasses": []
                 },
                 "udas": [],
-                "visibility": "public"
+                "visibility": "not explicitly defined"
             }
         ],
         "nestedTypes": []

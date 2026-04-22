@@ -82,7 +82,11 @@ void extractCommonInfo(DocModelT, AstNodeT)(scope ref DocModelT doc, scope AstNo
     static if(__traits(compiles, { auto a = AstNodeT.init.visibility; }))
         doc.visibility = fromDmdEnum!DocVisibility(node.visibility.kind);
     static if(__traits(compiles, { auto a = AstNodeT.init.comment; }))
-        doc.comment = parseDocComment(node.comment.fromStringz.idup);
+    {
+        const commentString = node.comment.fromStringz.idup;
+        if(commentString.length > 0)
+            doc.comment = parseDocComment(commentString);
+    }
 }
 
 DocT fromDmdEnum(DocT, EnumT)(EnumT value)

@@ -17,8 +17,8 @@ struct ConvertCommand
 {
 	enum OutputStyle
 	{
-		FAILSAFE,
-		singleFile
+		flat,
+		singleFile,
 	}
 
 	@ArgumentGroup("Features")
@@ -60,10 +60,10 @@ struct ConvertCommand
 		string outputDir;
 
 		@(
-			NamedArgument("oS", "output-style")
-			.Description("Controls how files are output.\n\nsingleFile will treat `-o` as a file path rather than a directory path, and output a single file there. Only usable if a single input file is found.")
+			NamedArgument("s", "output-style")
+			.Description("Controls how files are output.\n\nflat will output each file into a single directory, where each file is named directly after the D module that was converted.\n\nsingleFile will treat `-o` as a file path rather than a directory path, and output a single file there. Only usable if a single input file is found.") // @suppress(dscanner.style.long_line)
 		)
-		OutputStyle outputStyle = OutputStyle.singleFile;
+		OutputStyle outputStyle = OutputStyle.flat;
 	}
 
 	@(
@@ -107,8 +107,24 @@ int runConvert(ConvertCommand args)
 		}
 		else
 		{
+			mkdirRecurse(args.outputDir);
+
 			foreach(model; docModels)
 			{
+				string moduleName;
+				foreach(i, component; model.module_.fqnComponents)
+					moduleName ~= (i == 0) ? component : "."~component;
+				
+				auto jsonModel = model.docToJson;
+				auto jsonString = jsonModel.toJSON(pretty: true);
+				
+				if(args.outputStyle == ConvertCommand.OutputStyle.flat)
+				{
+					const path = buildNormalizedPath(args.outputDir, moduleName~".json");
+					writeText(path, jsonString);
+				}
+				else
+					assert(false, "Not implemented");
 			}
 		}
 

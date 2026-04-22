@@ -233,7 +233,7 @@ final class UnaryDefVisitor : Visitor
         // Underlying function type
         scope typeRefVisitor = new TypeRefVisitor(super.context, super.moduleBeingVisited);
         node.type.accept(typeRefVisitor);
-        typeRefVisitor.getResult().match!(
+        typeRefVisitor.getResult().raw.match!(
             (DocFunctionType ft) { doc.funcType = ft; },
             (_){ assert(false, "Unexpected result type"); }
         );
@@ -269,8 +269,20 @@ final class UnaryDefVisitor : Visitor
 
         // Type
         scope typeRefVisitor = new TypeRefVisitor(super.context, super.moduleBeingVisited);
-        node.type.accept(typeRefVisitor);
+        if(node.aliassym !is null)
+            node.aliassym.accept(typeRefVisitor);
+        else
+            node.type.accept(typeRefVisitor);
         doc.symbolRef = typeRefVisitor.getResult();
+
+        // Original type
+        if(node.originalType !is null && node.originalType !is node.type)
+        {
+            scope originalTypeVisitor = new TypeRefVisitor(super.context, super.moduleBeingVisited);
+            node.originalType.accept(originalTypeVisitor);
+            doc.symbolRef.originalTypeRaw = new DocTypeRefRaw();
+            *doc.symbolRef.originalTypeRaw.get = originalTypeVisitor.getResult().raw;
+        }
 
         this._result = DocUnaryDef(doc);
     }
@@ -287,39 +299,100 @@ final class TypeRefVisitor : Visitor
 
     mixin VisitorCommon;
 
+    bool hasResult() => !this._result.isNull;
+
     DocTypeRef getResult()
     in(!this._result.isNull, "result is null, was visit called?")
     {
         return this._result.get;
     }
 
+    private void setResult(TypeRefRawT, NodeT)(TypeRefRawT typeRef, NodeT node)
+    {
+        DocTypeRef doc;
+        doc.raw = typeRef;
+
+        static if(__traits(hasMember, NodeT, "isConst")) if(node.isConst)
+            doc.storageClasses ~= DocStorageClass.const_;
+        static if(__traits(hasMember, NodeT, "isImmutable")) if(node.isImmutable)
+            doc.storageClasses ~= DocStorageClass.immutable_;
+        static if(__traits(hasMember, NodeT, "isShared")) if(node.isShared)
+            doc.storageClasses ~= DocStorageClass.shared_;
+
+        this._result = doc;
+    }
+
     override extern(C++):
 
     void visit(ASTCodegen.TypeBasic node)
     {
-        this._result = DocTypeRef(DocBasicType(node.toString().idup));
+        import dmd.astenums : TY;
+
+        // There's no easy way it seems to just get the name of the type (e.g. `bool`) without any modifiers attached (e.g. `const(bool)`),
+        // at least without using `toPrettyChars(false)` which allocates memory, which I feel should be very easy to avoid really.
+        //
+        // Soooooooo we're doing this instead.
+        string name;
+        switch(node.ty) with(TY)
+        {
+            case Tvoid: name = "void"; break;
+            case Tint8: name = "byte"; break;
+            case Tuns8: name = "ubyte"; break;
+            case Tint16: name = "short"; break;
+            case Tuns16: name = "ushort"; break;
+            case Tint32: name = "int"; break;
+            case Tuns32: name = "uint"; break;
+            case Tint64: name = "long"; break;
+            case Tuns64: name = "ulong"; break;
+            case Tfloat32: name = "float"; break;
+            case Tfloat64: name = "double"; break;
+            case Tfloat80: name = "real"; break;
+            case Timaginary32: name = "ifloat"; break;
+            case Timaginary64: name = "idouble"; break;
+            case Timaginary80: name = "ireal"; break;
+            case Tcomplex32: name = "cfloat"; break;
+            case Tcomplex64: name = "cdouble"; break;
+            case Tcomplex80: name = "creal"; break;
+            case Tbool: name = "bool"; break;
+            case Tchar: name = "char"; break;
+            case Twchar: name = "wchar"; break;
+            case Tdchar: name = "dchar"; break;
+            case Tnull: name = "null"; break;
+            case Tnoreturn: name = "noreturn"; break;
+
+            // Fallback since they're not specially handled (this generally shouldn't happen)
+            default:
+                import std.string : fromStringz;
+                warningf("Unhandled TypeBasic: %s %s", node.ty, node);
+                name = node.toPrettyChars(false).fromStringz.idup;
+                break;
+        }
+        this.setResult(DocBasicType(name), node);
     }
 
-    void visit(ASTCodegen.TypeStruct node)
-    {
-        this._result = DocTypeRef(DocSymbolReference(fqn(node.sym)));
-    }
+    // void visit(ASTCodegen.TypeStruct node)
+    // {
+    //     const fqnComponents = fqn(node.sym);
+    //     this.setResult(DocSymbolReference(fqnComponents[0..$-1], DocSymbolDirectReference(fqnComponents[$-1])), node);
+    // }
 
-    void visit(ASTCodegen.TypeClass node)
-    {
-        this._result = DocTypeRef(DocSymbolReference(fqn(node.sym)));
-    }
+    // void visit(ASTCodegen.TypeClass node)
+    // {
+    //     const fqnComponents = fqn(node.sym);
+    //     this.setResult(DocSymbolReference(fqnComponents[0..$-1], DocSymbolDirectReference(fqnComponents[$-1])), node);
+    // }
 
-    void visit(ASTCodegen.TypeEnum node)
-    {
-        this._result = DocTypeRef(DocSymbolReference(fqn(node.sym)));
-    }
+    // void visit(ASTCodegen.TypeEnum node)
+    // {
+    //     const fqnComponents = fqn(node.sym);
+    //     this.setResult(DocSymbolReference(fqnComponents[0..$-1], DocSymbolDirectReference(fqnComponents[$-1])), node);
+    // }
 
     void visit(ASTCodegen.TypeDArray node)
     {
         if(node.toString() == "string")
         {
-            this._result = DocTypeRef(DocBasicType("string"));
+            this.setResult(DocBasicType("string"), node);
             return;
         }
 
@@ -330,7 +403,26 @@ final class TypeRefVisitor : Visitor
         doc.underlyingTypeRef = new DocTypeRef();
         *doc.underlyingTypeRef = typeRefVisitor.getResult();
         
-        this._result = DocTypeRef(doc);
+        this.setResult(doc, node);
+    }
+
+    void visit(ASTCodegen.TypeAArray node)
+    {
+        DocAssociativeArrayType doc;
+
+        // Value type
+        scope typeRefVisitor = new TypeRefVisitor(super.context, super.moduleBeingVisited);
+        node.next.accept(typeRefVisitor);
+        doc.valueTypeRef = new DocTypeRef();
+        *doc.valueTypeRef = typeRefVisitor.getResult();
+
+        // Key type
+        scope typeRefVisitor2 = new TypeRefVisitor(super.context, super.moduleBeingVisited);
+        node.index.accept(typeRefVisitor2);
+        doc.keyTypeRef = new DocTypeRef();
+        *doc.keyTypeRef = typeRefVisitor2.getResult();
+
+        this.setResult(doc, node);
     }
 
     void visit(ASTCodegen.TypeFunction node)
@@ -354,7 +446,53 @@ final class TypeRefVisitor : Visitor
             );
         }
 
-        this._result = DocTypeRef(doc);
+        this.setResult(doc, node);
+    }
+
+    void visit(ASTCodegen.TypePointer node)
+    {
+        DocPointerType doc;
+
+        // Special case: If the underlying type is a function or delegate, we remove the pointer wrapper since it makes more sense IMO.
+        if(auto funcNode = node.next.isTypeFunction())
+        {
+            funcNode.accept(this);
+            return;
+        }
+        else if(auto delNode = node.next.isTypeDelegate())
+        {
+            delNode.accept(this);
+            return;
+        }
+
+        // Otherwise just get the underlying type.
+        scope typeRefVisitor = new TypeRefVisitor(super.context, super.moduleBeingVisited);
+        node.next.accept(typeRefVisitor);
+        doc.underlyingTypeRef = new DocTypeRef();
+        *doc.underlyingTypeRef = typeRefVisitor.getResult();
+
+        this.setResult(doc, node);
+    }
+
+    void visit(ASTCodegen.TypeInstance node)
+    {
+        scope symbolRefVisitor = new SymbolReferenceVisitor(super.context, super.moduleBeingVisited);
+        node.accept(symbolRefVisitor);
+        this.setResult(symbolRefVisitor.getResult(), node);
+    }
+
+    void visit(ASTCodegen.VarDeclaration node)
+    {
+        scope symbolRefVisitor = new SymbolReferenceVisitor(super.context, super.moduleBeingVisited);
+        node.accept(symbolRefVisitor);
+        this.setResult(symbolRefVisitor.getResult(), node);
+    }
+
+    void visit(ASTCodegen.TypeIdentifier node)
+    {
+        scope symbolRefVisitor = new SymbolReferenceVisitor(super.context, super.moduleBeingVisited);
+        node.accept(symbolRefVisitor);
+        this.setResult(symbolRefVisitor.getResult(), node);
     }
 }
 
@@ -384,5 +522,165 @@ final class ExpressionVisitor : Visitor
 
         // TODO: implement
         super.visit(node);
+    }
+}
+
+final class TemplateParameterVisitor : Visitor
+{
+    alias visit = Visitor.visit;
+
+    private
+    {
+        Nullable!DocTemplateInstanceParam _result;
+    }
+
+    mixin VisitorCommon;
+
+    DocTemplateInstanceParam getResult()
+    in(!this._result.isNull, "result is null, was visit called?")
+    {
+        return this._result.get;
+    }
+
+    override extern(C++):
+
+    void visit(ASTCodegen.Type node)
+    {
+        scope typeVisitor = new TypeRefVisitor(super.context, super.moduleBeingVisited);
+        node.accept(typeVisitor);
+
+        auto symbolRef = new DocTypeRef();
+        *symbolRef = typeVisitor.getResult();
+        this._result = DocTemplateInstanceParam(symbolRef);
+    }
+}
+
+final class SymbolReferenceVisitor : Visitor
+{
+    alias visit = Visitor.visit;
+
+    private
+    {
+        DocSymbolReference _result;
+        bool _parentsHandled;
+    }
+
+    mixin VisitorCommon;
+
+    DocSymbolReference getResult()
+    {
+        return this._result;
+    }
+
+    // Returns `true` if the caller should immediately return, e.g. because it's the eponymous template symbol we don't want to duplicate.
+    bool handleParent(Dsymbol node)
+    {
+        if(node.parent is null)
+            return false;
+        
+        node.parent.accept(this);
+        if(auto tiNode = node.parent.isTemplateInstance())
+        {
+            if(tiNode.name == node.ident) // `node` is the eponymous template symbol of its parent template instance
+                return true;
+        }
+
+        return false;
+    }
+
+    override extern(C++):
+
+    void visit(ASTCodegen.Package node)
+    {
+        this._result.moduleFqnComponents = fqn(node);
+    }
+
+    void visit(ASTCodegen.VarDeclaration node)
+    {
+        if(this.handleParent(node)) return;
+        this._result.items ~= DocSymbolReferenceItem(DocSymbolDirectReference(node.ident.toString.idup));
+    }
+
+    void visit(ASTCodegen.StructDeclaration node)
+    {
+        if(this.handleParent(node)) return;
+        this._result.items ~= DocSymbolReferenceItem(DocSymbolDirectReference(node.ident.toString.idup));
+    }
+
+    void visit(ASTCodegen.TemplateInstance node)
+    {
+        if(this.handleParent(node)) return;
+
+        DocSymbolInstanceReference doc;
+        doc.symbolName = node.name.toString.idup;
+        
+        foreach(arg; *node.tiargs)
+        {
+            import dmd.ast_node : ASTNode;
+
+            scope paramVisitor = new TemplateParameterVisitor(super.context, super.moduleBeingVisited);
+            (cast(ASTNode)arg).accept(paramVisitor);
+            doc.parameters ~= paramVisitor.getResult();
+        }
+
+        this._result.items ~= DocSymbolReferenceItem(doc);
+    }
+
+    void visit(ASTCodegen.TypeInstance node)
+    {
+        /*
+            When we're using semantic passes, I don't think TypeInstance tends to get used directly very much.
+
+            Given `alias A = S!0.F`.
+
+            When using semantic passes:
+                * The compiler points the alias to a `VarDeclaration` (the `.a` that has `S!0.S` as a parent) that we can work backwards from easily to reconstruct the reference.
+                * The alias' `originalType` is set to below.
+
+            When NOT using semantic passes:
+                * The compiler points the alias to a `TypeInstance` (the `S!0`).
+                * The `.F` part is stored within the `node.idents` field, so we can't really work backwards and instead have to use different logic.
+        */
+
+        if(node.tempinst !is null)
+        {
+            if(this.handleParent(node.tempinst))
+                return;
+        }
+
+        this.visit(cast(ASTCodegen.TypeQualified)node);
+    }
+
+    void visit(ASTCodegen.TypeIdentifier node)
+    {
+        // (See the TypeInstance overload, since it's the exact same case)
+        this.visit(cast(ASTCodegen.TypeQualified)node);
+    }
+
+    void visit(ASTCodegen.TypeQualified node)
+    {
+        import dmd.identifier : Identifier;
+
+        foreach(ident; node.idents)
+        {
+            if(auto identifier = cast(Identifier)ident)
+                this._result.items ~= DocSymbolReferenceItem(DocSymbolDirectReference(identifier.toString.idup));
+            else if(auto typeInstance = cast(ASTCodegen.TypeInstance)ident)
+            {
+                if(typeInstance.tempinst !is null)
+                    typeInstance.accept(this);
+                else
+                {
+                    // For now since it's simpler, let's just use toString
+                    this._result.items ~= DocSymbolReferenceItem(DocSymbolDirectReference(typeInstance.toString.idup));
+                }
+            }
+            else
+                warningf("[visit(TypeQualified)] unhandled identifier: %s", node);
+        }
+
+        // TypeIdentifier ONLY stores the final identifier in its .ident field, NOT inside of .idents (lol)
+        if(auto identifier = node.isTypeIdentifier())
+            this._result.items ~= DocSymbolReferenceItem(DocSymbolDirectReference(identifier.ident.toString.idup));
     }
 }

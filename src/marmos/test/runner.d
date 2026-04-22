@@ -13,21 +13,21 @@ import std.json         : JSONValue, JSONType;
 
 import argparse : CLI;
 
-alias TestType = SumType!(SingleFileTest);
+alias TestType = SumType!(SingleFileDriftTest);
 
 struct Config
 {
     TestType test;
 }
 
-struct SingleFileTest
+struct SingleFileDriftTest
 {
     string file;
     string[] marmosConvertArgs;
     bool allowAutomaticPermutations;
 }
 
-void loadAndRunTest(string testDir)
+void loadAndRunTest(string testDir, bool refresh)
 {
     import std.file : readText;
     import std.path : buildNormalizedPath;
@@ -42,23 +42,22 @@ void loadAndRunTest(string testDir)
     auto config = jsonToDoc!Config(configJson);
 
     config.test.match!(
-        (SingleFileTest sft)
+        (SingleFileDriftTest sft)
         { 
-
             if(sft.allowAutomaticPermutations)
             {
-                singleFileTest(testDir, config, sft, "_autoperm-semanticPassTrue", ["--feature-semanticPass=true"]);
-                singleFileTest(testDir, config, sft, "_autoperm-semanticPassFalse", ["--feature-semanticPass=false"]);
+                singleFileTest(testDir, config, sft, "_autoperm-semanticPassTrue", ["--feature-semanticPass=true"], refresh); // @suppress(dscanner.style.long_line)
+                singleFileTest(testDir, config, sft, "_autoperm-semanticPassFalse", ["--feature-semanticPass=false"], refresh); // @suppress(dscanner.style.long_line)
             }
             else
             {
-                singleFileTest(testDir, config, sft, "as-is", []);
+                singleFileTest(testDir, config, sft, "as-is", [], refresh);
             }
         }
     );
 }
 
-private void singleFileTest(string testDir, Config config, SingleFileTest test, string resultSubdir, string[] extraArgs)
+private void singleFileTest(string testDir, Config config, SingleFileDriftTest test, string resultSubdir, string[] extraArgs, bool refresh) // @suppress(dscanner.style.long_line)
 {
     import std.file : readText, exists, copy, mkdirRecurse;
     import std.path : buildNormalizedPath;
@@ -101,7 +100,8 @@ private void singleFileTest(string testDir, Config config, SingleFileTest test, 
     const mainResultJson = readText(mainResultFile).parseJSON;
 
     // I feel doing a JSON compare rather than converting into the doc model first an just using opEquals, is more correct.
-    enforceJsonValuesSame(tempResultJson, mainResultJson);
+    if(!refresh)
+        enforceJsonValuesSame(tempResultJson, mainResultJson);
     copy(tempResultFile, mainResultFile);
 }
 
@@ -177,7 +177,16 @@ private void compareObjects(
     }
 
     foreach(key; tempObj.byKey)
+    {
+        if(!(key in mainObj))
+        {
+            errorf("[%s] key missing, main is missing the following key that temp has: %s", jsonPath, key);
+            passed = false;
+            continue;
+        }
+
         compare(tempObj[key], mainObj[key], jsonPath~"."~key, passed);
+    }
 }
 
 private void compareArrays(

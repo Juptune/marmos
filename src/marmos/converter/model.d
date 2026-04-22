@@ -165,7 +165,7 @@ enum DocStorageClass : string
     @(STC.live)                 live                = "@live",
 }
 
-enum DocFeatures
+enum DocFeatures : string
 {
     FAILSAFE = "This should never be seen",
 
@@ -192,24 +192,30 @@ alias DocUda = SumType!(
     DocSymbolUda,
 );
 
-alias DocTypeRef = SumType!(
+alias DocTypeRefRaw = SumType!(
     DocSymbolReference,
     DocArrayType,
     DocAssociativeArrayType,
-    DocTemplateInstance,
     DocFunctionType,
     DocBasicType,
+    DocPointerType,
 );
 
 alias DocTemplateInstanceParam = SumType!(
     DocExpression,
-    DocSymbolReference,
+    DocSymbolReference*,
+    DocTypeRef*,
+);
+
+alias DocSymbolReferenceItem = SumType!(
+    DocSymbolDirectReference,
+    DocSymbolInstanceReference,
 );
 
 private mixin template DocCommon()
 {
     string              name;
-    DocComment          comment;
+    Nullable!DocComment comment;
     DocLinkage          linkage;
     ulong               line;
     DocVisibility       visibility;
@@ -232,7 +238,7 @@ struct DocModelRoot
 struct DocModule
 {
     string[] fqnComponents;
-    DocComment comment;
+    Nullable!DocComment comment;
     mixin DocAggregateCommon;
 }
 
@@ -310,6 +316,22 @@ struct DocFunction
 
 /++ Types ++/
 
+struct DocTypeRef
+{
+    DocTypeRefRaw raw;
+    DocStorageClass[] storageClasses;
+
+    // Some declarations (_mainly_ useful for aliases) will preserve what their original type used to be, since otherwise semantics will set their main
+    // type to the aliased thing instead, which isn't super desirable for documentation.
+    Nullable!(DocTypeRefRaw*) originalTypeRaw; // I don't really know why, but this also has to be a pointer otherwise some very strange error generates
+
+    this(TypeRefT)(TypeRefT typeRef, DocStorageClass[] storageClasses = [])
+    {
+        this.raw = typeRef;
+        this.storageClasses = storageClasses;
+    }
+}
+
 struct DocFunctionType
 {
     DocRuntimeParameter[] parameters;
@@ -323,12 +345,8 @@ struct DocArrayType
 
 struct DocAssociativeArrayType
 {
-    DocTypeRef* underlyingTypeRef;  // Needs to be a pointer due to circular type references - this will be GC allocated
-}
-
-struct DocSymbolReference
-{
-    string[] fqnComponents;
+    DocTypeRef* valueTypeRef;  // Needs to be a pointer due to circular type references - this will be GC allocated
+    DocTypeRef* keyTypeRef;  // Needs to be a pointer due to circular type references - this will be GC allocated
 }
 
 struct DocBasicType
@@ -336,9 +354,27 @@ struct DocBasicType
     string name;
 }
 
-struct DocTemplateInstance
+struct DocPointerType
 {
-    DocSymbolReference templateRef;
+    DocTypeRef* underlyingTypeRef;
+}
+
+/++ Symbol Reference ++/
+
+struct DocSymbolReference
+{
+    string[] moduleFqnComponents;
+    DocSymbolReferenceItem[] items;
+}
+
+struct DocSymbolDirectReference
+{
+    string symbolName;
+}
+
+struct DocSymbolInstanceReference
+{
+    string symbolName;
     DocTemplateInstanceParam[] parameters;
 }
 

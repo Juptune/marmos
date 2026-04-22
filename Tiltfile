@@ -12,7 +12,7 @@ local('''
 
 local_resource(
     'unittests',
-    cmd='meson test -C build --suite unittest && meson compile -C build || cat build/meson-logs/testlog.txt',
+    cmd='meson test -C build --suite unittest && meson compile -C build',
     deps=['meson.build', 'src/', 'subprojects/packagefiles/'],
     labels=['development']
 )

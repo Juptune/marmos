@@ -63,7 +63,12 @@ marmos_exe = executable(
 #### Tests ####
 
 test_dirs = [
+    './tests/typerefs/alias',
+    './tests/typerefs/array',
+    './tests/typerefs/associativeArray',
     './tests/typerefs/basic',
+    './tests/typerefs/function',
+    './tests/typerefs/pointer',
 ]
 
 foreach test_dir : test_dirs
@@ -75,5 +80,9 @@ foreach test_dir : test_dirs
         test_name += '-' + dir
     endforeach
 
-    test(test_name, marmos_exe, suite: 'drift-tests', args: ['test', '../'+test_dir])
+    test(test_name, marmos_exe, suite: 'drift-tests', args: 
+    [
+        'test', '../'+test_dir, 
+        # '--refresh'
+    ])
 endforeach
