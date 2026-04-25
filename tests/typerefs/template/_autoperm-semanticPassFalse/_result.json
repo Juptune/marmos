@@ -1,0 +1,193 @@
+{
+    "@type": "marmos.converter.model.DocModelRoot",
+    "features": [],
+    "module_": {
+        "@type": "marmos.converter.model.DocModule",
+        "comment": null,
+        "fqnComponents": [
+            "test"
+        ],
+        "members": [
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": null,
+                "line": 3,
+                "linkage": "default",
+                "name": "a",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocSymbolReference",
+                        "items": [
+                            {
+                                "@type": "marmos.converter.model.DocSymbolDirectReference",
+                                "symbolName": "T"
+                            }
+                        ],
+                        "moduleFqnComponents": []
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": null,
+                "line": 4,
+                "linkage": "default",
+                "name": "b",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocSymbolReference",
+                        "items": [],
+                        "moduleFqnComponents": []
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": null,
+                "line": 5,
+                "linkage": "default",
+                "name": "c",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocSymbolReference",
+                        "items": [],
+                        "moduleFqnComponents": []
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": null,
+                "line": 6,
+                "linkage": "default",
+                "name": "e",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocSymbolReference",
+                        "items": [
+                            {
+                                "@type": "marmos.converter.model.DocSymbolDirectReference",
+                                "symbolName": "field"
+                            }
+                        ],
+                        "moduleFqnComponents": []
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "not explicitly defined"
+            }
+        ],
+        "nestedTypes": [
+            {
+                "@type": "marmos.converter.model.DocTemplate",
+                "comment": null,
+                "isMixin": false,
+                "line": 8,
+                "linkage": "default",
+                "members": [],
+                "name": "T",
+                "nestedTypes": [],
+                "originalParameters": [],
+                "parameters": [],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "marmos.converter.model.DocTemplate",
+                "comment": null,
+                "isMixin": false,
+                "line": 10,
+                "linkage": "default",
+                "members": [],
+                "name": "Eponymous",
+                "nestedTypes": [],
+                "originalParameters": [],
+                "parameters": [],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "marmos.converter.model.DocTemplate",
+                "comment": null,
+                "isMixin": false,
+                "line": 15,
+                "linkage": "default",
+                "members": [],
+                "name": "EponymousWithParam",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "marmos.converter.model.DocTemplateTypeParam",
+                        "defaultType": null,
+                        "name": "A",
+                        "specType": null
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "marmos.converter.model.DocTemplateTypeParam",
+                        "defaultType": null,
+                        "name": "A",
+                        "specType": null
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "marmos.converter.model.DocTemplate",
+                "comment": null,
+                "isMixin": false,
+                "line": 20,
+                "linkage": "default",
+                "members": [],
+                "name": "WithParam",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "marmos.converter.model.DocTemplateTypeParam",
+                        "defaultType": null,
+                        "name": "A",
+                        "specType": null
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "marmos.converter.model.DocTemplateTypeParam",
+                        "defaultType": null,
+                        "name": "A",
+                        "specType": null
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            }
+        ]
+    }
+}

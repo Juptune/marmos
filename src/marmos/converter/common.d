@@ -9,7 +9,8 @@ module marmos.converter.common;
 import dmd.common.outbuffer : OutBuffer;
 import dmd.dsymbol : Dsymbol;
 
-import marmos.context : MarmosContext;
+import marmos.context         : MarmosContext;
+import marmos.converter.model : DocTypeRefRaw;
 
 package:
 
@@ -135,4 +136,26 @@ DocT[] listFromDmdBitFlags(DocT, EnumT)(EnumT flags)
     }}
 
     return result;
+}
+
+bool probablySameSymbolRef(DocTypeRefRaw actual, DocTypeRefRaw original)
+{
+    import std.sumtype              : match;
+    import marmos.converter.model   : DocSymbolReference;
+
+    return actual.match!(
+        (DocSymbolReference symActual) => original.match!(
+            (DocSymbolReference symOriginal) {
+                if(symOriginal.moduleFqnComponents.length == 0 && symOriginal.items.length == 0 && symActual.items.length > 0) // @suppress(dscanner.style.long_line)
+                    return true; // Special case: `original` is basically a null reference, so pretend they're the same symbol in order to make it be omitted.
+
+                return 
+                    symActual.moduleFqnComponents.length > 0
+                    && symOriginal.moduleFqnComponents.length == 0
+                    && symActual.items == symOriginal.items;
+            },
+            (_) => false
+        ),
+        (_) => false
+    );
 }

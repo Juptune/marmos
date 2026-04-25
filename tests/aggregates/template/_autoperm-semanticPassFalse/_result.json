@@ -1,0 +1,466 @@
+{
+    "@type": "marmos.converter.model.DocModelRoot",
+    "features": [],
+    "module_": {
+        "@type": "marmos.converter.model.DocModule",
+        "comment": null,
+        "fqnComponents": [
+            "test"
+        ],
+        "members": [],
+        "nestedTypes": [
+            {
+                "@type": "marmos.converter.model.DocTemplate",
+                "comment": null,
+                "isMixin": true,
+                "line": 3,
+                "linkage": "default",
+                "members": [],
+                "name": "Mixin",
+                "nestedTypes": [],
+                "originalParameters": [],
+                "parameters": [],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "marmos.converter.model.DocTemplate",
+                "comment": null,
+                "isMixin": false,
+                "line": 5,
+                "linkage": "default",
+                "members": [],
+                "name": "Empty",
+                "nestedTypes": [],
+                "originalParameters": [],
+                "parameters": [],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "marmos.converter.model.DocTemplate",
+                "comment": null,
+                "isMixin": false,
+                "line": 7,
+                "linkage": "default",
+                "members": [],
+                "name": "Type",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "marmos.converter.model.DocTemplateTypeParam",
+                        "defaultType": null,
+                        "name": "T",
+                        "specType": null
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "marmos.converter.model.DocTemplateTypeParam",
+                        "defaultType": null,
+                        "name": "T",
+                        "specType": null
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "marmos.converter.model.DocTemplate",
+                "comment": null,
+                "isMixin": false,
+                "line": 8,
+                "linkage": "default",
+                "members": [],
+                "name": "TypeSpec",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "marmos.converter.model.DocTemplateTypeParam",
+                        "defaultType": null,
+                        "name": "T",
+                        "specType": {
+                            "@type": "marmos.converter.model.DocTypeRef",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "marmos.converter.model.DocBasicType",
+                                "name": "int"
+                            },
+                            "storageClasses": []
+                        }
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "marmos.converter.model.DocTemplateTypeParam",
+                        "defaultType": null,
+                        "name": "T",
+                        "specType": {
+                            "@type": "marmos.converter.model.DocTypeRef",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "marmos.converter.model.DocBasicType",
+                                "name": "int"
+                            },
+                            "storageClasses": []
+                        }
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "marmos.converter.model.DocTemplate",
+                "comment": null,
+                "isMixin": false,
+                "line": 9,
+                "linkage": "default",
+                "members": [],
+                "name": "TypeValue",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "marmos.converter.model.DocTemplateTypeParam",
+                        "defaultType": {
+                            "@type": "marmos.converter.model.DocTypeRef",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "marmos.converter.model.DocBasicType",
+                                "name": "int"
+                            },
+                            "storageClasses": []
+                        },
+                        "name": "T",
+                        "specType": null
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "marmos.converter.model.DocTemplateTypeParam",
+                        "defaultType": {
+                            "@type": "marmos.converter.model.DocTypeRef",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "marmos.converter.model.DocBasicType",
+                                "name": "int"
+                            },
+                            "storageClasses": []
+                        },
+                        "name": "T",
+                        "specType": null
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "marmos.converter.model.DocTemplate",
+                "comment": null,
+                "isMixin": false,
+                "line": 11,
+                "linkage": "default",
+                "members": [],
+                "name": "Alias",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "marmos.converter.model.DocTemplateAliasParam",
+                        "defaultAlias": null,
+                        "name": "A",
+                        "specAlias": null,
+                        "specType": null
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "marmos.converter.model.DocTemplateAliasParam",
+                        "defaultAlias": null,
+                        "name": "A",
+                        "specAlias": null,
+                        "specType": null
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "marmos.converter.model.DocTemplate",
+                "comment": null,
+                "isMixin": false,
+                "line": 12,
+                "linkage": "default",
+                "members": [],
+                "name": "AliasSpec",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "marmos.converter.model.DocTemplateAliasParam",
+                        "defaultAlias": null,
+                        "name": "A",
+                        "specAlias": {
+                            "@type": "marmos.converter.model.DocTypeRef",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "marmos.converter.model.DocBasicType",
+                                "name": "int"
+                            },
+                            "storageClasses": []
+                        },
+                        "specType": null
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "marmos.converter.model.DocTemplateAliasParam",
+                        "defaultAlias": null,
+                        "name": "A",
+                        "specAlias": {
+                            "@type": "marmos.converter.model.DocTypeRef",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "marmos.converter.model.DocBasicType",
+                                "name": "int"
+                            },
+                            "storageClasses": []
+                        },
+                        "specType": null
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "marmos.converter.model.DocTemplate",
+                "comment": null,
+                "isMixin": false,
+                "line": 13,
+                "linkage": "default",
+                "members": [],
+                "name": "AliasValue",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "marmos.converter.model.DocTemplateAliasParam",
+                        "defaultAlias": {
+                            "@type": "marmos.converter.model.DocTypeRef",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "marmos.converter.model.DocBasicType",
+                                "name": "int"
+                            },
+                            "storageClasses": []
+                        },
+                        "name": "A",
+                        "specAlias": null,
+                        "specType": null
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "marmos.converter.model.DocTemplateAliasParam",
+                        "defaultAlias": {
+                            "@type": "marmos.converter.model.DocTypeRef",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "marmos.converter.model.DocBasicType",
+                                "name": "int"
+                            },
+                            "storageClasses": []
+                        },
+                        "name": "A",
+                        "specAlias": null,
+                        "specType": null
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "marmos.converter.model.DocTemplate",
+                "comment": null,
+                "isMixin": false,
+                "line": 15,
+                "linkage": "default",
+                "members": [],
+                "name": "Value",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "marmos.converter.model.DocTemplateValueParam",
+                        "defaultValue": null,
+                        "name": "I",
+                        "specValue": null,
+                        "valueType": {
+                            "@type": "marmos.converter.model.DocTypeRef",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "marmos.converter.model.DocBasicType",
+                                "name": "int"
+                            },
+                            "storageClasses": []
+                        }
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "marmos.converter.model.DocTemplateValueParam",
+                        "defaultValue": null,
+                        "name": "I",
+                        "specValue": null,
+                        "valueType": {
+                            "@type": "marmos.converter.model.DocTypeRef",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "marmos.converter.model.DocBasicType",
+                                "name": "int"
+                            },
+                            "storageClasses": []
+                        }
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "marmos.converter.model.DocTemplate",
+                "comment": null,
+                "isMixin": false,
+                "line": 16,
+                "linkage": "default",
+                "members": [],
+                "name": "ValueSpec",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "marmos.converter.model.DocTemplateValueParam",
+                        "defaultValue": null,
+                        "name": "I",
+                        "specValue": {
+                            "@type": "marmos.converter.model.DocFallbackExpression",
+                            "renderedCode": "0"
+                        },
+                        "valueType": {
+                            "@type": "marmos.converter.model.DocTypeRef",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "marmos.converter.model.DocBasicType",
+                                "name": "int"
+                            },
+                            "storageClasses": []
+                        }
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "marmos.converter.model.DocTemplateValueParam",
+                        "defaultValue": null,
+                        "name": "I",
+                        "specValue": {
+                            "@type": "marmos.converter.model.DocFallbackExpression",
+                            "renderedCode": "0"
+                        },
+                        "valueType": {
+                            "@type": "marmos.converter.model.DocTypeRef",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "marmos.converter.model.DocBasicType",
+                                "name": "int"
+                            },
+                            "storageClasses": []
+                        }
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "marmos.converter.model.DocTemplate",
+                "comment": null,
+                "isMixin": false,
+                "line": 17,
+                "linkage": "default",
+                "members": [],
+                "name": "ValueValue",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "marmos.converter.model.DocTemplateValueParam",
+                        "defaultValue": {
+                            "@type": "marmos.converter.model.DocFallbackExpression",
+                            "renderedCode": "0"
+                        },
+                        "name": "I",
+                        "specValue": null,
+                        "valueType": {
+                            "@type": "marmos.converter.model.DocTypeRef",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "marmos.converter.model.DocBasicType",
+                                "name": "int"
+                            },
+                            "storageClasses": []
+                        }
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "marmos.converter.model.DocTemplateValueParam",
+                        "defaultValue": {
+                            "@type": "marmos.converter.model.DocFallbackExpression",
+                            "renderedCode": "0"
+                        },
+                        "name": "I",
+                        "specValue": null,
+                        "valueType": {
+                            "@type": "marmos.converter.model.DocTypeRef",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "marmos.converter.model.DocBasicType",
+                                "name": "int"
+                            },
+                            "storageClasses": []
+                        }
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "marmos.converter.model.DocTemplate",
+                "comment": null,
+                "isMixin": false,
+                "line": 19,
+                "linkage": "default",
+                "members": [],
+                "name": "Tuple",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "marmos.converter.model.DocTemplateTupleParam",
+                        "name": "T"
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "marmos.converter.model.DocTemplateTupleParam",
+                        "name": "T"
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            }
+        ]
+    }
+}

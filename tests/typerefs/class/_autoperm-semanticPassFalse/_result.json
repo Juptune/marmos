@@ -1,0 +1,54 @@
+{
+    "@type": "marmos.converter.model.DocModelRoot",
+    "features": [],
+    "module_": {
+        "@type": "marmos.converter.model.DocModule",
+        "comment": null,
+        "fqnComponents": [
+            "test"
+        ],
+        "members": [
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": null,
+                "line": 3,
+                "linkage": "default",
+                "name": "a",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocSymbolReference",
+                        "items": [
+                            {
+                                "@type": "marmos.converter.model.DocSymbolDirectReference",
+                                "symbolName": "C"
+                            }
+                        ],
+                        "moduleFqnComponents": []
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "not explicitly defined"
+            }
+        ],
+        "nestedTypes": [
+            {
+                "@type": "marmos.converter.model.DocClass",
+                "baseClass": null,
+                "comment": null,
+                "interfaces": [],
+                "line": 5,
+                "linkage": "default",
+                "members": [],
+                "name": "C",
+                "nestedTypes": [],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            }
+        ]
+    }
+}

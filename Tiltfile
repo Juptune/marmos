@@ -31,3 +31,11 @@ local_resource(
     resource_deps=['unittests'],
     labels=['development']
 )
+
+local_resource(
+    'dogfood-test',
+    cmd='meson test -C build --suite dogfood || cat build/meson-logs/testlog.txt',
+    deps=['meson.build', 'src/', 'subprojects/packagefiles/'],
+    resource_deps=['unittests'],
+    labels=['development']
+)

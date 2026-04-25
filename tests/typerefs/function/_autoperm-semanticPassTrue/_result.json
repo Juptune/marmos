@@ -21,6 +21,7 @@
                     "@type": "marmos.converter.model.DocTypeRef",
                     "originalTypeRaw": {
                         "@type": "marmos.converter.model.DocFunctionType",
+                        "isDelegate": false,
                         "parameters": [],
                         "returnType": {
                             "@type": "marmos.converter.model.DocTypeRef",
@@ -34,6 +35,7 @@
                     },
                     "raw": {
                         "@type": "marmos.converter.model.DocFunctionType",
+                        "isDelegate": false,
                         "parameters": [],
                         "returnType": {
                             "@type": "marmos.converter.model.DocTypeRef",

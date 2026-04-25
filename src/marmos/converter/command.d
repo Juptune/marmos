@@ -64,6 +64,12 @@ struct ConvertCommand
 			.Description("Controls how files are output.\n\nflat will output each file into a single directory, where each file is named directly after the D module that was converted.\n\nsingleFile will treat `-o` as a file path rather than a directory path, and output a single file there. Only usable if a single input file is found.") // @suppress(dscanner.style.long_line)
 		)
 		OutputStyle outputStyle = OutputStyle.flat;
+
+		@(
+			NamedArgument("p", "pretty")
+			.Description("If specified, the resulting JSON files are pretty printed rather than being space-optimised.")
+		)
+		bool pretty = false;
 	}
 
 	@(
@@ -103,7 +109,7 @@ int runConvert(ConvertCommand args)
 			mkdirRecurse(args.outputDir.dirName);
 
 			auto jsonModel = docModels[0].docToJson;
-			writeText(args.outputDir, jsonModel.toJSON(pretty: true)); // outputDir is a file path in this case, not a dir path
+			writeText(args.outputDir, jsonModel.toJSON(pretty: args.pretty)); // outputDir is a file path in this case, not a dir path
 		}
 		else
 		{
@@ -116,7 +122,7 @@ int runConvert(ConvertCommand args)
 					moduleName ~= (i == 0) ? component : "."~component;
 				
 				auto jsonModel = model.docToJson;
-				auto jsonString = jsonModel.toJSON(pretty: true);
+				auto jsonString = jsonModel.toJSON(pretty: args.pretty);
 				
 				if(args.outputStyle == ConvertCommand.OutputStyle.flat)
 				{

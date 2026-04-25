@@ -136,7 +136,7 @@ enum DocStorageClass : string
     @(STC.extern_)              extern_             = "extern",
     @(STC.const_)               const_              = "const",
     @(STC.final_)               final_              = "final",
-    @(STC.abstract_)            abstract_           = "abastract",
+    @(STC.abstract_)            abstract_           = "abstract",
     @(STC.override_)            override_           = "override",
     @(STC.auto_)                auto_               = "auto",
     @(STC.synchronized_)        synchronized_       = "synchronized",
@@ -178,10 +178,13 @@ alias DocAggregateDef = SumType!(
     DocStruct,
     DocClass,
     DocUnion,
+    DocEnum,
+    DocTemplate,
 );
 
 alias DocUnaryDef = SumType!(
     DocVariable,
+    DocManifestConstant,
     DocFunction,
     DocRuntimeParameter,
     DocAlias,
@@ -201,6 +204,13 @@ alias DocTypeRefRaw = SumType!(
     DocPointerType,
 );
 
+alias DocTemplateParam = SumType!(
+    DocTemplateValueParam,
+    DocTemplateTypeParam,
+    DocTemplateAliasParam,
+    DocTemplateTupleParam,
+);
+
 alias DocTemplateInstanceParam = SumType!(
     DocExpression,
     DocSymbolReference*,
@@ -210,6 +220,11 @@ alias DocTemplateInstanceParam = SumType!(
 alias DocSymbolReferenceItem = SumType!(
     DocSymbolDirectReference,
     DocSymbolInstanceReference,
+    DocSymbolUnhandled,
+);
+
+alias DocExpression = SumType!(
+    DocFallbackExpression,
 );
 
 private mixin template DocCommon()
@@ -270,13 +285,23 @@ struct DocEnum
     mixin DocCommon;
     mixin DocAggregateCommon;
 
-    Nullable!DocSymbolReference baseTypeRef;
+    Nullable!DocTypeRef baseTypeRef;
 }
 
 struct DocUnion
 {
     mixin DocCommon;
     mixin DocAggregateCommon;
+}
+
+struct DocTemplate
+{
+    mixin DocCommon;
+    mixin DocAggregateCommon;
+
+    DocTemplateParam[] parameters;
+    DocTemplateParam[] originalParameters;
+    bool isMixin;
 }
 
 /++ Unary ++/
@@ -292,8 +317,17 @@ struct DocVariable
 {
     mixin DocCommon;
 
-    DocTypeRef typeRef;
+    Nullable!DocTypeRef typeRef; // Might be null when semantics aren't ran, e.g. `auto a = SomeValue()`
     Nullable!DocExpression defaultValueExpression;
+}
+
+struct DocManifestConstant
+{
+    mixin DocCommon;
+
+    Nullable!DocTypeRef typeRef;// Might be null when semantics aren't ran, e.g. `alias a = SomeValue()` vs `alias short a = 2`
+    Nullable!DocExpression valueExpression;
+    Nullable!DocExpression originalValueExpression;
 }
 
 struct DocRuntimeParameter
@@ -336,6 +370,7 @@ struct DocFunctionType
 {
     DocRuntimeParameter[] parameters;
     DocTypeRef* returnType; // Needs to be a pointer due to circular type references - this will be GC allocated
+    bool isDelegate;
 }
 
 struct DocArrayType
@@ -378,19 +413,53 @@ struct DocSymbolInstanceReference
     DocTemplateInstanceParam[] parameters;
 }
 
-/++ Other ++/
+struct DocSymbolUnhandled {}
+
+/++ Expressions ++/
+
+struct DocFallbackExpression
+{
+    string renderedCode;
+}
+
+/++ UDAs ++/
 
 struct DocSymbolUda
 {
     DocSymbolReference reference;
 }
 
-struct DocExpression
-{
-    string renderedCode;
-}
-
 struct DocValueUda
 {
     DocExpression expression;
+}
+
+/++ Other ++/
+
+struct DocTemplateTupleParam
+{
+    string name;
+}
+
+struct DocTemplateTypeParam
+{
+    string name;
+    Nullable!DocTypeRef specType;
+    Nullable!DocTypeRef defaultType;
+}
+
+struct DocTemplateValueParam
+{
+    string name;
+    Nullable!DocTypeRef valueType;
+    Nullable!DocExpression specValue;
+    Nullable!DocExpression defaultValue;
+}
+
+struct DocTemplateAliasParam
+{
+    string name;
+    Nullable!DocTypeRef specType;
+    Nullable!DocTypeRef specAlias;
+    Nullable!DocTypeRef defaultAlias;
 }

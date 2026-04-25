@@ -1,6 +1,8 @@
 {
     "@type": "marmos.converter.model.DocModelRoot",
-    "features": [],
+    "features": [
+        "semanticPass"
+    ],
     "module_": {
         "@type": "marmos.converter.model.DocModule",
         "comment": null,
@@ -11,7 +13,7 @@
             {
                 "@type": "marmos.converter.model.DocAlias",
                 "comment": null,
-                "line": 3,
+                "line": 4,
                 "linkage": "default",
                 "name": "a",
                 "storageClasses": [],
@@ -19,23 +21,13 @@
                     "@type": "marmos.converter.model.DocTypeRef",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocFunctionType",
-                        "isDelegate": false,
-                        "parameters": [],
-                        "returnType": {
-                            "@type": "marmos.converter.model.DocTypeRef",
-                            "originalTypeRaw": null,
-                            "raw": {
-                                "@type": "marmos.converter.model.DocBasicType",
-                                "name": "void"
-                            },
-                            "storageClasses": []
-                        }
+                        "@type": "marmos.converter.model.DocBasicType",
+                        "name": "int"
                     },
                     "storageClasses": []
                 },
                 "udas": [],
-                "visibility": "not explicitly defined"
+                "visibility": "public"
             }
         ],
         "nestedTypes": []

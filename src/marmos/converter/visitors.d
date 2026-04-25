@@ -30,14 +30,19 @@ private abstract class Visitor : SemanticTimePermissiveVisitor
 
     protected
     {
+        // Set if the parent visitor is for an enum, which has the following effects:
+        //  * For UnaryDefVisitor - this'll stop direct EnumMembers from having a type ref attached to them, which _greatly_ reduces the file size each member takes up.
+        bool parentIsEnum;
+
         MarmosContext context;
         Module moduleBeingVisited;
 
-        this(string typeName, MarmosContext context, Module mod)
+        this(string typeName, MarmosContext context, Module mod, bool parentIsEnum)
         {
             this._typeName = typeName;
             this.context = context;
             this.moduleBeingVisited = mod;
+            this.parentIsEnum = parentIsEnum;
         }
 
         bool belongsToThisModule(Dsymbol symbol)
@@ -80,9 +85,9 @@ private abstract class Visitor : SemanticTimePermissiveVisitor
 
 private mixin template VisitorCommon()
 {
-    this(MarmosContext context, Module mod)
+    this(MarmosContext context, Module mod, bool parentIsEnum = false)
     {
-        super(typeof(this).stringof, context, mod);
+        super(typeof(this).stringof, context, mod, parentIsEnum);
     }
 }
 
@@ -97,14 +102,14 @@ final class DefinitionVisitor : Visitor
 
     private void visitAggregate(NodeT)(NodeT node)
     {
-        scope visitor = new AggregateDefVisitor(super.context, super.moduleBeingVisited);
+        scope visitor = new AggregateDefVisitor(super.context, super.moduleBeingVisited, super.parentIsEnum);
         node.accept(visitor);
         this.aggregateDefinitions ~= visitor.getResult();
     }
 
     private void visitUnary(NodeT)(NodeT node)
     {
-        scope visitor = new UnaryDefVisitor(super.context, super.moduleBeingVisited);
+        scope visitor = new UnaryDefVisitor(super.context, super.moduleBeingVisited, super.parentIsEnum);
         node.accept(visitor);
         this.unaryDefinitions ~= visitor.getResult();
     }
@@ -112,8 +117,14 @@ final class DefinitionVisitor : Visitor
     override extern(C++):
     
     void visit(ASTCodegen.ClassDeclaration node) => visitAggregate(node);
+    void visit(ASTCodegen.StructDeclaration node) => visitAggregate(node);
+    void visit(ASTCodegen.EnumDeclaration node) => visitAggregate(node);
+    void visit(ASTCodegen.TemplateDeclaration node) => visitAggregate(node);
+
     void visit(ASTCodegen.FuncDeclaration node) => visitUnary(node);
     void visit(ASTCodegen.AliasDeclaration node) => visitUnary(node);
+    void visit(ASTCodegen.VarDeclaration node) => visitUnary(node);
+    void visit(ASTCodegen.EnumMember node) => visitUnary(node);
 
     /++ AttribDeclaration ++/
 
@@ -132,7 +143,9 @@ final class DefinitionVisitor : Visitor
 
     /++ Other things intentionally ignored ++/
 
-    void visit(ASTCodegen.Import){}
+    void visit(ASTCodegen.Import){} // No point converting these into the model?
+    void visit(ASTCodegen.TemplateInstance){} // This never(?) occurs naturally as standalone declarations, and is only a side effect of other declarations instantiating a template.
+    void visit(ASTCodegen.TypeInfoDeclaration){} // This never(?) occurs naturally, it seems to be compiler generated only?
 }
 
 final class AggregateDefVisitor : Visitor
@@ -163,17 +176,9 @@ final class AggregateDefVisitor : Visitor
         extractCommonInfo(doc, node);
 
         // Interfaces & base class
+        // TODO: Figure out how to get the base class when semantic passes aren't ran... since .baseClass isn't the answer there
         if(node.baseClass !is null && !isBaseObject(node.baseClass, super.context))
         {
-            import dmd.dsymbol;
-            Dsymbol p = node.baseClass;
-            while(p)
-            {
-                import std;
-                writeln(p);
-                p = p.parent;
-            }
-
             scope typeRefVisitor = new TypeRefVisitor(super.context, super.moduleBeingVisited);
             node.baseClass.accept(typeRefVisitor);
             doc.baseClass = typeRefVisitor.getResult();
@@ -201,6 +206,78 @@ final class AggregateDefVisitor : Visitor
             doc.storageClasses ~= DocStorageClass.scope_;
         if(node.isabstract == ThreeState.yes)
             doc.storageClasses ~= DocStorageClass.abstract_;
+
+        this._result = DocAggregateDef(doc);
+    }
+
+    void visit(ASTCodegen.StructDeclaration node)
+    {
+        DocStruct doc;
+        extractCommonInfo(doc, node);
+
+        // Members
+        scope defVisitor = new DefinitionVisitor(super.context, super.moduleBeingVisited);
+        if(node.members !is null)
+        {
+            foreach(member; *node.members)
+                member.accept(defVisitor);
+        }
+        doc.members = defVisitor.unaryDefinitions;
+        doc.nestedTypes = defVisitor.aggregateDefinitions;
+
+        this._result = DocAggregateDef(doc);
+    }
+
+    void visit(ASTCodegen.EnumDeclaration node)
+    {
+        DocEnum doc;
+        extractCommonInfo(doc, node);
+
+        // Members
+        scope defVisitor = new DefinitionVisitor(super.context, super.moduleBeingVisited, parentIsEnum: true);
+        if(node.members !is null)
+        {
+            foreach(member; *node.members)
+                member.accept(defVisitor);
+        }
+        doc.members = defVisitor.unaryDefinitions;
+        doc.nestedTypes = defVisitor.aggregateDefinitions;
+
+        // Base type
+        if(node.memtype !is null)
+        {
+            scope typeRefVisitor = new TypeRefVisitor(super.context, super.moduleBeingVisited);
+            node.memtype.accept(typeRefVisitor);
+            doc.baseTypeRef = typeRefVisitor.getResult();
+        }
+
+        this._result = DocAggregateDef(doc);
+    }
+
+    void visit(ASTCodegen.TemplateDeclaration node)
+    {
+        DocTemplate doc;
+        extractCommonInfo(doc, node);
+
+        DocTemplateParam[] handleParams(ASTCodegen.TemplateParameters* params)
+        {
+            if(params is null)
+                return null;
+
+            DocTemplateParam[] result;
+
+            foreach(param; *params)
+            {
+                scope templateParamVisitor = new TemplateParameterVisitor(super.context, super.moduleBeingVisited);
+                param.accept(templateParamVisitor);
+                result ~= templateParamVisitor.getResult();
+            }
+
+            return result;
+        }
+        doc.parameters = handleParams(node.parameters);
+        doc.originalParameters = handleParams(node.origParameters);
+        doc.isMixin = node.ismixin;
 
         this._result = DocAggregateDef(doc);
     }
@@ -278,10 +355,125 @@ final class UnaryDefVisitor : Visitor
         // Original type
         if(node.originalType !is null && node.originalType !is node.type)
         {
+            import marmos.converter.common : probablySameSymbolRef;
+
             scope originalTypeVisitor = new TypeRefVisitor(super.context, super.moduleBeingVisited);
             node.originalType.accept(originalTypeVisitor);
-            doc.symbolRef.originalTypeRaw = new DocTypeRefRaw();
-            *doc.symbolRef.originalTypeRaw.get = originalTypeVisitor.getResult().raw;
+
+            // When semantics have ran, sometimes the originalType and actual type can resolve to the same thing.
+            // e.g. `alias a = SomeStruct`, originalType will lack parent info, but the actual type has parent info, but they ultimately refer to the same type.
+            //
+            // So instead of having confusing output, we just keep the actual type version.
+            if(!probablySameSymbolRef(doc.symbolRef.raw, originalTypeVisitor.getResult().raw))
+            {
+                doc.symbolRef.originalTypeRaw = new DocTypeRefRaw();
+                *doc.symbolRef.originalTypeRaw.get = originalTypeVisitor.getResult().raw;
+            }
+        }
+
+        this._result = DocUnaryDef(doc);
+    }
+
+    void visit(ASTCodegen.VarDeclaration node)
+    {
+        import dmd.astenums : STC;
+
+        // I'm not _really_ sure why, but sometimes this overload gets called instead of EnumMembers.
+        // Also _for some reason_ a lot of normal VarDeclarations can actually be casted to EnumMember... even when they're not really manifest constants? Hence the STC check.
+        if(node.storage_class & STC.manifest)
+        if(auto enumMember = cast(ASTCodegen.EnumMember)node)
+        {
+            this.visit(enumMember);
+            return;
+        }
+
+        DocVariable doc;
+        extractCommonInfo(doc, node);
+
+        // Type
+        if(node.type !is null)
+        {
+            scope typeRefVisitor = new TypeRefVisitor(super.context, super.moduleBeingVisited);
+            node.type.accept(typeRefVisitor);
+            doc.typeRef = typeRefVisitor.getResult();
+        }
+
+        // Original type
+        if(node.type !is null && node.originalType !is null && node.originalType !is node.type)
+        {
+            import marmos.converter.common : probablySameSymbolRef;
+
+            scope originalTypeVisitor = new TypeRefVisitor(super.context, super.moduleBeingVisited);
+            node.originalType.accept(originalTypeVisitor);
+
+            // When semantics have ran, sometimes the originalType and actual type can resolve to the same thing.
+            // e.g. `alias a = SomeStruct`, originalType will lack parent info, but the actual type has parent info, but they ultimately refer to the same type.
+            //
+            // So instead of having confusing output, we just keep the actual type version.
+            if(!probablySameSymbolRef(doc.typeRef.get.raw, originalTypeVisitor.getResult().raw))
+            {
+                doc.typeRef.get.originalTypeRaw = new DocTypeRefRaw();
+                *doc.typeRef.get.originalTypeRaw.get = originalTypeVisitor.getResult().raw;
+            }
+        }
+
+        // TODO: Handle initialiser.
+
+        this._result = DocUnaryDef(doc);
+    }
+
+    void visit(ASTCodegen.EnumMember node)
+    {
+        if(node.origType !is null && node.origType !is node.originalType)
+            assert(false, "why are these different?");
+
+        DocManifestConstant doc;
+        extractCommonInfo(doc, node);
+
+        // EnumMembers that are directly attached to an enum, have a .type of the parent enum... which ends up using a _lot_ of space in the JSON output.
+        // Since it's super easy to associate the members with the parent EnumDeclaration, it's worthwhile to omit things in this case.
+        if(!super.parentIsEnum)
+        {
+            // Type
+            if(node.type is null) // `enum E {}` will give a null .type, so we'll just substitute it with `int`
+            {
+                doc.typeRef = DocTypeRef(DocBasicType("int"));
+            }
+            else
+            {
+                scope typeRefVisitor = new TypeRefVisitor(super.context, super.moduleBeingVisited);
+                node.type.accept(typeRefVisitor);
+                doc.typeRef = typeRefVisitor.getResult();
+            }
+
+            // Original type
+            if(node.originalType !is null && node.originalType !is node.type)
+            {
+                import marmos.converter.common : probablySameSymbolRef;
+
+                scope originalTypeVisitor = new TypeRefVisitor(super.context, super.moduleBeingVisited);
+                node.originalType.accept(originalTypeVisitor);
+
+                if(!probablySameSymbolRef(doc.typeRef.get.raw, originalTypeVisitor.getResult().raw))
+                {
+                    doc.typeRef.get.originalTypeRaw = new DocTypeRefRaw();
+                    *doc.typeRef.get.originalTypeRaw.get = originalTypeVisitor.getResult().raw;
+                }
+            }
+        }
+
+        // `enum E { a }` -> `a` will have a null value.
+        if(node._init !is null && (cast(ASTCodegen.ExpInitializer)node._init).exp !is null) // _init is the underlying var used by `.value`, but `.value` always expects it to not be null... which it sometimes isn't.
+        {
+            scope expressionVisitor = new ExpressionVisitor(super.context, super.moduleBeingVisited);
+            node.value.accept(expressionVisitor);
+            doc.valueExpression = expressionVisitor.getResult();
+        }
+        if(node.origValue !is null)
+        {
+            scope expressionVisitor = new ExpressionVisitor(super.context, super.moduleBeingVisited);
+            node.origValue.accept(expressionVisitor);
+            doc.valueExpression = expressionVisitor.getResult();
         }
 
         this._result = DocUnaryDef(doc);
@@ -370,23 +562,64 @@ final class TypeRefVisitor : Visitor
         this.setResult(DocBasicType(name), node);
     }
 
-    // void visit(ASTCodegen.TypeStruct node)
-    // {
-    //     const fqnComponents = fqn(node.sym);
-    //     this.setResult(DocSymbolReference(fqnComponents[0..$-1], DocSymbolDirectReference(fqnComponents[$-1])), node);
-    // }
+    void visit(ASTCodegen.TypeNoreturn node)
+    {
+        this.setResult(DocBasicType("noreturn"), node);
+    }
 
-    // void visit(ASTCodegen.TypeClass node)
-    // {
-    //     const fqnComponents = fqn(node.sym);
-    //     this.setResult(DocSymbolReference(fqnComponents[0..$-1], DocSymbolDirectReference(fqnComponents[$-1])), node);
-    // }
+    void visit(ASTCodegen.TypeStruct node)
+    {
+        if(node.sym !is null)
+        {
+            node.sym.accept(this);
+            return;
+        }
 
-    // void visit(ASTCodegen.TypeEnum node)
-    // {
-    //     const fqnComponents = fqn(node.sym);
-    //     this.setResult(DocSymbolReference(fqnComponents[0..$-1], DocSymbolDirectReference(fqnComponents[$-1])), node);
-    // }
+        assert(false);
+    }
+
+    void visit(ASTCodegen.StructDeclaration node)
+    {
+        scope symbolRefVisitor = new SymbolReferenceVisitor(super.context, super.moduleBeingVisited);
+        node.accept(symbolRefVisitor);
+        this.setResult(symbolRefVisitor.getResult(), node);
+    }
+
+    void visit(ASTCodegen.TypeClass node)
+    {
+        if(node.sym !is null)
+        {
+            node.sym.accept(this);
+            return;
+        }
+
+        assert(false);
+    }
+
+    void visit(ASTCodegen.ClassDeclaration node)
+    {
+        scope symbolRefVisitor = new SymbolReferenceVisitor(super.context, super.moduleBeingVisited);
+        node.accept(symbolRefVisitor);
+        this.setResult(symbolRefVisitor.getResult(), node);
+    }
+
+    void visit(ASTCodegen.TypeEnum node)
+    {
+        if(node.sym !is null)
+        {
+            node.sym.accept(this);
+            return;
+        }
+
+        assert(false);
+    }
+
+    void visit(ASTCodegen.EnumDeclaration node)
+    {
+        scope symbolRefVisitor = new SymbolReferenceVisitor(super.context, super.moduleBeingVisited);
+        node.accept(symbolRefVisitor);
+        this.setResult(symbolRefVisitor.getResult(), node);
+    }
 
     void visit(ASTCodegen.TypeDArray node)
     {
@@ -428,12 +661,15 @@ final class TypeRefVisitor : Visitor
     void visit(ASTCodegen.TypeFunction node)
     {
         DocFunctionType doc;
-
+    
         // Return type
-        scope typeRefVisitor = new TypeRefVisitor(super.context, super.moduleBeingVisited);
-        node.next.accept(typeRefVisitor);
-        doc.returnType = new DocTypeRef();
-        *doc.returnType = typeRefVisitor.getResult();
+        if(node.next !is null)
+        {
+            scope typeRefVisitor = new TypeRefVisitor(super.context, super.moduleBeingVisited);
+            node.next.accept(typeRefVisitor);
+            doc.returnType = new DocTypeRef();
+            *doc.returnType = typeRefVisitor.getResult();
+        }
 
         // Parameters
         foreach(param; *node.parameterList.parameters)
@@ -447,6 +683,18 @@ final class TypeRefVisitor : Visitor
         }
 
         this.setResult(doc, node);
+    }
+
+    void visit(ASTCodegen.TypeDelegate node)
+    {
+        if(node.next !is null)
+        {
+            node.next.accept(this); // _Should_ be a TypeFunction
+            this._result.get.raw.match!(
+                (DocFunctionType ft) { ft.isDelegate = true; },
+                (_){}
+            );
+        }
     }
 
     void visit(ASTCodegen.TypePointer node)
@@ -494,6 +742,34 @@ final class TypeRefVisitor : Visitor
         node.accept(symbolRefVisitor);
         this.setResult(symbolRefVisitor.getResult(), node);
     }
+
+    void visit(ASTCodegen.EnumMember node)
+    {
+        scope symbolRefVisitor = new SymbolReferenceVisitor(super.context, super.moduleBeingVisited);
+        node.accept(symbolRefVisitor);
+        this.setResult(symbolRefVisitor.getResult(), node);
+    }
+
+    void visit(ASTCodegen.TemplateDeclaration node)
+    {
+        scope symbolRefVisitor = new SymbolReferenceVisitor(super.context, super.moduleBeingVisited);
+        node.accept(symbolRefVisitor);
+        this.setResult(symbolRefVisitor.getResult(), node);
+    }
+
+    void visit(ASTCodegen.TemplateInstance node)
+    {
+        scope symbolRefVisitor = new SymbolReferenceVisitor(super.context, super.moduleBeingVisited);
+        node.accept(symbolRefVisitor);
+        this.setResult(symbolRefVisitor.getResult(), node);
+    }
+
+    void visit(ASTCodegen.FuncAliasDeclaration node)
+    {
+        scope symbolRefVisitor = new SymbolReferenceVisitor(super.context, super.moduleBeingVisited);
+        (cast(ASTCodegen.FuncDeclaration)node).accept(symbolRefVisitor);
+        this.setResult(symbolRefVisitor.getResult(), node);
+    }
 }
 
 final class ExpressionVisitor : Visitor
@@ -517,15 +793,34 @@ final class ExpressionVisitor : Visitor
 
     void visit(ASTCodegen.Expression node)
     {
-        import dmd.printast : printAST;
+        import dmd.common.outbuffer : OutBuffer;
+        import dmd.hdrgen           : toCBuffer, HdrGenState;
+        import dmd.printast         : printAST;
         printAST(node);
 
-        // TODO: implement
+        // TODO: implement a dedicated expression for
+        HdrGenState state;
+        state.ddoc = true;
+
+        OutBuffer buf;
+        toCBuffer(node, buf, state);
+
+        this._result = DocExpression(DocFallbackExpression(buf.extractSlice.idup));
         super.visit(node);
+    }
+
+    void visit(ASTCodegen.IntegerExp node)
+    {
+        this.visit(cast(ASTCodegen.Expression)node);
+    }
+
+    void visit(ASTCodegen.StringExp node)
+    {
+        this.visit(cast(ASTCodegen.Expression)node);
     }
 }
 
-final class TemplateParameterVisitor : Visitor
+final class TemplateInstanceParameterVisitor : Visitor
 {
     alias visit = Visitor.visit;
 
@@ -552,6 +847,138 @@ final class TemplateParameterVisitor : Visitor
         auto symbolRef = new DocTypeRef();
         *symbolRef = typeVisitor.getResult();
         this._result = DocTemplateInstanceParam(symbolRef);
+    }
+
+    void visit(ASTCodegen.Expression node)
+    {
+        scope expressionVisitor = new ExpressionVisitor(super.context, super.moduleBeingVisited);
+        node.accept(expressionVisitor);
+
+        this._result = DocTemplateInstanceParam(expressionVisitor.getResult());
+    }
+}
+
+final class TemplateParameterVisitor : Visitor
+{
+    alias visit = Visitor.visit;
+
+    private
+    {
+        Nullable!DocTemplateParam _result;
+    }
+
+    mixin VisitorCommon;
+
+    DocTemplateParam getResult()
+    in(!this._result.isNull, "result is null, was visit called?")
+    {
+        return this._result.get;
+    }
+
+    override extern(C++):
+
+    void visit(ASTCodegen.TemplateTypeParameter node)
+    {
+        DocTemplateTypeParam doc;
+        doc.name = node.ident.toString.idup;
+
+        // Default type
+        if(node.defaultType !is null)
+        {
+            scope typeRefVisitor = new TypeRefVisitor(super.context, super.moduleBeingVisited);
+            node.defaultType.accept(typeRefVisitor);
+            doc.defaultType = typeRefVisitor.getResult();
+        }
+
+        // Spec type
+        if(node.specType !is null)
+        {
+            scope typeRefVisitor = new TypeRefVisitor(super.context, super.moduleBeingVisited);
+            node.specType.accept(typeRefVisitor);
+            doc.specType = typeRefVisitor.getResult();
+        }
+
+        this._result = DocTemplateParam(doc);
+    }
+
+    void visit(ASTCodegen.TemplateAliasParameter node)
+    {
+        import dmd.ast_node : ASTNode;
+
+        DocTemplateAliasParam doc;
+        doc.name = node.ident.toString.idup;
+
+        // Spec type
+        if(node.specType !is null)
+        {
+            scope typeRefVisitor = new TypeRefVisitor(super.context, super.moduleBeingVisited);
+            node.specType.accept(typeRefVisitor);
+            doc.specType = typeRefVisitor.getResult();
+        }
+
+        // Spec alias
+        if(node.specAlias !is null)
+        if(auto specAlias = cast(ASTNode)node.specAlias)
+        {
+            scope typeRefVisitor = new TypeRefVisitor(super.context, super.moduleBeingVisited);
+            specAlias.accept(typeRefVisitor);
+            doc.specAlias = typeRefVisitor.getResult();
+        }
+
+        // Default alias
+        if(node.defaultAlias !is null)
+        if(auto defaultAlias = cast(ASTNode)node.defaultAlias)
+        {
+            scope typeRefVisitor = new TypeRefVisitor(super.context, super.moduleBeingVisited);
+            defaultAlias.accept(typeRefVisitor);
+            doc.defaultAlias = typeRefVisitor.getResult();
+        }
+
+        this._result = DocTemplateParam(doc);
+    }
+
+    void visit(ASTCodegen.TemplateValueParameter node)
+    {
+        import dmd.ast_node : ASTNode;
+
+        DocTemplateValueParam doc;
+        doc.name = node.ident.toString.idup;
+
+        // Value type
+        if(node.valType !is null)
+        {
+            scope typeRefVisitor = new TypeRefVisitor(super.context, super.moduleBeingVisited);
+            node.valType.accept(typeRefVisitor);
+            doc.valueType = typeRefVisitor.getResult();
+        }
+
+        // Spec value
+        if(node.specValue !is null)
+        {
+            scope expressionVisitor = new ExpressionVisitor(super.context, super.moduleBeingVisited);
+            node.specValue.accept(expressionVisitor);
+            doc.specValue = expressionVisitor.getResult();
+        }
+
+        // Default value
+        if(node.defaultValue !is null)
+        {
+            scope expressionVisitor = new ExpressionVisitor(super.context, super.moduleBeingVisited);
+            node.defaultValue.accept(expressionVisitor);
+            doc.defaultValue = expressionVisitor.getResult();
+        }
+
+        this._result = DocTemplateParam(doc);
+    }
+
+    void visit(ASTCodegen.TemplateTupleParameter node)
+    {
+        import dmd.ast_node : ASTNode;
+
+        DocTemplateTupleParam doc;
+        doc.name = node.ident.toString.idup;
+
+        this._result = DocTemplateParam(doc);
     }
 }
 
@@ -601,7 +1028,25 @@ final class SymbolReferenceVisitor : Visitor
         this._result.items ~= DocSymbolReferenceItem(DocSymbolDirectReference(node.ident.toString.idup));
     }
 
+    void visit(ASTCodegen.EnumMember node)
+    {
+        if(this.handleParent(node)) return;
+        this._result.items ~= DocSymbolReferenceItem(DocSymbolDirectReference(node.ident.toString.idup));
+    }
+
     void visit(ASTCodegen.StructDeclaration node)
+    {
+        if(this.handleParent(node)) return;
+        this._result.items ~= DocSymbolReferenceItem(DocSymbolDirectReference(node.ident.toString.idup));
+    }
+
+    void visit(ASTCodegen.ClassDeclaration node)
+    {
+        if(this.handleParent(node)) return;
+        this._result.items ~= DocSymbolReferenceItem(DocSymbolDirectReference(node.ident.toString.idup));
+    }
+
+    void visit(ASTCodegen.EnumDeclaration node)
     {
         if(this.handleParent(node)) return;
         this._result.items ~= DocSymbolReferenceItem(DocSymbolDirectReference(node.ident.toString.idup));
@@ -614,11 +1059,18 @@ final class SymbolReferenceVisitor : Visitor
         DocSymbolInstanceReference doc;
         doc.symbolName = node.name.toString.idup;
         
-        foreach(arg; *node.tiargs)
+        // TODO: Try to detect how many arguments are just the default ones, and don't emit them in the output.
+        // _Kinda_ wish the compiler kept the original parameter list around, or at the very least helped mark which params are just the default ones it injected.
+        size_t nonDefaultItems = size_t.max;
+
+        foreach(i, arg; *node.tiargs)
         {
             import dmd.ast_node : ASTNode;
 
-            scope paramVisitor = new TemplateParameterVisitor(super.context, super.moduleBeingVisited);
+            if(i >= nonDefaultItems)
+                break;
+
+            scope paramVisitor = new TemplateInstanceParameterVisitor(super.context, super.moduleBeingVisited);
             (cast(ASTNode)arg).accept(paramVisitor);
             doc.parameters ~= paramVisitor.getResult();
         }
@@ -626,10 +1078,16 @@ final class SymbolReferenceVisitor : Visitor
         this._result.items ~= DocSymbolReferenceItem(doc);
     }
 
+    void visit(ASTCodegen.TemplateDeclaration node)
+    {
+        if(this.handleParent(node)) return;
+        this._result.items ~= DocSymbolReferenceItem(DocSymbolInstanceReference(node.ident.toString.idup, null));
+    }
+
     void visit(ASTCodegen.TypeInstance node)
     {
         /*
-            When we're using semantic passes, I don't think TypeInstance tends to get used directly very much.
+            When we're using semantic passes, I don't think TypeInstance tends to get used directly very much (.originalType seems to be where it mainly shows up?).
 
             Given `alias A = S!0.F`.
 
@@ -661,6 +1119,10 @@ final class SymbolReferenceVisitor : Visitor
     {
         import dmd.identifier : Identifier;
 
+        // TypeIdentifier ONLY stores the first identifier in its .ident field, NOT inside of .idents (lol)
+        if(auto identifier = node.isTypeIdentifier())
+            this._result.items ~= DocSymbolReferenceItem(DocSymbolDirectReference(identifier.ident.toString.idup));
+
         foreach(ident; node.idents)
         {
             if(auto identifier = cast(Identifier)ident)
@@ -676,11 +1138,10 @@ final class SymbolReferenceVisitor : Visitor
                 }
             }
             else
+            {
                 warningf("[visit(TypeQualified)] unhandled identifier: %s", node);
+                this._result.items ~= DocSymbolReferenceItem(DocSymbolUnhandled());
+            }
         }
-
-        // TypeIdentifier ONLY stores the final identifier in its .ident field, NOT inside of .idents (lol)
-        if(auto identifier = node.isTypeIdentifier())
-            this._result.items ~= DocSymbolReferenceItem(DocSymbolDirectReference(identifier.ident.toString.idup));
     }
 }

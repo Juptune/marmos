@@ -1,0 +1,9 @@
+{
+    "@type": "marmos.test.runner.Config",
+    "test": {
+        "@type": "marmos.test.runner.SingleFileDriftTest",
+        "file": "test.d",
+        "allowAutomaticPermutations": true,
+        "marmosConvertArgs": []
+    }
+}

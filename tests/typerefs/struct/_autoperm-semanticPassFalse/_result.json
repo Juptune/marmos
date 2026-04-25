@@ -19,18 +19,14 @@
                     "@type": "marmos.converter.model.DocTypeRef",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocFunctionType",
-                        "isDelegate": false,
-                        "parameters": [],
-                        "returnType": {
-                            "@type": "marmos.converter.model.DocTypeRef",
-                            "originalTypeRaw": null,
-                            "raw": {
-                                "@type": "marmos.converter.model.DocBasicType",
-                                "name": "void"
-                            },
-                            "storageClasses": []
-                        }
+                        "@type": "marmos.converter.model.DocSymbolReference",
+                        "items": [
+                            {
+                                "@type": "marmos.converter.model.DocSymbolDirectReference",
+                                "symbolName": "S"
+                            }
+                        ],
+                        "moduleFqnComponents": []
                     },
                     "storageClasses": []
                 },
@@ -38,6 +34,19 @@
                 "visibility": "not explicitly defined"
             }
         ],
-        "nestedTypes": []
+        "nestedTypes": [
+            {
+                "@type": "marmos.converter.model.DocStruct",
+                "comment": null,
+                "line": 5,
+                "linkage": "default",
+                "members": [],
+                "name": "S",
+                "nestedTypes": [],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            }
+        ]
     }
 }

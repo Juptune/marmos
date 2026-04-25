@@ -1,0 +1,74 @@
+{
+    "@type": "marmos.converter.model.DocModelRoot",
+    "features": [
+        "semanticPass"
+    ],
+    "module_": {
+        "@type": "marmos.converter.model.DocModule",
+        "comment": null,
+        "fqnComponents": [
+            "test"
+        ],
+        "members": [],
+        "nestedTypes": [
+            {
+                "@type": "marmos.converter.model.DocStruct",
+                "comment": null,
+                "line": 3,
+                "linkage": "default",
+                "members": [],
+                "name": "Basic",
+                "nestedTypes": [],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "marmos.converter.model.DocStruct",
+                "comment": null,
+                "line": 5,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "marmos.converter.model.DocVariable",
+                        "comment": null,
+                        "defaultValueExpression": null,
+                        "line": 9,
+                        "linkage": "default",
+                        "name": "a",
+                        "storageClasses": [],
+                        "typeRef": {
+                            "@type": "marmos.converter.model.DocTypeRef",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "marmos.converter.model.DocBasicType",
+                                "name": "int"
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [],
+                        "visibility": "public"
+                    }
+                ],
+                "name": "Members",
+                "nestedTypes": [
+                    {
+                        "@type": "marmos.converter.model.DocStruct",
+                        "comment": null,
+                        "line": 7,
+                        "linkage": "default",
+                        "members": [],
+                        "name": "Nested",
+                        "nestedTypes": [],
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "public"
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            }
+        ]
+    }
+}

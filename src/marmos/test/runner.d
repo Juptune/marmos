@@ -78,7 +78,8 @@ private void singleFileTest(string testDir, Config config, SingleFileDriftTest t
     auto args = [
         buildNormalizedPath(testDir, test.file), // Input file
         "--output-dir=" ~ tempResultFile,
-        "--output-style=singleFile"
+        "--output-style=singleFile",
+        "--pretty"
     ];
     args ~= test.marmosConvertArgs;
     args ~= extraArgs;

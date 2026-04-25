@@ -1,0 +1,170 @@
+{
+    "@type": "marmos.converter.model.DocModelRoot",
+    "features": [
+        "semanticPass"
+    ],
+    "module_": {
+        "@type": "marmos.converter.model.DocModule",
+        "comment": null,
+        "fqnComponents": [
+            "test"
+        ],
+        "members": [
+            {
+                "@type": "marmos.converter.model.DocManifestConstant",
+                "comment": null,
+                "line": 16,
+                "linkage": "default",
+                "name": "ManifestConstant",
+                "originalValueExpression": null,
+                "storageClasses": [],
+                "typeRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocBasicType",
+                        "name": "int"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "valueExpression": {
+                    "@type": "marmos.converter.model.DocFallbackExpression",
+                    "renderedCode": "1"
+                },
+                "visibility": "public"
+            },
+            {
+                "@type": "marmos.converter.model.DocManifestConstant",
+                "comment": null,
+                "line": 18,
+                "linkage": "default",
+                "name": "ExplicitManifestConstant",
+                "originalValueExpression": null,
+                "storageClasses": [],
+                "typeRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocBasicType",
+                        "name": "short"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "valueExpression": {
+                    "@type": "marmos.converter.model.DocFallbackExpression",
+                    "renderedCode": "cast(short)2"
+                },
+                "visibility": "public"
+            }
+        ],
+        "nestedTypes": [
+            {
+                "@type": "marmos.converter.model.DocEnum",
+                "baseTypeRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocBasicType",
+                        "name": "int"
+                    },
+                    "storageClasses": []
+                },
+                "comment": null,
+                "line": 3,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "marmos.converter.model.DocManifestConstant",
+                        "comment": null,
+                        "line": 5,
+                        "linkage": "default",
+                        "name": "abc",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "marmos.converter.model.DocFallbackExpression",
+                            "renderedCode": "0"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "marmos.converter.model.DocManifestConstant",
+                        "comment": null,
+                        "line": 6,
+                        "linkage": "default",
+                        "name": "oneTwoThree",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "marmos.converter.model.DocFallbackExpression",
+                            "renderedCode": "1"
+                        },
+                        "visibility": "public"
+                    }
+                ],
+                "name": "Normal",
+                "nestedTypes": [],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "marmos.converter.model.DocEnum",
+                "baseTypeRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocBasicType",
+                        "name": "short"
+                    },
+                    "storageClasses": []
+                },
+                "comment": null,
+                "line": 9,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "marmos.converter.model.DocManifestConstant",
+                        "comment": null,
+                        "line": 11,
+                        "linkage": "default",
+                        "name": "abc",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "marmos.converter.model.DocFallbackExpression",
+                            "renderedCode": "cast(short)0"
+                        },
+                        "visibility": "public"
+                    }
+                ],
+                "name": "ExplicitBase",
+                "nestedTypes": [],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "marmos.converter.model.DocEnum",
+                "baseTypeRef": null,
+                "comment": null,
+                "line": 14,
+                "linkage": "default",
+                "members": [],
+                "name": "SymbolOnly",
+                "nestedTypes": [],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            }
+        ]
+    }
+}

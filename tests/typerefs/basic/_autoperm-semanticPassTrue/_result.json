@@ -15,7 +15,102 @@
                 "comment": null,
                 "line": 3,
                 "linkage": "default",
-                "name": "a",
+                "name": "Tvoid",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocBasicType",
+                        "name": "void"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": null,
+                "line": 4,
+                "linkage": "default",
+                "name": "Tint8",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocBasicType",
+                        "name": "byte"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": null,
+                "line": 5,
+                "linkage": "default",
+                "name": "Tuns8",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocBasicType",
+                        "name": "ubyte"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": null,
+                "line": 6,
+                "linkage": "default",
+                "name": "Tint16",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocBasicType",
+                        "name": "short"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": null,
+                "line": 7,
+                "linkage": "default",
+                "name": "Tuns16",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocBasicType",
+                        "name": "ushort"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": null,
+                "line": 8,
+                "linkage": "default",
+                "name": "Tint32",
                 "storageClasses": [],
                 "symbolRef": {
                     "@type": "marmos.converter.model.DocTypeRef",
@@ -23,6 +118,366 @@
                     "raw": {
                         "@type": "marmos.converter.model.DocBasicType",
                         "name": "int"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": null,
+                "line": 9,
+                "linkage": "default",
+                "name": "Tuns32",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocBasicType",
+                        "name": "uint"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": null,
+                "line": 10,
+                "linkage": "default",
+                "name": "Tint64",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocBasicType",
+                        "name": "long"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": null,
+                "line": 11,
+                "linkage": "default",
+                "name": "Tuns64",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocBasicType",
+                        "name": "ulong"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": null,
+                "line": 12,
+                "linkage": "default",
+                "name": "Tfloat32",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocBasicType",
+                        "name": "float"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": null,
+                "line": 13,
+                "linkage": "default",
+                "name": "Tfloat64",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocBasicType",
+                        "name": "double"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": null,
+                "line": 14,
+                "linkage": "default",
+                "name": "Tfloat80",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocBasicType",
+                        "name": "real"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": null,
+                "line": 15,
+                "linkage": "default",
+                "name": "Timaginary32",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocBasicType",
+                        "name": "ifloat"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": null,
+                "line": 16,
+                "linkage": "default",
+                "name": "Timaginary64",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocBasicType",
+                        "name": "idouble"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": null,
+                "line": 17,
+                "linkage": "default",
+                "name": "Timaginary80",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocBasicType",
+                        "name": "ireal"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": null,
+                "line": 18,
+                "linkage": "default",
+                "name": "Tcomplex32",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocBasicType",
+                        "name": "cfloat"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": null,
+                "line": 19,
+                "linkage": "default",
+                "name": "Tcomplex64",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocBasicType",
+                        "name": "cdouble"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": null,
+                "line": 20,
+                "linkage": "default",
+                "name": "Tcomplex80",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocBasicType",
+                        "name": "creal"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": null,
+                "line": 21,
+                "linkage": "default",
+                "name": "Tbool",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocBasicType",
+                        "name": "bool"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": null,
+                "line": 22,
+                "linkage": "default",
+                "name": "Tchar",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocBasicType",
+                        "name": "char"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": null,
+                "line": 23,
+                "linkage": "default",
+                "name": "Twchar",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocBasicType",
+                        "name": "wchar"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": null,
+                "line": 24,
+                "linkage": "default",
+                "name": "Tdchar",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "marmos.converter.model.DocBasicType",
+                        "name": "dchar"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": null,
+                "line": 25,
+                "linkage": "default",
+                "name": "Tnoreturn",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": {
+                        "@type": "marmos.converter.model.DocSymbolReference",
+                        "items": [
+                            {
+                                "@type": "marmos.converter.model.DocSymbolDirectReference",
+                                "symbolName": "noreturn"
+                            }
+                        ],
+                        "moduleFqnComponents": []
+                    },
+                    "raw": {
+                        "@type": "marmos.converter.model.DocBasicType",
+                        "name": "noreturn"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "marmos.converter.model.DocAlias",
+                "comment": null,
+                "line": 28,
+                "linkage": "default",
+                "name": "Tstring",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "marmos.converter.model.DocTypeRef",
+                    "originalTypeRaw": {
+                        "@type": "marmos.converter.model.DocSymbolReference",
+                        "items": [
+                            {
+                                "@type": "marmos.converter.model.DocSymbolDirectReference",
+                                "symbolName": "string"
+                            }
+                        ],
+                        "moduleFqnComponents": []
+                    },
+                    "raw": {
+                        "@type": "marmos.converter.model.DocBasicType",
+                        "name": "string"
                     },
                     "storageClasses": []
                 },
