@@ -1,8 +1,8 @@
 {
-    "@type": "marmos.converter.model.DocModelRoot",
+    "@type": "DocModelRoot@1",
     "features": [],
     "module_": {
-        "@type": "marmos.converter.model.DocModule",
+        "@type": "DocModule@1",
         "comment": null,
         "fqnComponents": [
             "test"
@@ -10,7 +10,7 @@
         "members": [],
         "nestedTypes": [
             {
-                "@type": "marmos.converter.model.DocClass",
+                "@type": "DocClass@1",
                 "baseClass": null,
                 "comment": null,
                 "interfaces": [],
@@ -24,7 +24,7 @@
                 "visibility": "public"
             },
             {
-                "@type": "marmos.converter.model.DocClass",
+                "@type": "DocClass@1",
                 "baseClass": null,
                 "comment": null,
                 "interfaces": [],
@@ -38,7 +38,7 @@
                 "visibility": "public"
             },
             {
-                "@type": "marmos.converter.model.DocClass",
+                "@type": "DocClass@1",
                 "baseClass": null,
                 "comment": null,
                 "interfaces": [],
@@ -46,7 +46,7 @@
                 "linkage": "default",
                 "members": [
                     {
-                        "@type": "marmos.converter.model.DocVariable",
+                        "@type": "DocVariable@1",
                         "comment": null,
                         "defaultValueExpression": null,
                         "line": 12,
@@ -54,10 +54,10 @@
                         "name": "a",
                         "storageClasses": [],
                         "typeRef": {
-                            "@type": "marmos.converter.model.DocTypeRef",
+                            "@type": "DocTypeRef@1",
                             "originalTypeRaw": null,
                             "raw": {
-                                "@type": "marmos.converter.model.DocBasicType",
+                                "@type": "DocBasicType@1",
                                 "name": "int"
                             },
                             "storageClasses": []
@@ -69,7 +69,7 @@
                 "name": "Members",
                 "nestedTypes": [
                     {
-                        "@type": "marmos.converter.model.DocClass",
+                        "@type": "DocClass@1",
                         "baseClass": null,
                         "comment": null,
                         "interfaces": [],
@@ -88,7 +88,7 @@
                 "visibility": "public"
             },
             {
-                "@type": "marmos.converter.model.DocClass",
+                "@type": "DocClass@1",
                 "baseClass": null,
                 "comment": null,
                 "interfaces": [],
@@ -102,7 +102,7 @@
                 "visibility": "public"
             },
             {
-                "@type": "marmos.converter.model.DocClass",
+                "@type": "DocClass@1",
                 "baseClass": null,
                 "comment": null,
                 "interfaces": [],

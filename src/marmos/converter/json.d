@@ -12,10 +12,17 @@ import std.typecons : Nullable;
 
 const JSON_TYPE_FIELD = "@type";
 
+struct JsonType { string name; }
+
 template JsonTypeNameOf(DocT)
 {
-    import std.traits : fullyQualifiedName;
-    enum JsonTypeNameOf = fullyQualifiedName!DocT;
+    import std.traits : fullyQualifiedName, getUDAs;
+
+    private alias JsonTypeUdas = getUDAs!(DocT, JsonType);
+    static if(JsonTypeUdas.length > 0)
+        enum JsonTypeNameOf = JsonTypeUdas[0].name;
+    else
+        enum JsonTypeNameOf = fullyQualifiedName!DocT;
 }
 
 /++ doc -> json ++/

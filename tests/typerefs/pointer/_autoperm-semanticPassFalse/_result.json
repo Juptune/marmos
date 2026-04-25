@@ -1,30 +1,30 @@
 {
-    "@type": "marmos.converter.model.DocModelRoot",
+    "@type": "DocModelRoot@1",
     "features": [],
     "module_": {
-        "@type": "marmos.converter.model.DocModule",
+        "@type": "DocModule@1",
         "comment": null,
         "fqnComponents": [
             "test"
         ],
         "members": [
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 3,
                 "linkage": "default",
                 "name": "a",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocPointerType",
+                        "@type": "DocPointerType@1",
                         "underlyingTypeRef": {
-                            "@type": "marmos.converter.model.DocTypeRef",
+                            "@type": "DocTypeRef@1",
                             "originalTypeRaw": null,
                             "raw": {
-                                "@type": "marmos.converter.model.DocBasicType",
+                                "@type": "DocBasicType@1",
                                 "name": "int"
                             },
                             "storageClasses": []

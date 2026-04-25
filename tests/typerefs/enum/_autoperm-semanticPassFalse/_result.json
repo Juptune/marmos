@@ -1,28 +1,28 @@
 {
-    "@type": "marmos.converter.model.DocModelRoot",
+    "@type": "DocModelRoot@1",
     "features": [],
     "module_": {
-        "@type": "marmos.converter.model.DocModule",
+        "@type": "DocModule@1",
         "comment": null,
         "fqnComponents": [
             "test"
         ],
         "members": [
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 3,
                 "linkage": "default",
                 "name": "a",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocSymbolReference",
+                        "@type": "DocSymbolReference@1",
                         "items": [
                             {
-                                "@type": "marmos.converter.model.DocSymbolDirectReference",
+                                "@type": "DocSymbolDirectReference@1",
                                 "symbolName": "E"
                             }
                         ],
@@ -34,24 +34,24 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 4,
                 "linkage": "default",
                 "name": "b",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocSymbolReference",
+                        "@type": "DocSymbolReference@1",
                         "items": [
                             {
-                                "@type": "marmos.converter.model.DocSymbolDirectReference",
+                                "@type": "DocSymbolDirectReference@1",
                                 "symbolName": "E"
                             },
                             {
-                                "@type": "marmos.converter.model.DocSymbolDirectReference",
+                                "@type": "DocSymbolDirectReference@1",
                                 "symbolName": "a"
                             }
                         ],
@@ -65,14 +65,14 @@
         ],
         "nestedTypes": [
             {
-                "@type": "marmos.converter.model.DocEnum",
+                "@type": "DocEnum@1",
                 "baseTypeRef": null,
                 "comment": null,
                 "line": 6,
                 "linkage": "default",
                 "members": [
                     {
-                        "@type": "marmos.converter.model.DocManifestConstant",
+                        "@type": "DocManifestConstant@1",
                         "comment": null,
                         "line": 8,
                         "linkage": "default",

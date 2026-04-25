@@ -1,25 +1,25 @@
 {
-    "@type": "marmos.converter.model.DocModelRoot",
+    "@type": "DocModelRoot@1",
     "features": [],
     "module_": {
-        "@type": "marmos.converter.model.DocModule",
+        "@type": "DocModule@1",
         "comment": null,
         "fqnComponents": [
             "test"
         ],
         "members": [
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 3,
                 "linkage": "default",
                 "name": "Tvoid",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocBasicType",
+                        "@type": "DocBasicType@1",
                         "name": "void"
                     },
                     "storageClasses": []
@@ -28,17 +28,17 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 4,
                 "linkage": "default",
                 "name": "Tint8",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocBasicType",
+                        "@type": "DocBasicType@1",
                         "name": "byte"
                     },
                     "storageClasses": []
@@ -47,17 +47,17 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 5,
                 "linkage": "default",
                 "name": "Tuns8",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocBasicType",
+                        "@type": "DocBasicType@1",
                         "name": "ubyte"
                     },
                     "storageClasses": []
@@ -66,17 +66,17 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 6,
                 "linkage": "default",
                 "name": "Tint16",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocBasicType",
+                        "@type": "DocBasicType@1",
                         "name": "short"
                     },
                     "storageClasses": []
@@ -85,17 +85,17 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 7,
                 "linkage": "default",
                 "name": "Tuns16",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocBasicType",
+                        "@type": "DocBasicType@1",
                         "name": "ushort"
                     },
                     "storageClasses": []
@@ -104,17 +104,17 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 8,
                 "linkage": "default",
                 "name": "Tint32",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocBasicType",
+                        "@type": "DocBasicType@1",
                         "name": "int"
                     },
                     "storageClasses": []
@@ -123,17 +123,17 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 9,
                 "linkage": "default",
                 "name": "Tuns32",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocBasicType",
+                        "@type": "DocBasicType@1",
                         "name": "uint"
                     },
                     "storageClasses": []
@@ -142,17 +142,17 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 10,
                 "linkage": "default",
                 "name": "Tint64",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocBasicType",
+                        "@type": "DocBasicType@1",
                         "name": "long"
                     },
                     "storageClasses": []
@@ -161,17 +161,17 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 11,
                 "linkage": "default",
                 "name": "Tuns64",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocBasicType",
+                        "@type": "DocBasicType@1",
                         "name": "ulong"
                     },
                     "storageClasses": []
@@ -180,17 +180,17 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 12,
                 "linkage": "default",
                 "name": "Tfloat32",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocBasicType",
+                        "@type": "DocBasicType@1",
                         "name": "float"
                     },
                     "storageClasses": []
@@ -199,17 +199,17 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 13,
                 "linkage": "default",
                 "name": "Tfloat64",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocBasicType",
+                        "@type": "DocBasicType@1",
                         "name": "double"
                     },
                     "storageClasses": []
@@ -218,17 +218,17 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 14,
                 "linkage": "default",
                 "name": "Tfloat80",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocBasicType",
+                        "@type": "DocBasicType@1",
                         "name": "real"
                     },
                     "storageClasses": []
@@ -237,17 +237,17 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 15,
                 "linkage": "default",
                 "name": "Timaginary32",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocBasicType",
+                        "@type": "DocBasicType@1",
                         "name": "ifloat"
                     },
                     "storageClasses": []
@@ -256,17 +256,17 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 16,
                 "linkage": "default",
                 "name": "Timaginary64",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocBasicType",
+                        "@type": "DocBasicType@1",
                         "name": "idouble"
                     },
                     "storageClasses": []
@@ -275,17 +275,17 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 17,
                 "linkage": "default",
                 "name": "Timaginary80",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocBasicType",
+                        "@type": "DocBasicType@1",
                         "name": "ireal"
                     },
                     "storageClasses": []
@@ -294,17 +294,17 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 18,
                 "linkage": "default",
                 "name": "Tcomplex32",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocBasicType",
+                        "@type": "DocBasicType@1",
                         "name": "cfloat"
                     },
                     "storageClasses": []
@@ -313,17 +313,17 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 19,
                 "linkage": "default",
                 "name": "Tcomplex64",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocBasicType",
+                        "@type": "DocBasicType@1",
                         "name": "cdouble"
                     },
                     "storageClasses": []
@@ -332,17 +332,17 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 20,
                 "linkage": "default",
                 "name": "Tcomplex80",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocBasicType",
+                        "@type": "DocBasicType@1",
                         "name": "creal"
                     },
                     "storageClasses": []
@@ -351,17 +351,17 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 21,
                 "linkage": "default",
                 "name": "Tbool",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocBasicType",
+                        "@type": "DocBasicType@1",
                         "name": "bool"
                     },
                     "storageClasses": []
@@ -370,17 +370,17 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 22,
                 "linkage": "default",
                 "name": "Tchar",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocBasicType",
+                        "@type": "DocBasicType@1",
                         "name": "char"
                     },
                     "storageClasses": []
@@ -389,17 +389,17 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 23,
                 "linkage": "default",
                 "name": "Twchar",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocBasicType",
+                        "@type": "DocBasicType@1",
                         "name": "wchar"
                     },
                     "storageClasses": []
@@ -408,17 +408,17 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 24,
                 "linkage": "default",
                 "name": "Tdchar",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocBasicType",
+                        "@type": "DocBasicType@1",
                         "name": "dchar"
                     },
                     "storageClasses": []
@@ -427,20 +427,20 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 25,
                 "linkage": "default",
                 "name": "Tnoreturn",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocSymbolReference",
+                        "@type": "DocSymbolReference@1",
                         "items": [
                             {
-                                "@type": "marmos.converter.model.DocSymbolDirectReference",
+                                "@type": "DocSymbolDirectReference@1",
                                 "symbolName": "noreturn"
                             }
                         ],
@@ -452,20 +452,20 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 28,
                 "linkage": "default",
                 "name": "Tstring",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocSymbolReference",
+                        "@type": "DocSymbolReference@1",
                         "items": [
                             {
-                                "@type": "marmos.converter.model.DocSymbolDirectReference",
+                                "@type": "DocSymbolDirectReference@1",
                                 "symbolName": "string"
                             }
                         ],

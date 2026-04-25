@@ -6,8 +6,10 @@
  */
 module marmos.converter.model;
 
-import std.sumtype : SumType;
+import std.sumtype  : SumType;
 import std.typecons : Nullable;
+
+import marmos.converter.json : JsonType;
 
 /++++ Documentation Comments ++++/
 
@@ -26,39 +28,47 @@ alias DocCommentInline = SumType!(
     DocCommentLinkInline
 );
 
+@JsonType("DocCommentTextInline@1")
 struct DocCommentTextInline
 {
     string text;
 }
 
+@JsonType("DocCommentBoldInline@1")
 struct DocCommentBoldInline
 {
     string text;
 }
 
+@JsonType("DocCommentItalicInline@1")
 struct DocCommentItalicInline
 {
     string text;
 }
 
+@JsonType("DocCommentCodeInline@1")
 struct DocCommentCodeInline
 {
     string text;
 }
 
+@JsonType("DocCommentLinkInline@1")
 struct DocCommentLinkInline
 {
     string text;
     string url;
 }
 
+@JsonType("DocCommentParagraphBlock@1")
 struct DocCommentParagraphBlock
 {
     DocCommentInline[] inlines;
 }
 
+@JsonType("DocCommentOrderedListBlock@1")
 struct DocCommentOrderedListBlock
 {
+    @JsonType("DocCommentOrderedListBlock.Item@1")
     static struct Item
     {
         DocCommentParagraphBlock block;
@@ -68,8 +78,10 @@ struct DocCommentOrderedListBlock
     Item[] items;
 }
 
+@JsonType("DocCommentUnorderedListBlock@1")
 struct DocCommentUnorderedListBlock
 {
+    @JsonType("DocCommentUnorderedListBlock.Item@1")
     static struct Item
     {
         DocCommentParagraphBlock block;
@@ -79,8 +91,10 @@ struct DocCommentUnorderedListBlock
     Item[] items;
 }
 
+@JsonType("DocCommentEqualListBlock@1")
 struct DocCommentEqualListBlock
 {
+    @JsonType("DocCommentEqualListBlock.Item@1")
     static struct Item
     {
         string key;
@@ -90,12 +104,14 @@ struct DocCommentEqualListBlock
     Item[] items;
 }
 
+@JsonType("DocCommentSection@1")
 struct DocCommentSection
 {
     string title;
     DocCommentBlock[] blocks;
 }
 
+@JsonType("DocComment@1")
 struct DocComment
 {
     DocCommentSection[] sections;
@@ -244,12 +260,14 @@ private mixin template DocAggregateCommon()
     DocUnaryDef[] members;
 }
 
+@JsonType("DocModelRoot@1")
 struct DocModelRoot
 {
     DocFeatures[] features;
     DocModule module_;
 }
 
+@JsonType("DocModule@1")
 struct DocModule
 {
     string[] fqnComponents;
@@ -259,6 +277,7 @@ struct DocModule
 
 /++ Aggregates ++/
 
+@JsonType("DocClass@1")
 struct DocClass
 {
     mixin DocCommon;
@@ -268,18 +287,21 @@ struct DocClass
     DocTypeRef[] interfaces;
 }
 
+@JsonType("DocStruct@1")
 struct DocStruct
 {
     mixin DocCommon;
     mixin DocAggregateCommon;
 }
 
+@JsonType("DocInterface@1")
 struct DocInterface
 {
     mixin DocCommon;
     mixin DocAggregateCommon;
 }
 
+@JsonType("DocEnum@1")
 struct DocEnum
 {
     mixin DocCommon;
@@ -288,12 +310,14 @@ struct DocEnum
     Nullable!DocTypeRef baseTypeRef;
 }
 
+@JsonType("DocUnion@1")
 struct DocUnion
 {
     mixin DocCommon;
     mixin DocAggregateCommon;
 }
 
+@JsonType("DocTemplate@1")
 struct DocTemplate
 {
     mixin DocCommon;
@@ -306,6 +330,7 @@ struct DocTemplate
 
 /++ Unary ++/
 
+@JsonType("DocAlias@1")
 struct DocAlias
 {
     mixin DocCommon;
@@ -313,6 +338,7 @@ struct DocAlias
     DocTypeRef symbolRef;
 }
 
+@JsonType("DocVariable@1")
 struct DocVariable
 {
     mixin DocCommon;
@@ -321,6 +347,7 @@ struct DocVariable
     Nullable!DocExpression defaultValueExpression;
 }
 
+@JsonType("DocManifestConstant@1")
 struct DocManifestConstant
 {
     mixin DocCommon;
@@ -330,6 +357,7 @@ struct DocManifestConstant
     Nullable!DocExpression originalValueExpression;
 }
 
+@JsonType("DocRuntimeParameter@1")
 struct DocRuntimeParameter
 {
     string                  name;
@@ -341,6 +369,7 @@ struct DocRuntimeParameter
     Nullable!DocExpression  defaultValueExpression;
 }
 
+@JsonType("DocFunction@1")
 struct DocFunction
 {
     mixin DocCommon;
@@ -350,6 +379,7 @@ struct DocFunction
 
 /++ Types ++/
 
+@JsonType("DocTypeRef@1")
 struct DocTypeRef
 {
     DocTypeRefRaw raw;
@@ -366,6 +396,7 @@ struct DocTypeRef
     }
 }
 
+@JsonType("DocFunctionType@1")
 struct DocFunctionType
 {
     DocRuntimeParameter[] parameters;
@@ -373,22 +404,26 @@ struct DocFunctionType
     bool isDelegate;
 }
 
+@JsonType("DocArrayType@1")
 struct DocArrayType
 {
     DocTypeRef* underlyingTypeRef; // Needs to be a pointer due to circular type references - this will be GC allocated
 }
 
+@JsonType("DocAssociativeArrayType@1")
 struct DocAssociativeArrayType
 {
     DocTypeRef* valueTypeRef;  // Needs to be a pointer due to circular type references - this will be GC allocated
     DocTypeRef* keyTypeRef;  // Needs to be a pointer due to circular type references - this will be GC allocated
 }
 
+@JsonType("DocBasicType@1")
 struct DocBasicType
 {
     string name;
 }
 
+@JsonType("DocPointerType@1")
 struct DocPointerType
 {
     DocTypeRef* underlyingTypeRef;
@@ -396,27 +431,32 @@ struct DocPointerType
 
 /++ Symbol Reference ++/
 
+@JsonType("DocSymbolReference@1")
 struct DocSymbolReference
 {
     string[] moduleFqnComponents;
     DocSymbolReferenceItem[] items;
 }
 
+@JsonType("DocSymbolDirectReference@1")
 struct DocSymbolDirectReference
 {
     string symbolName;
 }
 
+@JsonType("DocSymbolInstanceReference@1")
 struct DocSymbolInstanceReference
 {
     string symbolName;
     DocTemplateInstanceParam[] parameters;
 }
 
+@JsonType("DocSymbolUnhandled@1")
 struct DocSymbolUnhandled {}
 
 /++ Expressions ++/
 
+@JsonType("DocFallbackExpression@1")
 struct DocFallbackExpression
 {
     string renderedCode;
@@ -424,11 +464,13 @@ struct DocFallbackExpression
 
 /++ UDAs ++/
 
+@JsonType("DocSymbolUda@1")
 struct DocSymbolUda
 {
     DocSymbolReference reference;
 }
 
+@JsonType("DocValueUda@1")
 struct DocValueUda
 {
     DocExpression expression;
@@ -436,11 +478,13 @@ struct DocValueUda
 
 /++ Other ++/
 
+@JsonType("DocTemplateTupleParam@1")
 struct DocTemplateTupleParam
 {
     string name;
 }
 
+@JsonType("DocTemplateTypeParam@1")
 struct DocTemplateTypeParam
 {
     string name;
@@ -448,6 +492,7 @@ struct DocTemplateTypeParam
     Nullable!DocTypeRef defaultType;
 }
 
+@JsonType("DocTemplateValueParam@1")
 struct DocTemplateValueParam
 {
     string name;
@@ -456,6 +501,7 @@ struct DocTemplateValueParam
     Nullable!DocExpression defaultValue;
 }
 
+@JsonType("DocTemplateAliasParam@1")
 struct DocTemplateAliasParam
 {
     string name;

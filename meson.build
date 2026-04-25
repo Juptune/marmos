@@ -96,7 +96,7 @@ foreach test_dir : test_dirs
     test(test_name, marmos_exe, suite: 'drift-tests', args: 
     [
         'test', '../'+test_dir, 
-        '--refresh'
+        # '--refresh'
     ])
 endforeach
 

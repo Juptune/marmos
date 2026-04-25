@@ -1,28 +1,28 @@
 {
-    "@type": "marmos.converter.model.DocModelRoot",
+    "@type": "DocModelRoot@1",
     "features": [],
     "module_": {
-        "@type": "marmos.converter.model.DocModule",
+        "@type": "DocModule@1",
         "comment": null,
         "fqnComponents": [
             "test"
         ],
         "members": [
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 3,
                 "linkage": "default",
                 "name": "a",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocSymbolReference",
+                        "@type": "DocSymbolReference@1",
                         "items": [
                             {
-                                "@type": "marmos.converter.model.DocSymbolDirectReference",
+                                "@type": "DocSymbolDirectReference@1",
                                 "symbolName": "T"
                             }
                         ],
@@ -34,17 +34,17 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 4,
                 "linkage": "default",
                 "name": "b",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocSymbolReference",
+                        "@type": "DocSymbolReference@1",
                         "items": [],
                         "moduleFqnComponents": []
                     },
@@ -54,17 +54,17 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 5,
                 "linkage": "default",
                 "name": "c",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocSymbolReference",
+                        "@type": "DocSymbolReference@1",
                         "items": [],
                         "moduleFqnComponents": []
                     },
@@ -74,20 +74,20 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocAlias",
+                "@type": "DocAlias@1",
                 "comment": null,
                 "line": 6,
                 "linkage": "default",
                 "name": "e",
                 "storageClasses": [],
                 "symbolRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocSymbolReference",
+                        "@type": "DocSymbolReference@1",
                         "items": [
                             {
-                                "@type": "marmos.converter.model.DocSymbolDirectReference",
+                                "@type": "DocSymbolDirectReference@1",
                                 "symbolName": "field"
                             }
                         ],
@@ -101,7 +101,7 @@
         ],
         "nestedTypes": [
             {
-                "@type": "marmos.converter.model.DocTemplate",
+                "@type": "DocTemplate@1",
                 "comment": null,
                 "isMixin": false,
                 "line": 8,
@@ -116,7 +116,7 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocTemplate",
+                "@type": "DocTemplate@1",
                 "comment": null,
                 "isMixin": false,
                 "line": 10,
@@ -131,7 +131,7 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocTemplate",
+                "@type": "DocTemplate@1",
                 "comment": null,
                 "isMixin": false,
                 "line": 15,
@@ -141,7 +141,7 @@
                 "nestedTypes": [],
                 "originalParameters": [
                     {
-                        "@type": "marmos.converter.model.DocTemplateTypeParam",
+                        "@type": "DocTemplateTypeParam@1",
                         "defaultType": null,
                         "name": "A",
                         "specType": null
@@ -149,7 +149,7 @@
                 ],
                 "parameters": [
                     {
-                        "@type": "marmos.converter.model.DocTemplateTypeParam",
+                        "@type": "DocTemplateTypeParam@1",
                         "defaultType": null,
                         "name": "A",
                         "specType": null
@@ -160,7 +160,7 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocTemplate",
+                "@type": "DocTemplate@1",
                 "comment": null,
                 "isMixin": false,
                 "line": 20,
@@ -170,7 +170,7 @@
                 "nestedTypes": [],
                 "originalParameters": [
                     {
-                        "@type": "marmos.converter.model.DocTemplateTypeParam",
+                        "@type": "DocTemplateTypeParam@1",
                         "defaultType": null,
                         "name": "A",
                         "specType": null
@@ -178,7 +178,7 @@
                 ],
                 "parameters": [
                     {
-                        "@type": "marmos.converter.model.DocTemplateTypeParam",
+                        "@type": "DocTemplateTypeParam@1",
                         "defaultType": null,
                         "name": "A",
                         "specType": null

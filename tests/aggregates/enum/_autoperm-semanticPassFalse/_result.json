@@ -1,15 +1,15 @@
 {
-    "@type": "marmos.converter.model.DocModelRoot",
+    "@type": "DocModelRoot@1",
     "features": [],
     "module_": {
-        "@type": "marmos.converter.model.DocModule",
+        "@type": "DocModule@1",
         "comment": null,
         "fqnComponents": [
             "test"
         ],
         "members": [
             {
-                "@type": "marmos.converter.model.DocManifestConstant",
+                "@type": "DocManifestConstant@1",
                 "comment": null,
                 "line": 16,
                 "linkage": "default",
@@ -17,23 +17,23 @@
                 "originalValueExpression": null,
                 "storageClasses": [],
                 "typeRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocBasicType",
+                        "@type": "DocBasicType@1",
                         "name": "int"
                     },
                     "storageClasses": []
                 },
                 "udas": [],
                 "valueExpression": {
-                    "@type": "marmos.converter.model.DocFallbackExpression",
+                    "@type": "DocFallbackExpression@1",
                     "renderedCode": "1"
                 },
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocManifestConstant",
+                "@type": "DocManifestConstant@1",
                 "comment": null,
                 "line": 18,
                 "linkage": "default",
@@ -41,17 +41,17 @@
                 "originalValueExpression": null,
                 "storageClasses": [],
                 "typeRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocBasicType",
+                        "@type": "DocBasicType@1",
                         "name": "short"
                     },
                     "storageClasses": []
                 },
                 "udas": [],
                 "valueExpression": {
-                    "@type": "marmos.converter.model.DocFallbackExpression",
+                    "@type": "DocFallbackExpression@1",
                     "renderedCode": "2"
                 },
                 "visibility": "not explicitly defined"
@@ -59,14 +59,14 @@
         ],
         "nestedTypes": [
             {
-                "@type": "marmos.converter.model.DocEnum",
+                "@type": "DocEnum@1",
                 "baseTypeRef": null,
                 "comment": null,
                 "line": 3,
                 "linkage": "default",
                 "members": [
                     {
-                        "@type": "marmos.converter.model.DocManifestConstant",
+                        "@type": "DocManifestConstant@1",
                         "comment": null,
                         "line": 5,
                         "linkage": "default",
@@ -79,7 +79,7 @@
                         "visibility": "not explicitly defined"
                     },
                     {
-                        "@type": "marmos.converter.model.DocManifestConstant",
+                        "@type": "DocManifestConstant@1",
                         "comment": null,
                         "line": 6,
                         "linkage": "default",
@@ -99,12 +99,12 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocEnum",
+                "@type": "DocEnum@1",
                 "baseTypeRef": {
-                    "@type": "marmos.converter.model.DocTypeRef",
+                    "@type": "DocTypeRef@1",
                     "originalTypeRaw": null,
                     "raw": {
-                        "@type": "marmos.converter.model.DocBasicType",
+                        "@type": "DocBasicType@1",
                         "name": "short"
                     },
                     "storageClasses": []
@@ -114,7 +114,7 @@
                 "linkage": "default",
                 "members": [
                     {
-                        "@type": "marmos.converter.model.DocManifestConstant",
+                        "@type": "DocManifestConstant@1",
                         "comment": null,
                         "line": 11,
                         "linkage": "default",
@@ -134,7 +134,7 @@
                 "visibility": "not explicitly defined"
             },
             {
-                "@type": "marmos.converter.model.DocEnum",
+                "@type": "DocEnum@1",
                 "baseTypeRef": null,
                 "comment": null,
                 "line": 14,
