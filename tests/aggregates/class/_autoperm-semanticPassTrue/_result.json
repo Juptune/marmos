@@ -96,7 +96,9 @@
                         "members": [],
                         "name": "Nested",
                         "nestedTypes": [],
-                        "storageClasses": [],
+                        "storageClasses": [
+                            "static"
+                        ],
                         "udas": [],
                         "visibility": "public"
                     }
@@ -116,6 +118,7 @@
                 "name": "Stack",
                 "nestedTypes": [],
                 "storageClasses": [
+                    "scope",
                     "scope"
                 ],
                 "udas": [],
@@ -132,6 +135,7 @@
                 "name": "Abstract",
                 "nestedTypes": [],
                 "storageClasses": [
+                    "abstract",
                     "abstract"
                 ],
                 "udas": [],

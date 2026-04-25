@@ -207,8 +207,7 @@ alias DocUnaryDef = SumType!(
 );
 
 alias DocUda = SumType!(
-    DocValueUda,
-    DocSymbolUda,
+    DocExpressionUda,
 );
 
 alias DocTypeRefRaw = SumType!(
@@ -464,14 +463,8 @@ struct DocFallbackExpression
 
 /++ UDAs ++/
 
-@JsonType("DocSymbolUda@1")
-struct DocSymbolUda
-{
-    DocSymbolReference reference;
-}
-
-@JsonType("DocValueUda@1")
-struct DocValueUda
+@JsonType("DocExpressionUda@1")
+struct DocExpressionUda
 {
     DocExpression expression;
 }

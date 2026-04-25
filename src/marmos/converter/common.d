@@ -6,11 +6,13 @@
  */
 module marmos.converter.common;
 
+import dmd.attrib           : UserAttributeDeclaration;
 import dmd.common.outbuffer : OutBuffer;
-import dmd.dsymbol : Dsymbol;
+import dmd.dsymbol          : Dsymbol;
+import dmd.dmodule          : Module;
 
 import marmos.context         : MarmosContext;
-import marmos.converter.model : DocTypeRefRaw;
+import marmos.converter.model : DocTypeRefRaw, DocUda;
 
 package:
 
@@ -66,17 +68,24 @@ string toStringFromBuffer(scope void delegate(scope ref OutBuffer) populate)
     return buffer[].idup;
 }
 
-void extractCommonInfo(DocModelT, AstNodeT)(scope ref DocModelT doc, scope AstNodeT node)
+void extractCommonInfo(DocModelT, AstNodeT)(
+    scope ref DocModelT doc, 
+    scope AstNodeT node, 
+    MarmosContext context, 
+    Module moduleBeingVisited
+)
 {
+    import std.string : fromStringz;
+
+    import dmd.astenums : STC;
+
     import marmos.converter.docparser : parseDocComment;
     import marmos.converter.model     : DocVisibility, DocLinkage, DocStorageClass;
-
-    import std.string : fromStringz;
 
     doc.name = (node.ident is null) ? "__anonymous" : node.ident.toString.idup;
     doc.line = node.loc.linnum;
 
-    static if(__traits(compiles, { auto a = NodeT.init.storage_class; }))
+    static if(__traits(compiles, { auto a = AstNodeT.init.storage_class; }))
         doc.storageClasses = listFromDmdBitFlags!DocStorageClass(cast(STC)node.storage_class);
     static if(__traits(compiles, { auto a = AstNodeT.init.linkage; }))
         doc.linkage = fromDmdEnum!DocLinkage(node.linkage);
@@ -87,6 +96,12 @@ void extractCommonInfo(DocModelT, AstNodeT)(scope ref DocModelT doc, scope AstNo
         const commentString = node.comment.fromStringz.idup;
         if(commentString.length > 0)
             doc.comment = parseDocComment(commentString);
+    }
+
+    static if(__traits(hasMember, AstNodeT, "userAttribDecl") && __traits(hasMember, DocModelT, "udas"))
+    {
+        if(node.userAttribDecl !is null)
+            doc.udas = getUdas(node.userAttribDecl, context, moduleBeingVisited);
     }
 }
 
@@ -158,4 +173,24 @@ bool probablySameSymbolRef(DocTypeRefRaw actual, DocTypeRefRaw original)
         ),
         (_) => false
     );
+}
+
+DocUda[] getUdas(UserAttributeDeclaration decl, MarmosContext context, Module moduleBeingVisited)
+{
+    import marmos.converter.model    : DocExpressionUda;
+    import marmos.converter.visitors : ExpressionVisitor;
+
+    DocUda[] udas;
+
+    if(decl.atts is null)
+        return udas;
+
+    foreach(exp; *decl.atts)
+    {
+        scope expressionVisitor = new ExpressionVisitor(context, moduleBeingVisited);
+        exp.accept(expressionVisitor);
+        udas ~= DocUda(DocExpressionUda(expressionVisitor.getResult()));
+    }
+
+    return udas;
 }

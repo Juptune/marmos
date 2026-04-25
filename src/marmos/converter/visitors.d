@@ -173,7 +173,7 @@ final class AggregateDefVisitor : Visitor
         import marmos.converter.common : isBaseObject;
 
         DocClass doc;
-        extractCommonInfo(doc, node);
+        extractCommonInfo(doc, node, super.context, super.moduleBeingVisited);
 
         // Interfaces & base class
         // TODO: Figure out how to get the base class when semantic passes aren't ran... since .baseClass isn't the answer there
@@ -213,7 +213,7 @@ final class AggregateDefVisitor : Visitor
     void visit(ASTCodegen.StructDeclaration node)
     {
         DocStruct doc;
-        extractCommonInfo(doc, node);
+        extractCommonInfo(doc, node, super.context, super.moduleBeingVisited);
 
         // Members
         scope defVisitor = new DefinitionVisitor(super.context, super.moduleBeingVisited);
@@ -231,7 +231,7 @@ final class AggregateDefVisitor : Visitor
     void visit(ASTCodegen.EnumDeclaration node)
     {
         DocEnum doc;
-        extractCommonInfo(doc, node);
+        extractCommonInfo(doc, node, super.context, super.moduleBeingVisited);
 
         // Members
         scope defVisitor = new DefinitionVisitor(super.context, super.moduleBeingVisited, parentIsEnum: true);
@@ -257,7 +257,7 @@ final class AggregateDefVisitor : Visitor
     void visit(ASTCodegen.TemplateDeclaration node)
     {
         DocTemplate doc;
-        extractCommonInfo(doc, node);
+        extractCommonInfo(doc, node, super.context, super.moduleBeingVisited);
 
         DocTemplateParam[] handleParams(ASTCodegen.TemplateParameters* params)
         {
@@ -305,7 +305,7 @@ final class UnaryDefVisitor : Visitor
     void visit(ASTCodegen.FuncDeclaration node)
     {
         DocFunction doc;
-        extractCommonInfo(doc, node);
+        extractCommonInfo(doc, node, super.context, super.moduleBeingVisited);
 
         // Underlying function type
         scope typeRefVisitor = new TypeRefVisitor(super.context, super.moduleBeingVisited);
@@ -321,7 +321,7 @@ final class UnaryDefVisitor : Visitor
     void visit(ASTCodegen.Parameter node)
     {
         DocRuntimeParameter doc;
-        extractCommonInfo(doc, node);
+        extractCommonInfo(doc, node, super.context, super.moduleBeingVisited);
 
         // Type
         scope typeRefVisitor = new TypeRefVisitor(super.context, super.moduleBeingVisited);
@@ -342,7 +342,7 @@ final class UnaryDefVisitor : Visitor
     void visit(ASTCodegen.AliasDeclaration node)
     {
         DocAlias doc;
-        extractCommonInfo(doc, node);
+        extractCommonInfo(doc, node, super.context, super.moduleBeingVisited);
 
         // Type
         scope typeRefVisitor = new TypeRefVisitor(super.context, super.moduleBeingVisited);
@@ -388,7 +388,7 @@ final class UnaryDefVisitor : Visitor
         }
 
         DocVariable doc;
-        extractCommonInfo(doc, node);
+        extractCommonInfo(doc, node, super.context, super.moduleBeingVisited);
 
         // Type
         if(node.type !is null)
@@ -428,7 +428,7 @@ final class UnaryDefVisitor : Visitor
             assert(false, "why are these different?");
 
         DocManifestConstant doc;
-        extractCommonInfo(doc, node);
+        extractCommonInfo(doc, node, super.context, super.moduleBeingVisited);
 
         // EnumMembers that are directly attached to an enum, have a .type of the parent enum... which ends up using a _lot_ of space in the JSON output.
         // Since it's super easy to associate the members with the parent EnumDeclaration, it's worthwhile to omit things in this case.
