@@ -170,10 +170,3 @@ final class MarmosContext
     string[] getStringImportPaths() => this._stringImportPaths;
     bool useDefaultConf() => this._useDefaultConf;
 }
-
-@nogc nothrow:
-
-void test() {}
-
-import std.typecons : RefCounted;
-alias ThisIsATesticle = RefCounted!string;
