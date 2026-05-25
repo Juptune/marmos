@@ -187,7 +187,28 @@
                 "isMixin": false,
                 "line": 10,
                 "linkage": "default",
-                "members": [],
+                "members": [
+                    {
+                        "@type": "DocVariable@1",
+                        "comment": null,
+                        "defaultValueExpression": null,
+                        "line": 12,
+                        "linkage": "default",
+                        "name": "Eponymous",
+                        "storageClasses": [],
+                        "typeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "int"
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    }
+                ],
                 "name": "Eponymous",
                 "nestedTypes": [],
                 "originalParameters": [],
@@ -202,7 +223,34 @@
                 "isMixin": false,
                 "line": 15,
                 "linkage": "default",
-                "members": [],
+                "members": [
+                    {
+                        "@type": "DocVariable@1",
+                        "comment": null,
+                        "defaultValueExpression": null,
+                        "line": 17,
+                        "linkage": "default",
+                        "name": "EponymousWithParam",
+                        "storageClasses": [],
+                        "typeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocSymbolReference@1",
+                                "items": [
+                                    {
+                                        "@type": "DocSymbolDirectReference@1",
+                                        "symbolName": "A"
+                                    }
+                                ],
+                                "moduleFqnComponents": []
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    }
+                ],
                 "name": "EponymousWithParam",
                 "nestedTypes": [],
                 "originalParameters": [
@@ -231,7 +279,34 @@
                 "isMixin": false,
                 "line": 20,
                 "linkage": "default",
-                "members": [],
+                "members": [
+                    {
+                        "@type": "DocVariable@1",
+                        "comment": null,
+                        "defaultValueExpression": null,
+                        "line": 22,
+                        "linkage": "default",
+                        "name": "field",
+                        "storageClasses": [],
+                        "typeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocSymbolReference@1",
+                                "items": [
+                                    {
+                                        "@type": "DocSymbolDirectReference@1",
+                                        "symbolName": "A"
+                                    }
+                                ],
+                                "moduleFqnComponents": []
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    }
+                ],
                 "name": "WithParam",
                 "nestedTypes": [],
                 "originalParameters": [

@@ -9,11 +9,12 @@ import std.stdio;
 import argparse : CLI, SubCommand, matchCmd;
 
 import marmos.converter.command : ConvertCommand, runConvert;
+import marmos.docs.command 		: DocsCommand, runDocs;
 import marmos.test.command 		: TestCommand, runTest;
 
 struct MainCommand
 {
-	SubCommand!(ConvertCommand, TestCommand) subcommand;
+	SubCommand!(ConvertCommand, DocsCommand, TestCommand) subcommand;
 }
 
 mixin CLI!MainCommand.main!((args)
@@ -22,6 +23,7 @@ mixin CLI!MainCommand.main!((args)
 
 	args.subcommand.matchCmd!(
 		(ConvertCommand cmd) { result = runConvert(cmd); },
+		(DocsCommand cmd) { result = runDocs(cmd); },
 		(TestCommand cmd) { result = runTest(cmd); }
 	);
 

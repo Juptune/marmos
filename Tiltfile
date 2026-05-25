@@ -39,3 +39,11 @@ local_resource(
     resource_deps=['unittests'],
     labels=['development']
 )
+
+local_resource(
+    'scratchpad',
+    cmd='meson compile -C build && ./build/marmos docs generate -d scratchpad/',
+    deps=['meson.build', 'src/', 'subprojects/packagefiles/', 'scratchpad/site/', 'imports/'],
+    resource_deps=['unittests'],
+    labels=['development']
+)

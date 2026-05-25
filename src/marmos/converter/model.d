@@ -214,6 +214,7 @@ alias DocTypeRefRaw = SumType!(
     DocSymbolReference,
     DocArrayType,
     DocAssociativeArrayType,
+    DocStaticArrayType,
     DocFunctionType,
     DocBasicType,
     DocPointerType,
@@ -414,6 +415,13 @@ struct DocAssociativeArrayType
 {
     DocTypeRef* valueTypeRef;  // Needs to be a pointer due to circular type references - this will be GC allocated
     DocTypeRef* keyTypeRef;  // Needs to be a pointer due to circular type references - this will be GC allocated
+}
+
+@JsonType("DocStaticArrayType@1")
+struct DocStaticArrayType
+{
+    DocTypeRef* underlyingTypeRef; // Needs to be a pointer due to circular type references - this will be GC allocated
+    DocExpression arraySizeExpression;
 }
 
 @JsonType("DocBasicType@1")

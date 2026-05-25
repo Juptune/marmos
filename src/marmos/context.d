@@ -34,7 +34,7 @@ final class MarmosContext
 
     /++ Other logic ++/
 
-    void setupDmd()
+    void setupDmd(string[] versionIdentifiers = [])
     {
         import dmd.frontend : deinitializeDMD, initDMD, parseModule, findImportPaths, addImport, addStringImport;
         infof("Setting up DMD");
@@ -45,7 +45,7 @@ final class MarmosContext
             this._dmdHasInit = false;
         }
 
-        initDMD();
+        initDMD(versionIdentifiers: versionIdentifiers);
 
         foreach(imp; this._importPaths)
         {
@@ -90,10 +90,10 @@ final class MarmosContext
     void onDoneParsing()
     in(this._dmdHasInit)
     {
-        import std.exception : enforce;
-        import dmd.globals : global;
-        import dmd.dsymbolsem : importAll, dsymbolSemantic, runDeferredSemantic;
-        import dmd.semantic2 : semantic2;
+        import std.exception    : enforce;
+        import dmd.globals      : global;
+        import dmd.dsymbolsem   : importAll, dsymbolSemantic, runDeferredSemantic, runDeferredSemantic2;
+        import dmd.semantic2    : semantic2;
 
         if(this.isFeatureEnabled(Features.semanticPass))
         {
@@ -107,7 +107,7 @@ final class MarmosContext
                 runDeferredSemantic();
 
                 mod.semantic2(null);
-                runDeferredSemantic();
+                runDeferredSemantic2();
             }
         }
 

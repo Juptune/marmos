@@ -19,6 +19,14 @@ marmos_lib_srcs = files(
     './src/marmos/converter/package.d',
     './src/marmos/converter/visitors.d',
 
+    './src/marmos/docs/config_models.d',
+    './src/marmos/docs/command.d',
+    './src/marmos/docs/discover.d',
+    './src/marmos/docs/html_generator.d',
+    './src/marmos/docs/package.d',
+    './src/marmos/docs/staging_generator.d',
+    './src/marmos/docs/staging_models.d',
+
     './src/marmos/test/command.d',
     './src/marmos/test/package.d',
     './src/marmos/test/runner.d',
@@ -35,6 +43,7 @@ argparse_dep = dependency('argparse', version: '>=2.0.2', method: 'dub')
 marmos_lib_dep = declare_dependency(
     include_directories: include_directories('src'),
     sources: marmos_lib_srcs,
+    d_import_dirs: ['./imports/']
 )
 
 marmos_all_dep = declare_dependency(
@@ -96,7 +105,7 @@ foreach test_dir : test_dirs
     test(test_name, marmos_exe, suite: 'drift-tests', args: 
     [
         'test', '../'+test_dir, 
-        # '--refresh'
+        '--refresh'
     ])
 endforeach
 
@@ -122,6 +131,7 @@ if jq_program.found() and dub_program.found()
         '-i=' + argparse_import_path,
         '-J=../subprojects/dmd-fe/compiler/src/dmd/res',
         '-J=../subprojects/dmd-fe/',
+        '-J=../imports/',
     ])
 else
     warning('JQ or dub is not installed - not enabling dogfood test')

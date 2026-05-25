@@ -49,6 +49,12 @@ struct ConvertCommand
 			.Description("Additional string import paths, on top of the ones from the .conf file")
 		)
 		string[] stringImportPaths;
+
+		@(
+			NamedArgument("V", "version")
+			.Description("Additional version identifiers")
+		)
+		string[] versionIdentifiers;
 	}
 	
 	@ArgumentGroup("Output options")
@@ -96,7 +102,7 @@ int runConvert(ConvertCommand args)
 		if(args.useFeatureSemanticPass)
 			context.enableFeature(MarmosContext.Features.semanticPass);
 
-		context.setupDmd();
+		context.setupDmd(args.versionIdentifiers);
 		foreach(file; args.filesToConvert)
 			context.parseModule(file);
 		context.onDoneParsing();

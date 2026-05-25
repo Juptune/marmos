@@ -13,6 +13,7 @@ import std.typecons : Nullable;
 const JSON_TYPE_FIELD = "@type";
 
 struct JsonType { string name; }
+struct JsonField { string name; }
 
 template JsonTypeNameOf(DocT)
 {
@@ -22,7 +23,12 @@ template JsonTypeNameOf(DocT)
     static if(JsonTypeUdas.length > 0)
         enum JsonTypeNameOf = JsonTypeUdas[0].name;
     else
-        enum JsonTypeNameOf = fullyQualifiedName!DocT;
+    {
+        static if(is(DocT == P*, P))
+            enum JsonTypeNameOf = JsonTypeNameOf!P;
+        else
+            enum JsonTypeNameOf = fullyQualifiedName!DocT;
+    }
 }
 
 /++ doc -> json ++/
@@ -34,7 +40,17 @@ if(is(DocT == struct) && !isSumType!DocT && !is(DocT == Nullable!N, N))
 
     dict[JSON_TYPE_FIELD] = JsonTypeNameOf!DocT;
     static foreach(i, field; value.tupleof)
-        dict[__traits(identifier, field)] = docToJson(value.tupleof[i]);
+    {{
+        static foreach(Uda; __traits(getAttributes, field))
+        {
+            static if(__traits(compiles, Uda.name))
+                enum fieldId = Uda.name;
+        }
+        static if(!__traits(compiles, fieldId))
+            enum fieldId = __traits(identifier, field);
+
+        dict[fieldId] = docToJson(value.tupleof[i]);
+    }}
 
     return JSONValue(dict);
 }
@@ -47,7 +63,7 @@ if(isSumType!DocT)
     // I have to instantiate any docToJson calls outside of .match so I can get actual error messages.
     alias Handler(T) = docToJson!T;
     alias Handlers = staticMap!(Handler, DocT.Types);
-
+    
     return value.match!Handlers;
 }
 
@@ -109,13 +125,21 @@ if(is(T == struct) && !isSumType!T && !is(T == Nullable!N, N))
     Foreach: foreach(name, val; json.objectNoRef)
     {
         static foreach(i, field; result.tupleof)
-        {
-            if(name == __traits(identifier, field))
+        {{
+            static foreach(Uda; __traits(getAttributes, field))
+            {
+                static if(__traits(compiles, Uda.name))
+                    enum fieldId = Uda.name;
+            }
+            static if(!__traits(compiles, fieldId))
+                enum fieldId = __traits(identifier, field);
+
+            if(name == fieldId)
             {
                 result.tupleof[i] = jsonToDoc!(typeof(field))(val);
                 continue Foreach;
             }
-        }
+        }}
 
         if(name == "@type") continue; // Already handled
 
@@ -136,11 +160,23 @@ if(isSumType!T)
     {
         static foreach(Type; T.Types)
         {
-            case JsonTypeNameOf!Type:
-                return T(jsonToDoc!Type(json));
+            static if(!isSumType!Type)
+            {
+                case JsonTypeNameOf!Type:
+                    return T(jsonToDoc!Type(json));
+            }
         }
         
         default:
+            static foreach(Type; T.Types)
+            {
+                static if(isSumType!Type)
+                {
+                    try return T(jsonToDoc!Type(json));
+                    finally {}
+                    
+                }
+            }
             throw new Exception(format("Unexpected @type '%s' when converting JSON into %s", type, T.stringof));
     }
 }
@@ -150,12 +186,18 @@ if(is(T == Nullable!N, N))
 {
     import std.traits : Unqual;
 
+    if(json.isNull)
+        return T.init;
+
     return T(jsonToDoc!(Unqual!(typeof(T.init.get)))(json));
 }
 
 T jsonToDoc(T)(scope ref JSONValue json)
 if(is(T == P*, P))
 {
+    if(json.isNull)
+        return null;
+
     static if(is(T == P*, P)) // So I can actually access `P`
     {
         auto value = new P();
@@ -167,8 +209,20 @@ if(is(T == P*, P))
 T jsonToDoc(T)(scope ref JSONValue json)
 if(is(T == enum))
 {
-    import std.conv : to;
-    return json.str.to!T;
+    import std.format : format;
+    import std.traits : EnumMembers;
+
+    switch(json.str)
+    {
+        static foreach(Member; EnumMembers!T)
+        {
+            case cast(string)Member:
+                return Member;
+        }
+
+        default:
+            throw new Exception(format("Unexpected value for enum %s: %s", T.stringof, json.str));
+    }
 }
 
 T jsonToDoc(T)(scope ref JSONValue json)

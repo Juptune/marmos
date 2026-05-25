@@ -259,6 +259,7 @@ final class AggregateDefVisitor : Visitor
         DocTemplate doc;
         extractCommonInfo(doc, node, super.context, super.moduleBeingVisited);
 
+        // Parameters
         DocTemplateParam[] handleParams(ASTCodegen.TemplateParameters* params)
         {
             if(params is null)
@@ -278,6 +279,16 @@ final class AggregateDefVisitor : Visitor
         doc.parameters = handleParams(node.parameters);
         doc.originalParameters = handleParams(node.origParameters);
         doc.isMixin = node.ismixin;
+
+        // Members
+        scope defVisitor = new DefinitionVisitor(super.context, super.moduleBeingVisited);
+        if(node.members !is null)
+        {
+            foreach(member; *node.members)
+                member.accept(defVisitor);
+        }
+        doc.members = defVisitor.unaryDefinitions;
+        doc.nestedTypes = defVisitor.aggregateDefinitions;
 
         this._result = DocAggregateDef(doc);
     }
@@ -308,12 +319,15 @@ final class UnaryDefVisitor : Visitor
         extractCommonInfo(doc, node, super.context, super.moduleBeingVisited);
 
         // Underlying function type
-        scope typeRefVisitor = new TypeRefVisitor(super.context, super.moduleBeingVisited);
-        node.type.accept(typeRefVisitor);
-        typeRefVisitor.getResult().raw.match!(
-            (DocFunctionType ft) { doc.funcType = ft; },
-            (_){ assert(false, "Unexpected result type"); }
-        );
+        if(node.type !is null) // TODO: When can this be null? Phobos is triggering it somewhere.
+        {
+            scope typeRefVisitor = new TypeRefVisitor(super.context, super.moduleBeingVisited);
+            node.type.accept(typeRefVisitor);
+            typeRefVisitor.getResult().raw.match!(
+                (DocFunctionType ft) { doc.funcType = ft; },
+                (_){ assert(false, "Unexpected result type"); }
+            );
+        }
 
         this._result = DocUnaryDef(doc);
     }
@@ -516,6 +530,45 @@ final class TypeRefVisitor : Visitor
 
     override extern(C++):
 
+    void visit(ASTCodegen.Expression node)
+    {
+        // This seems to happen naturally, I just can't really figure out why it happens and how to even interpret it.
+        warningf("TypeRefVisitor was given an expression, providing fallback type: %s", node);
+        this.setResult(DocBasicType("__JUPTUNE_BUG__"), node);
+    }
+
+    void visit(ASTCodegen.Dsymbol node)
+    {
+        // This _also_ seems to happen naturally, I just can't really figure out why it happens and how to even interpret it.
+        warningf("TypeRefVisitor was given a DSymbol, providing fallback type: %s", node);
+        this.setResult(DocBasicType("__JUPTUNE_BUG__"), node);
+    }
+
+    void visit(ASTCodegen.TypeTraits node)
+    {
+        this.setResult(DocBasicType("__traits(TODO)"), node);
+    }
+
+    void visit(ASTCodegen.TypeSlice node)
+    {
+        this.setResult(DocBasicType("slice[TODO]"), node);
+    }
+
+    void visit(ASTCodegen.TypeTypeof node)
+    {
+        this.setResult(DocBasicType("typeof(TODO)"), node);
+    }
+
+    void visit(ASTCodegen.TypeVector node)
+    {
+        this.setResult(DocBasicType("__vector(TODO)"), node);
+    }
+
+    void visit(ASTCodegen.TypeTuple node)
+    {
+        this.setResult(DocBasicType("__tuple(TODO)"), node);
+    }
+
     void visit(ASTCodegen.TypeBasic node)
     {
         import dmd.astenums : TY;
@@ -560,6 +613,11 @@ final class TypeRefVisitor : Visitor
                 break;
         }
         this.setResult(DocBasicType(name), node);
+    }
+    
+    void visit(ASTCodegen.TypeNull node)
+    {
+        this.setResult(DocBasicType("typeof(null)"), node);
     }
 
     void visit(ASTCodegen.TypeNoreturn node)
@@ -639,6 +697,22 @@ final class TypeRefVisitor : Visitor
         this.setResult(doc, node);
     }
 
+    void visit(ASTCodegen.TypeSArray node)
+    {
+        DocStaticArrayType doc;
+
+        scope typeRefVisitor = new TypeRefVisitor(super.context, super.moduleBeingVisited);
+        node.next.accept(typeRefVisitor);
+        doc.underlyingTypeRef = new DocTypeRef();
+        *doc.underlyingTypeRef = typeRefVisitor.getResult();
+
+        scope expressionVisitor = new ExpressionVisitor(super.context, super.moduleBeingVisited);
+        node.dim.accept(expressionVisitor);
+        doc.arraySizeExpression = expressionVisitor.getResult();
+        
+        this.setResult(doc, node);
+    }
+
     void visit(ASTCodegen.TypeAArray node)
     {
         DocAssociativeArrayType doc;
@@ -672,14 +746,17 @@ final class TypeRefVisitor : Visitor
         }
 
         // Parameters
-        foreach(param; *node.parameterList.parameters)
+        if(node.parameterList.parameters !is null)
         {
-            scope unaryVisitor = new UnaryDefVisitor(super.context, super.moduleBeingVisited);
-            param.accept(unaryVisitor);
-            unaryVisitor.getResult().match!(
-                (DocRuntimeParameter p) { doc.parameters ~= p; },
-                (_){ assert(false, "Unexpected result type"); }
-            );
+            foreach(param; *node.parameterList.parameters)
+            {
+                scope unaryVisitor = new UnaryDefVisitor(super.context, super.moduleBeingVisited);
+                param.accept(unaryVisitor);
+                unaryVisitor.getResult().match!(
+                    (DocRuntimeParameter p) { doc.parameters ~= p; },
+                    (_){ assert(false, "Unexpected result type"); }
+                );
+            }
         }
 
         this.setResult(doc, node);
@@ -818,6 +895,120 @@ final class ExpressionVisitor : Visitor
     {
         this.visit(cast(ASTCodegen.Expression)node);
     }
+
+    void visit(ASTCodegen.ErrorExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.VoidInitExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.RealExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.ComplexExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.IdentifierExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.DollarExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.DsymbolExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.ThisExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.SuperExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.NullExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.InterpExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.TupleExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.ArrayLiteralExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.AssocArrayLiteralExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.StructLiteralExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.CompoundLiteralExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.TypeExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.ScopeExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.TemplateExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.NewExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.NewAnonClassExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.SymOffExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.VarExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.OverExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.FuncExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.DeclarationExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.TypeidExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.TraitsExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.HaltExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.IsExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.MixinExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.ImportExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.AssertExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.ThrowExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.DotIdExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.DotTemplateExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.DotVarExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.DotTemplateInstanceExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.DelegateExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.DotTypeExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.CallExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.AddrExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.PtrExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.NegExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.UAddExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.ComExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.NotExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.DeleteExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.CastExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.VectorExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.VectorArrayExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.SliceExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.ArrayLengthExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.ArrayExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.DotExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.CommaExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.IntervalExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.DelegatePtrExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.DelegateFuncptrExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.IndexExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.PostExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.PreExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.AssignExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.LoweredAssignExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.ConstructExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.BlitExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.AddAssignExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.MinAssignExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.MulAssignExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.DivAssignExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.ModAssignExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.AndAssignExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.OrAssignExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.XorAssignExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.PowAssignExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.ShlAssignExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.ShrAssignExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.UshrAssignExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.AddExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.MinExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.CatExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.MulExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.DivExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.ModExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.PowExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.ShlExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.ShrExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.UshrExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.AndExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.OrExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.XorExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.LogicalExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.InExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.RemoveExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.EqualExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.IdentityExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.CondExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.GenericExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.FileInitExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.LineInitExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.ModuleInitExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.FuncInitExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.PrettyFuncInitExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.ObjcClassReferenceExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.ClassReferenceExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.ThrownExceptionExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.DefaultInitExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.CatAssignExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.CatElemAssignExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.CatDcharAssignExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.UnaExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.BinExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
+    void visit(ASTCodegen.BinAssignExp exp) { this.visit(cast(ASTCodegen.Expression)exp); }
 }
 
 final class TemplateInstanceParameterVisitor : Visitor
@@ -855,6 +1046,13 @@ final class TemplateInstanceParameterVisitor : Visitor
         node.accept(expressionVisitor);
 
         this._result = DocTemplateInstanceParam(expressionVisitor.getResult());
+    }
+
+    void visit(ASTCodegen.Dsymbol node)
+    {
+        // TODO: Handle this case
+        warningf("TemplateInstanceParameterVisitor support for DSymbol nodes is TODO");
+        this._result = DocTemplateInstanceParam(DocExpression(DocFallbackExpression("__JUPTUNE_BUG__")));
     }
 }
 
