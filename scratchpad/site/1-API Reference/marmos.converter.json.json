@@ -94,16 +94,58 @@
                 "visibility": "public"
             },
             {
+                "@type": "DocStruct@1",
+                "comment": null,
+                "line": 16,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocVariable@1",
+                        "comment": null,
+                        "defaultValueExpression": null,
+                        "line": 16,
+                        "linkage": "default",
+                        "name": "name",
+                        "storageClasses": [],
+                        "typeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": {
+                                "@type": "DocSymbolReference@1",
+                                "items": [
+                                    {
+                                        "@type": "DocSymbolDirectReference@1",
+                                        "symbolName": "string"
+                                    }
+                                ],
+                                "moduleFqnComponents": []
+                            },
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "string"
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [],
+                        "visibility": "public"
+                    }
+                ],
+                "name": "JsonField",
+                "nestedTypes": [],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
                 "@type": "DocTemplate@1",
                 "comment": null,
                 "isMixin": false,
-                "line": 17,
+                "line": 18,
                 "linkage": "default",
                 "members": [
                     {
                         "@type": "DocAlias@1",
                         "comment": null,
-                        "line": 21,
+                        "line": 22,
                         "linkage": "default",
                         "name": "JsonTypeUdas",
                         "storageClasses": [],
@@ -123,7 +165,7 @@
                     {
                         "@type": "DocManifestConstant@1",
                         "comment": null,
-                        "line": 23,
+                        "line": 24,
                         "linkage": "default",
                         "name": "JsonTypeNameOf",
                         "originalValueExpression": null,
@@ -190,7 +232,7 @@
                     ]
                 },
                 "isMixin": false,
-                "line": 35,
+                "line": 36,
                 "linkage": "default",
                 "members": [
                     {
@@ -203,7 +245,7 @@
                                 {
                                     "@type": "DocRuntimeParameter@1",
                                     "defaultValueExpression": null,
-                                    "line": 35,
+                                    "line": 36,
                                     "name": "value",
                                     "storageClasses": [],
                                     "typeRef": {
@@ -240,7 +282,7 @@
                                 "storageClasses": []
                             }
                         },
-                        "line": 35,
+                        "line": 36,
                         "linkage": "default",
                         "name": "docToJson",
                         "storageClasses": [],
@@ -274,7 +316,7 @@
                 "@type": "DocTemplate@1",
                 "comment": null,
                 "isMixin": false,
-                "line": 47,
+                "line": 58,
                 "linkage": "default",
                 "members": [
                     {
@@ -287,7 +329,7 @@
                                 {
                                     "@type": "DocRuntimeParameter@1",
                                     "defaultValueExpression": null,
-                                    "line": 47,
+                                    "line": 58,
                                     "name": "value",
                                     "storageClasses": [],
                                     "typeRef": {
@@ -324,7 +366,7 @@
                                 "storageClasses": []
                             }
                         },
-                        "line": 47,
+                        "line": 58,
                         "linkage": "default",
                         "name": "docToJson",
                         "storageClasses": [],
@@ -358,7 +400,7 @@
                 "@type": "DocTemplate@1",
                 "comment": null,
                 "isMixin": false,
-                "line": 59,
+                "line": 70,
                 "linkage": "default",
                 "members": [
                     {
@@ -371,7 +413,7 @@
                                 {
                                     "@type": "DocRuntimeParameter@1",
                                     "defaultValueExpression": null,
-                                    "line": 59,
+                                    "line": 70,
                                     "name": "value",
                                     "storageClasses": [],
                                     "typeRef": {
@@ -408,7 +450,7 @@
                                 "storageClasses": []
                             }
                         },
-                        "line": 59,
+                        "line": 70,
                         "linkage": "default",
                         "name": "docToJson",
                         "storageClasses": [],
@@ -442,7 +484,7 @@
                 "@type": "DocTemplate@1",
                 "comment": null,
                 "isMixin": false,
-                "line": 68,
+                "line": 79,
                 "linkage": "default",
                 "members": [
                     {
@@ -455,7 +497,7 @@
                                 {
                                     "@type": "DocRuntimeParameter@1",
                                     "defaultValueExpression": null,
-                                    "line": 68,
+                                    "line": 79,
                                     "name": "value",
                                     "storageClasses": [],
                                     "typeRef": {
@@ -492,7 +534,7 @@
                                 "storageClasses": []
                             }
                         },
-                        "line": 68,
+                        "line": 79,
                         "linkage": "default",
                         "name": "docToJson",
                         "storageClasses": [],
@@ -526,7 +568,7 @@
                 "@type": "DocTemplate@1",
                 "comment": null,
                 "isMixin": false,
-                "line": 77,
+                "line": 88,
                 "linkage": "default",
                 "members": [
                     {
@@ -539,7 +581,7 @@
                                 {
                                     "@type": "DocRuntimeParameter@1",
                                     "defaultValueExpression": null,
-                                    "line": 77,
+                                    "line": 88,
                                     "name": "value",
                                     "storageClasses": [],
                                     "typeRef": {
@@ -576,7 +618,7 @@
                                 "storageClasses": []
                             }
                         },
-                        "line": 77,
+                        "line": 88,
                         "linkage": "default",
                         "name": "docToJson",
                         "storageClasses": [],
@@ -610,7 +652,7 @@
                 "@type": "DocTemplate@1",
                 "comment": null,
                 "isMixin": false,
-                "line": 91,
+                "line": 102,
                 "linkage": "default",
                 "members": [
                     {
@@ -623,7 +665,7 @@
                                 {
                                     "@type": "DocRuntimeParameter@1",
                                     "defaultValueExpression": null,
-                                    "line": 91,
+                                    "line": 102,
                                     "name": "value",
                                     "storageClasses": [],
                                     "typeRef": {
@@ -660,7 +702,7 @@
                                 "storageClasses": []
                             }
                         },
-                        "line": 91,
+                        "line": 102,
                         "linkage": "default",
                         "name": "docToJson",
                         "storageClasses": [],
@@ -713,7 +755,7 @@
                     ]
                 },
                 "isMixin": false,
-                "line": 99,
+                "line": 110,
                 "linkage": "default",
                 "members": [
                     {
@@ -726,7 +768,7 @@
                                 {
                                     "@type": "DocRuntimeParameter@1",
                                     "defaultValueExpression": null,
-                                    "line": 99,
+                                    "line": 110,
                                     "name": "json",
                                     "storageClasses": [],
                                     "typeRef": {
@@ -763,7 +805,7 @@
                                 "storageClasses": []
                             }
                         },
-                        "line": 99,
+                        "line": 110,
                         "linkage": "default",
                         "name": "jsonToDoc",
                         "storageClasses": [],
@@ -797,7 +839,7 @@
                 "@type": "DocTemplate@1",
                 "comment": null,
                 "isMixin": false,
-                "line": 133,
+                "line": 152,
                 "linkage": "default",
                 "members": [
                     {
@@ -810,7 +852,7 @@
                                 {
                                     "@type": "DocRuntimeParameter@1",
                                     "defaultValueExpression": null,
-                                    "line": 133,
+                                    "line": 152,
                                     "name": "json",
                                     "storageClasses": [],
                                     "typeRef": {
@@ -847,7 +889,7 @@
                                 "storageClasses": []
                             }
                         },
-                        "line": 133,
+                        "line": 152,
                         "linkage": "default",
                         "name": "jsonToDoc",
                         "storageClasses": [],
@@ -881,7 +923,7 @@
                 "@type": "DocTemplate@1",
                 "comment": null,
                 "isMixin": false,
-                "line": 153,
+                "line": 184,
                 "linkage": "default",
                 "members": [
                     {
@@ -894,7 +936,7 @@
                                 {
                                     "@type": "DocRuntimeParameter@1",
                                     "defaultValueExpression": null,
-                                    "line": 153,
+                                    "line": 184,
                                     "name": "json",
                                     "storageClasses": [],
                                     "typeRef": {
@@ -931,7 +973,7 @@
                                 "storageClasses": []
                             }
                         },
-                        "line": 153,
+                        "line": 184,
                         "linkage": "default",
                         "name": "jsonToDoc",
                         "storageClasses": [],
@@ -965,7 +1007,7 @@
                 "@type": "DocTemplate@1",
                 "comment": null,
                 "isMixin": false,
-                "line": 164,
+                "line": 195,
                 "linkage": "default",
                 "members": [
                     {
@@ -978,7 +1020,7 @@
                                 {
                                     "@type": "DocRuntimeParameter@1",
                                     "defaultValueExpression": null,
-                                    "line": 164,
+                                    "line": 195,
                                     "name": "json",
                                     "storageClasses": [],
                                     "typeRef": {
@@ -1015,7 +1057,7 @@
                                 "storageClasses": []
                             }
                         },
-                        "line": 164,
+                        "line": 195,
                         "linkage": "default",
                         "name": "jsonToDoc",
                         "storageClasses": [],
@@ -1049,7 +1091,7 @@
                 "@type": "DocTemplate@1",
                 "comment": null,
                 "isMixin": false,
-                "line": 178,
+                "line": 209,
                 "linkage": "default",
                 "members": [
                     {
@@ -1062,7 +1104,7 @@
                                 {
                                     "@type": "DocRuntimeParameter@1",
                                     "defaultValueExpression": null,
-                                    "line": 178,
+                                    "line": 209,
                                     "name": "json",
                                     "storageClasses": [],
                                     "typeRef": {
@@ -1099,7 +1141,7 @@
                                 "storageClasses": []
                             }
                         },
-                        "line": 178,
+                        "line": 209,
                         "linkage": "default",
                         "name": "jsonToDoc",
                         "storageClasses": [],
@@ -1133,7 +1175,7 @@
                 "@type": "DocTemplate@1",
                 "comment": null,
                 "isMixin": false,
-                "line": 197,
+                "line": 228,
                 "linkage": "default",
                 "members": [
                     {
@@ -1146,7 +1188,7 @@
                                 {
                                     "@type": "DocRuntimeParameter@1",
                                     "defaultValueExpression": null,
-                                    "line": 197,
+                                    "line": 228,
                                     "name": "json",
                                     "storageClasses": [],
                                     "typeRef": {
@@ -1183,7 +1225,7 @@
                                 "storageClasses": []
                             }
                         },
-                        "line": 197,
+                        "line": 228,
                         "linkage": "default",
                         "name": "jsonToDoc",
                         "storageClasses": [],
@@ -1217,7 +1259,7 @@
                 "@type": "DocTemplate@1",
                 "comment": null,
                 "isMixin": false,
-                "line": 208,
+                "line": 239,
                 "linkage": "default",
                 "members": [
                     {
@@ -1230,7 +1272,7 @@
                                 {
                                     "@type": "DocRuntimeParameter@1",
                                     "defaultValueExpression": null,
-                                    "line": 208,
+                                    "line": 239,
                                     "name": "json",
                                     "storageClasses": [],
                                     "typeRef": {
@@ -1267,7 +1309,7 @@
                                 "storageClasses": []
                             }
                         },
-                        "line": 208,
+                        "line": 239,
                         "linkage": "default",
                         "name": "jsonToDoc",
                         "storageClasses": [],

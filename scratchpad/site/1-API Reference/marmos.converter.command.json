@@ -22,7 +22,7 @@
                         {
                             "@type": "DocRuntimeParameter@1",
                             "defaultValueExpression": null,
-                            "line": 82,
+                            "line": 88,
                             "name": "args",
                             "storageClasses": [],
                             "typeRef": {
@@ -57,7 +57,7 @@
                         "storageClasses": []
                     }
                 },
-                "line": 82,
+                "line": 88,
                 "linkage": "default",
                 "name": "runConvert",
                 "storageClasses": [],
@@ -238,7 +238,60 @@
                         "@type": "DocVariable@1",
                         "comment": null,
                         "defaultValueExpression": null,
-                        "line": 60,
+                        "line": 57,
+                        "linkage": "default",
+                        "name": "versionIdentifiers",
+                        "storageClasses": [],
+                        "typeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": {
+                                "@type": "DocArrayType@1",
+                                "underlyingTypeRef": {
+                                    "@type": "DocTypeRef@1",
+                                    "originalTypeRaw": null,
+                                    "raw": {
+                                        "@type": "DocSymbolReference@1",
+                                        "items": [
+                                            {
+                                                "@type": "DocSymbolDirectReference@1",
+                                                "symbolName": "string"
+                                            }
+                                        ],
+                                        "moduleFqnComponents": []
+                                    },
+                                    "storageClasses": []
+                                }
+                            },
+                            "raw": {
+                                "@type": "DocArrayType@1",
+                                "underlyingTypeRef": {
+                                    "@type": "DocTypeRef@1",
+                                    "originalTypeRaw": null,
+                                    "raw": {
+                                        "@type": "DocBasicType@1",
+                                        "name": "string"
+                                    },
+                                    "storageClasses": []
+                                }
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [
+                            {
+                                "@type": "DocExpressionUda@1",
+                                "expression": {
+                                    "@type": "DocFallbackExpression@1",
+                                    "renderedCode": "ArgumentUDA(ArgumentInfo([], [], null, [\"V\", \"version\"], LazyString(SumType(Storage(\"Additional version identifiers\", ), cast(ubyte)0u)), null, null, null, Nullable(, true), Nullable(, true), Nullable(, true), true, true, false, false, false, false), ValueParser(null, ValidationFunc(CallDispatcher(null, , , , , , , , , 18446744073709551615LU)), , , , ))"
+                                }
+                            }
+                        ],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocVariable@1",
+                        "comment": null,
+                        "defaultValueExpression": null,
+                        "line": 66,
                         "linkage": "default",
                         "name": "outputDir",
                         "storageClasses": [],
@@ -275,7 +328,7 @@
                         "@type": "DocVariable@1",
                         "comment": null,
                         "defaultValueExpression": null,
-                        "line": 66,
+                        "line": 72,
                         "linkage": "default",
                         "name": "outputStyle",
                         "storageClasses": [],
@@ -326,7 +379,7 @@
                         "@type": "DocVariable@1",
                         "comment": null,
                         "defaultValueExpression": null,
-                        "line": 72,
+                        "line": 78,
                         "linkage": "default",
                         "name": "pretty",
                         "storageClasses": [],
@@ -354,7 +407,7 @@
                         "@type": "DocVariable@1",
                         "comment": null,
                         "defaultValueExpression": null,
-                        "line": 79,
+                        "line": 85,
                         "linkage": "default",
                         "name": "filesToConvert",
                         "storageClasses": [],

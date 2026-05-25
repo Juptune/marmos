@@ -63,6 +63,20 @@ private void emitStaticFiles(SiteRoot site)
 
 /++ API Reference builders ++/
 
+private Html buildApiRefBody(SiteRoot site, StagingApiRefGroup group, StagingApiRefGroup.Version version_, StagingApiRefGroup.Page page, ApiPageRoot pageModel)
+{
+    return Html(
+        tag: "div",
+        classes: [],
+        content: pageModel.components.map!(comp => renderComponent(comp, version_.navRoot)).array,
+    );
+}
+
+private Html buildApiRightSidebar(SiteRoot site, StagingApiRefGroup group, StagingApiRefGroup.Version version_, StagingApiRefGroup.Page page, ApiPageRoot pageModel)
+{
+    return Html();
+}
+
 private Html buildApiRefLeftSidebar(SiteRoot site, StagingApiRefGroup group, StagingApiRefGroup.Version version_, StagingApiRefGroup.Page page)
 {
     import std.algorithm : filter;
@@ -187,15 +201,6 @@ private Html buildApiRefLeftSidebar(SiteRoot site, StagingApiRefGroup group, Sta
             // Script for collapsing stuff
             Html(tag: "script", attributes: ["src": "/"~site.apiRefGroupToggleJsPath]),
         ],
-    );
-}
-
-private Html buildApiRefBody(SiteRoot site, StagingApiRefGroup group, StagingApiRefGroup.Version version_, StagingApiRefGroup.Page page, ApiPageRoot pageModel)
-{
-    return Html(
-        tag: "div",
-        classes: [],
-        content: pageModel.components.map!(comp => renderComponent(comp, version_.navRoot)).array,
     );
 }
 
@@ -412,7 +417,7 @@ private Html renderCodeBlock(ApiPageDlangCode code, GroupNavRoot nav)
             // Code
             Html(
                 tag: "div",
-                classes: [],
+                classes: ["overflow-x-auto"],
                 content: Html(
                     tag: "pre",
                     classes: [],

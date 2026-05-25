@@ -166,6 +166,28 @@ final class AggregateDefVisitor : Visitor
         return this._result.get;
     }
 
+    private void inlineMixinTemplates(ASTCodegen.TemplateMixin node, scope ref DocUnaryDef[] members, scope ref DocAggregateDef[] nestedTypes)
+    {
+        if(node.members is null)
+            return;
+
+        scope defVisitor = new DefinitionVisitor(super.context, super.moduleBeingVisited);
+        foreach(member; *node.members)
+            member.accept(defVisitor);
+
+        if(node.importedScopes !is null)
+        {
+            foreach(scope_; *node.importedScopes)
+            {
+                if(auto templateMixin = cast(ASTCodegen.TemplateMixin)scope_)
+                    this.inlineMixinTemplates(templateMixin, members, nestedTypes);
+            }
+        }
+
+        members ~= defVisitor.unaryDefinitions;
+        nestedTypes ~= defVisitor.aggregateDefinitions;
+    }
+
     override extern(C++):
     
     void visit(ASTCodegen.ClassDeclaration node)
@@ -201,6 +223,16 @@ final class AggregateDefVisitor : Visitor
         doc.members = defVisitor.unaryDefinitions;
         doc.nestedTypes = defVisitor.aggregateDefinitions;
 
+        // Mixin template members (TODO: Should I make another model so it's possible to distinguish that these things came from a mixin template?)
+        if(node.importedScopes !is null)
+        {
+            foreach(scope_; *node.importedScopes)
+            {
+                if(auto templateMixin = cast(ASTCodegen.TemplateMixin)scope_)
+                    this.inlineMixinTemplates(templateMixin, doc.members, doc.nestedTypes);
+            }
+        }
+
         // Other
         if(node.stack)
             doc.storageClasses ~= DocStorageClass.scope_;
@@ -224,6 +256,16 @@ final class AggregateDefVisitor : Visitor
         }
         doc.members = defVisitor.unaryDefinitions;
         doc.nestedTypes = defVisitor.aggregateDefinitions;
+
+        // Mixin template members (TODO: Should I make another model so it's possible to distinguish that these things came from a mixin template?)
+        if(node.importedScopes !is null)
+        {
+            foreach(scope_; *node.importedScopes)
+            {
+                if(auto templateMixin = cast(ASTCodegen.TemplateMixin)scope_)
+                    this.inlineMixinTemplates(templateMixin, doc.members, doc.nestedTypes);
+            }
+        }
 
         this._result = DocAggregateDef(doc);
     }

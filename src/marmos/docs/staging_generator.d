@@ -676,6 +676,7 @@ private void appendCode(SiteRoot site, SymbolLeaf!(MaybeTemplated!DocFunction) d
         appendTypeRef(*model.funcType.returnType, code, forceSingleLine: isNestedOverview);
     else
         code.add(ApiPageCodeText(ApiPageCodeText.Syntax.keyword, "auto"));
+
     code.add(ApiPageCodeText(ApiPageCodeText.Syntax.symbol, " "~doc.memberComponents[$-1]).asNavLink(
         site.groupNavFunctionsIdPath(doc.module_, doc.memberComponents)
     ));
@@ -727,8 +728,61 @@ private void appendCode(SiteRoot site, SymbolLeaf!(MaybeTemplated!DocManifestCon
 
 private void appendCode(SiteRoot site, SymbolLeaf!DocEnum doc, scope ref ApiPageDlangCode code, bool isNestedOverview = false)
 {
+    import std.sumtype : match;
+
+    DocEnum model = doc.model;
+
     if(!isNestedOverview)
         appendModuleStatement(site, doc.module_, code);
+
+    appendVisibility(model.visibility, code);
+    code.add(ApiPageCodeText(ApiPageCodeText.Syntax.keyword, "enum "));
+
+    code.add(ApiPageCodeText(ApiPageCodeText.Syntax.symbol, doc.memberComponents[$-1]).asNavLink(
+        site.groupNavEnumsIdPath(doc.module_, doc.memberComponents)
+    ));
+
+    if(!model.baseTypeRef.isNull)
+    {
+        code.add(ApiPageCodeText(ApiPageCodeText.Syntax.operator, " : "));
+        appendTypeRef(model.baseTypeRef.get, code, forceSingleLine: isNestedOverview);
+    }
+
+    code.add(ApiPageCodeNewLine());
+    code.add(ApiPageCodeText(ApiPageCodeText.Syntax.operator, "{"));
+    code.add(ApiPageCodeNewLine());
+    code.add(ApiPageCodeIndent());
+
+    foreach(i, member; model.members)
+    {
+        DocManifestConstant manifestConstant = member.match!(
+            (DocManifestConstant c) => c,
+            (_) {
+                assert(false, "bug: Can this be anything other than DocManifestConstant?");
+                return DocManifestConstant.init;
+            },
+        );
+
+        if(i > 0)
+        {
+            code.add(ApiPageCodeText(ApiPageCodeText.Syntax.operator, ", "));
+            code.add(ApiPageCodeNewLine());
+        }
+
+        code.add(getOverviewCommentForCode(manifestConstant.comment));
+        code.add(ApiPageCodeNewLine());
+        code.add(ApiPageCodeText(ApiPageCodeText.Syntax.symbol, manifestConstant.name));
+
+        if(!manifestConstant.valueExpression.isNull)
+        {
+            code.add(ApiPageCodeText(ApiPageCodeText.Syntax.operator, " = "));
+            appendExpression(manifestConstant.valueExpression.get, code, forceSingleLine: true);
+        }
+    }
+
+    code.add(ApiPageCodeDedent());
+    code.add(ApiPageCodeNewLine());
+    code.add(ApiPageCodeText(ApiPageCodeText.Syntax.operator, "}"));
 }
 
 private void appendCode(SiteRoot site, SymbolLeaf!DocVariable doc, scope ref ApiPageDlangCode code, bool isNestedOverview = false)
@@ -1032,8 +1086,11 @@ private void appendTypeRef(DocTypeRef typeRef, scope ref ApiPageDlangCode code, 
                         code.add(ApiPageCodeIndent());
                     }
 
-                    foreach(sumType; symbol.parameters)
+                    foreach(i, sumType; symbol.parameters)
                     {
+                        if(i > 0)
+                            code.add(ApiPageCodeText(ApiPageCodeText.Syntax.operator, ", "));
+
                         sumType.match!(
                             (DocExpression param){
                                 appendExpression(param, code, forceSingleLine);
