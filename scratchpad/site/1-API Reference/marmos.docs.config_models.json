@@ -1,0 +1,645 @@
+{
+    "@type": "DocModelRoot@1",
+    "features": [
+        "semanticPass"
+    ],
+    "module_": {
+        "@type": "DocModule@1",
+        "comment": null,
+        "fqnComponents": [
+            "marmos",
+            "docs",
+            "config_models"
+        ],
+        "members": [
+            {
+                "@type": "DocAlias@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Root groups"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "line": 21,
+                "linkage": "default",
+                "name": "RootGroupKind",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocSymbolReference@1",
+                        "items": [
+                            {
+                                "@type": "DocSymbolInstanceReference@1",
+                                "parameters": [
+                                    {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "MarmosDocModelGroup"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": [
+                                                "marmos",
+                                                "docs",
+                                                "config_models"
+                                            ]
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "SingleFileGroup"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": [
+                                                "marmos",
+                                                "docs",
+                                                "config_models"
+                                            ]
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "GroupOfGroups"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": [
+                                                "marmos",
+                                                "docs",
+                                                "config_models"
+                                            ]
+                                        },
+                                        "storageClasses": []
+                                    }
+                                ],
+                                "symbolName": "SumType"
+                            }
+                        ],
+                        "moduleFqnComponents": [
+                            "std",
+                            "sumtype"
+                        ]
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocAlias@1",
+                "comment": null,
+                "line": 27,
+                "linkage": "default",
+                "name": "SubGroupKind",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocSymbolReference@1",
+                        "items": [
+                            {
+                                "@type": "DocSymbolInstanceReference@1",
+                                "parameters": [
+                                    {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "MarkdownDocGroup"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": [
+                                                "marmos",
+                                                "docs",
+                                                "config_models"
+                                            ]
+                                        },
+                                        "storageClasses": []
+                                    }
+                                ],
+                                "symbolName": "SumType"
+                            }
+                        ],
+                        "moduleFqnComponents": [
+                            "std",
+                            "sumtype"
+                        ]
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "public"
+            }
+        ],
+        "nestedTypes": [
+            {
+                "@type": "DocStruct@1",
+                "comment": null,
+                "line": 14,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocVariable@1",
+                        "comment": null,
+                        "defaultValueExpression": null,
+                        "line": 16,
+                        "linkage": "default",
+                        "name": "siteTitle",
+                        "storageClasses": [],
+                        "typeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": {
+                                "@type": "DocSymbolReference@1",
+                                "items": [
+                                    {
+                                        "@type": "DocSymbolDirectReference@1",
+                                        "symbolName": "string"
+                                    }
+                                ],
+                                "moduleFqnComponents": []
+                            },
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "string"
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [],
+                        "visibility": "public"
+                    }
+                ],
+                "name": "MardocsConfig",
+                "nestedTypes": [],
+                "storageClasses": [],
+                "udas": [
+                    {
+                        "@type": "DocExpressionUda@1",
+                        "expression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "JsonType(\"MardocsConfig@1\")"
+                        }
+                    }
+                ],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocStruct@1",
+                "comment": null,
+                "line": 32,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocVariable@1",
+                        "comment": null,
+                        "defaultValueExpression": null,
+                        "line": 34,
+                        "linkage": "default",
+                        "name": "kind",
+                        "storageClasses": [],
+                        "typeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": {
+                                "@type": "DocSymbolReference@1",
+                                "items": [
+                                    {
+                                        "@type": "DocSymbolDirectReference@1",
+                                        "symbolName": "RootGroupKind"
+                                    }
+                                ],
+                                "moduleFqnComponents": []
+                            },
+                            "raw": {
+                                "@type": "DocSymbolReference@1",
+                                "items": [
+                                    {
+                                        "@type": "DocSymbolInstanceReference@1",
+                                        "parameters": [
+                                            {
+                                                "@type": "DocTypeRef@1",
+                                                "originalTypeRaw": null,
+                                                "raw": {
+                                                    "@type": "DocSymbolReference@1",
+                                                    "items": [
+                                                        {
+                                                            "@type": "DocSymbolDirectReference@1",
+                                                            "symbolName": "MarmosDocModelGroup"
+                                                        }
+                                                    ],
+                                                    "moduleFqnComponents": [
+                                                        "marmos",
+                                                        "docs",
+                                                        "config_models"
+                                                    ]
+                                                },
+                                                "storageClasses": []
+                                            },
+                                            {
+                                                "@type": "DocTypeRef@1",
+                                                "originalTypeRaw": null,
+                                                "raw": {
+                                                    "@type": "DocSymbolReference@1",
+                                                    "items": [
+                                                        {
+                                                            "@type": "DocSymbolDirectReference@1",
+                                                            "symbolName": "SingleFileGroup"
+                                                        }
+                                                    ],
+                                                    "moduleFqnComponents": [
+                                                        "marmos",
+                                                        "docs",
+                                                        "config_models"
+                                                    ]
+                                                },
+                                                "storageClasses": []
+                                            },
+                                            {
+                                                "@type": "DocTypeRef@1",
+                                                "originalTypeRaw": null,
+                                                "raw": {
+                                                    "@type": "DocSymbolReference@1",
+                                                    "items": [
+                                                        {
+                                                            "@type": "DocSymbolDirectReference@1",
+                                                            "symbolName": "GroupOfGroups"
+                                                        }
+                                                    ],
+                                                    "moduleFqnComponents": [
+                                                        "marmos",
+                                                        "docs",
+                                                        "config_models"
+                                                    ]
+                                                },
+                                                "storageClasses": []
+                                            }
+                                        ],
+                                        "symbolName": "SumType"
+                                    }
+                                ],
+                                "moduleFqnComponents": [
+                                    "std",
+                                    "sumtype"
+                                ]
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 0,
+                                    "name": "p",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "RootGroup"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": [
+                                                "marmos",
+                                                "docs",
+                                                "config_models"
+                                            ]
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "RootGroup"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": [
+                                        "marmos",
+                                        "docs",
+                                        "config_models"
+                                    ]
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 32,
+                        "linkage": "default",
+                        "name": "opAssign",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "public"
+                    }
+                ],
+                "name": "RootGroup",
+                "nestedTypes": [],
+                "storageClasses": [],
+                "udas": [
+                    {
+                        "@type": "DocExpressionUda@1",
+                        "expression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "JsonType(\"RootGroup@1\")"
+                        }
+                    }
+                ],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocStruct@1",
+                "comment": null,
+                "line": 38,
+                "linkage": "default",
+                "members": [],
+                "name": "MarmosDocModelGroup",
+                "nestedTypes": [],
+                "storageClasses": [],
+                "udas": [
+                    {
+                        "@type": "DocExpressionUda@1",
+                        "expression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "JsonType(\"MarmosDocModelGroup@1\")"
+                        }
+                    }
+                ],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocStruct@1",
+                "comment": null,
+                "line": 44,
+                "linkage": "default",
+                "members": [],
+                "name": "SingleFileGroup",
+                "nestedTypes": [],
+                "storageClasses": [],
+                "udas": [
+                    {
+                        "@type": "DocExpressionUda@1",
+                        "expression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "JsonType(\"SingleFileGroup@1\")"
+                        }
+                    }
+                ],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocStruct@1",
+                "comment": null,
+                "line": 50,
+                "linkage": "default",
+                "members": [],
+                "name": "GroupOfGroups",
+                "nestedTypes": [],
+                "storageClasses": [],
+                "udas": [
+                    {
+                        "@type": "DocExpressionUda@1",
+                        "expression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "JsonType(\"GroupOfGroups@1\")"
+                        }
+                    }
+                ],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocStruct@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Sub groups\/articles"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "line": 58,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocVariable@1",
+                        "comment": null,
+                        "defaultValueExpression": null,
+                        "line": 60,
+                        "linkage": "default",
+                        "name": "kind",
+                        "storageClasses": [],
+                        "typeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": {
+                                "@type": "DocSymbolReference@1",
+                                "items": [
+                                    {
+                                        "@type": "DocSymbolDirectReference@1",
+                                        "symbolName": "SubGroupKind"
+                                    }
+                                ],
+                                "moduleFqnComponents": []
+                            },
+                            "raw": {
+                                "@type": "DocSymbolReference@1",
+                                "items": [
+                                    {
+                                        "@type": "DocSymbolInstanceReference@1",
+                                        "parameters": [
+                                            {
+                                                "@type": "DocTypeRef@1",
+                                                "originalTypeRaw": null,
+                                                "raw": {
+                                                    "@type": "DocSymbolReference@1",
+                                                    "items": [
+                                                        {
+                                                            "@type": "DocSymbolDirectReference@1",
+                                                            "symbolName": "MarkdownDocGroup"
+                                                        }
+                                                    ],
+                                                    "moduleFqnComponents": [
+                                                        "marmos",
+                                                        "docs",
+                                                        "config_models"
+                                                    ]
+                                                },
+                                                "storageClasses": []
+                                            }
+                                        ],
+                                        "symbolName": "SumType"
+                                    }
+                                ],
+                                "moduleFqnComponents": [
+                                    "std",
+                                    "sumtype"
+                                ]
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 0,
+                                    "name": "p",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "SubGroup"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": [
+                                                "marmos",
+                                                "docs",
+                                                "config_models"
+                                            ]
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "SubGroup"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": [
+                                        "marmos",
+                                        "docs",
+                                        "config_models"
+                                    ]
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 58,
+                        "linkage": "default",
+                        "name": "opAssign",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "public"
+                    }
+                ],
+                "name": "SubGroup",
+                "nestedTypes": [],
+                "storageClasses": [],
+                "udas": [
+                    {
+                        "@type": "DocExpressionUda@1",
+                        "expression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "JsonType(\"SubGroup@1\")"
+                        }
+                    }
+                ],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocStruct@1",
+                "comment": null,
+                "line": 64,
+                "linkage": "default",
+                "members": [],
+                "name": "MarkdownDocGroup",
+                "nestedTypes": [],
+                "storageClasses": [],
+                "udas": [
+                    {
+                        "@type": "DocExpressionUda@1",
+                        "expression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "JsonType(\"MarkdownDocGroup@1\")"
+                        }
+                    }
+                ],
+                "visibility": "public"
+            }
+        ]
+    }
+}

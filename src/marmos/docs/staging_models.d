@@ -216,11 +216,13 @@ struct ApiPageHrefLink(InnerT)
     @JsonField("p") string href;
 }
 
+@JsonType("ph")
 struct ApiPageHeader
 {
-    uint level;
-    string htmlId;
-    string text;
+    @JsonField("l") uint level;
+    @JsonField("i") string htmlId;
+    @JsonField("t") string text;
+    // fam
 }
 
 @JsonType("ps")
@@ -241,38 +243,44 @@ struct ApiPageSpan
 @JsonType("pp")
 struct ApiPageParagraph
 {
-    ApiPageComponent[] components;
+    @JsonField("c") ApiPageComponent[] components;
 }
 
+@JsonType("pt")
 struct ApiPageTable
 {
-    ApiPageComponent[] columns;
-    ApiPageComponent[][] rows;
+    @JsonType("c") ApiPageComponent[] columns;
+    @JsonType("r") ApiPageComponent[][] rows;
 }
 
+@JsonType("pl")
 struct ApiPageList
 {
-    bool isOrdered;
-    ApiPageComponent[] items; // Use nested ApiPageList for multi-depth lists.
+    @JsonField("o") bool isOrdered;
+    @JsonField("i") ApiPageComponent[] items; // Use nested ApiPageList for multi-depth lists.
+    // m8
 }
 
+@JsonType("Pl")
 struct ApiPageParamList
 {
     alias TypeName = SumType!(ApiPageSpan, ApiPageLink!ApiPageSpan);
 
+    @JsonType("P")
     static struct Param
     {
-        ApiPageSpan name;
-        TypeName typeName;
-        ApiPageParagraph description;
+        @JsonField("n") ApiPageSpan name;
+        @JsonField("t") TypeName typeName;
+        @JsonField("d") ApiPageParagraph description;
     }
 
-    Param[] params;
+    @JsonField("p") Param[] params;
 }
 
+@JsonType("pd")
 struct ApiPageDlangCode
 {
-    ApiPageDlangCodeComponent[] components;
+    @JsonField("c") ApiPageDlangCodeComponent[] components;
 
     void add(ComponentT)(ComponentT component)
     if(!is(ComponentT : _[], _))

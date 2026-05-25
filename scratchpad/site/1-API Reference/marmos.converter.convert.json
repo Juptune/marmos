@@ -1,0 +1,105 @@
+{
+    "@type": "DocModelRoot@1",
+    "features": [
+        "semanticPass"
+    ],
+    "module_": {
+        "@type": "DocModule@1",
+        "comment": null,
+        "fqnComponents": [
+            "marmos",
+            "converter",
+            "convert"
+        ],
+        "members": [
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 18,
+                            "name": "mod",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "Module"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": [
+                                        "dmd",
+                                        "dmodule"
+                                    ]
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 18,
+                            "name": "context",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "MarmosContext"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": [
+                                        "marmos",
+                                        "context"
+                                    ]
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocSymbolReference@1",
+                            "items": [
+                                {
+                                    "@type": "DocSymbolDirectReference@1",
+                                    "symbolName": "DocModelRoot"
+                                }
+                            ],
+                            "moduleFqnComponents": [
+                                "marmos",
+                                "converter",
+                                "model"
+                            ]
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 18,
+                "linkage": "default",
+                "name": "convertModuleToDocModel",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            }
+        ],
+        "nestedTypes": []
+    }
+}

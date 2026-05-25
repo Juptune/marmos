@@ -1,0 +1,1302 @@
+{
+    "@type": "DocModelRoot@1",
+    "features": [
+        "semanticPass"
+    ],
+    "module_": {
+        "@type": "DocModule@1",
+        "comment": null,
+        "fqnComponents": [
+            "marmos",
+            "converter",
+            "json"
+        ],
+        "members": [
+            {
+                "@type": "DocVariable@1",
+                "comment": null,
+                "defaultValueExpression": null,
+                "line": 13,
+                "linkage": "default",
+                "name": "JSON_TYPE_FIELD",
+                "storageClasses": [
+                    "const"
+                ],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": {
+                        "@type": "DocBasicType@1",
+                        "name": "string"
+                    },
+                    "raw": {
+                        "@type": "DocArrayType@1",
+                        "underlyingTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "char"
+                            },
+                            "storageClasses": [
+                                "immutable"
+                            ]
+                        }
+                    },
+                    "storageClasses": [
+                        "const"
+                    ]
+                },
+                "udas": [],
+                "visibility": "public"
+            }
+        ],
+        "nestedTypes": [
+            {
+                "@type": "DocStruct@1",
+                "comment": null,
+                "line": 15,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocVariable@1",
+                        "comment": null,
+                        "defaultValueExpression": null,
+                        "line": 15,
+                        "linkage": "default",
+                        "name": "name",
+                        "storageClasses": [],
+                        "typeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": {
+                                "@type": "DocSymbolReference@1",
+                                "items": [
+                                    {
+                                        "@type": "DocSymbolDirectReference@1",
+                                        "symbolName": "string"
+                                    }
+                                ],
+                                "moduleFqnComponents": []
+                            },
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "string"
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [],
+                        "visibility": "public"
+                    }
+                ],
+                "name": "JsonType",
+                "nestedTypes": [],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocTemplate@1",
+                "comment": null,
+                "isMixin": false,
+                "line": 17,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocAlias@1",
+                        "comment": null,
+                        "line": 21,
+                        "linkage": "default",
+                        "name": "JsonTypeUdas",
+                        "storageClasses": [],
+                        "symbolRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocSymbolReference@1",
+                                "items": [],
+                                "moduleFqnComponents": []
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": null,
+                        "line": 23,
+                        "linkage": "default",
+                        "name": "JsonTypeNameOf",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "int"
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "JsonTypeUdas[0].name"
+                        },
+                        "visibility": "not explicitly defined"
+                    }
+                ],
+                "name": "JsonTypeNameOf",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "DocT",
+                        "specType": null
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "DocT",
+                        "specType": null
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocTemplate@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "doc -> json"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "isMixin": false,
+                "line": 35,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 35,
+                                    "name": "value",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "DocT"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": []
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "JSONValue"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": []
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 35,
+                        "linkage": "default",
+                        "name": "docToJson",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    }
+                ],
+                "name": "docToJson",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "DocT",
+                        "specType": null
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "DocT",
+                        "specType": null
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocTemplate@1",
+                "comment": null,
+                "isMixin": false,
+                "line": 47,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 47,
+                                    "name": "value",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "DocT"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": []
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "JSONValue"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": []
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 47,
+                        "linkage": "default",
+                        "name": "docToJson",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    }
+                ],
+                "name": "docToJson",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "DocT",
+                        "specType": null
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "DocT",
+                        "specType": null
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocTemplate@1",
+                "comment": null,
+                "isMixin": false,
+                "line": 59,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 59,
+                                    "name": "value",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "DocT"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": []
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "JSONValue"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": []
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 59,
+                        "linkage": "default",
+                        "name": "docToJson",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    }
+                ],
+                "name": "docToJson",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "DocT",
+                        "specType": null
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "DocT",
+                        "specType": null
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocTemplate@1",
+                "comment": null,
+                "isMixin": false,
+                "line": 68,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 68,
+                                    "name": "value",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "DocT"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": []
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "JSONValue"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": []
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 68,
+                        "linkage": "default",
+                        "name": "docToJson",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    }
+                ],
+                "name": "docToJson",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "DocT",
+                        "specType": null
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "DocT",
+                        "specType": null
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocTemplate@1",
+                "comment": null,
+                "isMixin": false,
+                "line": 77,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 77,
+                                    "name": "value",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "DocT"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": []
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "JSONValue"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": []
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 77,
+                        "linkage": "default",
+                        "name": "docToJson",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    }
+                ],
+                "name": "docToJson",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "DocT",
+                        "specType": null
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "DocT",
+                        "specType": null
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocTemplate@1",
+                "comment": null,
+                "isMixin": false,
+                "line": 91,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 91,
+                                    "name": "value",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "DocT"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": []
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "JSONValue"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": []
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 91,
+                        "linkage": "default",
+                        "name": "docToJson",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    }
+                ],
+                "name": "docToJson",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "DocT",
+                        "specType": null
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "DocT",
+                        "specType": null
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocTemplate@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "json -> doc"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "isMixin": false,
+                "line": 99,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 99,
+                                    "name": "json",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "JSONValue"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": []
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "T"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": []
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 99,
+                        "linkage": "default",
+                        "name": "jsonToDoc",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    }
+                ],
+                "name": "jsonToDoc",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "T",
+                        "specType": null
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "T",
+                        "specType": null
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocTemplate@1",
+                "comment": null,
+                "isMixin": false,
+                "line": 133,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 133,
+                                    "name": "json",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "JSONValue"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": []
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "T"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": []
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 133,
+                        "linkage": "default",
+                        "name": "jsonToDoc",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    }
+                ],
+                "name": "jsonToDoc",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "T",
+                        "specType": null
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "T",
+                        "specType": null
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocTemplate@1",
+                "comment": null,
+                "isMixin": false,
+                "line": 153,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 153,
+                                    "name": "json",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "JSONValue"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": []
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "T"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": []
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 153,
+                        "linkage": "default",
+                        "name": "jsonToDoc",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    }
+                ],
+                "name": "jsonToDoc",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "T",
+                        "specType": null
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "T",
+                        "specType": null
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocTemplate@1",
+                "comment": null,
+                "isMixin": false,
+                "line": 164,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 164,
+                                    "name": "json",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "JSONValue"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": []
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "T"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": []
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 164,
+                        "linkage": "default",
+                        "name": "jsonToDoc",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    }
+                ],
+                "name": "jsonToDoc",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "T",
+                        "specType": null
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "T",
+                        "specType": null
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocTemplate@1",
+                "comment": null,
+                "isMixin": false,
+                "line": 178,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 178,
+                                    "name": "json",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "JSONValue"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": []
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "T"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": []
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 178,
+                        "linkage": "default",
+                        "name": "jsonToDoc",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    }
+                ],
+                "name": "jsonToDoc",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "T",
+                        "specType": null
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "T",
+                        "specType": null
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocTemplate@1",
+                "comment": null,
+                "isMixin": false,
+                "line": 197,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 197,
+                                    "name": "json",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "JSONValue"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": []
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "T"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": []
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 197,
+                        "linkage": "default",
+                        "name": "jsonToDoc",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    }
+                ],
+                "name": "jsonToDoc",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "T",
+                        "specType": null
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "T",
+                        "specType": null
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocTemplate@1",
+                "comment": null,
+                "isMixin": false,
+                "line": 208,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 208,
+                                    "name": "json",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "JSONValue"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": []
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "T"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": []
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 208,
+                        "linkage": "default",
+                        "name": "jsonToDoc",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    }
+                ],
+                "name": "jsonToDoc",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "T",
+                        "specType": null
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "T",
+                        "specType": null
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            }
+        ]
+    }
+}

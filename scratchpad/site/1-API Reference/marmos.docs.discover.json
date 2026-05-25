@@ -1,0 +1,373 @@
+{
+    "@type": "DocModelRoot@1",
+    "features": [
+        "semanticPass"
+    ],
+    "module_": {
+        "@type": "DocModule@1",
+        "comment": null,
+        "fqnComponents": [
+            "marmos",
+            "docs",
+            "discover"
+        ],
+        "members": [
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 16,
+                            "name": "rootDir",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "string"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 16,
+                            "name": "config",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "MardocsConfig"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": [
+                                        "marmos",
+                                        "docs",
+                                        "config_models"
+                                    ]
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocSymbolReference@1",
+                            "items": [
+                                {
+                                    "@type": "DocSymbolDirectReference@1",
+                                    "symbolName": "SiteRoot"
+                                }
+                            ],
+                            "moduleFqnComponents": [
+                                "marmos",
+                                "docs",
+                                "gen_models"
+                            ]
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 16,
+                "linkage": "default",
+                "name": "discoverSite",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 37,
+                            "name": "dir",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "string"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocSymbolReference@1",
+                            "items": [
+                                {
+                                    "@type": "DocSymbolDirectReference@1",
+                                    "symbolName": "RootGroup"
+                                }
+                            ],
+                            "moduleFqnComponents": [
+                                "marmos",
+                                "docs",
+                                "gen_models"
+                            ]
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 37,
+                "linkage": "default",
+                "name": "loadRootGroup",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "private"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 63,
+                            "name": "path",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "string"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 63,
+                            "name": "debugName",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "string"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocArrayType@1",
+                            "underlyingTypeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "string"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 63,
+                "linkage": "default",
+                "name": "expectOnlyDirsListed",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "private"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 83,
+                            "name": "dirs",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocArrayType@1",
+                                    "underlyingTypeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocArrayType@1",
+                                            "underlyingTypeRef": {
+                                                "@type": "DocTypeRef@1",
+                                                "originalTypeRaw": null,
+                                                "raw": {
+                                                    "@type": "DocBasicType@1",
+                                                    "name": "char"
+                                                },
+                                                "storageClasses": [
+                                                    "immutable"
+                                                ]
+                                            }
+                                        },
+                                        "storageClasses": [
+                                            "const"
+                                        ]
+                                    }
+                                },
+                                "storageClasses": [
+                                    "const"
+                                ]
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocArrayType@1",
+                            "underlyingTypeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "string"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 83,
+                "linkage": "default",
+                "name": "sortDirsByOrderPrefix",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "private"
+            }
+        ],
+        "nestedTypes": [
+            {
+                "@type": "DocTemplate@1",
+                "comment": null,
+                "isMixin": false,
+                "line": 49,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 49,
+                                    "name": "file",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "string"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": []
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "ModelT"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": []
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 49,
+                        "linkage": "default",
+                        "name": "loadJsonModel",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    }
+                ],
+                "name": "loadJsonModel",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "ModelT",
+                        "specType": null
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "ModelT",
+                        "specType": null
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "package"
+            }
+        ]
+    }
+}

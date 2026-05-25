@@ -1,0 +1,478 @@
+{
+    "@type": "DocModelRoot@1",
+    "features": [
+        "semanticPass"
+    ],
+    "module_": {
+        "@type": "DocModule@1",
+        "comment": null,
+        "fqnComponents": [
+            "marmos",
+            "converter",
+            "command"
+        ],
+        "members": [
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 82,
+                            "name": "args",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "ConvertCommand"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": [
+                                        "marmos",
+                                        "converter",
+                                        "command"
+                                    ]
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "int"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 82,
+                "linkage": "default",
+                "name": "runConvert",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            }
+        ],
+        "nestedTypes": [
+            {
+                "@type": "DocStruct@1",
+                "comment": null,
+                "line": 16,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocVariable@1",
+                        "comment": null,
+                        "defaultValueExpression": null,
+                        "line": 30,
+                        "linkage": "default",
+                        "name": "useFeatureSemanticPass",
+                        "storageClasses": [],
+                        "typeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "bool"
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [
+                            {
+                                "@type": "DocExpressionUda@1",
+                                "expression": {
+                                    "@type": "DocFallbackExpression@1",
+                                    "renderedCode": "ArgumentUDA(ArgumentInfo([], [], null, [\"feature-semanticPass\"], LazyString(SumType(Storage(\"If enabled, marmos will perform semantic analysis on all specified source files, which provides enhanced output.\\n\\nNOTE: The version of DRuntime specified in either the .conf file, or via -i, MUST be compatible with the version of dmd-fe marmos is built against.\\n\\n`-i` is evaluated before the .conf, so you can try to specify an alternative DRuntime as an override.\", ), cast(ubyte)0u)), null, null, null, Nullable(, true), Nullable(, true), Nullable(, true), true, true, false, false, false, false), ValueParser(null, ValidationFunc(CallDispatcher(null, , , , , , , , , 18446744073709551615LU)), , , , ))"
+                                }
+                            }
+                        ],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocVariable@1",
+                        "comment": null,
+                        "defaultValueExpression": null,
+                        "line": 39,
+                        "linkage": "default",
+                        "name": "useDefaultConfig",
+                        "storageClasses": [],
+                        "typeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "bool"
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [
+                            {
+                                "@type": "DocExpressionUda@1",
+                                "expression": {
+                                    "@type": "DocFallbackExpression@1",
+                                    "renderedCode": "ArgumentUDA(ArgumentInfo([], [], null, [\"use-default-conf\"], LazyString(SumType(Storage(\"If enabled $(LPAREN)which it is by defualt$(RPAREN), allows dmd-fe to figure out the default compiler & its associated .conf file\", ), cast(ubyte)0u)), null, null, null, Nullable(, true), Nullable(, true), Nullable(, true), true, true, false, false, false, false), ValueParser(null, ValidationFunc(CallDispatcher(null, , , , , , , , , 18446744073709551615LU)), , , , ))"
+                                }
+                            }
+                        ],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocVariable@1",
+                        "comment": null,
+                        "defaultValueExpression": null,
+                        "line": 45,
+                        "linkage": "default",
+                        "name": "importPaths",
+                        "storageClasses": [],
+                        "typeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": {
+                                "@type": "DocArrayType@1",
+                                "underlyingTypeRef": {
+                                    "@type": "DocTypeRef@1",
+                                    "originalTypeRaw": null,
+                                    "raw": {
+                                        "@type": "DocSymbolReference@1",
+                                        "items": [
+                                            {
+                                                "@type": "DocSymbolDirectReference@1",
+                                                "symbolName": "string"
+                                            }
+                                        ],
+                                        "moduleFqnComponents": []
+                                    },
+                                    "storageClasses": []
+                                }
+                            },
+                            "raw": {
+                                "@type": "DocArrayType@1",
+                                "underlyingTypeRef": {
+                                    "@type": "DocTypeRef@1",
+                                    "originalTypeRaw": null,
+                                    "raw": {
+                                        "@type": "DocBasicType@1",
+                                        "name": "string"
+                                    },
+                                    "storageClasses": []
+                                }
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [
+                            {
+                                "@type": "DocExpressionUda@1",
+                                "expression": {
+                                    "@type": "DocFallbackExpression@1",
+                                    "renderedCode": "ArgumentUDA(ArgumentInfo([], [], null, [\"i\", \"import-paths\"], LazyString(SumType(Storage(\"Additional import paths, on top of the ones from the .conf file\", ), cast(ubyte)0u)), null, null, null, Nullable(, true), Nullable(, true), Nullable(, true), true, true, false, false, false, false), ValueParser(null, ValidationFunc(CallDispatcher(null, , , , , , , , , 18446744073709551615LU)), , , , ))"
+                                }
+                            }
+                        ],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocVariable@1",
+                        "comment": null,
+                        "defaultValueExpression": null,
+                        "line": 51,
+                        "linkage": "default",
+                        "name": "stringImportPaths",
+                        "storageClasses": [],
+                        "typeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": {
+                                "@type": "DocArrayType@1",
+                                "underlyingTypeRef": {
+                                    "@type": "DocTypeRef@1",
+                                    "originalTypeRaw": null,
+                                    "raw": {
+                                        "@type": "DocSymbolReference@1",
+                                        "items": [
+                                            {
+                                                "@type": "DocSymbolDirectReference@1",
+                                                "symbolName": "string"
+                                            }
+                                        ],
+                                        "moduleFqnComponents": []
+                                    },
+                                    "storageClasses": []
+                                }
+                            },
+                            "raw": {
+                                "@type": "DocArrayType@1",
+                                "underlyingTypeRef": {
+                                    "@type": "DocTypeRef@1",
+                                    "originalTypeRaw": null,
+                                    "raw": {
+                                        "@type": "DocBasicType@1",
+                                        "name": "string"
+                                    },
+                                    "storageClasses": []
+                                }
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [
+                            {
+                                "@type": "DocExpressionUda@1",
+                                "expression": {
+                                    "@type": "DocFallbackExpression@1",
+                                    "renderedCode": "ArgumentUDA(ArgumentInfo([], [], null, [\"J\", \"string-import-paths\"], LazyString(SumType(Storage(\"Additional string import paths, on top of the ones from the .conf file\", ), cast(ubyte)0u)), null, null, null, Nullable(, true), Nullable(, true), Nullable(, true), true, true, false, false, false, false), ValueParser(null, ValidationFunc(CallDispatcher(null, , , , , , , , , 18446744073709551615LU)), , , , ))"
+                                }
+                            }
+                        ],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocVariable@1",
+                        "comment": null,
+                        "defaultValueExpression": null,
+                        "line": 60,
+                        "linkage": "default",
+                        "name": "outputDir",
+                        "storageClasses": [],
+                        "typeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": {
+                                "@type": "DocSymbolReference@1",
+                                "items": [
+                                    {
+                                        "@type": "DocSymbolDirectReference@1",
+                                        "symbolName": "string"
+                                    }
+                                ],
+                                "moduleFqnComponents": []
+                            },
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "string"
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [
+                            {
+                                "@type": "DocExpressionUda@1",
+                                "expression": {
+                                    "@type": "DocFallbackExpression@1",
+                                    "renderedCode": "ArgumentUDA(ArgumentInfo([], [], null, [\"o\", \"output-dir\"], LazyString(SumType(Storage(\"Directory to store output files into - marmos will attempt to recursively create this directory, and any subdirectories it requires\", ), cast(ubyte)0u)), null, null, null, Nullable(, true), Nullable(, true), Nullable(, true), true, true, false, false, false, false), ValueParser(null, ValidationFunc(CallDispatcher(null, , , , , , , , , 18446744073709551615LU)), , , , ))"
+                                }
+                            }
+                        ],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocVariable@1",
+                        "comment": null,
+                        "defaultValueExpression": null,
+                        "line": 66,
+                        "linkage": "default",
+                        "name": "outputStyle",
+                        "storageClasses": [],
+                        "typeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": {
+                                "@type": "DocSymbolReference@1",
+                                "items": [
+                                    {
+                                        "@type": "DocSymbolDirectReference@1",
+                                        "symbolName": "OutputStyle"
+                                    }
+                                ],
+                                "moduleFqnComponents": []
+                            },
+                            "raw": {
+                                "@type": "DocSymbolReference@1",
+                                "items": [
+                                    {
+                                        "@type": "DocSymbolDirectReference@1",
+                                        "symbolName": "ConvertCommand"
+                                    },
+                                    {
+                                        "@type": "DocSymbolDirectReference@1",
+                                        "symbolName": "OutputStyle"
+                                    }
+                                ],
+                                "moduleFqnComponents": [
+                                    "marmos",
+                                    "converter",
+                                    "command"
+                                ]
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [
+                            {
+                                "@type": "DocExpressionUda@1",
+                                "expression": {
+                                    "@type": "DocFallbackExpression@1",
+                                    "renderedCode": "ArgumentUDA(ArgumentInfo([], [], null, [\"s\", \"output-style\"], LazyString(SumType(Storage(\"Controls how files are output.\\n\\nflat will output each file into a single directory, where each file is named directly after the D module that was converted.\\n\\nsingleFile will treat `-o` as a file path rather than a directory path, and output a single file there. Only usable if a single input file is found.\", ), cast(ubyte)0u)), null, null, null, Nullable(, true), Nullable(, true), Nullable(, true), true, true, false, false, false, false), ValueParser(null, ValidationFunc(CallDispatcher(null, , , , , , , , , 18446744073709551615LU)), , , , ))"
+                                }
+                            }
+                        ],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocVariable@1",
+                        "comment": null,
+                        "defaultValueExpression": null,
+                        "line": 72,
+                        "linkage": "default",
+                        "name": "pretty",
+                        "storageClasses": [],
+                        "typeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "bool"
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [
+                            {
+                                "@type": "DocExpressionUda@1",
+                                "expression": {
+                                    "@type": "DocFallbackExpression@1",
+                                    "renderedCode": "ArgumentUDA(ArgumentInfo([], [], null, [\"p\", \"pretty\"], LazyString(SumType(Storage(\"If specified, the resulting JSON files are pretty printed rather than being space-optimised.\", ), cast(ubyte)0u)), null, null, null, Nullable(, true), Nullable(, true), Nullable(, true), true, true, false, false, false, false), ValueParser(null, ValidationFunc(CallDispatcher(null, , , , , , , , , 18446744073709551615LU)), , , , ))"
+                                }
+                            }
+                        ],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocVariable@1",
+                        "comment": null,
+                        "defaultValueExpression": null,
+                        "line": 79,
+                        "linkage": "default",
+                        "name": "filesToConvert",
+                        "storageClasses": [],
+                        "typeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": {
+                                "@type": "DocArrayType@1",
+                                "underlyingTypeRef": {
+                                    "@type": "DocTypeRef@1",
+                                    "originalTypeRaw": null,
+                                    "raw": {
+                                        "@type": "DocSymbolReference@1",
+                                        "items": [
+                                            {
+                                                "@type": "DocSymbolDirectReference@1",
+                                                "symbolName": "string"
+                                            }
+                                        ],
+                                        "moduleFqnComponents": []
+                                    },
+                                    "storageClasses": []
+                                }
+                            },
+                            "raw": {
+                                "@type": "DocArrayType@1",
+                                "underlyingTypeRef": {
+                                    "@type": "DocTypeRef@1",
+                                    "originalTypeRaw": null,
+                                    "raw": {
+                                        "@type": "DocBasicType@1",
+                                        "name": "string"
+                                    },
+                                    "storageClasses": []
+                                }
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [
+                            {
+                                "@type": "DocExpressionUda@1",
+                                "expression": {
+                                    "@type": "DocFallbackExpression@1",
+                                    "renderedCode": "ArgumentUDA(ArgumentInfo(null, null, null, null, LazyString(SumType(Storage(\"Absolute or relative file paths, to either files or directories $(LPAREN)MUST end in \/$(RPAREN) that should be converted into marmos models. Directories are NOT recursively searched.\", ), cast(ubyte)0u)), \"files-to-convert\", null, null, Nullable(, true), Nullable(, true), Nullable(, true), true, true, false, true, false, true), ValueParser(null, ValidationFunc(CallDispatcher(null, , , , , , , , , 18446744073709551615LU)), , , , ))"
+                                }
+                            }
+                        ],
+                        "visibility": "public"
+                    }
+                ],
+                "name": "ConvertCommand",
+                "nestedTypes": [
+                    {
+                        "@type": "DocEnum@1",
+                        "baseTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "int"
+                            },
+                            "storageClasses": []
+                        },
+                        "comment": null,
+                        "line": 18,
+                        "linkage": "default",
+                        "members": [
+                            {
+                                "@type": "DocManifestConstant@1",
+                                "comment": null,
+                                "line": 20,
+                                "linkage": "default",
+                                "name": "flat",
+                                "originalValueExpression": null,
+                                "storageClasses": [],
+                                "typeRef": null,
+                                "udas": [],
+                                "valueExpression": {
+                                    "@type": "DocFallbackExpression@1",
+                                    "renderedCode": "0"
+                                },
+                                "visibility": "public"
+                            },
+                            {
+                                "@type": "DocManifestConstant@1",
+                                "comment": null,
+                                "line": 21,
+                                "linkage": "default",
+                                "name": "singleFile",
+                                "originalValueExpression": null,
+                                "storageClasses": [],
+                                "typeRef": null,
+                                "udas": [],
+                                "valueExpression": {
+                                    "@type": "DocFallbackExpression@1",
+                                    "renderedCode": "1"
+                                },
+                                "visibility": "public"
+                            }
+                        ],
+                        "name": "OutputStyle",
+                        "nestedTypes": [],
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "public"
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [
+                    {
+                        "@type": "DocExpressionUda@1",
+                        "expression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "CommandInfo([\"convert\"], null, true, LazyString(SumType(Storage(null, ), cast(ubyte)0u)), LazyString(SumType(Storage(null, ), cast(ubyte)0u)), LazyString(SumType(Storage(null, ), cast(ubyte)0u)), LazyString(SumType(Storage(null, ), cast(ubyte)0u)))"
+                        }
+                    }
+                ],
+                "visibility": "public"
+            }
+        ]
+    }
+}
