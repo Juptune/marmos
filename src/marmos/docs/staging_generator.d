@@ -950,86 +950,98 @@ private void appendTemplateParams(DocTemplateParam[] params, scope ref ApiPageDl
 
 private void appendSymbolTreeMembersGeneric(DocModelT)(SiteRoot site, SymbolTree!DocModelT doc, scope ref ApiPageDlangCode code, bool isNestedOverview)
 {
+    bool needsNewLine = false;
+
     foreach(i, item; doc.classes)
     {
         if(i > 0) code.add(ApiPageCodeNewLine());
         code.add(getOverviewCommentForCode(item.model.comment));
         code.add(ApiPageCodeNewLine());
         appendCode(site, item, code, isNestedOverview);
+        needsNewLine = true;
     }
-    if(doc.classes.length > 0) { code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); }
 
+    if(needsNewLine) { code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); needsNewLine = false; }
     foreach(i, item; doc.structs)
     {
         if(i > 0) code.add(ApiPageCodeNewLine());
         code.add(getOverviewCommentForCode(item.model.comment));
         code.add(ApiPageCodeNewLine());
         appendCode(site, item, code, isNestedOverview);
+        needsNewLine = true;
     }
-    if(doc.structs.length > 0) { code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); }
 
+    if(needsNewLine) { code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); needsNewLine = false; }
     foreach(i, item; doc.unions)
     {
         if(i > 0) code.add(ApiPageCodeNewLine());
         code.add(getOverviewCommentForCode(item.model.comment));
         code.add(ApiPageCodeNewLine());
         appendCode(site, item, code, isNestedOverview);
+        needsNewLine = true;
     }
-    if(doc.unions.length > 0) { code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); }
 
+    if(needsNewLine) { code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); needsNewLine = false; }
     foreach(i, item; doc.templates)
     {
         if(i > 0) code.add(ApiPageCodeNewLine());
         code.add(getOverviewCommentForCode(item.model.comment));
         code.add(ApiPageCodeNewLine());
         appendCode(site, item, code, isNestedOverview);
+        needsNewLine = true;
     }
-    if(doc.templates.length > 0) { code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); }
 
+    if(needsNewLine) { code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); needsNewLine = false; }
     foreach(i, item; doc.aliases)
     {
         if(i > 0) code.add(ApiPageCodeNewLine());
         code.add(getOverviewCommentForCode(item.model.comment));
         code.add(ApiPageCodeNewLine());
         appendCode(site, item, code, isNestedOverview);
+        needsNewLine = true;
     }
-    if(doc.aliases.length > 0) { code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); }
 
+    if(needsNewLine) { code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); needsNewLine = false; }
     foreach(i, item; doc.functions)
     {
         if(i > 0) code.add(ApiPageCodeNewLine());
         code.add(getOverviewCommentForCode(item.model.comment));
         code.add(ApiPageCodeNewLine());
         appendCode(site, item, code, isNestedOverview);
+        needsNewLine = true;
     }
-    if(doc.functions.length > 0) { code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); }
 
+    if(needsNewLine) { code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); needsNewLine = false; }
     foreach(i, item; doc.constants)
     {
         if(i > 0) code.add(ApiPageCodeNewLine());
         code.add(getOverviewCommentForCode(item.model.comment));
         code.add(ApiPageCodeNewLine());
         appendCode(site, item, code, isNestedOverview);
+        needsNewLine = true;
     }
-    if(doc.constants.length > 0) { code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); }
 
+    if(needsNewLine) { code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); needsNewLine = false; }
     foreach(i, item; doc.enums)
     {
         if(i > 0) code.add(ApiPageCodeNewLine());
         code.add(getOverviewCommentForCode(item.model.comment));
         code.add(ApiPageCodeNewLine());
         appendCode(site, item, code, isNestedOverview);
+        needsNewLine = true;
     }
-    if(doc.enums.length > 0) { code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); }
 
+    if(needsNewLine) { code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); needsNewLine = false; }
     foreach(i, item; doc.variables)
     {
         if(i > 0) code.add(ApiPageCodeNewLine());
         code.add(getOverviewCommentForCode(item.model.comment));
         code.add(ApiPageCodeNewLine());
         appendCode(site, item, code, isNestedOverview);
+        needsNewLine = true;
     }
-    if(doc.variables.length > 0) { code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); }
+
+    if(needsNewLine) { code.add(ApiPageCodeNewLine());  }
 }
 
 private void appendTypeRef(DocTypeRef typeRef, scope ref ApiPageDlangCode code, bool forceSingleLine = false)
@@ -1089,7 +1101,12 @@ private void appendTypeRef(DocTypeRef typeRef, scope ref ApiPageDlangCode code, 
                     foreach(i, sumType; symbol.parameters)
                     {
                         if(i > 0)
+                        {
                             code.add(ApiPageCodeText(ApiPageCodeText.Syntax.operator, ", "));
+
+                            if(!forceSingleLine)
+                                code.add(ApiPageCodeNewLine());
+                        }
 
                         sumType.match!(
                             (DocExpression param){
