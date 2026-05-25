@@ -1309,25 +1309,38 @@ private struct SymbolTree(DocModelT)
             auto unaryTypes  = model.members;
         }
 
+        static bool shouldIgnore(T)(T value)
+        {
+            static if(__traits(hasMember, T, "visibility"))
+                return !(value.visibility == DocVisibility.public_ || value.visibility == DocVisibility.undefined);
+            else
+                return false;
+        }
+
         foreach(aggregate; nestedTypes)
         {
             aggregate.match!(
                 (DocStruct item) {
+                    if(shouldIgnore(item)) return;
                     auto notTemplated = MaybeTemplated!DocStruct(item);
                     tree.structs ~= typeof(tree.structs[0]).fromModel(parentModule, notTemplated, tree.memberComponents);
                 },
                 (DocClass item) {
+                    if(shouldIgnore(item)) return;
                     auto notTemplated = MaybeTemplated!DocClass(item);
                     tree.classes ~= typeof(tree.classes[0]).fromModel(parentModule, notTemplated, tree.memberComponents);
                 },
                 (DocUnion item) {
+                    if(shouldIgnore(item)) return;
                     auto notTemplated = MaybeTemplated!DocUnion(item);
                     tree.unions ~= typeof(tree.unions[0]).fromModel(parentModule, notTemplated, tree.memberComponents);
                 },
                 (DocEnum item) {
+                    if(shouldIgnore(item)) return;
                     tree.enums ~= typeof(tree.enums[0]).fromModel(parentModule, item, tree.memberComponents);
                 },
                 (DocTemplate item) {
+                    if(shouldIgnore(item)) return;
                     // If the template has only one member; that member has the same name as the template, and that member
                     // isn't also a DocTemplate, then treat it as eponymous.
                     const hasOneMember = (item.members.length + item.nestedTypes.length == 1);
@@ -1345,17 +1358,20 @@ private struct SymbolTree(DocModelT)
                             item.members.length > 0
                             ? item.members[0].match!(
                                 (DocManifestConstant member) {
+                                    if(shouldIgnore(item)) return false;
                                     auto templated = MaybeTemplated!DocManifestConstant(member, item);
                                     tree.constants ~= typeof(tree.constants[0]).fromModel(parentModule, templated, tree.memberComponents);
                                     return true;
                                 },
                                 (DocFunction member) {
+                                    if(shouldIgnore(item)) return false;
                                     if(item.name.startsWith("__")) return false;
                                     auto templated = MaybeTemplated!DocFunction(member, item);
                                     tree.functions ~= typeof(tree.functions[0]).fromModel(parentModule, templated, tree.memberComponents);
                                     return true;
                                 },
                                 (DocAlias member) {
+                                    if(shouldIgnore(item)) return false;
                                     auto templated = MaybeTemplated!DocAlias(member, item);
                                     tree.aliases ~= typeof(tree.aliases[0]).fromModel(parentModule, templated, tree.memberComponents);
                                     return true;
@@ -1364,16 +1380,19 @@ private struct SymbolTree(DocModelT)
                             )
                             : item.nestedTypes[0].match!(
                                 (DocStruct type) {
+                                    if(shouldIgnore(item)) return false;
                                     auto templated = MaybeTemplated!DocStruct(type, item);
                                     tree.structs ~= typeof(tree.structs[0]).fromModel(parentModule, templated, tree.memberComponents);
                                     return true;
                                 },
                                 (DocClass type) {
+                                    if(shouldIgnore(item)) return false;
                                     auto templated = MaybeTemplated!DocClass(type, item);
                                     tree.classes ~= typeof(tree.classes[0]).fromModel(parentModule, templated, tree.memberComponents);
                                     return true;
                                 },
                                 (DocUnion type) {
+                                    if(shouldIgnore(item)) return false;
                                     auto templated = MaybeTemplated!DocUnion(type, item);
                                     tree.unions ~= typeof(tree.unions[0]).fromModel(parentModule, templated, tree.memberComponents);
                                     return true;
@@ -1395,19 +1414,23 @@ private struct SymbolTree(DocModelT)
         {
             unary.match!(
                 (DocManifestConstant item) {
+                    if(shouldIgnore(item)) return;
                     auto notTemplated = MaybeTemplated!DocManifestConstant(item);
                     tree.constants ~= typeof(tree.constants[0]).fromModel(parentModule, notTemplated, tree.memberComponents);
                 },
                 (DocFunction item) {
+                    if(shouldIgnore(item)) return;
                     if(item.name.startsWith("__")) return;
                     auto notTemplated = MaybeTemplated!DocFunction(item);
                     tree.functions ~= typeof(tree.functions[0]).fromModel(parentModule, notTemplated, tree.memberComponents);
                 },
                 (DocAlias item) {
+                    if(shouldIgnore(item)) return;
                     auto notTemplated = MaybeTemplated!DocAlias(item);
                     tree.aliases ~= typeof(tree.aliases[0]).fromModel(parentModule, notTemplated, tree.memberComponents);
                 },
                 (DocVariable item) {
+                    if(shouldIgnore(item)) return;
                     tree.variables ~= typeof(tree.variables[0]).fromModel(parentModule, item, tree.memberComponents);
                 },
                 (DocRuntimeParameter item) { /* This shouldn't ever really actually happen... why is the doc model even like this lol? */ },
