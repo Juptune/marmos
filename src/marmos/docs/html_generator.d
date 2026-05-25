@@ -49,7 +49,7 @@ private void generateAndEmitApiRefPage(SiteRoot site, StagingApiRefGroup group, 
         site,
         body: () => bodyWithSidebars(
             leftSidebar: () => buildApiRefLeftSidebar(site, group, version_, page),
-            rightSidebar: () => Html(tag: "div"),
+            rightSidebar: () => buildApiRightSidebar(site, group, version_, page, pageModel),
             body: () => buildApiRefBody(site, group, version_, page, pageModel),
         )
     );
@@ -74,7 +74,95 @@ private Html buildApiRefBody(SiteRoot site, StagingApiRefGroup group, StagingApi
 
 private Html buildApiRightSidebar(SiteRoot site, StagingApiRefGroup group, StagingApiRefGroup.Version version_, StagingApiRefGroup.Page page, ApiPageRoot pageModel)
 {
-    return Html();
+    static struct Header
+    {
+        Html element;
+        uint level;
+    }
+
+    Header[] headerStack;
+
+    void pushHeaderIndent(uint level)
+    {
+        import std.conv : to;
+
+        const paddingLevel = (headerStack.length == 0) ? 0 : 2 * (level - headerStack[$-1].level);
+
+        headerStack ~= Header(
+            element: Html(
+                tag: "div",
+                classes: ["pl-"~paddingLevel.to!string]
+            ),
+            level: level
+        );
+    }
+
+    void popHeader()
+    {
+        assert(headerStack.length > 1);
+        headerStack[$-2].element.content.match!(
+            (scope ref Html[] list) { list ~= headerStack[$-1].element; },
+            (_){}
+        );
+        headerStack = headerStack[0..$-1];
+    }
+
+    pushHeaderIndent(0);
+
+    foreach(header; pageModel.sidebarHeaders)
+    {
+        while(header.nestingLevel < headerStack[$-1].level)
+            popHeader();
+
+        if(header.nestingLevel > headerStack[$-1].level)
+            pushHeaderIndent(header.nestingLevel);
+
+        headerStack[$-1].element.content.match!(
+            (scope ref Html[] list) { 
+                list ~= Html(
+                    tag: "p",
+                    classes: [header.targetHtmlId.length > 0 ? "hover:font-bold" : ""],
+                    content: Html(
+                        tag: "a",
+                        attributes: ["href": "#"~header.targetHtmlId],
+                        content: header.text,
+                    )
+                ); 
+            },
+            (_){},
+        );
+    }
+
+    while(headerStack.length > 1)
+        popHeader();
+    assert(headerStack.length == 1, "bug: stack has lingering items?");
+
+    return Html(
+        tag: "div",
+        classes: ["flex", "flex-col", "w-full", "h-full", "pt-4", "bg-gray-300"],
+        content: [
+            // "On this page" header
+            Html(
+                tag: "p",
+                classes: ["flex", "flex-row", "ml-auto", "mr-auto", "font-bold"],
+                content: "ON THIS PAGE"
+            ),
+
+            // Border
+            Html(
+                tag: "div",
+                classes: ["w-[80%]", "border-b-4", "border-solid", "border-radius", "rounded-b-sm", "pt-2", "mb-2", "ml-auto", "mr-auto"],
+                content: ""
+            ),
+
+            // Headers
+            Html(
+                tag: "div",
+                classes: ["pl-4"],
+                content: headerStack[0].element
+            )
+        ],
+    );
 }
 
 private Html buildApiRefLeftSidebar(SiteRoot site, StagingApiRefGroup group, StagingApiRefGroup.Version version_, StagingApiRefGroup.Page page)

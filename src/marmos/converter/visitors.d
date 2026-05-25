@@ -179,7 +179,7 @@ final class AggregateDefVisitor : Visitor
         {
             foreach(scope_; *node.importedScopes)
             {
-                if(auto templateMixin = cast(ASTCodegen.TemplateMixin)scope_)
+                if(auto templateMixin = scope_.isTemplateMixin())
                     this.inlineMixinTemplates(templateMixin, members, nestedTypes);
             }
         }
@@ -576,14 +576,14 @@ final class TypeRefVisitor : Visitor
     {
         // This seems to happen naturally, I just can't really figure out why it happens and how to even interpret it.
         warningf("TypeRefVisitor was given an expression, providing fallback type: %s", node);
-        this.setResult(DocBasicType("__JUPTUNE_BUG__"), node);
+        this.setResult(DocBasicType("__MARMOS_BUG__"), node);
     }
 
     void visit(ASTCodegen.Dsymbol node)
     {
         // This _also_ seems to happen naturally, I just can't really figure out why it happens and how to even interpret it.
         warningf("TypeRefVisitor was given a DSymbol, providing fallback type: %s", node);
-        this.setResult(DocBasicType("__JUPTUNE_BUG__"), node);
+        this.setResult(DocBasicType("__MARMOS_BUG__"), node);
     }
 
     void visit(ASTCodegen.TypeTraits node)
@@ -1094,7 +1094,7 @@ final class TemplateInstanceParameterVisitor : Visitor
     {
         // TODO: Handle this case
         warningf("TemplateInstanceParameterVisitor support for DSymbol nodes is TODO");
-        this._result = DocTemplateInstanceParam(DocExpression(DocFallbackExpression("__JUPTUNE_BUG__")));
+        this._result = DocTemplateInstanceParam(DocExpression(DocFallbackExpression("__MARMOS_BUG__")));
     }
 }
 
