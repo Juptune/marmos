@@ -1,0 +1,327 @@
+{
+    "@type": "DocModelRoot@1",
+    "features": [
+        "semanticPass"
+    ],
+    "module_": {
+        "@type": "DocModule@1",
+        "comment": null,
+        "fqnComponents": [
+            "std",
+            "logger",
+            "nulllogger"
+        ],
+        "members": [
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": []
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 35,
+                "linkage": "default",
+                "name": "__unittest_L35_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            }
+        ],
+        "nestedTypes": [
+            {
+                "@type": "DocClass@1",
+                "baseClass": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocSymbolReference@1",
+                        "items": [
+                            {
+                                "@type": "DocSymbolDirectReference@1",
+                                "symbolName": "Logger"
+                            }
+                        ],
+                        "moduleFqnComponents": [
+                            "std",
+                            "logger",
+                            "core"
+                        ]
+                    },
+                    "storageClasses": []
+                },
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "The"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "NullLogger"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "will not process any log messages."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "In case of a log message with"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "LogLevel.fatal"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "nothing will happen."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "interfaces": [],
+                "line": 13,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "The default constructor for the"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "NullLogger"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "."
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Independent of the parameter this Logger will never log a message."
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Params:"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "lv = The"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "LogLevel"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "for the"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "NullLogger"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": ". By default the"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "LogLevel"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "for"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "NullLogger"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "is"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "LogLevel.all"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "."
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": {
+                                        "@type": "DocFallbackExpression@1",
+                                        "renderedCode": "LogLevel.all"
+                                    },
+                                    "line": 23,
+                                    "name": "lv",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "LogLevel"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": [
+                                                "std",
+                                                "logger",
+                                                "core"
+                                            ]
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "NullLogger"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": [
+                                        "std",
+                                        "logger",
+                                        "nulllogger"
+                                    ]
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 23,
+                        "linkage": "default",
+                        "name": "__ctor",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 29,
+                                    "name": "payload",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "Logger"
+                                                },
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "LogEntry"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": [
+                                                "std",
+                                                "logger",
+                                                "core"
+                                            ]
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "void"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 29,
+                        "linkage": "default",
+                        "name": "writeLogMsg",
+                        "storageClasses": [
+                            "override"
+                        ],
+                        "udas": [],
+                        "visibility": "protected"
+                    }
+                ],
+                "name": "NullLogger",
+                "nestedTypes": [],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            }
+        ]
+    }
+}

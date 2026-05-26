@@ -295,36 +295,7 @@
                         "funcType": {
                             "@type": "DocFunctionType@1",
                             "isDelegate": false,
-                            "parameters": [
-                                {
-                                    "@type": "DocRuntimeParameter@1",
-                                    "defaultValueExpression": {
-                                        "@type": "DocFallbackExpression@1",
-                                        "renderedCode": "[]"
-                                    },
-                                    "line": 37,
-                                    "name": "versionIdentifiers",
-                                    "storageClasses": [],
-                                    "typeRef": {
-                                        "@type": "DocTypeRef@1",
-                                        "originalTypeRaw": null,
-                                        "raw": {
-                                            "@type": "DocArrayType@1",
-                                            "underlyingTypeRef": {
-                                                "@type": "DocTypeRef@1",
-                                                "originalTypeRaw": null,
-                                                "raw": {
-                                                    "@type": "DocBasicType@1",
-                                                    "name": "string"
-                                                },
-                                                "storageClasses": []
-                                            }
-                                        },
-                                        "storageClasses": []
-                                    },
-                                    "udas": []
-                                }
-                            ],
+                            "parameters": [],
                             "returnType": {
                                 "@type": "DocTypeRef@1",
                                 "originalTypeRaw": null,
