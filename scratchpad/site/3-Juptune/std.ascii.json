@@ -1,0 +1,3782 @@
+{
+    "@type": "DocModelRoot@1",
+    "features": [
+        "semanticPass"
+    ],
+    "module_": {
+        "@type": "DocModule@1",
+        "comment": null,
+        "fqnComponents": [
+            "std",
+            "ascii"
+        ],
+        "members": [
+            {
+                "@type": "DocVariable@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "0 .. 9A .. Fa .. f"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "defaultValueExpression": null,
+                "line": 65,
+                "linkage": "default",
+                "name": "fullHexDigits",
+                "storageClasses": [
+                    "immutable"
+                ],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": {
+                        "@type": "DocBasicType@1",
+                        "name": "string"
+                    },
+                    "raw": {
+                        "@type": "DocArrayType@1",
+                        "underlyingTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "char"
+                            },
+                            "storageClasses": [
+                                "immutable"
+                            ]
+                        }
+                    },
+                    "storageClasses": [
+                        "immutable"
+                    ]
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocVariable@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "0 .. 9A .. F"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "defaultValueExpression": null,
+                "line": 66,
+                "linkage": "default",
+                "name": "hexDigits",
+                "storageClasses": [
+                    "immutable"
+                ],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": {
+                        "@type": "DocBasicType@1",
+                        "name": "string"
+                    },
+                    "raw": {
+                        "@type": "DocArrayType@1",
+                        "underlyingTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "char"
+                            },
+                            "storageClasses": [
+                                "immutable"
+                            ]
+                        }
+                    },
+                    "storageClasses": [
+                        "immutable"
+                    ]
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocVariable@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "0 .. 9a .. f"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "defaultValueExpression": null,
+                "line": 67,
+                "linkage": "default",
+                "name": "lowerHexDigits",
+                "storageClasses": [
+                    "immutable"
+                ],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": {
+                        "@type": "DocBasicType@1",
+                        "name": "string"
+                    },
+                    "raw": {
+                        "@type": "DocArrayType@1",
+                        "underlyingTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "char"
+                            },
+                            "storageClasses": [
+                                "immutable"
+                            ]
+                        }
+                    },
+                    "storageClasses": [
+                        "immutable"
+                    ]
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocVariable@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "0 .. 9"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "defaultValueExpression": null,
+                "line": 68,
+                "linkage": "default",
+                "name": "digits",
+                "storageClasses": [
+                    "immutable"
+                ],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": {
+                        "@type": "DocBasicType@1",
+                        "name": "string"
+                    },
+                    "raw": {
+                        "@type": "DocArrayType@1",
+                        "underlyingTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "char"
+                            },
+                            "storageClasses": [
+                                "immutable"
+                            ]
+                        }
+                    },
+                    "storageClasses": [
+                        "immutable"
+                    ]
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocVariable@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "0 .. 7"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "defaultValueExpression": null,
+                "line": 69,
+                "linkage": "default",
+                "name": "octalDigits",
+                "storageClasses": [
+                    "immutable"
+                ],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": {
+                        "@type": "DocBasicType@1",
+                        "name": "string"
+                    },
+                    "raw": {
+                        "@type": "DocArrayType@1",
+                        "underlyingTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "char"
+                            },
+                            "storageClasses": [
+                                "immutable"
+                            ]
+                        }
+                    },
+                    "storageClasses": [
+                        "immutable"
+                    ]
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocVariable@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "A .. Za .. z"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "defaultValueExpression": null,
+                "line": 70,
+                "linkage": "default",
+                "name": "letters",
+                "storageClasses": [
+                    "immutable"
+                ],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": {
+                        "@type": "DocBasicType@1",
+                        "name": "string"
+                    },
+                    "raw": {
+                        "@type": "DocArrayType@1",
+                        "underlyingTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "char"
+                            },
+                            "storageClasses": [
+                                "immutable"
+                            ]
+                        }
+                    },
+                    "storageClasses": [
+                        "immutable"
+                    ]
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocVariable@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "A .. Z"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "defaultValueExpression": null,
+                "line": 71,
+                "linkage": "default",
+                "name": "uppercase",
+                "storageClasses": [
+                    "immutable"
+                ],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": {
+                        "@type": "DocBasicType@1",
+                        "name": "string"
+                    },
+                    "raw": {
+                        "@type": "DocArrayType@1",
+                        "underlyingTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "char"
+                            },
+                            "storageClasses": [
+                                "immutable"
+                            ]
+                        }
+                    },
+                    "storageClasses": [
+                        "immutable"
+                    ]
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocVariable@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "a .. z"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "defaultValueExpression": null,
+                "line": 72,
+                "linkage": "default",
+                "name": "lowercase",
+                "storageClasses": [
+                    "immutable"
+                ],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": {
+                        "@type": "DocBasicType@1",
+                        "name": "string"
+                    },
+                    "raw": {
+                        "@type": "DocArrayType@1",
+                        "underlyingTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "char"
+                            },
+                            "storageClasses": [
+                                "immutable"
+                            ]
+                        }
+                    },
+                    "storageClasses": [
+                        "immutable"
+                    ]
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocVariable@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "ASCII"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "whitespace"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "defaultValueExpression": null,
+                "line": 73,
+                "linkage": "default",
+                "name": "whitespace",
+                "storageClasses": [
+                    "immutable"
+                ],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": {
+                        "@type": "DocBasicType@1",
+                        "name": "string"
+                    },
+                    "raw": {
+                        "@type": "DocArrayType@1",
+                        "underlyingTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "char"
+                            },
+                            "storageClasses": [
+                                "immutable"
+                            ]
+                        }
+                    },
+                    "storageClasses": [
+                        "immutable"
+                    ]
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": []
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 85,
+                "linkage": "default",
+                "name": "__unittest_L85_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": []
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 94,
+                "linkage": "default",
+                "name": "__unittest_L94_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": []
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 148,
+                "linkage": "default",
+                "name": "__unittest_L148_C26",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": []
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 169,
+                "linkage": "default",
+                "name": "__unittest_L169_C20",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocVariable@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Newline sequence for this system."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "defaultValueExpression": null,
+                "line": 178,
+                "linkage": "default",
+                "name": "newline",
+                "storageClasses": [
+                    "immutable"
+                ],
+                "typeRef": null,
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Params: c = The character to test."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Returns: Whether"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "c"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "is a letter or a number (0 .. 9, a .. z, A .. Z)."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 189,
+                            "name": "c",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "dchar"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "bool"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 189,
+                "linkage": "default",
+                "name": "isAlphaNum",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": []
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 196,
+                "linkage": "default",
+                "name": "__unittest_L196_C26",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 206,
+                "linkage": "default",
+                "name": "__unittest_L206_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Params: c = The character to test."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Returns: Whether"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "c"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "is an ASCII letter (A .. Z, a .. z)."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 221,
+                            "name": "c",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "dchar"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "bool"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 221,
+                "linkage": "default",
+                "name": "isAlpha",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": []
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 228,
+                "linkage": "default",
+                "name": "__unittest_L228_C26",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 238,
+                "linkage": "default",
+                "name": "__unittest_L238_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Params: c = The character to test."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Returns: Whether"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "c"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "is a lowercase ASCII letter (a .. z)."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 253,
+                            "name": "c",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "dchar"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "bool"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 253,
+                "linkage": "default",
+                "name": "isLower",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": []
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 259,
+                "linkage": "default",
+                "name": "__unittest_L259_C26",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 270,
+                "linkage": "default",
+                "name": "__unittest_L270_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Params: c = The character to test."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Returns: Whether"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "c"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "is an uppercase ASCII letter (A .. Z)."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 285,
+                            "name": "c",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "dchar"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "bool"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 285,
+                "linkage": "default",
+                "name": "isUpper",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": []
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 291,
+                "linkage": "default",
+                "name": "__unittest_L291_C26",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 302,
+                "linkage": "default",
+                "name": "__unittest_L302_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Params: c = The character to test."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Returns: Whether"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "c"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "is a digit (0 .. 9)."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 317,
+                            "name": "c",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "dchar"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "bool"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 317,
+                "linkage": "default",
+                "name": "isDigit",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": []
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 323,
+                "linkage": "default",
+                "name": "__unittest_L323_C26",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 335,
+                "linkage": "default",
+                "name": "__unittest_L335_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Params: c = The character to test."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Returns: Whether"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "c"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "is a digit in base 8 (0 .. 7)."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 350,
+                            "name": "c",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "dchar"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "bool"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 350,
+                "linkage": "default",
+                "name": "isOctalDigit",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": []
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 356,
+                "linkage": "default",
+                "name": "__unittest_L356_C26",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 365,
+                "linkage": "default",
+                "name": "__unittest_L365_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Params: c = The character to test."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Returns: Whether"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "c"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "is a digit in base 16 (0 .. 9, A .. F, a .. f)."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 380,
+                            "name": "c",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "dchar"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "bool"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 380,
+                "linkage": "default",
+                "name": "isHexDigit",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": []
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 387,
+                "linkage": "default",
+                "name": "__unittest_L387_C26",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 397,
+                "linkage": "default",
+                "name": "__unittest_L397_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Params: c = The character to test."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Returns: Whether or not"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "c"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "is a whitespace character. That includes the"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "space, tab, vertical tab, form feed, carriage return, and linefeed"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "characters."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 414,
+                            "name": "c",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "dchar"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "bool"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 414,
+                "linkage": "default",
+                "name": "isWhite",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": []
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 420,
+                "linkage": "default",
+                "name": "__unittest_L420_C26",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 435,
+                "linkage": "default",
+                "name": "__unittest_L435_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Params: c = The character to test."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Returns: Whether"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "c"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "is a control character."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 450,
+                            "name": "c",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "dchar"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "bool"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 450,
+                "linkage": "default",
+                "name": "isControl",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": []
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 456,
+                "linkage": "default",
+                "name": "__unittest_L456_C26",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 472,
+                "linkage": "default",
+                "name": "__unittest_L472_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Params: c = The character to test."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Returns: Whether or not"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "c"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "is a punctuation character. That includes"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "all ASCII characters which are not control characters, letters, digits, or"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "whitespace."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 490,
+                            "name": "c",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "dchar"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "bool"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 490,
+                "linkage": "default",
+                "name": "isPunctuation",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": []
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 496,
+                "linkage": "default",
+                "name": "__unittest_L496_C26",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 517,
+                "linkage": "default",
+                "name": "__unittest_L517_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Params: c = The character to test."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Returns: Whether or not"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "c"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "is a printable character other than the"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "space character."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 534,
+                            "name": "c",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "dchar"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "bool"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 534,
+                "linkage": "default",
+                "name": "isGraphical",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": []
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 540,
+                "linkage": "default",
+                "name": "__unittest_L540_C26",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 553,
+                "linkage": "default",
+                "name": "__unittest_L553_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Params: c = The character to test."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Returns: Whether or not"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "c"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "is a printable character - including the"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "space character."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 570,
+                            "name": "c",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "dchar"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "bool"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 570,
+                "linkage": "default",
+                "name": "isPrintable",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": []
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 576,
+                "linkage": "default",
+                "name": "__unittest_L576_C26",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 588,
+                "linkage": "default",
+                "name": "__unittest_L588_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Params: c = The character to test."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Returns: Whether or not"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "c"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "is in the ASCII character set - i.e. in the"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "range 0 .. 0x7F."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 606,
+                            "name": "c",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "dchar"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "bool"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 606,
+                "linkage": "default",
+                "name": "isASCII",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": []
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 612,
+                "linkage": "default",
+                "name": "__unittest_L612_C26",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 618,
+                "linkage": "default",
+                "name": "__unittest_L618_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": []
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 652,
+                "linkage": "default",
+                "name": "__unittest_L652_C26",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 662,
+                "linkage": "default",
+                "name": "__unittest_L662_C20",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": []
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 714,
+                "linkage": "default",
+                "name": "__unittest_L714_C26",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 724,
+                "linkage": "default",
+                "name": "__unittest_L724_C20",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 750,
+                "linkage": "default",
+                "name": "__unittest_L750_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            }
+        ],
+        "nestedTypes": [
+            {
+                "@type": "DocEnum@1",
+                "baseTypeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "bool"
+                    },
+                    "storageClasses": []
+                },
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Letter case specifier."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "line": 78,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Upper case letters"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 80,
+                        "linkage": "default",
+                        "name": "upper",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "false"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Lower case letters"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 81,
+                        "linkage": "default",
+                        "name": "lower",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "1"
+                        },
+                        "visibility": "public"
+                    }
+                ],
+                "name": "LetterCase",
+                "nestedTypes": [],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocEnum@1",
+                "baseTypeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "char"
+                    },
+                    "storageClasses": []
+                },
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "All control characters in the ASCII table ($(HTTPS www.asciitable.com, source))."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "line": 110,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Null"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 112,
+                        "linkage": "default",
+                        "name": "nul",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\0'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Start of heading"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 113,
+                        "linkage": "default",
+                        "name": "soh",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\x01'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Start of text"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 114,
+                        "linkage": "default",
+                        "name": "stx",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\x02'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "End of text"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 115,
+                        "linkage": "default",
+                        "name": "etx",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\x03'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "End of transmission"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 116,
+                        "linkage": "default",
+                        "name": "eot",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\x04'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Enquiry"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 117,
+                        "linkage": "default",
+                        "name": "enq",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\x05'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Acknowledge"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 118,
+                        "linkage": "default",
+                        "name": "ack",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\x06'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Bell"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 119,
+                        "linkage": "default",
+                        "name": "bel",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\x07'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Backspace"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 120,
+                        "linkage": "default",
+                        "name": "bs",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\b'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Horizontal tab"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 121,
+                        "linkage": "default",
+                        "name": "tab",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\t'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "NL line feed, new line"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 122,
+                        "linkage": "default",
+                        "name": "lf",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\n'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Vertical tab"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 123,
+                        "linkage": "default",
+                        "name": "vt",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\x0b'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "NP form feed, new page"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 124,
+                        "linkage": "default",
+                        "name": "ff",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\f'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Carriage return"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 125,
+                        "linkage": "default",
+                        "name": "cr",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\r'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Shift out"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 126,
+                        "linkage": "default",
+                        "name": "so",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\x0e'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Shift in"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 127,
+                        "linkage": "default",
+                        "name": "si",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\x0f'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Data link escape"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 128,
+                        "linkage": "default",
+                        "name": "dle",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\x10'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Device control 1"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 129,
+                        "linkage": "default",
+                        "name": "dc1",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\x11'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Device control 2"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 130,
+                        "linkage": "default",
+                        "name": "dc2",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\x12'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Device control 3"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 131,
+                        "linkage": "default",
+                        "name": "dc3",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\x13'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Device control 4"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 132,
+                        "linkage": "default",
+                        "name": "dc4",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\x14'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Negative acknowledge"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 133,
+                        "linkage": "default",
+                        "name": "nak",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\x15'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Synchronous idle"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 134,
+                        "linkage": "default",
+                        "name": "syn",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\x16'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "End of transmission block"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 135,
+                        "linkage": "default",
+                        "name": "etb",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\x17'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Cancel"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 136,
+                        "linkage": "default",
+                        "name": "can",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\x18'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "End of medium"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 137,
+                        "linkage": "default",
+                        "name": "em",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\x19'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Substitute"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 138,
+                        "linkage": "default",
+                        "name": "sub",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\x1a'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Escape"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 139,
+                        "linkage": "default",
+                        "name": "esc",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\x1b'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "File separator"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 140,
+                        "linkage": "default",
+                        "name": "fs",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\x1c'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Group separator"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 141,
+                        "linkage": "default",
+                        "name": "gs",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\x1d'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Record separator"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 142,
+                        "linkage": "default",
+                        "name": "rs",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\x1e'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Unit separator"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 143,
+                        "linkage": "default",
+                        "name": "us",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\x1f'"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Delete"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 144,
+                        "linkage": "default",
+                        "name": "del",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "'\\x7f'"
+                        },
+                        "visibility": "public"
+                    }
+                ],
+                "name": "ControlChar",
+                "nestedTypes": [],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocTemplate@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Converts an ASCII letter to lowercase."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Params: c = A character of any type that implicitly converts to"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "dchar"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "In the case where it's a built-in type, or an enum of a built-in type,"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "Unqual!(OriginalType!C)"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "is returned, whereas if it's a user-defined"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "type,"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "dchar"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "is returned."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Returns: The corresponding lowercase letter, if"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "c"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "is an uppercase"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "ASCII character, otherwise"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "c"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "itself."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "isMixin": false,
+                "line": 638,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 638,
+                                    "name": "c",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "C"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": []
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": null
+                        },
+                        "line": 638,
+                        "linkage": "default",
+                        "name": "toLower",
+                        "storageClasses": [
+                            "auto"
+                        ],
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    }
+                ],
+                "name": "toLower",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "C",
+                        "specType": null
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "C",
+                        "specType": null
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocTemplate@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Converts an ASCII letter to uppercase."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Params: c = Any type which implicitly converts to"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "dchar"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": ". In the case"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "where it's a built-in type, or an enum of a built-in type,"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "Unqual!(OriginalType!C)"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "is returned, whereas if it's a user-defined"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "type,"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "dchar"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "is returned."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Returns: The corresponding uppercase letter, if"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "c"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "is a lowercase ASCII"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "character, otherwise"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "c"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "itself."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "isMixin": false,
+                "line": 700,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 700,
+                                    "name": "c",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "C"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": []
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": null
+                        },
+                        "line": 700,
+                        "linkage": "default",
+                        "name": "toUpper",
+                        "storageClasses": [
+                            "auto"
+                        ],
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    }
+                ],
+                "name": "toUpper",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "C",
+                        "specType": null
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "C",
+                        "specType": null
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            }
+        ]
+    }
+}

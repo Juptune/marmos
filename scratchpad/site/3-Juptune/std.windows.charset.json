@@ -1,0 +1,362 @@
+{
+    "@type": "DocModelRoot@1",
+    "features": [
+        "semanticPass"
+    ],
+    "module_": {
+        "@type": "DocModule@1",
+        "comment": null,
+        "fqnComponents": [
+            "std",
+            "windows",
+            "charset"
+        ],
+        "members": [
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Converts the UTF-8 string s into a null-terminated string in a Windows"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "8-bit character set."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        },
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentEqualListBlock@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocCommentEqualListBlock.Item@1",
+                                            "key": "s",
+                                            "value": {
+                                                "@type": "DocCommentParagraphBlock@1",
+                                                "inlines": [
+                                                    {
+                                                        "@type": "DocCommentTextInline@1",
+                                                        "text": "UTF-8 string to convert."
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "@type": "DocCommentEqualListBlock.Item@1",
+                                            "key": "codePage",
+                                            "value": {
+                                                "@type": "DocCommentParagraphBlock@1",
+                                                "inlines": [
+                                                    {
+                                                        "@type": "DocCommentTextInline@1",
+                                                        "text": "is the number of the target codepage, or"
+                                                    },
+                                                    {
+                                                        "@type": "DocCommentTextInline@1",
+                                                        "text": "0 - ANSI,"
+                                                    },
+                                                    {
+                                                        "@type": "DocCommentTextInline@1",
+                                                        "text": "1 - OEM,"
+                                                    },
+                                                    {
+                                                        "@type": "DocCommentTextInline@1",
+                                                        "text": "2 - Mac"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "Params"
+                        },
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "yaneurao, Walter Bright, Stewart Gordon"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "Authors"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 33,
+                            "name": "s",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocArrayType@1",
+                                    "underlyingTypeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "char"
+                                        },
+                                        "storageClasses": [
+                                            "const"
+                                        ]
+                                    }
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": {
+                                "@type": "DocFallbackExpression@1",
+                                "renderedCode": "0"
+                            },
+                            "line": 33,
+                            "name": "codePage",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "uint"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocPointerType@1",
+                            "underlyingTypeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "char"
+                                },
+                                "storageClasses": [
+                                    "const"
+                                ]
+                            }
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 33,
+                "linkage": "default",
+                "name": "toMBSz",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Converts the null-terminated string s from a Windows 8-bit character set"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "into a UTF-8 char array."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        },
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentEqualListBlock@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocCommentEqualListBlock.Item@1",
+                                            "key": "s",
+                                            "value": {
+                                                "@type": "DocCommentParagraphBlock@1",
+                                                "inlines": [
+                                                    {
+                                                        "@type": "DocCommentTextInline@1",
+                                                        "text": "UTF-8 string to convert."
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "@type": "DocCommentEqualListBlock.Item@1",
+                                            "key": "codePage",
+                                            "value": {
+                                                "@type": "DocCommentParagraphBlock@1",
+                                                "inlines": [
+                                                    {
+                                                        "@type": "DocCommentTextInline@1",
+                                                        "text": "is the number of the source codepage, or"
+                                                    },
+                                                    {
+                                                        "@type": "DocCommentTextInline@1",
+                                                        "text": "0 - ANSI,"
+                                                    },
+                                                    {
+                                                        "@type": "DocCommentTextInline@1",
+                                                        "text": "1 - OEM,"
+                                                    },
+                                                    {
+                                                        "@type": "DocCommentTextInline@1",
+                                                        "text": "2 - Mac"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "codePage = is the number of the source codepage, or"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "0 - ANSI,"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "1 - OEM,"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "2 - Mac"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Authors: Stewart Gordon, Walter Bright"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "Params"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 47,
+                            "name": "s",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocPointerType@1",
+                                    "underlyingTypeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "char"
+                                        },
+                                        "storageClasses": [
+                                            "immutable"
+                                        ]
+                                    }
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": {
+                                "@type": "DocFallbackExpression@1",
+                                "renderedCode": "0"
+                            },
+                            "line": 47,
+                            "name": "codePage",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "int"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocSymbolReference@1",
+                            "items": [
+                                {
+                                    "@type": "DocSymbolDirectReference@1",
+                                    "symbolName": "string"
+                                }
+                            ],
+                            "moduleFqnComponents": []
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 47,
+                "linkage": "default",
+                "name": "fromMBSz",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            }
+        ],
+        "nestedTypes": []
+    }
+}

@@ -1,0 +1,672 @@
+{
+    "@type": "DocModelRoot@1",
+    "features": [
+        "semanticPass"
+    ],
+    "module_": {
+        "@type": "DocModule@1",
+        "comment": null,
+        "fqnComponents": [
+            "std",
+            "math",
+            "constants"
+        ],
+        "members": [
+            {
+                "@type": "DocManifestConstant@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentEqualListBlock@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocCommentEqualListBlock.Item@1",
+                                            "key": "e",
+                                            "value": {
+                                                "@type": "DocCommentParagraphBlock@1",
+                                                "inlines": [
+                                                    {
+                                                        "@type": "DocCommentTextInline@1",
+                                                        "text": "2.718281..."
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "line": 23,
+                "linkage": "default",
+                "name": "E",
+                "originalValueExpression": null,
+                "storageClasses": [],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "real"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "valueExpression": {
+                    "@type": "DocFallbackExpression@1",
+                    "renderedCode": "2.71828L"
+                },
+                "visibility": "public"
+            },
+            {
+                "@type": "DocManifestConstant@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "$(SUB log, 2)10 = 3.321928..."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "line": 24,
+                "linkage": "default",
+                "name": "LOG2T",
+                "originalValueExpression": null,
+                "storageClasses": [],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "real"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "valueExpression": {
+                    "@type": "DocFallbackExpression@1",
+                    "renderedCode": "3.32193L"
+                },
+                "visibility": "public"
+            },
+            {
+                "@type": "DocManifestConstant@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "$(SUB log, 2)e = 1.442695..."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "line": 25,
+                "linkage": "default",
+                "name": "LOG2E",
+                "originalValueExpression": null,
+                "storageClasses": [],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "real"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "valueExpression": {
+                    "@type": "DocFallbackExpression@1",
+                    "renderedCode": "1.4427L"
+                },
+                "visibility": "public"
+            },
+            {
+                "@type": "DocManifestConstant@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "$(SUB log, 10)2 = 0.301029..."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "line": 26,
+                "linkage": "default",
+                "name": "LOG2",
+                "originalValueExpression": null,
+                "storageClasses": [],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "real"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "valueExpression": {
+                    "@type": "DocFallbackExpression@1",
+                    "renderedCode": "0.30103L"
+                },
+                "visibility": "public"
+            },
+            {
+                "@type": "DocManifestConstant@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "$(SUB log, 10)e = 0.434294..."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "line": 27,
+                "linkage": "default",
+                "name": "LOG10E",
+                "originalValueExpression": null,
+                "storageClasses": [],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "real"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "valueExpression": {
+                    "@type": "DocFallbackExpression@1",
+                    "renderedCode": "0.434294L"
+                },
+                "visibility": "public"
+            },
+            {
+                "@type": "DocManifestConstant@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "ln 2  = 0.693147..."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "line": 28,
+                "linkage": "default",
+                "name": "LN2",
+                "originalValueExpression": null,
+                "storageClasses": [],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "real"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "valueExpression": {
+                    "@type": "DocFallbackExpression@1",
+                    "renderedCode": "0.693147L"
+                },
+                "visibility": "public"
+            },
+            {
+                "@type": "DocManifestConstant@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "ln 10 = 2.302585..."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "line": 29,
+                "linkage": "default",
+                "name": "LN10",
+                "originalValueExpression": null,
+                "storageClasses": [],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "real"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "valueExpression": {
+                    "@type": "DocFallbackExpression@1",
+                    "renderedCode": "2.30259L"
+                },
+                "visibility": "public"
+            },
+            {
+                "@type": "DocManifestConstant@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "&pi; = 3.141592..."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "line": 30,
+                "linkage": "default",
+                "name": "PI",
+                "originalValueExpression": null,
+                "storageClasses": [],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "real"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "valueExpression": {
+                    "@type": "DocFallbackExpression@1",
+                    "renderedCode": "3.14159L"
+                },
+                "visibility": "public"
+            },
+            {
+                "@type": "DocManifestConstant@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "$(PI) \/ 2 = 1.570796..."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "line": 31,
+                "linkage": "default",
+                "name": "PI_2",
+                "originalValueExpression": null,
+                "storageClasses": [],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "real"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "valueExpression": {
+                    "@type": "DocFallbackExpression@1",
+                    "renderedCode": "1.5708L"
+                },
+                "visibility": "public"
+            },
+            {
+                "@type": "DocManifestConstant@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "$(PI) \/ 4 = 0.785398..."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "line": 32,
+                "linkage": "default",
+                "name": "PI_4",
+                "originalValueExpression": null,
+                "storageClasses": [],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "real"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "valueExpression": {
+                    "@type": "DocFallbackExpression@1",
+                    "renderedCode": "0.785398L"
+                },
+                "visibility": "public"
+            },
+            {
+                "@type": "DocManifestConstant@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "1 \/ $(PI) = 0.318309..."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "line": 33,
+                "linkage": "default",
+                "name": "M_1_PI",
+                "originalValueExpression": null,
+                "storageClasses": [],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "real"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "valueExpression": {
+                    "@type": "DocFallbackExpression@1",
+                    "renderedCode": "0.31831L"
+                },
+                "visibility": "public"
+            },
+            {
+                "@type": "DocManifestConstant@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "2 \/ $(PI) = 0.636619..."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "line": 34,
+                "linkage": "default",
+                "name": "M_2_PI",
+                "originalValueExpression": null,
+                "storageClasses": [],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "real"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "valueExpression": {
+                    "@type": "DocFallbackExpression@1",
+                    "renderedCode": "0.63662L"
+                },
+                "visibility": "public"
+            },
+            {
+                "@type": "DocManifestConstant@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "2 \/ $(SQRT)$(PI) = 1.128379..."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "line": 35,
+                "linkage": "default",
+                "name": "M_2_SQRTPI",
+                "originalValueExpression": null,
+                "storageClasses": [],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "real"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "valueExpression": {
+                    "@type": "DocFallbackExpression@1",
+                    "renderedCode": "1.12838L"
+                },
+                "visibility": "public"
+            },
+            {
+                "@type": "DocManifestConstant@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "$(SQRT)2 = 1.414213..."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "line": 36,
+                "linkage": "default",
+                "name": "SQRT2",
+                "originalValueExpression": null,
+                "storageClasses": [],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "real"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "valueExpression": {
+                    "@type": "DocFallbackExpression@1",
+                    "renderedCode": "1.41421L"
+                },
+                "visibility": "public"
+            },
+            {
+                "@type": "DocManifestConstant@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "$(SQRT)$(HALF) = 0.707106..."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "line": 37,
+                "linkage": "default",
+                "name": "SQRT1_2",
+                "originalValueExpression": null,
+                "storageClasses": [],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "real"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "valueExpression": {
+                    "@type": "DocFallbackExpression@1",
+                    "renderedCode": "0.707107L"
+                },
+                "visibility": "public"
+            }
+        ],
+        "nestedTypes": []
+    }
+}

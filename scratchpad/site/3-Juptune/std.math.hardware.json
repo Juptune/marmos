@@ -1,0 +1,2715 @@
+{
+    "@type": "DocModelRoot@1",
+    "features": [
+        "semanticPass"
+    ],
+    "module_": {
+        "@type": "DocModule@1",
+        "comment": null,
+        "fqnComponents": [
+            "std",
+            "math",
+            "hardware"
+        ],
+        "members": [
+            {
+                "@type": "DocManifestConstant@1",
+                "comment": null,
+                "line": 43,
+                "linkage": "default",
+                "name": "haveSSE",
+                "originalValueExpression": null,
+                "storageClasses": [],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "bool"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "valueExpression": {
+                    "@type": "DocFallbackExpression@1",
+                    "renderedCode": "true"
+                },
+                "visibility": "private"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": []
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 255,
+                "linkage": "default",
+                "name": "__unittest_L255_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 282,
+                "linkage": "default",
+                "name": "__unittest_L282_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 309,
+                "linkage": "default",
+                "name": "__unittest_L309_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Set all of the floating-point status flags to false."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "void"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 355,
+                "linkage": "default",
+                "name": "resetIeeeFlags",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": []
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 362,
+                "linkage": "default",
+                "name": "__unittest_L362_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 374,
+                "linkage": "default",
+                "name": "__unittest_L374_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Returns: snapshot of the current state of the floating-point status flags"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocSymbolReference@1",
+                            "items": [
+                                {
+                                    "@type": "DocSymbolDirectReference@1",
+                                    "symbolName": "IeeeFlags"
+                                }
+                            ],
+                            "moduleFqnComponents": [
+                                "std",
+                                "math",
+                                "hardware"
+                            ]
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 387,
+                "linkage": "default",
+                "name": "ieeeFlags",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": []
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 394,
+                "linkage": "default",
+                "name": "__unittest_L394_C15",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 410,
+                "linkage": "default",
+                "name": "__unittest_L410_C15",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": []
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 946,
+                "linkage": "default",
+                "name": "__unittest_L946_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 962,
+                "linkage": "default",
+                "name": "__unittest_L962_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 999,
+                "linkage": "default",
+                "name": "__unittest_L999_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            }
+        ],
+        "nestedTypes": [
+            {
+                "@type": "DocStruct@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "IEEE exception status flags ('sticky bits')"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "These flags indicate that an exceptional floating-point condition has occurred."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "They indicate that a NaN or an infinity has been generated, that a result"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "is inexact, or that a signalling NaN has been encountered. If floating-point"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "exceptions are enabled (unmasked), a hardware exception will be generated"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "instead of setting these flags."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "line": 82,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocVariable@1",
+                        "comment": null,
+                        "defaultValueExpression": null,
+                        "line": 93,
+                        "linkage": "default",
+                        "name": "flags",
+                        "storageClasses": [
+                            "nothrow",
+                            "@nogc"
+                        ],
+                        "typeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "uint"
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [],
+                        "visibility": "private"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "uint"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 125,
+                        "linkage": "default",
+                        "name": "getIeeeFlags",
+                        "storageClasses": [
+                            "static"
+                        ],
+                        "udas": [],
+                        "visibility": "private"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "void"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 176,
+                        "linkage": "default",
+                        "name": "resetIeeeFlags",
+                        "storageClasses": [
+                            "static"
+                        ],
+                        "udas": [],
+                        "visibility": "private"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "The result cannot be represented exactly, so rounding occurred."
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Example:"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "x = sin(0.1);"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "bool"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 226,
+                        "linkage": "default",
+                        "name": "inexact",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "A zero was generated by underflow"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Example:"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "x = real.min*real.epsilon\/2;"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "bool"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 232,
+                        "linkage": "default",
+                        "name": "underflow",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "An infinity was generated by overflow"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Example:"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "x = real.max*2;"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "bool"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 238,
+                        "linkage": "default",
+                        "name": "overflow",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "An infinity was generated by division by zero"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Example:"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "x = 3\/0.0;"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "bool"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 244,
+                        "linkage": "default",
+                        "name": "divByZero",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "A machine NaN was generated."
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Example:"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "x = real.infinity * 0.0;"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "bool"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 250,
+                        "linkage": "default",
+                        "name": "invalid",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "public"
+                    }
+                ],
+                "name": "IeeeFlags",
+                "nestedTypes": [
+                    {
+                        "@type": "DocEnum@1",
+                        "baseTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "int"
+                            },
+                            "storageClasses": []
+                        },
+                        "comment": null,
+                        "line": 99,
+                        "linkage": "default",
+                        "members": [
+                            {
+                                "@type": "DocManifestConstant@1",
+                                "comment": null,
+                                "line": 101,
+                                "linkage": "default",
+                                "name": "INEXACT_MASK",
+                                "originalValueExpression": null,
+                                "storageClasses": [],
+                                "typeRef": null,
+                                "udas": [],
+                                "valueExpression": {
+                                    "@type": "DocFallbackExpression@1",
+                                    "renderedCode": "32"
+                                },
+                                "visibility": "not explicitly defined"
+                            },
+                            {
+                                "@type": "DocManifestConstant@1",
+                                "comment": null,
+                                "line": 102,
+                                "linkage": "default",
+                                "name": "UNDERFLOW_MASK",
+                                "originalValueExpression": null,
+                                "storageClasses": [],
+                                "typeRef": null,
+                                "udas": [],
+                                "valueExpression": {
+                                    "@type": "DocFallbackExpression@1",
+                                    "renderedCode": "16"
+                                },
+                                "visibility": "not explicitly defined"
+                            },
+                            {
+                                "@type": "DocManifestConstant@1",
+                                "comment": null,
+                                "line": 103,
+                                "linkage": "default",
+                                "name": "OVERFLOW_MASK",
+                                "originalValueExpression": null,
+                                "storageClasses": [],
+                                "typeRef": null,
+                                "udas": [],
+                                "valueExpression": {
+                                    "@type": "DocFallbackExpression@1",
+                                    "renderedCode": "8"
+                                },
+                                "visibility": "not explicitly defined"
+                            },
+                            {
+                                "@type": "DocManifestConstant@1",
+                                "comment": null,
+                                "line": 104,
+                                "linkage": "default",
+                                "name": "DIVBYZERO_MASK",
+                                "originalValueExpression": null,
+                                "storageClasses": [],
+                                "typeRef": null,
+                                "udas": [],
+                                "valueExpression": {
+                                    "@type": "DocFallbackExpression@1",
+                                    "renderedCode": "4"
+                                },
+                                "visibility": "not explicitly defined"
+                            },
+                            {
+                                "@type": "DocManifestConstant@1",
+                                "comment": null,
+                                "line": 105,
+                                "linkage": "default",
+                                "name": "INVALID_MASK",
+                                "originalValueExpression": null,
+                                "storageClasses": [],
+                                "typeRef": null,
+                                "udas": [],
+                                "valueExpression": {
+                                    "@type": "DocFallbackExpression@1",
+                                    "renderedCode": "1"
+                                },
+                                "visibility": "not explicitly defined"
+                            },
+                            {
+                                "@type": "DocManifestConstant@1",
+                                "comment": null,
+                                "line": 107,
+                                "linkage": "default",
+                                "name": "EXCEPTIONS_MASK",
+                                "originalValueExpression": null,
+                                "storageClasses": [],
+                                "typeRef": null,
+                                "udas": [],
+                                "valueExpression": {
+                                    "@type": "DocFallbackExpression@1",
+                                    "renderedCode": "63"
+                                },
+                                "visibility": "not explicitly defined"
+                            }
+                        ],
+                        "name": "__anonymous",
+                        "nestedTypes": [],
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocStruct@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Control the Floating point hardware"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Change the IEEE754 floating-point rounding mode and the floating-point"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "hardware exceptions."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "By default, the rounding mode is roundToNearest and all hardware exceptions"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "are disabled. For most applications, debugging is easier if the $(I division"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "by zero), $(I overflow), and $(I invalid operation) exceptions are enabled."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "These three are combined into a $(I severeExceptions) value for convenience."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Note in particular that if $(I invalidException) is enabled, a hardware trap"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "will be generated whenever an uninitialized floating-point variable is used."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "All changes are temporary. The previous state is restored at the"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "end of the scope."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Example:"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "----"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "{"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "FloatingPointControl fpctrl;"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "\/\/ Enable hardware exceptions for division by zero, overflow to infinity,"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "\/\/ invalid operations, and uninitialized floating-point variables."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "fpctrl.enableExceptions(FloatingPointControl.severeExceptions);"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "\/\/ This will generate a hardware exception, if x is a"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "\/\/ default-initialized floating point variable:"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "real x; \/\/ Add"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "= 0"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "or even"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "= real.nan"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "to not throw the exception."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "real y = x"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "3.0;"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "\/\/ The exception is only thrown for default-uninitialized NaN-s."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "\/\/ NaN-s with other payload are valid:"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "real z = y"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "real.nan; \/\/ ok"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "\/\/ The set hardware exceptions and rounding modes will be disabled when"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "\/\/ leaving this scope."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "}"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "----"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "line": 472,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocAlias@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": []
+                        },
+                        "line": 476,
+                        "linkage": "default",
+                        "name": "RoundingMode",
+                        "storageClasses": [],
+                        "symbolRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "uint"
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Change the floating-point hardware rounding mode"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Changing the rounding mode in the middle of a function can interfere"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "with optimizations of floating point expressions, as the optimizer assumes"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "that the rounding mode does not change."
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "It is best to change the rounding mode only at the"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "beginning of the function, and keep it until the function returns."
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "It is also best to add the line:"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "---"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "pragma(inline, false);"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "---"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "as the first line of the function so it will not get inlined."
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Params:"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "newMode = the new rounding mode"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 536,
+                                    "name": "newMode",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "uint"
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "void"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 536,
+                        "linkage": "default",
+                        "name": "rounding",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Returns: the currently active rounding mode"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "uint"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 543,
+                        "linkage": "default",
+                        "name": "rounding",
+                        "storageClasses": [
+                            "static"
+                        ],
+                        "udas": [],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocAlias@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": []
+                        },
+                        "line": 548,
+                        "linkage": "default",
+                        "name": "ExceptionMask",
+                        "storageClasses": [],
+                        "symbolRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "uint"
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "bool"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 712,
+                        "linkage": "default",
+                        "name": "hasExceptionTraps_impl",
+                        "storageClasses": [
+                            "static"
+                        ],
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Returns: true if the current FPU supports exception trapping"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "bool"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 725,
+                        "linkage": "default",
+                        "name": "hasExceptionTraps",
+                        "storageClasses": [
+                            "static"
+                        ],
+                        "udas": [],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Enable (unmask) specific hardware exceptions. Multiple exceptions may be ORed together."
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 748,
+                                    "name": "exceptions",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "uint"
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "void"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 748,
+                        "linkage": "default",
+                        "name": "enableExceptions",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Disable (mask) specific hardware exceptions. Multiple exceptions may be ORed together."
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 759,
+                                    "name": "exceptions",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "uint"
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "void"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 759,
+                        "linkage": "default",
+                        "name": "disableExceptions",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Returns: the exceptions which are currently enabled (unmasked)"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "uint"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 770,
+                        "linkage": "default",
+                        "name": "enabledExceptions",
+                        "storageClasses": [
+                            "static"
+                        ],
+                        "udas": [],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Clear all pending exceptions, then restore the original exception state and rounding mode."
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "void"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 780,
+                        "linkage": "default",
+                        "name": "__dtor",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocVariable@1",
+                        "comment": null,
+                        "defaultValueExpression": null,
+                        "line": 788,
+                        "linkage": "default",
+                        "name": "savedState",
+                        "storageClasses": [
+                            "nothrow",
+                            "@nogc"
+                        ],
+                        "typeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": {
+                                "@type": "DocSymbolReference@1",
+                                "items": [
+                                    {
+                                        "@type": "DocSymbolDirectReference@1",
+                                        "symbolName": "ControlState"
+                                    }
+                                ],
+                                "moduleFqnComponents": []
+                            },
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "ushort"
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [],
+                        "visibility": "private"
+                    },
+                    {
+                        "@type": "DocVariable@1",
+                        "comment": null,
+                        "defaultValueExpression": null,
+                        "line": 790,
+                        "linkage": "default",
+                        "name": "initialized",
+                        "storageClasses": [
+                            "nothrow",
+                            "@nogc"
+                        ],
+                        "typeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "bool"
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [],
+                        "visibility": "private"
+                    },
+                    {
+                        "@type": "DocAlias@1",
+                        "comment": null,
+                        "line": 794,
+                        "linkage": "default",
+                        "name": "ControlState",
+                        "storageClasses": [],
+                        "symbolRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "uint"
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "void"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 831,
+                        "linkage": "default",
+                        "name": "initialize",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "private"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "void"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 841,
+                        "linkage": "default",
+                        "name": "clearExceptions",
+                        "storageClasses": [
+                            "static"
+                        ],
+                        "udas": [],
+                        "visibility": "private"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "ushort"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 850,
+                        "linkage": "default",
+                        "name": "getControlState",
+                        "storageClasses": [
+                            "static"
+                        ],
+                        "udas": [],
+                        "visibility": "package"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 896,
+                                    "name": "newState",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "ushort"
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "void"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 896,
+                        "linkage": "default",
+                        "name": "setControlState",
+                        "storageClasses": [
+                            "static"
+                        ],
+                        "udas": [],
+                        "visibility": "package"
+                    },
+                    {
+                        "@type": "DocAlias@1",
+                        "comment": null,
+                        "line": 0,
+                        "linkage": "default",
+                        "name": "__xdtor",
+                        "storageClasses": [],
+                        "symbolRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "__MARMOS_BUG__"
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 0,
+                                    "name": "p",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "FloatingPointControl"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": [
+                                                "std",
+                                                "math",
+                                                "hardware"
+                                            ]
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "FloatingPointControl"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": [
+                                        "std",
+                                        "math",
+                                        "hardware"
+                                    ]
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 472,
+                        "linkage": "default",
+                        "name": "opAssign",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "public"
+                    }
+                ],
+                "name": "FloatingPointControl",
+                "nestedTypes": [
+                    {
+                        "@type": "DocEnum@1",
+                        "baseTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocSymbolReference@1",
+                                "items": [
+                                    {
+                                        "@type": "DocSymbolDirectReference@1",
+                                        "symbolName": "RoundingMode"
+                                    }
+                                ],
+                                "moduleFqnComponents": []
+                            },
+                            "storageClasses": []
+                        },
+                        "comment": null,
+                        "line": 480,
+                        "linkage": "default",
+                        "members": [
+                            {
+                                "@type": "DocManifestConstant@1",
+                                "comment": {
+                                    "@type": "DocComment@1",
+                                    "sections": [
+                                        {
+                                            "@type": "DocCommentSection@1",
+                                            "blocks": [
+                                                {
+                                                    "@type": "DocCommentParagraphBlock@1",
+                                                    "inlines": [
+                                                        {
+                                                            "@type": "DocCommentTextInline@1",
+                                                            "text": "IEEE rounding modes."
+                                                        },
+                                                        {
+                                                            "@type": "DocCommentTextInline@1",
+                                                            "text": "The default mode is roundToNearest."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "@type": "DocCommentParagraphBlock@1",
+                                                    "inlines": [
+                                                        {
+                                                            "@type": "DocCommentTextInline@1",
+                                                            "text": "roundingMask = A mask of all rounding modes."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "title": "__default"
+                                        }
+                                    ]
+                                },
+                                "line": 487,
+                                "linkage": "default",
+                                "name": "roundToNearest",
+                                "originalValueExpression": null,
+                                "storageClasses": [],
+                                "typeRef": null,
+                                "udas": [],
+                                "valueExpression": null,
+                                "visibility": "not explicitly defined"
+                            },
+                            {
+                                "@type": "DocManifestConstant@1",
+                                "comment": {
+                                    "@type": "DocComment@1",
+                                    "sections": [
+                                        {
+                                            "@type": "DocCommentSection@1",
+                                            "blocks": [
+                                                {
+                                                    "@type": "DocCommentParagraphBlock@1",
+                                                    "inlines": [
+                                                        {
+                                                            "@type": "DocCommentTextInline@1",
+                                                            "text": "ditto"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "title": "__default"
+                                        }
+                                    ]
+                                },
+                                "line": 488,
+                                "linkage": "default",
+                                "name": "roundDown",
+                                "originalValueExpression": null,
+                                "storageClasses": [],
+                                "typeRef": null,
+                                "udas": [],
+                                "valueExpression": null,
+                                "visibility": "not explicitly defined"
+                            },
+                            {
+                                "@type": "DocManifestConstant@1",
+                                "comment": {
+                                    "@type": "DocComment@1",
+                                    "sections": [
+                                        {
+                                            "@type": "DocCommentSection@1",
+                                            "blocks": [
+                                                {
+                                                    "@type": "DocCommentParagraphBlock@1",
+                                                    "inlines": [
+                                                        {
+                                                            "@type": "DocCommentTextInline@1",
+                                                            "text": "ditto"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "title": "__default"
+                                        }
+                                    ]
+                                },
+                                "line": 489,
+                                "linkage": "default",
+                                "name": "roundUp",
+                                "originalValueExpression": null,
+                                "storageClasses": [],
+                                "typeRef": null,
+                                "udas": [],
+                                "valueExpression": null,
+                                "visibility": "not explicitly defined"
+                            },
+                            {
+                                "@type": "DocManifestConstant@1",
+                                "comment": {
+                                    "@type": "DocComment@1",
+                                    "sections": [
+                                        {
+                                            "@type": "DocCommentSection@1",
+                                            "blocks": [
+                                                {
+                                                    "@type": "DocCommentParagraphBlock@1",
+                                                    "inlines": [
+                                                        {
+                                                            "@type": "DocCommentTextInline@1",
+                                                            "text": "ditto"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "title": "__default"
+                                        }
+                                    ]
+                                },
+                                "line": 490,
+                                "linkage": "default",
+                                "name": "roundToZero",
+                                "originalValueExpression": null,
+                                "storageClasses": [],
+                                "typeRef": null,
+                                "udas": [],
+                                "valueExpression": null,
+                                "visibility": "not explicitly defined"
+                            },
+                            {
+                                "@type": "DocManifestConstant@1",
+                                "comment": {
+                                    "@type": "DocComment@1",
+                                    "sections": [
+                                        {
+                                            "@type": "DocCommentSection@1",
+                                            "blocks": [
+                                                {
+                                                    "@type": "DocCommentParagraphBlock@1",
+                                                    "inlines": [
+                                                        {
+                                                            "@type": "DocCommentTextInline@1",
+                                                            "text": "ditto"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "title": "__default"
+                                        }
+                                    ]
+                                },
+                                "line": 491,
+                                "linkage": "default",
+                                "name": "roundingMask",
+                                "originalValueExpression": null,
+                                "storageClasses": [],
+                                "typeRef": null,
+                                "udas": [],
+                                "valueExpression": null,
+                                "visibility": "not explicitly defined"
+                            }
+                        ],
+                        "name": "__anonymous",
+                        "nestedTypes": [],
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    },
+                    {
+                        "@type": "DocEnum@1",
+                        "baseTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocSymbolReference@1",
+                                "items": [
+                                    {
+                                        "@type": "DocSymbolDirectReference@1",
+                                        "symbolName": "ExceptionMask"
+                                    }
+                                ],
+                                "moduleFqnComponents": []
+                            },
+                            "storageClasses": []
+                        },
+                        "comment": null,
+                        "line": 552,
+                        "linkage": "default",
+                        "members": [
+                            {
+                                "@type": "DocManifestConstant@1",
+                                "comment": {
+                                    "@type": "DocComment@1",
+                                    "sections": [
+                                        {
+                                            "@type": "DocCommentSection@1",
+                                            "blocks": [
+                                                {
+                                                    "@type": "DocCommentParagraphBlock@1",
+                                                    "inlines": [
+                                                        {
+                                                            "@type": "DocCommentTextInline@1",
+                                                            "text": "IEEE hardware exceptions."
+                                                        },
+                                                        {
+                                                            "@type": "DocCommentTextInline@1",
+                                                            "text": "By default, all exceptions are masked (disabled)."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "@type": "DocCommentParagraphBlock@1",
+                                                    "inlines": [
+                                                        {
+                                                            "@type": "DocCommentTextInline@1",
+                                                            "text": "severeExceptions = The overflow, division by zero, and invalid"
+                                                        },
+                                                        {
+                                                            "@type": "DocCommentTextInline@1",
+                                                            "text": "exceptions."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "title": "__default"
+                                        }
+                                    ]
+                                },
+                                "line": 560,
+                                "linkage": "default",
+                                "name": "subnormalException",
+                                "originalValueExpression": null,
+                                "storageClasses": [],
+                                "typeRef": null,
+                                "udas": [],
+                                "valueExpression": null,
+                                "visibility": "not explicitly defined"
+                            },
+                            {
+                                "@type": "DocManifestConstant@1",
+                                "comment": {
+                                    "@type": "DocComment@1",
+                                    "sections": [
+                                        {
+                                            "@type": "DocCommentSection@1",
+                                            "blocks": [
+                                                {
+                                                    "@type": "DocCommentParagraphBlock@1",
+                                                    "inlines": [
+                                                        {
+                                                            "@type": "DocCommentTextInline@1",
+                                                            "text": "ditto"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "title": "__default"
+                                        }
+                                    ]
+                                },
+                                "line": 561,
+                                "linkage": "default",
+                                "name": "inexactException",
+                                "originalValueExpression": null,
+                                "storageClasses": [],
+                                "typeRef": null,
+                                "udas": [],
+                                "valueExpression": null,
+                                "visibility": "not explicitly defined"
+                            },
+                            {
+                                "@type": "DocManifestConstant@1",
+                                "comment": {
+                                    "@type": "DocComment@1",
+                                    "sections": [
+                                        {
+                                            "@type": "DocCommentSection@1",
+                                            "blocks": [
+                                                {
+                                                    "@type": "DocCommentParagraphBlock@1",
+                                                    "inlines": [
+                                                        {
+                                                            "@type": "DocCommentTextInline@1",
+                                                            "text": "ditto"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "title": "__default"
+                                        }
+                                    ]
+                                },
+                                "line": 562,
+                                "linkage": "default",
+                                "name": "underflowException",
+                                "originalValueExpression": null,
+                                "storageClasses": [],
+                                "typeRef": null,
+                                "udas": [],
+                                "valueExpression": null,
+                                "visibility": "not explicitly defined"
+                            },
+                            {
+                                "@type": "DocManifestConstant@1",
+                                "comment": {
+                                    "@type": "DocComment@1",
+                                    "sections": [
+                                        {
+                                            "@type": "DocCommentSection@1",
+                                            "blocks": [
+                                                {
+                                                    "@type": "DocCommentParagraphBlock@1",
+                                                    "inlines": [
+                                                        {
+                                                            "@type": "DocCommentTextInline@1",
+                                                            "text": "ditto"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "title": "__default"
+                                        }
+                                    ]
+                                },
+                                "line": 563,
+                                "linkage": "default",
+                                "name": "overflowException",
+                                "originalValueExpression": null,
+                                "storageClasses": [],
+                                "typeRef": null,
+                                "udas": [],
+                                "valueExpression": null,
+                                "visibility": "not explicitly defined"
+                            },
+                            {
+                                "@type": "DocManifestConstant@1",
+                                "comment": {
+                                    "@type": "DocComment@1",
+                                    "sections": [
+                                        {
+                                            "@type": "DocCommentSection@1",
+                                            "blocks": [
+                                                {
+                                                    "@type": "DocCommentParagraphBlock@1",
+                                                    "inlines": [
+                                                        {
+                                                            "@type": "DocCommentTextInline@1",
+                                                            "text": "ditto"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "title": "__default"
+                                        }
+                                    ]
+                                },
+                                "line": 564,
+                                "linkage": "default",
+                                "name": "divByZeroException",
+                                "originalValueExpression": null,
+                                "storageClasses": [],
+                                "typeRef": null,
+                                "udas": [],
+                                "valueExpression": null,
+                                "visibility": "not explicitly defined"
+                            },
+                            {
+                                "@type": "DocManifestConstant@1",
+                                "comment": {
+                                    "@type": "DocComment@1",
+                                    "sections": [
+                                        {
+                                            "@type": "DocCommentSection@1",
+                                            "blocks": [
+                                                {
+                                                    "@type": "DocCommentParagraphBlock@1",
+                                                    "inlines": [
+                                                        {
+                                                            "@type": "DocCommentTextInline@1",
+                                                            "text": "ditto"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "title": "__default"
+                                        }
+                                    ]
+                                },
+                                "line": 565,
+                                "linkage": "default",
+                                "name": "invalidException",
+                                "originalValueExpression": null,
+                                "storageClasses": [],
+                                "typeRef": null,
+                                "udas": [],
+                                "valueExpression": null,
+                                "visibility": "not explicitly defined"
+                            },
+                            {
+                                "@type": "DocManifestConstant@1",
+                                "comment": {
+                                    "@type": "DocComment@1",
+                                    "sections": [
+                                        {
+                                            "@type": "DocCommentSection@1",
+                                            "blocks": [
+                                                {
+                                                    "@type": "DocCommentParagraphBlock@1",
+                                                    "inlines": [
+                                                        {
+                                                            "@type": "DocCommentTextInline@1",
+                                                            "text": "ditto"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "title": "__default"
+                                        }
+                                    ]
+                                },
+                                "line": 566,
+                                "linkage": "default",
+                                "name": "severeExceptions",
+                                "originalValueExpression": null,
+                                "storageClasses": [],
+                                "typeRef": null,
+                                "udas": [],
+                                "valueExpression": null,
+                                "visibility": "not explicitly defined"
+                            },
+                            {
+                                "@type": "DocManifestConstant@1",
+                                "comment": {
+                                    "@type": "DocComment@1",
+                                    "sections": [
+                                        {
+                                            "@type": "DocCommentSection@1",
+                                            "blocks": [
+                                                {
+                                                    "@type": "DocCommentParagraphBlock@1",
+                                                    "inlines": [
+                                                        {
+                                                            "@type": "DocCommentTextInline@1",
+                                                            "text": "ditto"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "title": "__default"
+                                        }
+                                    ]
+                                },
+                                "line": 567,
+                                "linkage": "default",
+                                "name": "allExceptions",
+                                "originalValueExpression": null,
+                                "storageClasses": [],
+                                "typeRef": null,
+                                "udas": [],
+                                "valueExpression": null,
+                                "visibility": "not explicitly defined"
+                            }
+                        ],
+                        "name": "__anonymous",
+                        "nestedTypes": [],
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocTemplate@1",
+                "comment": null,
+                "isMixin": false,
+                "line": 1057,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 1057,
+                                    "name": "x",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "T"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": []
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                },
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 1057,
+                                    "name": "y",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "T"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": []
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "T"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": []
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 1057,
+                        "linkage": "default",
+                        "name": "forceAddOp",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    }
+                ],
+                "name": "forceAddOp",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "T",
+                        "specType": null
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "T",
+                        "specType": null
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocTemplate@1",
+                "comment": null,
+                "isMixin": false,
+                "line": 1058,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 1058,
+                                    "name": "x",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "T"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": []
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                },
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 1058,
+                                    "name": "y",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "T"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": []
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "T"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": []
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 1058,
+                        "linkage": "default",
+                        "name": "forceSubOp",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    }
+                ],
+                "name": "forceSubOp",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "T",
+                        "specType": null
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "T",
+                        "specType": null
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocTemplate@1",
+                "comment": null,
+                "isMixin": false,
+                "line": 1059,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 1059,
+                                    "name": "x",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "T"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": []
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                },
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 1059,
+                                    "name": "y",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "T"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": []
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "T"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": []
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 1059,
+                        "linkage": "default",
+                        "name": "forceMulOp",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    }
+                ],
+                "name": "forceMulOp",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "T",
+                        "specType": null
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "T",
+                        "specType": null
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocTemplate@1",
+                "comment": null,
+                "isMixin": false,
+                "line": 1060,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 1060,
+                                    "name": "x",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "T"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": []
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                },
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 1060,
+                                    "name": "y",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "T"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": []
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "T"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": []
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 1060,
+                        "linkage": "default",
+                        "name": "forceDivOp",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    }
+                ],
+                "name": "forceDivOp",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "T",
+                        "specType": null
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "DocTemplateTypeParam@1",
+                        "defaultType": null,
+                        "name": "T",
+                        "specType": null
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            }
+        ]
+    }
+}

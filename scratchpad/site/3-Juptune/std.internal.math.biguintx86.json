@@ -1,0 +1,2355 @@
+{
+    "@type": "DocModelRoot@1",
+    "features": [
+        "semanticPass"
+    ],
+    "module_": {
+        "@type": "DocModule@1",
+        "comment": null,
+        "fqnComponents": [
+            "std",
+            "internal",
+            "math",
+            "biguintx86"
+        ],
+        "members": [
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 73,
+                            "name": "n",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "int"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 73,
+                            "name": "s",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "string"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": []
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocSymbolReference@1",
+                            "items": [
+                                {
+                                    "@type": "DocSymbolDirectReference@1",
+                                    "symbolName": "string"
+                                }
+                            ],
+                            "moduleFqnComponents": []
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 73,
+                "linkage": "default",
+                "name": "indexedLoopUnroll",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 94,
+                "linkage": "default",
+                "name": "__unittest_L94_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocAlias@1",
+                "comment": null,
+                "line": 101,
+                "linkage": "default",
+                "name": "BigDigit",
+                "storageClasses": [],
+                "symbolRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "uint"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 180,
+                "linkage": "default",
+                "name": "__unittest_L180_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "dest[#] = src[#] << numbits"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "numbits must be in the range 1 .. 31"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Returns the overflow"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 257,
+                            "name": "dest",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocArrayType@1",
+                                    "underlyingTypeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "uint"
+                                        },
+                                        "storageClasses": []
+                                    }
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 257,
+                            "name": "src",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocArrayType@1",
+                                    "underlyingTypeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "uint"
+                                        },
+                                        "storageClasses": []
+                                    }
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 257,
+                            "name": "numbits",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "uint"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "uint"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 257,
+                "linkage": "default",
+                "name": "multibyteShlNoMMX",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "dest[#] = src[#] >> numbits"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "numbits must be in the range 1 .. 31"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "This version uses MMX."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 308,
+                            "name": "dest",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocArrayType@1",
+                                    "underlyingTypeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "uint"
+                                        },
+                                        "storageClasses": []
+                                    }
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 308,
+                            "name": "src",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocArrayType@1",
+                                    "underlyingTypeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "uint"
+                                        },
+                                        "storageClasses": []
+                                    }
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 308,
+                            "name": "numbits",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "uint"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "uint"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 308,
+                "linkage": "default",
+                "name": "multibyteShl",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 391,
+                            "name": "dest",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocArrayType@1",
+                                    "underlyingTypeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "uint"
+                                        },
+                                        "storageClasses": []
+                                    }
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 391,
+                            "name": "src",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocArrayType@1",
+                                    "underlyingTypeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "uint"
+                                        },
+                                        "storageClasses": []
+                                    }
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 391,
+                            "name": "numbits",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "uint"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "void"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 391,
+                "linkage": "default",
+                "name": "multibyteShr",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "dest[#] = src[#] >> numbits"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "numbits must be in the range 1 .. 31"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 478,
+                            "name": "dest",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocArrayType@1",
+                                    "underlyingTypeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "uint"
+                                        },
+                                        "storageClasses": []
+                                    }
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 478,
+                            "name": "src",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocArrayType@1",
+                                    "underlyingTypeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "uint"
+                                        },
+                                        "storageClasses": []
+                                    }
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 478,
+                            "name": "numbits",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "uint"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "void"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 478,
+                "linkage": "default",
+                "name": "multibyteShrNoMMX",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 525,
+                "linkage": "default",
+                "name": "__unittest_L525_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "dest[#] = src[#]"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "multiplier + carry."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Returns carry."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 566,
+                            "name": "dest",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocArrayType@1",
+                                    "underlyingTypeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "uint"
+                                        },
+                                        "storageClasses": []
+                                    }
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 566,
+                            "name": "src",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocArrayType@1",
+                                    "underlyingTypeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "uint"
+                                        },
+                                        "storageClasses": []
+                                    }
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 566,
+                            "name": "multiplier",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "uint"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 566,
+                            "name": "carry",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "uint"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "uint"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 566,
+                "linkage": "default",
+                "name": "multibyteMul",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 627,
+                "linkage": "default",
+                "name": "__unittest_L627_C9",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 639,
+                            "name": "OP",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "string"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": []
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 639,
+                            "name": "M_ADDRESS",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "string"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": []
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocSymbolReference@1",
+                            "items": [
+                                {
+                                    "@type": "DocSymbolDirectReference@1",
+                                    "symbolName": "string"
+                                }
+                            ],
+                            "moduleFqnComponents": []
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 639,
+                "linkage": "default",
+                "name": "asmMulAdd_innerloop",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 710,
+                            "name": "OP",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "string"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": []
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 710,
+                            "name": "M_ADDRESS",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "string"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": []
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocSymbolReference@1",
+                            "items": [
+                                {
+                                    "@type": "DocSymbolDirectReference@1",
+                                    "symbolName": "string"
+                                }
+                            ],
+                            "moduleFqnComponents": []
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 710,
+                "linkage": "default",
+                "name": "asmMulAdd_enter_odd",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 806,
+                "linkage": "default",
+                "name": "__unittest_L806_C9",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Sets result[#] = result[0 .. left.length] + left[#]"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "right[#]"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "It is defined in this way to allow cache-efficient multiplication."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "This function is equivalent to:"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "----"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "for (int i = 0; i< right.length; ++i)"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "{"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "dest[left.length + i] = multibyteMulAdd(dest[i .. left.length+i],"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "left, right[i], 0);"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "}"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "----"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 830,
+                            "name": "dest",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocArrayType@1",
+                                    "underlyingTypeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "uint"
+                                        },
+                                        "storageClasses": []
+                                    }
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 830,
+                            "name": "left",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocArrayType@1",
+                                    "underlyingTypeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "uint"
+                                        },
+                                        "storageClasses": []
+                                    }
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 831,
+                            "name": "right",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocArrayType@1",
+                                    "underlyingTypeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "uint"
+                                        },
+                                        "storageClasses": []
+                                    }
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "void"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 830,
+                "linkage": "default",
+                "name": "multibyteMultiplyAccumulate",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "dest[#] \/= divisor."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "overflow is the initial remainder, and must be in the range 0 .. divisor-1."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "divisor must not be a power of 2 (use right shift for that case;"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "A division by zero will occur if divisor is a power of 2)."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Returns the final remainder"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Based on public domain code by Eric Bainville."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "(http:\/\/www.bealto.com\/) Used with permission."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 919,
+                            "name": "dest",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocArrayType@1",
+                                    "underlyingTypeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "uint"
+                                        },
+                                        "storageClasses": []
+                                    }
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 919,
+                            "name": "divisor",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "uint"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 919,
+                            "name": "overflow",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "uint"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "uint"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 919,
+                "linkage": "default",
+                "name": "multibyteDivAssign",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 1026,
+                "linkage": "default",
+                "name": "__unittest_L1026_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 1037,
+                            "name": "dest",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocArrayType@1",
+                                    "underlyingTypeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "uint"
+                                        },
+                                        "storageClasses": []
+                                    }
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 1037,
+                            "name": "src",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocArrayType@1",
+                                    "underlyingTypeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "uint"
+                                        },
+                                        "storageClasses": []
+                                    }
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "void"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 1037,
+                "linkage": "default",
+                "name": "multibyteAddDiagonalSquares",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 1079,
+                "linkage": "default",
+                "name": "__unittest_L1079_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 1091,
+                            "name": "dest",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocArrayType@1",
+                                    "underlyingTypeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "uint"
+                                        },
+                                        "storageClasses": []
+                                    }
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 1091,
+                            "name": "x",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocArrayType@1",
+                                    "underlyingTypeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "uint"
+                                        },
+                                        "storageClasses": []
+                                    }
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "void"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 1091,
+                "linkage": "default",
+                "name": "multibyteTriangleAccumulateD",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 1114,
+                            "name": "dest",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocArrayType@1",
+                                    "underlyingTypeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "uint"
+                                        },
+                                        "storageClasses": []
+                                    }
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 1114,
+                            "name": "src",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocArrayType@1",
+                                    "underlyingTypeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "uint"
+                                        },
+                                        "storageClasses": []
+                                    }
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "void"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 1114,
+                "linkage": "default",
+                "name": "multibyteTriangleAccumulateAsm",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 1223,
+                "linkage": "default",
+                "name": "__unittest_L1223_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 1267,
+                            "name": "result",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocArrayType@1",
+                                    "underlyingTypeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "BigDigit"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": []
+                                        },
+                                        "storageClasses": []
+                                    }
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 1267,
+                            "name": "x",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocArrayType@1",
+                                    "underlyingTypeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "BigDigit"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": []
+                                        },
+                                        "storageClasses": []
+                                    }
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "void"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 1267,
+                "linkage": "default",
+                "name": "multibyteSquare",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "int"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 1290,
+                "linkage": "default",
+                "name": "clock",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocVariable@1",
+                "comment": null,
+                "defaultValueExpression": null,
+                "line": 1292,
+                "linkage": "default",
+                "name": "X1",
+                "storageClasses": [
+                    "__gshared"
+                ],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocStaticArrayType@1",
+                        "arraySizeExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "2200"
+                        },
+                        "underlyingTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "uint"
+                            },
+                            "storageClasses": []
+                        }
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocVariable@1",
+                "comment": null,
+                "defaultValueExpression": null,
+                "line": 1293,
+                "linkage": "default",
+                "name": "Y1",
+                "storageClasses": [
+                    "__gshared"
+                ],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocStaticArrayType@1",
+                        "arraySizeExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "2200"
+                        },
+                        "underlyingTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "uint"
+                            },
+                            "storageClasses": []
+                        }
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocVariable@1",
+                "comment": null,
+                "defaultValueExpression": null,
+                "line": 1294,
+                "linkage": "default",
+                "name": "Z1",
+                "storageClasses": [
+                    "__gshared"
+                ],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocStaticArrayType@1",
+                        "arraySizeExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "4000"
+                        },
+                        "underlyingTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "uint"
+                            },
+                            "storageClasses": []
+                        }
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "void"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 1296,
+                "linkage": "default",
+                "name": "testPerformance",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 1355,
+                "linkage": "default",
+                "name": "_staticCtor_L1355_C1",
+                "storageClasses": [
+                    "static"
+                ],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            }
+        ],
+        "nestedTypes": [
+            {
+                "@type": "DocEnum@1",
+                "baseTypeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "int"
+                    },
+                    "storageClasses": []
+                },
+                "comment": null,
+                "line": 104,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": null,
+                        "line": 104,
+                        "linkage": "default",
+                        "name": "KARATSUBALIMIT",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "18"
+                        },
+                        "visibility": "not explicitly defined"
+                    }
+                ],
+                "name": "__anonymous",
+                "nestedTypes": [],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocEnum@1",
+                "baseTypeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "int"
+                    },
+                    "storageClasses": []
+                },
+                "comment": null,
+                "line": 105,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": null,
+                        "line": 105,
+                        "linkage": "default",
+                        "name": "KARATSUBASQUARELIMIT",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "26"
+                        },
+                        "visibility": "not explicitly defined"
+                    }
+                ],
+                "name": "__anonymous",
+                "nestedTypes": [],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocTemplate@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Multi-byte addition or subtraction"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "dest[#] = src1[#] + src2[#] + carry (0 or 1)."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "or dest[#] = src1[#] - src2[#] - carry (0 or 1)."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Returns carry or borrow (0 or 1)."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Set op == '+' for addition, '-' for subtraction."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "isMixin": false,
+                "line": 113,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 113,
+                                    "name": "dest",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocArrayType@1",
+                                            "underlyingTypeRef": {
+                                                "@type": "DocTypeRef@1",
+                                                "originalTypeRaw": null,
+                                                "raw": {
+                                                    "@type": "DocBasicType@1",
+                                                    "name": "uint"
+                                                },
+                                                "storageClasses": []
+                                            }
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                },
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 113,
+                                    "name": "src1",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocArrayType@1",
+                                            "underlyingTypeRef": {
+                                                "@type": "DocTypeRef@1",
+                                                "originalTypeRaw": null,
+                                                "raw": {
+                                                    "@type": "DocBasicType@1",
+                                                    "name": "uint"
+                                                },
+                                                "storageClasses": []
+                                            }
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                },
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 113,
+                                    "name": "src2",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocArrayType@1",
+                                            "underlyingTypeRef": {
+                                                "@type": "DocTypeRef@1",
+                                                "originalTypeRaw": null,
+                                                "raw": {
+                                                    "@type": "DocBasicType@1",
+                                                    "name": "uint"
+                                                },
+                                                "storageClasses": []
+                                            }
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                },
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 114,
+                                    "name": "carry",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "uint"
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "uint"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 113,
+                        "linkage": "default",
+                        "name": "multibyteAddSub",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    }
+                ],
+                "name": "multibyteAddSub",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "DocTemplateValueParam@1",
+                        "defaultValue": null,
+                        "name": "op",
+                        "specValue": null,
+                        "valueType": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "char"
+                            },
+                            "storageClasses": []
+                        }
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "DocTemplateValueParam@1",
+                        "defaultValue": null,
+                        "name": "op",
+                        "specValue": null,
+                        "valueType": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "char"
+                            },
+                            "storageClasses": []
+                        }
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocTemplate@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "dest[#] += carry, or dest[#] -= carry."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "op must be '+' or '-'"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Returns final carry or borrow (0 or 1)"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "isMixin": false,
+                "line": 227,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 227,
+                                    "name": "dest",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocArrayType@1",
+                                            "underlyingTypeRef": {
+                                                "@type": "DocTypeRef@1",
+                                                "originalTypeRaw": null,
+                                                "raw": {
+                                                    "@type": "DocBasicType@1",
+                                                    "name": "uint"
+                                                },
+                                                "storageClasses": []
+                                            }
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                },
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 227,
+                                    "name": "carry",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "uint"
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "uint"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 227,
+                        "linkage": "default",
+                        "name": "multibyteIncrementAssign",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    }
+                ],
+                "name": "multibyteIncrementAssign",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "DocTemplateValueParam@1",
+                        "defaultValue": null,
+                        "name": "op",
+                        "specValue": null,
+                        "valueType": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "char"
+                            },
+                            "storageClasses": []
+                        }
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "DocTemplateValueParam@1",
+                        "defaultValue": null,
+                        "name": "op",
+                        "specValue": null,
+                        "valueType": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "char"
+                            },
+                            "storageClasses": []
+                        }
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocTemplate@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "dest[#] += src[#]"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "multiplier OP carry(0 .. FFFF_FFFF)."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "where op == '+' or '-'"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Returns carry out of MSB (0 .. FFFF_FFFF)."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "isMixin": false,
+                "line": 740,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 740,
+                                    "name": "dest",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocArrayType@1",
+                                            "underlyingTypeRef": {
+                                                "@type": "DocTypeRef@1",
+                                                "originalTypeRaw": null,
+                                                "raw": {
+                                                    "@type": "DocBasicType@1",
+                                                    "name": "uint"
+                                                },
+                                                "storageClasses": []
+                                            }
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                },
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 740,
+                                    "name": "src",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocArrayType@1",
+                                            "underlyingTypeRef": {
+                                                "@type": "DocTypeRef@1",
+                                                "originalTypeRaw": null,
+                                                "raw": {
+                                                    "@type": "DocBasicType@1",
+                                                    "name": "uint"
+                                                },
+                                                "storageClasses": []
+                                            }
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                },
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 741,
+                                    "name": "multiplier",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "uint"
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                },
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 741,
+                                    "name": "carry",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "uint"
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "uint"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 740,
+                        "linkage": "default",
+                        "name": "multibyteMulAdd",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    }
+                ],
+                "name": "multibyteMulAdd",
+                "nestedTypes": [],
+                "originalParameters": [
+                    {
+                        "@type": "DocTemplateValueParam@1",
+                        "defaultValue": null,
+                        "name": "op",
+                        "specValue": null,
+                        "valueType": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "char"
+                            },
+                            "storageClasses": []
+                        }
+                    }
+                ],
+                "parameters": [
+                    {
+                        "@type": "DocTemplateValueParam@1",
+                        "defaultValue": null,
+                        "name": "op",
+                        "specValue": null,
+                        "valueType": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "char"
+                            },
+                            "storageClasses": []
+                        }
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            }
+        ]
+    }
+}

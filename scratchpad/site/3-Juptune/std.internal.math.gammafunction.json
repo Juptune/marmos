@@ -1,0 +1,2775 @@
+{
+    "@type": "DocModelRoot@1",
+    "features": [
+        "semanticPass"
+    ],
+    "module_": {
+        "@type": "DocModule@1",
+        "comment": null,
+        "fqnComponents": [
+            "std",
+            "internal",
+            "math",
+            "gammafunction"
+        ],
+        "members": [
+            {
+                "@type": "DocManifestConstant@1",
+                "comment": null,
+                "line": 33,
+                "linkage": "default",
+                "name": "SQRT2PI",
+                "originalValueExpression": null,
+                "storageClasses": [
+                    "nothrow",
+                    "pure",
+                    "@safe",
+                    "@nogc"
+                ],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "real"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "valueExpression": {
+                    "@type": "DocFallbackExpression@1",
+                    "renderedCode": "2.50663L"
+                },
+                "visibility": "private"
+            },
+            {
+                "@type": "DocVariable@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Euler-Mascheroni constant 0.57721566.."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "defaultValueExpression": null,
+                "line": 34,
+                "linkage": "default",
+                "name": "EULERGAMMA",
+                "storageClasses": [
+                    "immutable",
+                    "nothrow",
+                    "pure",
+                    "@safe",
+                    "@nogc"
+                ],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": {
+                        "@type": "DocBasicType@1",
+                        "name": "real"
+                    },
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "real"
+                    },
+                    "storageClasses": [
+                        "immutable"
+                    ]
+                },
+                "udas": [],
+                "visibility": "private"
+            },
+            {
+                "@type": "DocVariable@1",
+                "comment": null,
+                "defaultValueExpression": null,
+                "line": 38,
+                "linkage": "default",
+                "name": "GammaNumeratorCoeffs",
+                "storageClasses": [
+                    "immutable",
+                    "nothrow",
+                    "pure",
+                    "@safe",
+                    "@nogc"
+                ],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": {
+                        "@type": "DocStaticArrayType@1",
+                        "arraySizeExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "8"
+                        },
+                        "underlyingTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "real"
+                            },
+                            "storageClasses": []
+                        }
+                    },
+                    "raw": {
+                        "@type": "DocStaticArrayType@1",
+                        "arraySizeExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "8LU"
+                        },
+                        "underlyingTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "real"
+                            },
+                            "storageClasses": [
+                                "immutable"
+                            ]
+                        }
+                    },
+                    "storageClasses": [
+                        "immutable"
+                    ]
+                },
+                "udas": [],
+                "visibility": "private"
+            },
+            {
+                "@type": "DocVariable@1",
+                "comment": null,
+                "defaultValueExpression": null,
+                "line": 44,
+                "linkage": "default",
+                "name": "GammaDenominatorCoeffs",
+                "storageClasses": [
+                    "immutable",
+                    "nothrow",
+                    "pure",
+                    "@safe",
+                    "@nogc"
+                ],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": {
+                        "@type": "DocStaticArrayType@1",
+                        "arraySizeExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "9"
+                        },
+                        "underlyingTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "real"
+                            },
+                            "storageClasses": []
+                        }
+                    },
+                    "raw": {
+                        "@type": "DocStaticArrayType@1",
+                        "arraySizeExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "9LU"
+                        },
+                        "underlyingTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "real"
+                            },
+                            "storageClasses": [
+                                "immutable"
+                            ]
+                        }
+                    },
+                    "storageClasses": [
+                        "immutable"
+                    ]
+                },
+                "udas": [],
+                "visibility": "private"
+            },
+            {
+                "@type": "DocVariable@1",
+                "comment": null,
+                "defaultValueExpression": null,
+                "line": 50,
+                "linkage": "default",
+                "name": "GammaSmallCoeffs",
+                "storageClasses": [
+                    "immutable",
+                    "nothrow",
+                    "pure",
+                    "@safe",
+                    "@nogc"
+                ],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": {
+                        "@type": "DocStaticArrayType@1",
+                        "arraySizeExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "9"
+                        },
+                        "underlyingTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "real"
+                            },
+                            "storageClasses": []
+                        }
+                    },
+                    "raw": {
+                        "@type": "DocStaticArrayType@1",
+                        "arraySizeExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "9LU"
+                        },
+                        "underlyingTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "real"
+                            },
+                            "storageClasses": [
+                                "immutable"
+                            ]
+                        }
+                    },
+                    "storageClasses": [
+                        "immutable"
+                    ]
+                },
+                "udas": [],
+                "visibility": "private"
+            },
+            {
+                "@type": "DocVariable@1",
+                "comment": null,
+                "defaultValueExpression": null,
+                "line": 56,
+                "linkage": "default",
+                "name": "GammaSmallNegCoeffs",
+                "storageClasses": [
+                    "immutable",
+                    "nothrow",
+                    "pure",
+                    "@safe",
+                    "@nogc"
+                ],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": {
+                        "@type": "DocStaticArrayType@1",
+                        "arraySizeExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "9"
+                        },
+                        "underlyingTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "real"
+                            },
+                            "storageClasses": []
+                        }
+                    },
+                    "raw": {
+                        "@type": "DocStaticArrayType@1",
+                        "arraySizeExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "9LU"
+                        },
+                        "underlyingTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "real"
+                            },
+                            "storageClasses": [
+                                "immutable"
+                            ]
+                        }
+                    },
+                    "storageClasses": [
+                        "immutable"
+                    ]
+                },
+                "udas": [],
+                "visibility": "private"
+            },
+            {
+                "@type": "DocVariable@1",
+                "comment": null,
+                "defaultValueExpression": null,
+                "line": 62,
+                "linkage": "default",
+                "name": "logGammaStirlingCoeffs",
+                "storageClasses": [
+                    "immutable",
+                    "nothrow",
+                    "pure",
+                    "@safe",
+                    "@nogc"
+                ],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": {
+                        "@type": "DocStaticArrayType@1",
+                        "arraySizeExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "7"
+                        },
+                        "underlyingTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "real"
+                            },
+                            "storageClasses": []
+                        }
+                    },
+                    "raw": {
+                        "@type": "DocStaticArrayType@1",
+                        "arraySizeExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "7LU"
+                        },
+                        "underlyingTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "real"
+                            },
+                            "storageClasses": [
+                                "immutable"
+                            ]
+                        }
+                    },
+                    "storageClasses": [
+                        "immutable"
+                    ]
+                },
+                "udas": [],
+                "visibility": "private"
+            },
+            {
+                "@type": "DocVariable@1",
+                "comment": null,
+                "defaultValueExpression": null,
+                "line": 68,
+                "linkage": "default",
+                "name": "logGammaNumerator",
+                "storageClasses": [
+                    "immutable",
+                    "nothrow",
+                    "pure",
+                    "@safe",
+                    "@nogc"
+                ],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": {
+                        "@type": "DocStaticArrayType@1",
+                        "arraySizeExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "7"
+                        },
+                        "underlyingTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "real"
+                            },
+                            "storageClasses": []
+                        }
+                    },
+                    "raw": {
+                        "@type": "DocStaticArrayType@1",
+                        "arraySizeExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "7LU"
+                        },
+                        "underlyingTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "real"
+                            },
+                            "storageClasses": [
+                                "immutable"
+                            ]
+                        }
+                    },
+                    "storageClasses": [
+                        "immutable"
+                    ]
+                },
+                "udas": [],
+                "visibility": "private"
+            },
+            {
+                "@type": "DocVariable@1",
+                "comment": null,
+                "defaultValueExpression": null,
+                "line": 74,
+                "linkage": "default",
+                "name": "logGammaDenominator",
+                "storageClasses": [
+                    "immutable",
+                    "nothrow",
+                    "pure",
+                    "@safe",
+                    "@nogc"
+                ],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": {
+                        "@type": "DocStaticArrayType@1",
+                        "arraySizeExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "8"
+                        },
+                        "underlyingTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "real"
+                            },
+                            "storageClasses": []
+                        }
+                    },
+                    "raw": {
+                        "@type": "DocStaticArrayType@1",
+                        "arraySizeExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "8LU"
+                        },
+                        "underlyingTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "real"
+                            },
+                            "storageClasses": [
+                                "immutable"
+                            ]
+                        }
+                    },
+                    "storageClasses": [
+                        "immutable"
+                    ]
+                },
+                "udas": [],
+                "visibility": "private"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 88,
+                            "name": "x",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "real"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 88,
+                "linkage": "default",
+                "name": "gammaStirling",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "private"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 152,
+                            "name": "a",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 152,
+                            "name": "x",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 152,
+                            "name": "compl",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "bool"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "real"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 152,
+                "linkage": "default",
+                "name": "igammaTemmeLarge",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "private"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 260,
+                "linkage": "default",
+                "name": "__unittest_L260_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "private"
+            },
+            {
+                "@type": "DocManifestConstant@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "The maximum value of x for which gamma(x) < real.infinity."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "line": 286,
+                "linkage": "default",
+                "name": "MAXGAMMA",
+                "originalValueExpression": null,
+                "storageClasses": [],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "real"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "valueExpression": {
+                    "@type": "DocFallbackExpression@1",
+                    "renderedCode": "1755.55L"
+                },
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "The Gamma function, $(GAMMA)(x)"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "$(GAMMA)(x) is a generalisation of the factorial function"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "to real and complex numbers."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Like x!, $(GAMMA)(x+1) = x*$(GAMMA)(x)."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Mathematically, if z.re > 0 then"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "$(GAMMA)(z) = $(INTEGRATE 0, &infin;) $(POWER t, z-1)$(POWER e, -t) dt"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "$(TABLE_SV"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "$(SVH  x,          $(GAMMA)(x) )"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "$(SV  $(NAN),      $(NAN)      )"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "$(SV  &plusmn;0.0, &plusmn;&infin;)"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "$(SV integer > 0,  (x-1)!      )"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "$(SV integer < 0,  $(NAN)      )"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "$(SV +&infin;,     +&infin;    )"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "$(SV -&infin;,     $(NAN)      )"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": ")"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 317,
+                            "name": "x",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "real"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 317,
+                "linkage": "default",
+                "name": "gamma",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 420,
+                "linkage": "default",
+                "name": "__unittest_L420_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Natural logarithm of gamma function."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Returns the base e (2.718...) logarithm of the absolute"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "value of the gamma function of the argument."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "For reals, logGamma is equivalent to log(fabs(gamma(x)))."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "$(TABLE_SV"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "$(SVH  x,             logGamma(x)   )"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "$(SV  $(NAN),         $(NAN)      )"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "$(SV integer <= 0,    +&infin;    )"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "$(SV &plusmn;&infin;, +&infin;    )"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": ")"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 472,
+                            "name": "x",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "real"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 472,
+                "linkage": "default",
+                "name": "logGamma",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 564,
+                "linkage": "default",
+                "name": "__unittest_L564_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "sgn($(GAMMA)(x))"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        },
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentEqualListBlock@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocCommentEqualListBlock.Item@1",
+                                            "key": "x",
+                                            "value": {
+                                                "@type": "DocCommentParagraphBlock@1",
+                                                "inlines": [
+                                                    {
+                                                        "@type": "DocCommentTextInline@1",
+                                                        "text": "the argument of $(GAMMA)"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "Params"
+                        },
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "-1 if $(GAMMA)(x) < 0, +1 if $(GAMMA)(x) > 0, and $(NAN) if $(GAMMA)(x)"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "does not exist."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Authors: Don Clugston"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "Returns"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 625,
+                            "name": "x",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": [
+                                    "const"
+                                ]
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "real"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 625,
+                "linkage": "default",
+                "name": "sgnGamma",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 638,
+                "linkage": "default",
+                "name": "__unittest_L638_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 653,
+                            "name": "x",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": [
+                                    "const"
+                                ]
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 653,
+                            "name": "y",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": [
+                                    "const"
+                                ]
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "real"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 653,
+                "linkage": "default",
+                "name": "betaLarge",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "private"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 659,
+                "linkage": "default",
+                "name": "__unittest_L659_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "B(x,y)"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "This computes B(x,y). It will use the formula when i$(GAMMA)(x)$(GAMMA)(y)\/$(GAMMA)(x+y) when"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "gamma"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "can compute the $(GAMMA) terms, otherwise it will use"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "logGamma"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "There are many edge cases that generate NaN instead of the actual value. The main algorithm works"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "for most (x,y) pairs and only generates a NaN when it doesn't. In order to not penalize every"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "computation with a bunch of branching logic, the main algorithm is used, and only if it results"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "in a NaN will the edge cases be checked."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        },
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentEqualListBlock@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocCommentEqualListBlock.Item@1",
+                                            "key": "x",
+                                            "value": {
+                                                "@type": "DocCommentParagraphBlock@1",
+                                                "inlines": [
+                                                    {
+                                                        "@type": "DocCommentTextInline@1",
+                                                        "text": "the first argument of B"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "@type": "DocCommentEqualListBlock.Item@1",
+                                            "key": "y",
+                                            "value": {
+                                                "@type": "DocCommentParagraphBlock@1",
+                                                "inlines": [
+                                                    {
+                                                        "@type": "DocCommentTextInline@1",
+                                                        "text": "the second argument of B"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "Params"
+                        },
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "B(x,y) if it can be computed, otherwise $(NAN)"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "Returns"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 687,
+                            "name": "x",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": [
+                                    "const"
+                                ]
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 687,
+                            "name": "y",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": [
+                                    "const"
+                                ]
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "real"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 687,
+                "linkage": "default",
+                "name": "beta",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 796,
+                "linkage": "default",
+                "name": "__unittest_L796_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocManifestConstant@1",
+                "comment": null,
+                "line": 944,
+                "linkage": "default",
+                "name": "MAXLOG",
+                "originalValueExpression": null,
+                "storageClasses": [],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "real"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "valueExpression": {
+                    "@type": "DocFallbackExpression@1",
+                    "renderedCode": "11356.5L"
+                },
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocManifestConstant@1",
+                "comment": null,
+                "line": 945,
+                "linkage": "default",
+                "name": "MINLOG",
+                "originalValueExpression": null,
+                "storageClasses": [],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "real"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "valueExpression": {
+                    "@type": "DocFallbackExpression@1",
+                    "renderedCode": "-11432.8L"
+                },
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocManifestConstant@1",
+                "comment": null,
+                "line": 965,
+                "linkage": "default",
+                "name": "BETA_BIG",
+                "originalValueExpression": null,
+                "storageClasses": [
+                    "nothrow",
+                    "pure",
+                    "@safe",
+                    "@nogc"
+                ],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "real"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "valueExpression": {
+                    "@type": "DocFallbackExpression@1",
+                    "renderedCode": "9.22337e+18L"
+                },
+                "visibility": "private"
+            },
+            {
+                "@type": "DocManifestConstant@1",
+                "comment": null,
+                "line": 966,
+                "linkage": "default",
+                "name": "BETA_BIGINV",
+                "originalValueExpression": null,
+                "storageClasses": [
+                    "nothrow",
+                    "pure",
+                    "@safe",
+                    "@nogc"
+                ],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "real"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "valueExpression": {
+                    "@type": "DocFallbackExpression@1",
+                    "renderedCode": "1.0842e-19L"
+                },
+                "visibility": "private"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Incomplete beta integral"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Returns incomplete beta integral of the arguments, evaluated"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "from zero to x. The regularized incomplete beta function is defined as"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "betaIncomplete(a, b, x) = &Gamma;(a+b)\/(&Gamma;(a) &Gamma;(b))"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "$(INTEGRATE 0, x) $(POWER t, a-1)$(POWER (1-t),b-1) dt"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "and is the same as the cumulative distribution function."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "The domain of definition is 0 <= x <= 1.  In this"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "implementation a and b are restricted to positive values."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "The integral from x to 1 may be obtained by the symmetry"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "relation"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "betaIncompleteCompl(a, b, x )  =  betaIncomplete( b, a, 1-x )"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "The integral is evaluated by a continued fraction expansion"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "or, when b*x is small, by a power series."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 989,
+                            "name": "aa",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 989,
+                            "name": "bb",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 989,
+                            "name": "xx",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "real"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 989,
+                "linkage": "default",
+                "name": "betaIncomplete",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Inverse of incomplete beta integral"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Given y, the function finds x such that"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "betaIncomplete(a, b, x) == y"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Newton iterations or interval halving is used."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 1107,
+                            "name": "aa",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 1107,
+                            "name": "bb",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 1107,
+                            "name": "yy0",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "real"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 1107,
+                "linkage": "default",
+                "name": "betaIncompleteInv",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 1367,
+                "linkage": "default",
+                "name": "__unittest_L1367_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 1442,
+                            "name": "a",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 1442,
+                            "name": "b",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 1442,
+                            "name": "x",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "real"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 1442,
+                "linkage": "default",
+                "name": "betaDistExpansion1",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "private"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 1531,
+                            "name": "a",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 1531,
+                            "name": "b",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 1531,
+                            "name": "x",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "real"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 1531,
+                "linkage": "default",
+                "name": "betaDistExpansion2",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "private"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 1615,
+                            "name": "a",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 1615,
+                            "name": "b",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 1615,
+                            "name": "x",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "real"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 1615,
+                "linkage": "default",
+                "name": "betaDistPowerSeries",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "private"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Incomplete gamma integral and its complement"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "These functions are defined by"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "gammaIncomplete = ( $(INTEGRATE 0, x) $(POWER e, -t) $(POWER t, a-1) dt )\/ $(GAMMA)(a)"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "gammaIncompleteCompl(a,x)   =   1 - gammaIncomplete(a,x)"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "= ($(INTEGRATE x, &infin;) $(POWER e, -t) $(POWER t, a-1) dt )\/ $(GAMMA)(a)"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "In this implementation both arguments must be positive."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "The integral is evaluated by either a power series or"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "continued fraction expansion, depending on the relative"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "values of a and x."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 1672,
+                            "name": "a",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 1672,
+                            "name": "x",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "real"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 1672,
+                "linkage": "default",
+                "name": "gammaIncomplete",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "ditto"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 1721,
+                            "name": "a",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 1721,
+                            "name": "x",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "real"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 1721,
+                "linkage": "default",
+                "name": "gammaIncompleteCompl",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Inverse of complemented incomplete gamma integral"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Given a and p, the function finds x such that"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "gammaIncompleteCompl( a, x ) = p."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Starting with the approximate value x = a $(POWER t, 3), where"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "t = 1 - d - normalDistributionInv(p) sqrt(d),"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "and d = 1\/9a,"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "the routine performs up to 10 Newton iterations to find the"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "root of incompleteGammaCompl(a,x) - p = 0."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 1809,
+                            "name": "a",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 1809,
+                            "name": "p",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "real"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 1809,
+                "linkage": "default",
+                "name": "gammaIncompleteComplInv",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 1938,
+                "linkage": "default",
+                "name": "__unittest_L1938_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocVariable@1",
+                "comment": null,
+                "defaultValueExpression": null,
+                "line": 1969,
+                "linkage": "default",
+                "name": "Bn_n",
+                "storageClasses": [
+                    "immutable",
+                    "nothrow",
+                    "pure",
+                    "@safe",
+                    "@nogc"
+                ],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": {
+                        "@type": "DocStaticArrayType@1",
+                        "arraySizeExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "7"
+                        },
+                        "underlyingTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "real"
+                            },
+                            "storageClasses": []
+                        }
+                    },
+                    "raw": {
+                        "@type": "DocStaticArrayType@1",
+                        "arraySizeExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "7LU"
+                        },
+                        "underlyingTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "real"
+                            },
+                            "storageClasses": [
+                                "immutable"
+                            ]
+                        }
+                    },
+                    "storageClasses": [
+                        "immutable"
+                    ]
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Digamma function"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "The digamma function is the logarithmic derivative of the gamma function."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "digamma(x) = d\/dx logGamma(x)"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        },
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentOrderedListBlock@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocCommentOrderedListBlock.Item@1",
+                                            "block": {
+                                                "@type": "DocCommentParagraphBlock@1",
+                                                "inlines": [
+                                                    {
+                                                        "@type": "DocCommentTextInline@1",
+                                                        "text": "Abramowitz, M., and Stegun, I. A. (1970)."
+                                                    },
+                                                    {
+                                                        "@type": "DocCommentTextInline@1",
+                                                        "text": "Handbook of mathematical functions. Dover, New York,"
+                                                    },
+                                                    {
+                                                        "@type": "DocCommentTextInline@1",
+                                                        "text": "pages 258-259, equations 6.3.6 and 6.3.18."
+                                                    }
+                                                ]
+                                            },
+                                            "nestingLevel": 1
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "References"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 1984,
+                            "name": "x",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "real"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 1984,
+                "linkage": "default",
+                "name": "digamma",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 2069,
+                "linkage": "default",
+                "name": "__unittest_L2069_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Log Minus Digamma function"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "logmdigamma(x) = log(x) - digamma(x)"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        },
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentOrderedListBlock@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocCommentOrderedListBlock.Item@1",
+                                            "block": {
+                                                "@type": "DocCommentParagraphBlock@1",
+                                                "inlines": [
+                                                    {
+                                                        "@type": "DocCommentTextInline@1",
+                                                        "text": "Abramowitz, M., and Stegun, I. A. (1970)."
+                                                    },
+                                                    {
+                                                        "@type": "DocCommentTextInline@1",
+                                                        "text": "Handbook of mathematical functions. Dover, New York,"
+                                                    },
+                                                    {
+                                                        "@type": "DocCommentTextInline@1",
+                                                        "text": "pages 258-259, equations 6.3.6 and 6.3.18."
+                                                    }
+                                                ]
+                                            },
+                                            "nestingLevel": 1
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "References"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 2103,
+                            "name": "x",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "real"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 2103,
+                "linkage": "default",
+                "name": "logmdigamma",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 2133,
+                "linkage": "default",
+                "name": "__unittest_L2133_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Inverse of the Log Minus Digamma function"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Returns x such $(D log(x) - digamma(x) == y)."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        },
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentOrderedListBlock@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocCommentOrderedListBlock.Item@1",
+                                            "block": {
+                                                "@type": "DocCommentParagraphBlock@1",
+                                                "inlines": [
+                                                    {
+                                                        "@type": "DocCommentTextInline@1",
+                                                        "text": "Abramowitz, M., and Stegun, I. A. (1970)."
+                                                    },
+                                                    {
+                                                        "@type": "DocCommentTextInline@1",
+                                                        "text": "Handbook of mathematical functions. Dover, New York,"
+                                                    },
+                                                    {
+                                                        "@type": "DocCommentTextInline@1",
+                                                        "text": "pages 258-259, equation 6.3.18."
+                                                    }
+                                                ]
+                                            },
+                                            "nestingLevel": 1
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Authors: Ilya Yaroshenko"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "References"
+                        }
+                    ]
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 2155,
+                            "name": "y",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "real"
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "real"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 2155,
+                "linkage": "default",
+                "name": "logmdigammaInverse",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 2185,
+                "linkage": "default",
+                "name": "__unittest_L2185_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            }
+        ],
+        "nestedTypes": []
+    }
+}

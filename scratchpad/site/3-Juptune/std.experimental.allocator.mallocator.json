@@ -1,0 +1,1666 @@
+{
+    "@type": "DocModelRoot@1",
+    "features": [
+        "semanticPass"
+    ],
+    "module_": {
+        "@type": "DocModule@1",
+        "comment": null,
+        "fqnComponents": [
+            "std",
+            "experimental",
+            "allocator",
+            "mallocator"
+        ],
+        "members": [
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": []
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 85,
+                "linkage": "default",
+                "name": "__unittest_L85_C23",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 92,
+                "linkage": "default",
+                "name": "__unittest_L92_C28",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 106,
+                "linkage": "default",
+                "name": "__unittest_L106_C28",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 121,
+                            "name": "__anonymous",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "size_t"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": []
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 121,
+                            "name": "__anonymous",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "size_t"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": []
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocPointerType@1",
+                            "underlyingTypeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "void"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 121,
+                "linkage": "default",
+                "name": "_aligned_malloc",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 122,
+                            "name": "memblock",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocPointerType@1",
+                                    "underlyingTypeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "void"
+                                        },
+                                        "storageClasses": []
+                                    }
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocBasicType@1",
+                            "name": "void"
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 122,
+                "linkage": "default",
+                "name": "_aligned_free",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 123,
+                            "name": "__anonymous",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocPointerType@1",
+                                    "underlyingTypeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "void"
+                                        },
+                                        "storageClasses": []
+                                    }
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 123,
+                            "name": "__anonymous",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "size_t"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": []
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        },
+                        {
+                            "@type": "DocRuntimeParameter@1",
+                            "defaultValueExpression": null,
+                            "line": 123,
+                            "name": "__anonymous",
+                            "storageClasses": [],
+                            "typeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "size_t"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": []
+                                },
+                                "storageClasses": []
+                            },
+                            "udas": []
+                        }
+                    ],
+                    "returnType": {
+                        "@type": "DocTypeRef@1",
+                        "originalTypeRaw": null,
+                        "raw": {
+                            "@type": "DocPointerType@1",
+                            "underlyingTypeRef": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "void"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "storageClasses": []
+                    }
+                },
+                "line": 123,
+                "linkage": "default",
+                "name": "_aligned_realloc",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": []
+                },
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 284,
+                "linkage": "default",
+                "name": "__unittest_L284_C28",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 293,
+                "linkage": "default",
+                "name": "__unittest_L293_C28",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            }
+        ],
+        "nestedTypes": [
+            {
+                "@type": "DocStruct@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "The C heap allocator."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "line": 13,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [],
+                            "returnType": null
+                        },
+                        "line": 15,
+                        "linkage": "default",
+                        "name": "__unittest_L15_C35",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "The alignment is a static constant equal to"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "platformAlignment"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": ", which"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "ensures proper alignment for any D data type."
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 21,
+                        "linkage": "default",
+                        "name": "alignment",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "uint"
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "16u"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Standard allocator methods per the semantics defined above. The"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "deallocate"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "and"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "reallocate"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "methods are"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "@system"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "because they"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "may move memory around, leaving dangling pointers in user code. Somewhat"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "paradoxically,"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "malloc"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "is"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "@safe"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "but that's only useful to safe"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "programs that can afford to leak memory allocated."
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 31,
+                                    "name": "bytes",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "ulong"
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocArrayType@1",
+                                    "underlyingTypeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "void"
+                                        },
+                                        "storageClasses": []
+                                    }
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 31,
+                        "linkage": "default",
+                        "name": "allocate",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Ditto"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 41,
+                                    "name": "b",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocArrayType@1",
+                                            "underlyingTypeRef": {
+                                                "@type": "DocTypeRef@1",
+                                                "originalTypeRaw": null,
+                                                "raw": {
+                                                    "@type": "DocBasicType@1",
+                                                    "name": "void"
+                                                },
+                                                "storageClasses": []
+                                            }
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "bool"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 41,
+                        "linkage": "default",
+                        "name": "deallocate",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Ditto"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 50,
+                                    "name": "b",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocArrayType@1",
+                                            "underlyingTypeRef": {
+                                                "@type": "DocTypeRef@1",
+                                                "originalTypeRaw": null,
+                                                "raw": {
+                                                    "@type": "DocBasicType@1",
+                                                    "name": "void"
+                                                },
+                                                "storageClasses": []
+                                            }
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                },
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 50,
+                                    "name": "s",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "ulong"
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "bool"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 50,
+                        "linkage": "default",
+                        "name": "reallocate",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocVariable@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Returns the global instance of this allocator type. The C heap allocator is"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "thread-safe, therefore all of its methods and"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "it"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "itself are"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "shared"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "."
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "defaultValueExpression": null,
+                        "line": 81,
+                        "linkage": "default",
+                        "name": "instance",
+                        "storageClasses": [
+                            "static",
+                            "shared"
+                        ],
+                        "typeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocSymbolReference@1",
+                                "items": [
+                                    {
+                                        "@type": "DocSymbolDirectReference@1",
+                                        "symbolName": "Mallocator"
+                                    }
+                                ],
+                                "moduleFqnComponents": [
+                                    "std",
+                                    "experimental",
+                                    "allocator",
+                                    "mallocator"
+                                ]
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [],
+                        "visibility": "public"
+                    }
+                ],
+                "name": "Mallocator",
+                "nestedTypes": [
+                    {
+                        "@type": "DocTemplate@1",
+                        "comment": null,
+                        "isMixin": false,
+                        "line": 68,
+                        "linkage": "default",
+                        "members": [
+                            {
+                                "@type": "DocFunction@1",
+                                "comment": null,
+                                "funcType": {
+                                    "@type": "DocFunctionType@1",
+                                    "isDelegate": false,
+                                    "parameters": [
+                                        {
+                                            "@type": "DocRuntimeParameter@1",
+                                            "defaultValueExpression": null,
+                                            "line": 68,
+                                            "name": "bytes",
+                                            "storageClasses": [],
+                                            "typeRef": {
+                                                "@type": "DocTypeRef@1",
+                                                "originalTypeRaw": null,
+                                                "raw": {
+                                                    "@type": "DocSymbolReference@1",
+                                                    "items": [
+                                                        {
+                                                            "@type": "DocSymbolDirectReference@1",
+                                                            "symbolName": "size_t"
+                                                        }
+                                                    ],
+                                                    "moduleFqnComponents": []
+                                                },
+                                                "storageClasses": []
+                                            },
+                                            "udas": []
+                                        }
+                                    ],
+                                    "returnType": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocArrayType@1",
+                                            "underlyingTypeRef": {
+                                                "@type": "DocTypeRef@1",
+                                                "originalTypeRaw": null,
+                                                "raw": {
+                                                    "@type": "DocBasicType@1",
+                                                    "name": "void"
+                                                },
+                                                "storageClasses": []
+                                            }
+                                        },
+                                        "storageClasses": []
+                                    }
+                                },
+                                "line": 68,
+                                "linkage": "default",
+                                "name": "allocateZeroed",
+                                "storageClasses": [],
+                                "udas": [],
+                                "visibility": "not explicitly defined"
+                            }
+                        ],
+                        "name": "allocateZeroed",
+                        "nestedTypes": [],
+                        "originalParameters": [],
+                        "parameters": [],
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "package"
+                    }
+                ],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocStruct@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Aligned allocator using OS-specific primitives, under a uniform API."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "line": 129,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": null,
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [],
+                            "returnType": null
+                        },
+                        "line": 131,
+                        "linkage": "default",
+                        "name": "__unittest_L131_C35",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "The default alignment is"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "platformAlignment"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "."
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 136,
+                        "linkage": "default",
+                        "name": "alignment",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "uint"
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "16u"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Forwards to $(D alignedAllocate(bytes, platformAlignment))."
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 142,
+                                    "name": "bytes",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "ulong"
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocArrayType@1",
+                                    "underlyingTypeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "void"
+                                        },
+                                        "storageClasses": []
+                                    }
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 142,
+                        "linkage": "default",
+                        "name": "allocate",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Uses $(HTTP man7.org\/linux\/man-pages\/man3\/posix_memalign.3.html,"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "posix_memalign"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": ") on Posix and"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "$(HTTP msdn.microsoft.com\/en-us\/library\/8z34s9c6(v=vs.80).aspx,"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "__aligned_malloc"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": ") on Windows."
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 156,
+                                    "name": "bytes",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "ulong"
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                },
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 156,
+                                    "name": "a",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "uint"
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocArrayType@1",
+                                    "underlyingTypeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "void"
+                                        },
+                                        "storageClasses": []
+                                    }
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 156,
+                        "linkage": "default",
+                        "name": "alignedAllocate",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Calls"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "free(b.ptr)"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "on Posix and"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "$(HTTP msdn.microsoft.com\/en-US\/library\/17b5h8td(v=vs.80).aspx,"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "__aligned_free(b.ptr)"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": ") on Windows."
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 202,
+                                    "name": "b",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocArrayType@1",
+                                            "underlyingTypeRef": {
+                                                "@type": "DocTypeRef@1",
+                                                "originalTypeRaw": null,
+                                                "raw": {
+                                                    "@type": "DocBasicType@1",
+                                                    "name": "void"
+                                                },
+                                                "storageClasses": []
+                                            }
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "bool"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 202,
+                        "linkage": "default",
+                        "name": "deallocate",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Forwards to $(D alignedReallocate(b, newSize, platformAlignment))."
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Should be used with blocks obtained with"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "allocate"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "otherwise the custom"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "alignment passed with"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "alignedAllocate"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "can be lost."
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 223,
+                                    "name": "b",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocArrayType@1",
+                                            "underlyingTypeRef": {
+                                                "@type": "DocTypeRef@1",
+                                                "originalTypeRaw": null,
+                                                "raw": {
+                                                    "@type": "DocBasicType@1",
+                                                    "name": "void"
+                                                },
+                                                "storageClasses": []
+                                            }
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                },
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 223,
+                                    "name": "newSize",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "ulong"
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "bool"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 223,
+                        "linkage": "default",
+                        "name": "reallocate",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "On Posix there is no"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "realloc"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "for aligned memory, so"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "alignedReallocate"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "emulates"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "the needed behavior by using"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "alignedAllocate"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "to get a new block. The existing"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "block is copied to the new block and then freed."
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "On Windows, calls $(HTTPS msdn.microsoft.com\/en-us\/library\/y69db7sx.aspx,"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "$(D"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "aligned_realloc(b.ptr, newSize, a)))."
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 237,
+                                    "name": "b",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocArrayType@1",
+                                            "underlyingTypeRef": {
+                                                "@type": "DocTypeRef@1",
+                                                "originalTypeRaw": null,
+                                                "raw": {
+                                                    "@type": "DocBasicType@1",
+                                                    "name": "void"
+                                                },
+                                                "storageClasses": []
+                                            }
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                },
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 237,
+                                    "name": "s",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "size_t"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": []
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                },
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 237,
+                                    "name": "a",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "uint"
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "bool"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 237,
+                        "linkage": "default",
+                        "name": "alignedReallocate",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "not explicitly defined"
+                    },
+                    {
+                        "@type": "DocFunction@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "ditto"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "funcType": {
+                            "@type": "DocFunctionType@1",
+                            "isDelegate": false,
+                            "parameters": [
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 254,
+                                    "name": "b",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocArrayType@1",
+                                            "underlyingTypeRef": {
+                                                "@type": "DocTypeRef@1",
+                                                "originalTypeRaw": null,
+                                                "raw": {
+                                                    "@type": "DocBasicType@1",
+                                                    "name": "void"
+                                                },
+                                                "storageClasses": []
+                                            }
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                },
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 254,
+                                    "name": "s",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "ulong"
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                },
+                                {
+                                    "@type": "DocRuntimeParameter@1",
+                                    "defaultValueExpression": null,
+                                    "line": 254,
+                                    "name": "a",
+                                    "storageClasses": [],
+                                    "typeRef": {
+                                        "@type": "DocTypeRef@1",
+                                        "originalTypeRaw": null,
+                                        "raw": {
+                                            "@type": "DocBasicType@1",
+                                            "name": "uint"
+                                        },
+                                        "storageClasses": []
+                                    },
+                                    "udas": []
+                                }
+                            ],
+                            "returnType": {
+                                "@type": "DocTypeRef@1",
+                                "originalTypeRaw": null,
+                                "raw": {
+                                    "@type": "DocBasicType@1",
+                                    "name": "bool"
+                                },
+                                "storageClasses": []
+                            }
+                        },
+                        "line": 254,
+                        "linkage": "default",
+                        "name": "alignedReallocate",
+                        "storageClasses": [],
+                        "udas": [],
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocVariable@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Returns the global instance of this allocator type. The C heap allocator is"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "thread-safe, therefore all of its methods and"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "instance"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "itself are"
+                                                },
+                                                {
+                                                    "@type": "DocCommentCodeInline@1",
+                                                    "text": "shared"
+                                                },
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "."
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "defaultValueExpression": null,
+                        "line": 280,
+                        "linkage": "default",
+                        "name": "instance",
+                        "storageClasses": [
+                            "static",
+                            "shared"
+                        ],
+                        "typeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocSymbolReference@1",
+                                "items": [
+                                    {
+                                        "@type": "DocSymbolDirectReference@1",
+                                        "symbolName": "AlignedMallocator"
+                                    }
+                                ],
+                                "moduleFqnComponents": [
+                                    "std",
+                                    "experimental",
+                                    "allocator",
+                                    "mallocator"
+                                ]
+                            },
+                            "storageClasses": []
+                        },
+                        "udas": [],
+                        "visibility": "public"
+                    }
+                ],
+                "name": "AlignedMallocator",
+                "nestedTypes": [],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            }
+        ]
+    }
+}

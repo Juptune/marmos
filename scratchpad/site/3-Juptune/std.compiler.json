@@ -1,0 +1,549 @@
+{
+    "@type": "DocModelRoot@1",
+    "features": [
+        "semanticPass"
+    ],
+    "module_": {
+        "@type": "DocModule@1",
+        "comment": null,
+        "fqnComponents": [
+            "std",
+            "compiler"
+        ],
+        "members": [
+            {
+                "@type": "DocVariable@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Vendor specific string naming the compiler, for example: \"Digital Mars D\"."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "defaultValueExpression": null,
+                "line": 21,
+                "linkage": "default",
+                "name": "name",
+                "storageClasses": [
+                    "immutable"
+                ],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": {
+                        "@type": "DocSymbolReference@1",
+                        "items": [
+                            {
+                                "@type": "DocSymbolDirectReference@1",
+                                "symbolName": "string"
+                            }
+                        ],
+                        "moduleFqnComponents": []
+                    },
+                    "raw": {
+                        "@type": "DocArrayType@1",
+                        "underlyingTypeRef": {
+                            "@type": "DocTypeRef@1",
+                            "originalTypeRaw": null,
+                            "raw": {
+                                "@type": "DocBasicType@1",
+                                "name": "char"
+                            },
+                            "storageClasses": [
+                                "immutable"
+                            ]
+                        }
+                    },
+                    "storageClasses": [
+                        "immutable"
+                    ]
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocVariable@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Which vendor produced this compiler."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "defaultValueExpression": null,
+                "line": 35,
+                "linkage": "default",
+                "name": "vendor",
+                "storageClasses": [],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocSymbolReference@1",
+                        "items": [
+                            {
+                                "@type": "DocSymbolDirectReference@1",
+                                "symbolName": "Vendor"
+                            }
+                        ],
+                        "moduleFqnComponents": []
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "visibility": "not explicitly defined"
+            },
+            {
+                "@type": "DocVariable@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "The vendor specific version number, as in"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "version_major.version_minor"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "defaultValueExpression": null,
+                "line": 48,
+                "linkage": "default",
+                "name": "version_major",
+                "storageClasses": [
+                    "immutable"
+                ],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": {
+                        "@type": "DocBasicType@1",
+                        "name": "uint"
+                    },
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "uint"
+                    },
+                    "storageClasses": [
+                        "immutable"
+                    ]
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocVariable@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "ditto"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "defaultValueExpression": null,
+                "line": 49,
+                "linkage": "default",
+                "name": "version_minor",
+                "storageClasses": [
+                    "immutable"
+                ],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": {
+                        "@type": "DocBasicType@1",
+                        "name": "uint"
+                    },
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "uint"
+                    },
+                    "storageClasses": [
+                        "immutable"
+                    ]
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocVariable@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "The version of the D Programming Language Specification"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "supported by the compiler."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "defaultValueExpression": null,
+                "line": 56,
+                "linkage": "default",
+                "name": "D_major",
+                "storageClasses": [
+                    "immutable"
+                ],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": {
+                        "@type": "DocBasicType@1",
+                        "name": "uint"
+                    },
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "uint"
+                    },
+                    "storageClasses": [
+                        "immutable"
+                    ]
+                },
+                "udas": [],
+                "visibility": "public"
+            },
+            {
+                "@type": "DocVariable@1",
+                "comment": null,
+                "defaultValueExpression": null,
+                "line": 57,
+                "linkage": "default",
+                "name": "D_minor",
+                "storageClasses": [
+                    "immutable"
+                ],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": {
+                        "@type": "DocBasicType@1",
+                        "name": "uint"
+                    },
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "uint"
+                    },
+                    "storageClasses": [
+                        "immutable"
+                    ]
+                },
+                "udas": [],
+                "visibility": "public"
+            }
+        ],
+        "nestedTypes": [
+            {
+                "@type": "DocEnum@1",
+                "baseTypeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "int"
+                    },
+                    "storageClasses": []
+                },
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Master list of D compiler vendors."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "line": 24,
+                "linkage": "default",
+                "members": [
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Compiler vendor could not be detected"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 26,
+                        "linkage": "default",
+                        "name": "unknown",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "0"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Digital Mars D (DMD)"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 27,
+                        "linkage": "default",
+                        "name": "digitalMars",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "1"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "GNU D Compiler (GDC)"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 28,
+                        "linkage": "default",
+                        "name": "gnu",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "2"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "LLVM D Compiler (LDC)"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 29,
+                        "linkage": "default",
+                        "name": "llvm",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "3"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "D.NET"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 30,
+                        "linkage": "default",
+                        "name": "dotNET",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "4"
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "@type": "DocManifestConstant@1",
+                        "comment": {
+                            "@type": "DocComment@1",
+                            "sections": [
+                                {
+                                    "@type": "DocCommentSection@1",
+                                    "blocks": [
+                                        {
+                                            "@type": "DocCommentParagraphBlock@1",
+                                            "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Snazzy D Compiler (SDC)"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "title": "__default"
+                                }
+                            ]
+                        },
+                        "line": 31,
+                        "linkage": "default",
+                        "name": "sdc",
+                        "originalValueExpression": null,
+                        "storageClasses": [],
+                        "typeRef": null,
+                        "udas": [],
+                        "valueExpression": {
+                            "@type": "DocFallbackExpression@1",
+                            "renderedCode": "5"
+                        },
+                        "visibility": "public"
+                    }
+                ],
+                "name": "Vendor",
+                "nestedTypes": [],
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "public"
+            }
+        ]
+    }
+}

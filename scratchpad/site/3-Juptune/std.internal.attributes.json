@@ -1,0 +1,130 @@
+{
+    "@type": "DocModelRoot@1",
+    "features": [
+        "semanticPass"
+    ],
+    "module_": {
+        "@type": "DocModule@1",
+        "comment": null,
+        "fqnComponents": [
+            "std",
+            "internal",
+            "attributes"
+        ],
+        "members": [
+            {
+                "@type": "DocManifestConstant@1",
+                "comment": {
+                    "@type": "DocComment@1",
+                    "sections": [
+                        {
+                            "@type": "DocCommentSection@1",
+                            "blocks": [
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Used to annotate"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "unittest"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "s which need to be tested in a"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "-betterC"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "environment."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "@type": "DocCommentParagraphBlock@1",
+                                    "inlines": [
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Such"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "unittest"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "s will be compiled and executed without linking druntime in, with"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "a"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "__traits(getUnitTests, mixin(__MODULE__))"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "style test runner."
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "Note that just like any other"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "unittest"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "in phobos, they will also be compiled"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "and executed without"
+                                        },
+                                        {
+                                            "@type": "DocCommentCodeInline@1",
+                                            "text": "-betterC"
+                                        },
+                                        {
+                                            "@type": "DocCommentTextInline@1",
+                                            "text": "."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "title": "__default"
+                        }
+                    ]
+                },
+                "line": 11,
+                "linkage": "default",
+                "name": "betterC",
+                "originalValueExpression": null,
+                "storageClasses": [],
+                "typeRef": {
+                    "@type": "DocTypeRef@1",
+                    "originalTypeRaw": null,
+                    "raw": {
+                        "@type": "DocBasicType@1",
+                        "name": "int"
+                    },
+                    "storageClasses": []
+                },
+                "udas": [],
+                "valueExpression": {
+                    "@type": "DocFallbackExpression@1",
+                    "renderedCode": "1"
+                },
+                "visibility": "package"
+            }
+        ],
+        "nestedTypes": []
+    }
+}

@@ -1,0 +1,51 @@
+{
+    "@type": "DocModelRoot@1",
+    "features": [
+        "semanticPass"
+    ],
+    "module_": {
+        "@type": "DocModule@1",
+        "comment": null,
+        "fqnComponents": [
+            "std",
+            "regex",
+            "internal",
+            "tests"
+        ],
+        "members": [
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 15,
+                "linkage": "default",
+                "name": "__unittest_L15_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "package"
+            },
+            {
+                "@type": "DocFunction@1",
+                "comment": null,
+                "funcType": {
+                    "@type": "DocFunctionType@1",
+                    "isDelegate": false,
+                    "parameters": [],
+                    "returnType": null
+                },
+                "line": 57,
+                "linkage": "default",
+                "name": "__unittest_L57_C7",
+                "storageClasses": [],
+                "udas": [],
+                "visibility": "package"
+            }
+        ],
+        "nestedTypes": []
+    }
+}
