@@ -535,6 +535,7 @@ private void appendCode(SiteRoot site, SymbolTree!(MaybeTemplated!DocClass) doc,
     if(!isNestedOverview)
         appendModuleStatement(site, doc.module_, code);
 
+    appendUdas(model.udas, code, forceSingleLine: isNestedOverview);
     appendLinkage(model.linkage, code);
     appendVisibility(model.visibility, code);
     appendAggregateStorageClasses(model.storageClasses, code);
@@ -583,6 +584,7 @@ private void appendCode(SiteRoot site, SymbolTree!(MaybeTemplated!DocStruct) doc
     if(!isNestedOverview)
         appendModuleStatement(site, doc.module_, code);
 
+    appendUdas(model.udas, code, forceSingleLine: isNestedOverview);
     appendLinkage(model.linkage, code);
     appendVisibility(model.visibility, code);
     appendAggregateStorageClasses(model.storageClasses, code);
@@ -615,6 +617,7 @@ private void appendCode(SiteRoot site, SymbolTree!(MaybeTemplated!DocUnion) doc,
     if(!isNestedOverview)
         appendModuleStatement(site, doc.module_, code);
 
+    appendUdas(model.udas, code, forceSingleLine: isNestedOverview);
     appendLinkage(model.linkage, code);
     appendVisibility(model.visibility, code);
     appendAggregateStorageClasses(model.storageClasses, code);
@@ -647,6 +650,7 @@ private void appendCode(SiteRoot site, SymbolTree!DocTemplate doc, scope ref Api
     if(!isNestedOverview)
         appendModuleStatement(site, doc.module_, code);
 
+    appendUdas(model.udas, code, forceSingleLine: isNestedOverview);
     appendLinkage(model.linkage, code);
     appendVisibility(model.visibility, code);
     appendAggregateStorageClasses(model.storageClasses, code);
@@ -683,6 +687,7 @@ private void appendCode(SiteRoot site, SymbolLeaf!(MaybeTemplated!DocAlias) doc,
     if(!isNestedOverview)
         appendModuleStatement(site, doc.module_, code);
 
+    appendUdas(model.udas, code, forceSingleLine: isNestedOverview);
     appendLinkage(model.linkage, code);
     appendVisibility(model.visibility, code);
     code.add(ApiPageCodeText(ApiPageCodeText.Syntax.keyword, "alias "));
@@ -710,6 +715,7 @@ private void appendCode(SiteRoot site, SymbolLeaf!(MaybeTemplated!DocFunction) d
     if(!isNestedOverview)
         appendModuleStatement(site, doc.module_, code);
 
+    appendUdas(model.udas, code, forceSingleLine: isNestedOverview);
     appendLinkage(model.linkage, code);
     appendVisibility(model.visibility, code);
 
@@ -748,6 +754,7 @@ private void appendCode(SiteRoot site, SymbolLeaf!(MaybeTemplated!DocManifestCon
     if(!isNestedOverview)
         appendModuleStatement(site, doc.module_, code);
 
+    appendUdas(model.udas, code, forceSingleLine: isNestedOverview);
     appendVisibility(model.visibility, code);
     code.add(ApiPageCodeText(ApiPageCodeText.Syntax.keyword, "enum "));
 
@@ -783,6 +790,7 @@ private void appendCode(SiteRoot site, SymbolLeaf!DocEnum doc, scope ref ApiPage
     if(!isNestedOverview)
         appendModuleStatement(site, doc.module_, code);
 
+    appendUdas(model.udas, code, forceSingleLine: isNestedOverview);
     appendVisibility(model.visibility, code);
     code.add(ApiPageCodeText(ApiPageCodeText.Syntax.keyword, "enum "));
 
@@ -840,6 +848,7 @@ private void appendCode(SiteRoot site, SymbolLeaf!DocVariable doc, scope ref Api
     if(!isNestedOverview)
         appendModuleStatement(site, doc.module_, code);
 
+    appendUdas(model.udas, code, forceSingleLine: isNestedOverview);
     appendLinkage(model.linkage, code);
     appendVisibility(model.visibility, code);
     appendAggregateStorageClasses(model.storageClasses, code);
@@ -860,6 +869,33 @@ private void appendCode(SiteRoot site, SymbolLeaf!DocVariable doc, scope ref Api
     }
 
     code.add(ApiPageCodeText(ApiPageCodeText.Syntax.operator, ";"));
+}
+
+private void appendUdas(DocUda[] udas, scope ref ApiPageDlangCode code, bool forceSingleLine)
+{
+    import std.sumtype : match;
+
+    forceSingleLine = false; // TODO: I need to find a better heuristic for UDAs
+
+    foreach(i, uda; udas)
+    {
+        if(i > 0 && !forceSingleLine)
+            code.add(ApiPageCodeNewLine());
+
+        code.add(ApiPageCodeText(ApiPageCodeText.Syntax.keyword, "@"));
+        code.add(ApiPageCodeText(ApiPageCodeText.Syntax.operator, "("));
+
+        uda.match!(
+            (DocExpressionUda expUda) {
+                appendExpression(expUda.expression, code, forceSingleLine);
+            }
+        );
+
+        code.add(ApiPageCodeText(ApiPageCodeText.Syntax.operator, ")"));
+    }
+
+    if(!forceSingleLine && udas.length > 0)
+        code.add(ApiPageCodeNewLine());
 }
 
 private void appendRuntimeParams(DocRuntimeParameter[] params, scope ref ApiPageDlangCode code, bool forceSingleLine)
@@ -1002,6 +1038,7 @@ private void appendSymbolTreeMembersGeneric(DocModelT)(SiteRoot site, SymbolTree
 
     foreach(i, item; doc.classes)
     {
+        if(i == 0) { code.add(ApiPageCodeText(ApiPageCodeText.Syntax.comment, "/++ CLASSES ++/")); code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); }
         if(i > 0) code.add(ApiPageCodeNewLine());
         code.add(getOverviewCommentForCode(item.model.comment));
         code.add(ApiPageCodeNewLine());
@@ -1012,6 +1049,7 @@ private void appendSymbolTreeMembersGeneric(DocModelT)(SiteRoot site, SymbolTree
     if(needsNewLine) { code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); needsNewLine = false; }
     foreach(i, item; doc.structs)
     {
+        if(i == 0) { code.add(ApiPageCodeText(ApiPageCodeText.Syntax.comment, "/++ STRUCTS ++/")); code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); }
         if(i > 0) code.add(ApiPageCodeNewLine());
         code.add(getOverviewCommentForCode(item.model.comment));
         code.add(ApiPageCodeNewLine());
@@ -1022,6 +1060,7 @@ private void appendSymbolTreeMembersGeneric(DocModelT)(SiteRoot site, SymbolTree
     if(needsNewLine) { code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); needsNewLine = false; }
     foreach(i, item; doc.unions)
     {
+        if(i == 0) { code.add(ApiPageCodeText(ApiPageCodeText.Syntax.comment, "/++ UNIONS ++/")); code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); }
         if(i > 0) code.add(ApiPageCodeNewLine());
         code.add(getOverviewCommentForCode(item.model.comment));
         code.add(ApiPageCodeNewLine());
@@ -1032,6 +1071,7 @@ private void appendSymbolTreeMembersGeneric(DocModelT)(SiteRoot site, SymbolTree
     if(needsNewLine) { code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); needsNewLine = false; }
     foreach(i, item; doc.templates)
     {
+        if(i == 0) { code.add(ApiPageCodeText(ApiPageCodeText.Syntax.comment, "/++ TEMPLATES ++/")); code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); }
         if(i > 0) code.add(ApiPageCodeNewLine());
         code.add(getOverviewCommentForCode(item.model.comment));
         code.add(ApiPageCodeNewLine());
@@ -1042,6 +1082,7 @@ private void appendSymbolTreeMembersGeneric(DocModelT)(SiteRoot site, SymbolTree
     if(needsNewLine) { code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); needsNewLine = false; }
     foreach(i, item; doc.aliases)
     {
+        if(i == 0) { code.add(ApiPageCodeText(ApiPageCodeText.Syntax.comment, "/++ ALIASES ++/")); code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); }
         if(i > 0) code.add(ApiPageCodeNewLine());
         code.add(getOverviewCommentForCode(item.model.comment));
         code.add(ApiPageCodeNewLine());
@@ -1052,6 +1093,7 @@ private void appendSymbolTreeMembersGeneric(DocModelT)(SiteRoot site, SymbolTree
     if(needsNewLine) { code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); needsNewLine = false; }
     foreach(i, item; doc.functions)
     {
+        if(i == 0) { code.add(ApiPageCodeText(ApiPageCodeText.Syntax.comment, "/++ FUNCTIONS ++/")); code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); }
         if(i > 0) code.add(ApiPageCodeNewLine());
         code.add(getOverviewCommentForCode(item.model.comment));
         code.add(ApiPageCodeNewLine());
@@ -1062,6 +1104,7 @@ private void appendSymbolTreeMembersGeneric(DocModelT)(SiteRoot site, SymbolTree
     if(needsNewLine) { code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); needsNewLine = false; }
     foreach(i, item; doc.constants)
     {
+        if(i == 0) { code.add(ApiPageCodeText(ApiPageCodeText.Syntax.comment, "/++ MANIFEST CONSTANTS ++/")); code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); }
         if(i > 0) code.add(ApiPageCodeNewLine());
         code.add(getOverviewCommentForCode(item.model.comment));
         code.add(ApiPageCodeNewLine());
@@ -1072,6 +1115,7 @@ private void appendSymbolTreeMembersGeneric(DocModelT)(SiteRoot site, SymbolTree
     if(needsNewLine) { code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); needsNewLine = false; }
     foreach(i, item; doc.enums)
     {
+        if(i == 0) { code.add(ApiPageCodeText(ApiPageCodeText.Syntax.comment, "/++ ENUMS ++/")); code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); }
         if(i > 0) code.add(ApiPageCodeNewLine());
         code.add(getOverviewCommentForCode(item.model.comment));
         code.add(ApiPageCodeNewLine());
@@ -1082,6 +1126,7 @@ private void appendSymbolTreeMembersGeneric(DocModelT)(SiteRoot site, SymbolTree
     if(needsNewLine) { code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); needsNewLine = false; }
     foreach(i, item; doc.variables)
     {
+        if(i == 0) { code.add(ApiPageCodeText(ApiPageCodeText.Syntax.comment, "/++ VARIABLES ++/")); code.add(ApiPageCodeNewLine()); code.add(ApiPageCodeNewLine()); }
         if(i > 0) code.add(ApiPageCodeNewLine());
         code.add(getOverviewCommentForCode(item.model.comment));
         code.add(ApiPageCodeNewLine());
