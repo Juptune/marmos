@@ -1,8 +1,6 @@
 {
     "@type": "DocModelRoot@1",
-    "features": [
-        "semanticPass"
-    ],
+    "features": [],
     "module_": {
         "@type": "DocModule@1",
         "comment": null,
@@ -45,16 +43,8 @@
                 "linkage": "default",
                 "name": "__unittest_L682_C1",
                 "storageClasses": [],
-                "udas": [
-                    {
-                        "@type": "DocExpressionUda@1",
-                        "expression": {
-                            "@type": "DocFallbackExpression@1",
-                            "renderedCode": "\"String - .init behaviour\""
-                        }
-                    }
-                ],
-                "visibility": "public"
+                "udas": [],
+                "visibility": "not explicitly defined"
             },
             {
                 "@type": "DocFunction@1",
@@ -69,16 +59,8 @@
                 "linkage": "default",
                 "name": "__unittest_L693_C1",
                 "storageClasses": [],
-                "udas": [
-                    {
-                        "@type": "DocExpressionUda@1",
-                        "expression": {
-                            "@type": "DocFallbackExpression@1",
-                            "renderedCode": "\"String - ctor\""
-                        }
-                    }
-                ],
-                "visibility": "public"
+                "udas": [],
+                "visibility": "not explicitly defined"
             },
             {
                 "@type": "DocFunction@1",
@@ -93,16 +75,8 @@
                 "linkage": "default",
                 "name": "__unittest_L733_C1",
                 "storageClasses": [],
-                "udas": [
-                    {
-                        "@type": "DocExpressionUda@1",
-                        "expression": {
-                            "@type": "DocFallbackExpression@1",
-                            "renderedCode": "\"String - copy ctor\""
-                        }
-                    }
-                ],
-                "visibility": "public"
+                "udas": [],
+                "visibility": "not explicitly defined"
             },
             {
                 "@type": "DocFunction@1",
@@ -117,16 +91,8 @@
                 "linkage": "default",
                 "name": "__unittest_L749_C1",
                 "storageClasses": [],
-                "udas": [
-                    {
-                        "@type": "DocExpressionUda@1",
-                        "expression": {
-                            "@type": "DocFallbackExpression@1",
-                            "renderedCode": "\"String - edge case - init == init\""
-                        }
-                    }
-                ],
-                "visibility": "public"
+                "udas": [],
+                "visibility": "not explicitly defined"
             },
             {
                 "@type": "DocFunction@1",
@@ -141,16 +107,8 @@
                 "linkage": "default",
                 "name": "__unittest_L755_C1",
                 "storageClasses": [],
-                "udas": [
-                    {
-                        "@type": "DocExpressionUda@1",
-                        "expression": {
-                            "@type": "DocFallbackExpression@1",
-                            "renderedCode": "\"String - edge case - rvalue == rvalue\""
-                        }
-                    }
-                ],
-                "visibility": "public"
+                "udas": [],
+                "visibility": "not explicitly defined"
             },
             {
                 "@type": "DocFunction@1",
@@ -165,16 +123,8 @@
                 "linkage": "default",
                 "name": "__unittest_L768_C1",
                 "storageClasses": [],
-                "udas": [
-                    {
-                        "@type": "DocExpressionUda@1",
-                        "expression": {
-                            "@type": "DocFallbackExpression@1",
-                            "renderedCode": "\"String - ref counting\""
-                        }
-                    }
-                ],
-                "visibility": "public"
+                "udas": [],
+                "visibility": "not explicitly defined"
             },
             {
                 "@type": "DocFunction@1",
@@ -189,16 +139,8 @@
                 "linkage": "default",
                 "name": "__unittest_L781_C1",
                 "storageClasses": [],
-                "udas": [
-                    {
-                        "@type": "DocExpressionUda@1",
-                        "expression": {
-                            "@type": "DocFallbackExpression@1",
-                            "renderedCode": "\"String - range\""
-                        }
-                    }
-                ],
-                "visibility": "public"
+                "udas": [],
+                "visibility": "not explicitly defined"
             }
         ],
         "nestedTypes": [
@@ -475,7 +417,7 @@
                             "@type": "DocFallbackExpression@1",
                             "renderedCode": "1"
                         },
-                        "visibility": "private"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocVariable@1",
@@ -487,7 +429,8 @@
                         "storageClasses": [],
                         "typeRef": {
                             "@type": "DocTypeRef@1",
-                            "originalTypeRaw": {
+                            "originalTypeRaw": null,
+                            "raw": {
                                 "@type": "DocPointerType@1",
                                 "underlyingTypeRef": {
                                     "@type": "DocTypeRef@1",
@@ -505,37 +448,10 @@
                                     "storageClasses": []
                                 }
                             },
-                            "raw": {
-                                "@type": "DocPointerType@1",
-                                "underlyingTypeRef": {
-                                    "@type": "DocTypeRef@1",
-                                    "originalTypeRaw": null,
-                                    "raw": {
-                                        "@type": "DocSymbolReference@1",
-                                        "items": [
-                                            {
-                                                "@type": "DocSymbolDirectReference@1",
-                                                "symbolName": "String"
-                                            },
-                                            {
-                                                "@type": "DocSymbolDirectReference@1",
-                                                "symbolName": "Payload"
-                                            }
-                                        ],
-                                        "moduleFqnComponents": [
-                                            "juptune",
-                                            "core",
-                                            "ds",
-                                            "string"
-                                        ]
-                                    },
-                                    "storageClasses": []
-                                }
-                            },
                             "storageClasses": []
                         },
                         "udas": [],
-                        "visibility": "private"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocVariable@1",
@@ -547,7 +463,8 @@
                         "storageClasses": [],
                         "typeRef": {
                             "@type": "DocTypeRef@1",
-                            "originalTypeRaw": {
+                            "originalTypeRaw": null,
+                            "raw": {
                                 "@type": "DocSymbolReference@1",
                                 "items": [
                                     {
@@ -557,14 +474,10 @@
                                 ],
                                 "moduleFqnComponents": []
                             },
-                            "raw": {
-                                "@type": "DocBasicType@1",
-                                "name": "ulong"
-                            },
                             "storageClasses": []
                         },
                         "udas": [],
-                        "visibility": "private"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocVariable@1",
@@ -576,7 +489,8 @@
                         "storageClasses": [],
                         "typeRef": {
                             "@type": "DocTypeRef@1",
-                            "originalTypeRaw": {
+                            "originalTypeRaw": null,
+                            "raw": {
                                 "@type": "DocStaticArrayType@1",
                                 "arraySizeExpression": {
                                     "@type": "DocFallbackExpression@1",
@@ -592,26 +506,10 @@
                                     "storageClasses": []
                                 }
                             },
-                            "raw": {
-                                "@type": "DocStaticArrayType@1",
-                                "arraySizeExpression": {
-                                    "@type": "DocFallbackExpression@1",
-                                    "renderedCode": "7LU"
-                                },
-                                "underlyingTypeRef": {
-                                    "@type": "DocTypeRef@1",
-                                    "originalTypeRaw": null,
-                                    "raw": {
-                                        "@type": "DocBasicType@1",
-                                        "name": "ubyte"
-                                    },
-                                    "storageClasses": []
-                                }
-                            },
                             "storageClasses": []
                         },
                         "udas": [],
-                        "visibility": "private"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocVariable@1",
@@ -623,7 +521,8 @@
                         "storageClasses": [],
                         "typeRef": {
                             "@type": "DocTypeRef@1",
-                            "originalTypeRaw": {
+                            "originalTypeRaw": null,
+                            "raw": {
                                 "@type": "DocStaticArrayType@1",
                                 "arraySizeExpression": {
                                     "@type": "DocFallbackExpression@1",
@@ -639,26 +538,10 @@
                                     "storageClasses": []
                                 }
                             },
-                            "raw": {
-                                "@type": "DocStaticArrayType@1",
-                                "arraySizeExpression": {
-                                    "@type": "DocFallbackExpression@1",
-                                    "renderedCode": "23LU"
-                                },
-                                "underlyingTypeRef": {
-                                    "@type": "DocTypeRef@1",
-                                    "originalTypeRaw": null,
-                                    "raw": {
-                                        "@type": "DocBasicType@1",
-                                        "name": "char"
-                                    },
-                                    "storageClasses": []
-                                }
-                            },
                             "storageClasses": []
                         },
                         "udas": [],
-                        "visibility": "private"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocVariable@1",
@@ -678,7 +561,7 @@
                             "storageClasses": []
                         },
                         "udas": [],
-                        "visibility": "private"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocFunction@1",
@@ -704,45 +587,21 @@
                                                     "symbolName": "String"
                                                 }
                                             ],
-                                            "moduleFqnComponents": [
-                                                "juptune",
-                                                "core",
-                                                "ds",
-                                                "string"
-                                            ]
+                                            "moduleFqnComponents": []
                                         },
                                         "storageClasses": []
                                     },
                                     "udas": []
                                 }
                             ],
-                            "returnType": {
-                                "@type": "DocTypeRef@1",
-                                "originalTypeRaw": null,
-                                "raw": {
-                                    "@type": "DocSymbolReference@1",
-                                    "items": [
-                                        {
-                                            "@type": "DocSymbolDirectReference@1",
-                                            "symbolName": "String"
-                                        }
-                                    ],
-                                    "moduleFqnComponents": [
-                                        "juptune",
-                                        "core",
-                                        "ds",
-                                        "string"
-                                    ]
-                                },
-                                "storageClasses": []
-                            }
+                            "returnType": null
                         },
                         "line": 185,
                         "linkage": "default",
                         "name": "__ctor",
                         "storageClasses": [],
                         "udas": [],
-                        "visibility": "public"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocFunction@1",
@@ -787,45 +646,21 @@
                                                     "symbolName": "String"
                                                 }
                                             ],
-                                            "moduleFqnComponents": [
-                                                "juptune",
-                                                "core",
-                                                "ds",
-                                                "string"
-                                            ]
+                                            "moduleFqnComponents": []
                                         },
                                         "storageClasses": []
                                     },
                                     "udas": []
                                 }
                             ],
-                            "returnType": {
-                                "@type": "DocTypeRef@1",
-                                "originalTypeRaw": null,
-                                "raw": {
-                                    "@type": "DocSymbolReference@1",
-                                    "items": [
-                                        {
-                                            "@type": "DocSymbolDirectReference@1",
-                                            "symbolName": "String"
-                                        }
-                                    ],
-                                    "moduleFqnComponents": [
-                                        "juptune",
-                                        "core",
-                                        "ds",
-                                        "string"
-                                    ]
-                                },
-                                "storageClasses": []
-                            }
+                            "returnType": null
                         },
                         "line": 188,
                         "linkage": "default",
                         "name": "__ctor",
                         "storageClasses": [],
                         "udas": [],
-                        "visibility": "public"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocFunction@1",
@@ -834,22 +669,16 @@
                             "@type": "DocFunctionType@1",
                             "isDelegate": false,
                             "parameters": [],
-                            "returnType": {
-                                "@type": "DocTypeRef@1",
-                                "originalTypeRaw": null,
-                                "raw": {
-                                    "@type": "DocBasicType@1",
-                                    "name": "void"
-                                },
-                                "storageClasses": []
-                            }
+                            "returnType": null
                         },
                         "line": 215,
                         "linkage": "default",
                         "name": "__dtor",
-                        "storageClasses": [],
+                        "storageClasses": [
+                            "@trusted"
+                        ],
                         "udas": [],
-                        "visibility": "public"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocFunction@1",
@@ -948,33 +777,14 @@
                                     "udas": []
                                 }
                             ],
-                            "returnType": {
-                                "@type": "DocTypeRef@1",
-                                "originalTypeRaw": null,
-                                "raw": {
-                                    "@type": "DocSymbolReference@1",
-                                    "items": [
-                                        {
-                                            "@type": "DocSymbolDirectReference@1",
-                                            "symbolName": "String"
-                                        }
-                                    ],
-                                    "moduleFqnComponents": [
-                                        "juptune",
-                                        "core",
-                                        "ds",
-                                        "string"
-                                    ]
-                                },
-                                "storageClasses": []
-                            }
+                            "returnType": null
                         },
                         "line": 233,
                         "linkage": "default",
                         "name": "__ctor",
                         "storageClasses": [],
                         "udas": [],
-                        "visibility": "public"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocFunction@1",
@@ -1012,12 +822,16 @@
                                         "@type": "DocTypeRef@1",
                                         "originalTypeRaw": null,
                                         "raw": {
-                                            "@type": "DocBasicType@1",
-                                            "name": "ulong"
+                                            "@type": "DocSymbolReference@1",
+                                            "items": [
+                                                {
+                                                    "@type": "DocSymbolDirectReference@1",
+                                                    "symbolName": "size_t"
+                                                }
+                                            ],
+                                            "moduleFqnComponents": []
                                         },
-                                        "storageClasses": [
-                                            "const"
-                                        ]
+                                        "storageClasses": []
                                     },
                                     "udas": []
                                 }
@@ -1037,7 +851,7 @@
                         "name": "opIndex",
                         "storageClasses": [],
                         "udas": [],
-                        "visibility": "public"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocAlias@1",
@@ -1048,19 +862,16 @@
                         "storageClasses": [],
                         "symbolRef": {
                             "@type": "DocTypeRef@1",
-                            "originalTypeRaw": {
+                            "originalTypeRaw": null,
+                            "raw": {
                                 "@type": "DocSymbolReference@1",
                                 "items": [],
                                 "moduleFqnComponents": []
                             },
-                            "raw": {
-                                "@type": "DocBasicType@1",
-                                "name": "__JUPTUNE_BUG__"
-                            },
                             "storageClasses": []
                         },
                         "udas": [],
-                        "visibility": "private"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocAlias@1",
@@ -1071,19 +882,16 @@
                         "storageClasses": [],
                         "symbolRef": {
                             "@type": "DocTypeRef@1",
-                            "originalTypeRaw": {
+                            "originalTypeRaw": null,
+                            "raw": {
                                 "@type": "DocSymbolReference@1",
                                 "items": [],
                                 "moduleFqnComponents": []
                             },
-                            "raw": {
-                                "@type": "DocBasicType@1",
-                                "name": "__JUPTUNE_BUG__"
-                            },
                             "storageClasses": []
                         },
                         "udas": [],
-                        "visibility": "private"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocFunction@1",
@@ -1170,7 +978,7 @@
                         "name": "opEquals",
                         "storageClasses": [],
                         "udas": [],
-                        "visibility": "public"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocFunction@1",
@@ -1215,12 +1023,7 @@
                                                     "symbolName": "String"
                                                 }
                                             ],
-                                            "moduleFqnComponents": [
-                                                "juptune",
-                                                "core",
-                                                "ds",
-                                                "string"
-                                            ]
+                                            "moduleFqnComponents": []
                                         },
                                         "storageClasses": []
                                     },
@@ -1242,7 +1045,7 @@
                         "name": "opEquals",
                         "storageClasses": [],
                         "udas": [],
-                        "visibility": "public"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocFunction@1",
@@ -1287,12 +1090,7 @@
                                                     "symbolName": "String"
                                                 }
                                             ],
-                                            "moduleFqnComponents": [
-                                                "juptune",
-                                                "core",
-                                                "ds",
-                                                "string"
-                                            ]
+                                            "moduleFqnComponents": []
                                         },
                                         "storageClasses": []
                                     },
@@ -1314,7 +1112,7 @@
                         "name": "opEquals",
                         "storageClasses": [],
                         "udas": [],
-                        "visibility": "public"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocFunction@1",
@@ -1357,7 +1155,7 @@
                         "name": "toHash",
                         "storageClasses": [],
                         "udas": [],
-                        "visibility": "public"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocFunction@1",
@@ -1513,7 +1311,7 @@
                         "name": "sliceMaybeFromStack",
                         "storageClasses": [],
                         "udas": [],
-                        "visibility": "public"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocFunction@1",
@@ -1690,7 +1488,7 @@
                         "name": "slice",
                         "storageClasses": [],
                         "udas": [],
-                        "visibility": "public"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocFunction@1",
@@ -1722,8 +1520,14 @@
                                 "@type": "DocTypeRef@1",
                                 "originalTypeRaw": null,
                                 "raw": {
-                                    "@type": "DocBasicType@1",
-                                    "name": "ulong"
+                                    "@type": "DocSymbolReference@1",
+                                    "items": [
+                                        {
+                                            "@type": "DocSymbolDirectReference@1",
+                                            "symbolName": "size_t"
+                                        }
+                                    ],
+                                    "moduleFqnComponents": []
                                 },
                                 "storageClasses": []
                             }
@@ -1733,7 +1537,7 @@
                         "name": "length",
                         "storageClasses": [],
                         "udas": [],
-                        "visibility": "public"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocAlias@1",
@@ -1744,7 +1548,8 @@
                         "storageClasses": [],
                         "symbolRef": {
                             "@type": "DocTypeRef@1",
-                            "originalTypeRaw": {
+                            "originalTypeRaw": null,
+                            "raw": {
                                 "@type": "DocSymbolReference@1",
                                 "items": [
                                     {
@@ -1754,14 +1559,10 @@
                                 ],
                                 "moduleFqnComponents": []
                             },
-                            "raw": {
-                                "@type": "DocBasicType@1",
-                                "name": "__JUPTUNE_BUG__"
-                            },
                             "storageClasses": []
                         },
                         "udas": [],
-                        "visibility": "public"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocFunction@1",
@@ -1849,7 +1650,7 @@
                             "auto"
                         ],
                         "udas": [],
-                        "visibility": "public"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocFunction@1",
@@ -1873,7 +1674,7 @@
                         "name": "isBig",
                         "storageClasses": [],
                         "udas": [],
-                        "visibility": "private"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocFunction@1",
@@ -1897,7 +1698,7 @@
                         "name": "markBig",
                         "storageClasses": [],
                         "udas": [],
-                        "visibility": "private"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocFunction@1",
@@ -1921,7 +1722,7 @@
                         "name": "moveToBigString",
                         "storageClasses": [],
                         "udas": [],
-                        "visibility": "private"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocFunction@1",
@@ -1973,7 +1774,7 @@
                         "name": "setupSmallString",
                         "storageClasses": [],
                         "udas": [],
-                        "visibility": "private"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocFunction@1",
@@ -2025,90 +1826,7 @@
                         "name": "setupBigString",
                         "storageClasses": [],
                         "udas": [],
-                        "visibility": "private"
-                    },
-                    {
-                        "@type": "DocAlias@1",
-                        "comment": null,
-                        "line": 0,
-                        "linkage": "default",
-                        "name": "__xdtor",
-                        "storageClasses": [],
-                        "symbolRef": {
-                            "@type": "DocTypeRef@1",
-                            "originalTypeRaw": null,
-                            "raw": {
-                                "@type": "DocBasicType@1",
-                                "name": "__JUPTUNE_BUG__"
-                            },
-                            "storageClasses": []
-                        },
-                        "udas": [],
-                        "visibility": "public"
-                    },
-                    {
-                        "@type": "DocFunction@1",
-                        "comment": null,
-                        "funcType": {
-                            "@type": "DocFunctionType@1",
-                            "isDelegate": false,
-                            "parameters": [
-                                {
-                                    "@type": "DocRuntimeParameter@1",
-                                    "defaultValueExpression": null,
-                                    "line": 0,
-                                    "name": "p",
-                                    "storageClasses": [],
-                                    "typeRef": {
-                                        "@type": "DocTypeRef@1",
-                                        "originalTypeRaw": null,
-                                        "raw": {
-                                            "@type": "DocSymbolReference@1",
-                                            "items": [
-                                                {
-                                                    "@type": "DocSymbolDirectReference@1",
-                                                    "symbolName": "String"
-                                                }
-                                            ],
-                                            "moduleFqnComponents": [
-                                                "juptune",
-                                                "core",
-                                                "ds",
-                                                "string"
-                                            ]
-                                        },
-                                        "storageClasses": []
-                                    },
-                                    "udas": []
-                                }
-                            ],
-                            "returnType": {
-                                "@type": "DocTypeRef@1",
-                                "originalTypeRaw": null,
-                                "raw": {
-                                    "@type": "DocSymbolReference@1",
-                                    "items": [
-                                        {
-                                            "@type": "DocSymbolDirectReference@1",
-                                            "symbolName": "String"
-                                        }
-                                    ],
-                                    "moduleFqnComponents": [
-                                        "juptune",
-                                        "core",
-                                        "ds",
-                                        "string"
-                                    ]
-                                },
-                                "storageClasses": []
-                            }
-                        },
-                        "line": 48,
-                        "linkage": "default",
-                        "name": "opAssign",
-                        "storageClasses": [],
-                        "udas": [],
-                        "visibility": "public"
+                        "visibility": "not explicitly defined"
                     }
                 ],
                 "name": "String",
@@ -2129,7 +1847,8 @@
                                 "storageClasses": [],
                                 "typeRef": {
                                     "@type": "DocTypeRef@1",
-                                    "originalTypeRaw": {
+                                    "originalTypeRaw": null,
+                                    "raw": {
                                         "@type": "DocSymbolReference@1",
                                         "items": [
                                             {
@@ -2139,14 +1858,10 @@
                                         ],
                                         "moduleFqnComponents": []
                                     },
-                                    "raw": {
-                                        "@type": "DocBasicType@1",
-                                        "name": "ulong"
-                                    },
                                     "storageClasses": []
                                 },
                                 "udas": [],
-                                "visibility": "public"
+                                "visibility": "not explicitly defined"
                             },
                             {
                                 "@type": "DocVariable@1",
@@ -2158,7 +1873,8 @@
                                 "storageClasses": [],
                                 "typeRef": {
                                     "@type": "DocTypeRef@1",
-                                    "originalTypeRaw": {
+                                    "originalTypeRaw": null,
+                                    "raw": {
                                         "@type": "DocSymbolReference@1",
                                         "items": [
                                             {
@@ -2168,23 +1884,17 @@
                                         ],
                                         "moduleFqnComponents": []
                                     },
-                                    "raw": {
-                                        "@type": "DocBasicType@1",
-                                        "name": "ulong"
-                                    },
                                     "storageClasses": []
                                 },
                                 "udas": [],
-                                "visibility": "public"
+                                "visibility": "not explicitly defined"
                             }
                         ],
                         "name": "OpSlice",
                         "nestedTypes": [],
-                        "storageClasses": [
-                            "static"
-                        ],
+                        "storageClasses": [],
                         "udas": [],
-                        "visibility": "private"
+                        "visibility": "public"
                     },
                     {
                         "@type": "DocStruct@1",
@@ -2210,7 +1920,7 @@
                                     "storageClasses": []
                                 },
                                 "udas": [],
-                                "visibility": "public"
+                                "visibility": "not explicitly defined"
                             },
                             {
                                 "@type": "DocVariable@1",
@@ -2222,7 +1932,8 @@
                                 "storageClasses": [],
                                 "typeRef": {
                                     "@type": "DocTypeRef@1",
-                                    "originalTypeRaw": {
+                                    "originalTypeRaw": null,
+                                    "raw": {
                                         "@type": "DocSymbolReference@1",
                                         "items": [
                                             {
@@ -2232,14 +1943,10 @@
                                         ],
                                         "moduleFqnComponents": []
                                     },
-                                    "raw": {
-                                        "@type": "DocBasicType@1",
-                                        "name": "ulong"
-                                    },
                                     "storageClasses": []
                                 },
                                 "udas": [],
-                                "visibility": "public"
+                                "visibility": "not explicitly defined"
                             },
                             {
                                 "@type": "DocFunction@1",
@@ -2258,8 +1965,14 @@
                                                 "@type": "DocTypeRef@1",
                                                 "originalTypeRaw": null,
                                                 "raw": {
-                                                    "@type": "DocBasicType@1",
-                                                    "name": "ulong"
+                                                    "@type": "DocSymbolReference@1",
+                                                    "items": [
+                                                        {
+                                                            "@type": "DocSymbolDirectReference@1",
+                                                            "symbolName": "size_t"
+                                                        }
+                                                    ],
+                                                    "moduleFqnComponents": []
                                                 },
                                                 "storageClasses": []
                                             },
@@ -2279,19 +1992,10 @@
                                                     "items": [
                                                         {
                                                             "@type": "DocSymbolDirectReference@1",
-                                                            "symbolName": "String"
-                                                        },
-                                                        {
-                                                            "@type": "DocSymbolDirectReference@1",
                                                             "symbolName": "Payload"
                                                         }
                                                     ],
-                                                    "moduleFqnComponents": [
-                                                        "juptune",
-                                                        "core",
-                                                        "ds",
-                                                        "string"
-                                                    ]
+                                                    "moduleFqnComponents": []
                                                 },
                                                 "storageClasses": []
                                             }
@@ -2306,7 +2010,7 @@
                                     "static"
                                 ],
                                 "udas": [],
-                                "visibility": "public"
+                                "visibility": "not explicitly defined"
                             },
                             {
                                 "@type": "DocFunction@1",
@@ -2325,8 +2029,14 @@
                                                 "@type": "DocTypeRef@1",
                                                 "originalTypeRaw": null,
                                                 "raw": {
-                                                    "@type": "DocBasicType@1",
-                                                    "name": "ulong"
+                                                    "@type": "DocSymbolReference@1",
+                                                    "items": [
+                                                        {
+                                                            "@type": "DocSymbolDirectReference@1",
+                                                            "symbolName": "size_t"
+                                                        }
+                                                    ],
+                                                    "moduleFqnComponents": []
                                                 },
                                                 "storageClasses": []
                                             },
@@ -2346,19 +2056,10 @@
                                                     "items": [
                                                         {
                                                             "@type": "DocSymbolDirectReference@1",
-                                                            "symbolName": "String"
-                                                        },
-                                                        {
-                                                            "@type": "DocSymbolDirectReference@1",
                                                             "symbolName": "Payload"
                                                         }
                                                     ],
-                                                    "moduleFqnComponents": [
-                                                        "juptune",
-                                                        "core",
-                                                        "ds",
-                                                        "string"
-                                                    ]
+                                                    "moduleFqnComponents": []
                                                 },
                                                 "storageClasses": []
                                             }
@@ -2371,7 +2072,7 @@
                                 "name": "clone",
                                 "storageClasses": [],
                                 "udas": [],
-                                "visibility": "public"
+                                "visibility": "not explicitly defined"
                             },
                             {
                                 "@type": "DocFunction@1",
@@ -2395,7 +2096,7 @@
                                 "name": "destroy",
                                 "storageClasses": [],
                                 "udas": [],
-                                "visibility": "public"
+                                "visibility": "not explicitly defined"
                             },
                             {
                                 "@type": "DocFunction@1",
@@ -2419,7 +2120,7 @@
                                 "name": "acquire",
                                 "storageClasses": [],
                                 "udas": [],
-                                "visibility": "public"
+                                "visibility": "not explicitly defined"
                             },
                             {
                                 "@type": "DocFunction@1",
@@ -2443,7 +2144,7 @@
                                 "name": "release",
                                 "storageClasses": [],
                                 "udas": [],
-                                "visibility": "public"
+                                "visibility": "not explicitly defined"
                             },
                             {
                                 "@type": "DocFunction@1",
@@ -2475,7 +2176,7 @@
                                 "name": "slice",
                                 "storageClasses": [],
                                 "udas": [],
-                                "visibility": "public"
+                                "visibility": "not explicitly defined"
                             },
                             {
                                 "@type": "DocFunction@1",
@@ -2509,16 +2210,14 @@
                                 "name": "sliceConst",
                                 "storageClasses": [],
                                 "udas": [],
-                                "visibility": "public"
+                                "visibility": "not explicitly defined"
                             }
                         ],
                         "name": "Payload",
                         "nestedTypes": [],
-                        "storageClasses": [
-                            "static"
-                        ],
+                        "storageClasses": [],
                         "udas": [],
-                        "visibility": "private"
+                        "visibility": "public"
                     },
                     {
                         "@type": "DocTemplate@1",
@@ -2775,7 +2474,7 @@
                         ],
                         "storageClasses": [],
                         "udas": [],
-                        "visibility": "public"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocTemplate@1",
@@ -2904,7 +2603,7 @@
                         ],
                         "storageClasses": [],
                         "udas": [],
-                        "visibility": "public"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocTemplate@1",
@@ -3065,7 +2764,7 @@
                         ],
                         "storageClasses": [],
                         "udas": [],
-                        "visibility": "public"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocTemplate@1",
@@ -3074,15 +2773,14 @@
                             "sections": [
                                 {
                                     "@type": "DocCommentSection@1",
-                                    "blocks": [],
-                                    "title": "__default"
-                                },
-                                {
-                                    "@type": "DocCommentSection@1",
                                     "blocks": [
                                         {
                                             "@type": "DocCommentParagraphBlock@1",
                                             "inlines": [
+                                                {
+                                                    "@type": "DocCommentTextInline@1",
+                                                    "text": "Quality of life constructor that is the rough equivalent of:"
+                                                },
                                                 {
                                                     "@type": "DocCommentCodeInline@1",
                                                     "text": "Array!char buf; buf.put(values); return String.fromDestroyingArray(buf)"
@@ -3090,7 +2788,7 @@
                                             ]
                                         }
                                     ],
-                                    "title": "Quality of life constructor that is the rough equivalent of"
+                                    "title": "__default"
                                 },
                                 {
                                     "@type": "DocCommentSection@1",
@@ -3243,7 +2941,7 @@
                         ],
                         "storageClasses": [],
                         "udas": [],
-                        "visibility": "public"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocTemplate@1",
@@ -3466,7 +3164,7 @@
                         ],
                         "storageClasses": [],
                         "udas": [],
-                        "visibility": "public"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocTemplate@1",
@@ -3701,8 +3399,14 @@
                                     "@type": "DocTypeRef@1",
                                     "originalTypeRaw": null,
                                     "raw": {
-                                        "@type": "DocBasicType@1",
-                                        "name": "string"
+                                        "@type": "DocSymbolReference@1",
+                                        "items": [
+                                            {
+                                                "@type": "DocSymbolDirectReference@1",
+                                                "symbolName": "string"
+                                            }
+                                        ],
+                                        "moduleFqnComponents": []
                                     },
                                     "storageClasses": []
                                 }
@@ -3718,8 +3422,14 @@
                                     "@type": "DocTypeRef@1",
                                     "originalTypeRaw": null,
                                     "raw": {
-                                        "@type": "DocBasicType@1",
-                                        "name": "string"
+                                        "@type": "DocSymbolReference@1",
+                                        "items": [
+                                            {
+                                                "@type": "DocSymbolDirectReference@1",
+                                                "symbolName": "string"
+                                            }
+                                        ],
+                                        "moduleFqnComponents": []
                                     },
                                     "storageClasses": []
                                 }
@@ -3727,7 +3437,7 @@
                         ],
                         "storageClasses": [],
                         "udas": [],
-                        "visibility": "public"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocTemplate@1",
@@ -3944,8 +3654,14 @@
                                     "@type": "DocTypeRef@1",
                                     "originalTypeRaw": null,
                                     "raw": {
-                                        "@type": "DocBasicType@1",
-                                        "name": "string"
+                                        "@type": "DocSymbolReference@1",
+                                        "items": [
+                                            {
+                                                "@type": "DocSymbolDirectReference@1",
+                                                "symbolName": "string"
+                                            }
+                                        ],
+                                        "moduleFqnComponents": []
                                     },
                                     "storageClasses": []
                                 }
@@ -3961,8 +3677,14 @@
                                     "@type": "DocTypeRef@1",
                                     "originalTypeRaw": null,
                                     "raw": {
-                                        "@type": "DocBasicType@1",
-                                        "name": "string"
+                                        "@type": "DocSymbolReference@1",
+                                        "items": [
+                                            {
+                                                "@type": "DocSymbolDirectReference@1",
+                                                "symbolName": "string"
+                                            }
+                                        ],
+                                        "moduleFqnComponents": []
                                     },
                                     "storageClasses": []
                                 }
@@ -3970,7 +3692,7 @@
                         ],
                         "storageClasses": [],
                         "udas": [],
-                        "visibility": "public"
+                        "visibility": "not explicitly defined"
                     },
                     {
                         "@type": "DocTemplate@1",
@@ -4067,7 +3789,7 @@
                         ],
                         "storageClasses": [],
                         "udas": [],
-                        "visibility": "public"
+                        "visibility": "not explicitly defined"
                     }
                 ],
                 "storageClasses": [],

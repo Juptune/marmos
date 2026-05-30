@@ -1,8 +1,6 @@
 {
     "@type": "DocModelRoot@1",
-    "features": [
-        "semanticPass"
-    ],
+    "features": [],
     "module_": {
         "@type": "DocModule@1",
         "comment": null,
@@ -26,16 +24,8 @@
                 "linkage": "default",
                 "name": "__unittest_L419_C1",
                 "storageClasses": [],
-                "udas": [
-                    {
-                        "@type": "DocExpressionUda@1",
-                        "expression": {
-                            "@type": "DocFallbackExpression@1",
-                            "renderedCode": "\"put - basic type\""
-                        }
-                    }
-                ],
-                "visibility": "public"
+                "udas": [],
+                "visibility": "not explicitly defined"
             },
             {
                 "@type": "DocFunction@1",
@@ -50,16 +40,8 @@
                 "linkage": "default",
                 "name": "__unittest_L450_C1",
                 "storageClasses": [],
-                "udas": [
-                    {
-                        "@type": "DocExpressionUda@1",
-                        "expression": {
-                            "@type": "DocFallbackExpression@1",
-                            "renderedCode": "\"put - copy ctor type\""
-                        }
-                    }
-                ],
-                "visibility": "public"
+                "udas": [],
+                "visibility": "not explicitly defined"
             },
             {
                 "@type": "DocFunction@1",
@@ -74,16 +56,8 @@
                 "linkage": "default",
                 "name": "__unittest_L487_C1",
                 "storageClasses": [],
-                "udas": [
-                    {
-                        "@type": "DocExpressionUda@1",
-                        "expression": {
-                            "@type": "DocFallbackExpression@1",
-                            "renderedCode": "\"put - move type\""
-                        }
-                    }
-                ],
-                "visibility": "public"
+                "udas": [],
+                "visibility": "not explicitly defined"
             },
             {
                 "@type": "DocFunction@1",
@@ -98,16 +72,8 @@
                 "linkage": "default",
                 "name": "__unittest_L529_C1",
                 "storageClasses": [],
-                "udas": [
-                    {
-                        "@type": "DocExpressionUda@1",
-                        "expression": {
-                            "@type": "DocFallbackExpression@1",
-                            "renderedCode": "\"remove - basic type\""
-                        }
-                    }
-                ],
-                "visibility": "public"
+                "udas": [],
+                "visibility": "not explicitly defined"
             },
             {
                 "@type": "DocFunction@1",
@@ -122,16 +88,8 @@
                 "linkage": "default",
                 "name": "__unittest_L545_C1",
                 "storageClasses": [],
-                "udas": [
-                    {
-                        "@type": "DocExpressionUda@1",
-                        "expression": {
-                            "@type": "DocFallbackExpression@1",
-                            "renderedCode": "\"remove - copy ctor type\""
-                        }
-                    }
-                ],
-                "visibility": "public"
+                "udas": [],
+                "visibility": "not explicitly defined"
             },
             {
                 "@type": "DocFunction@1",
@@ -146,16 +104,8 @@
                 "linkage": "default",
                 "name": "__unittest_L570_C1",
                 "storageClasses": [],
-                "udas": [
-                    {
-                        "@type": "DocExpressionUda@1",
-                        "expression": {
-                            "@type": "DocFallbackExpression@1",
-                            "renderedCode": "\"remove - move type\""
-                        }
-                    }
-                ],
-                "visibility": "public"
+                "udas": [],
+                "visibility": "not explicitly defined"
             },
             {
                 "@type": "DocFunction@1",
@@ -170,16 +120,8 @@
                 "linkage": "default",
                 "name": "__unittest_L597_C1",
                 "storageClasses": [],
-                "udas": [
-                    {
-                        "@type": "DocExpressionUda@1",
-                        "expression": {
-                            "@type": "DocFallbackExpression@1",
-                            "renderedCode": "\"fill - basic type\""
-                        }
-                    }
-                ],
-                "visibility": "public"
+                "udas": [],
+                "visibility": "not explicitly defined"
             },
             {
                 "@type": "DocFunction@1",
@@ -194,16 +136,8 @@
                 "linkage": "default",
                 "name": "__unittest_L607_C1",
                 "storageClasses": [],
-                "udas": [
-                    {
-                        "@type": "DocExpressionUda@1",
-                        "expression": {
-                            "@type": "DocFallbackExpression@1",
-                            "renderedCode": "\"fill - copy ctor type\""
-                        }
-                    }
-                ],
-                "visibility": "public"
+                "udas": [],
+                "visibility": "not explicitly defined"
             },
             {
                 "@type": "DocFunction@1",
@@ -218,16 +152,8 @@
                 "linkage": "default",
                 "name": "__unittest_L636_C1",
                 "storageClasses": [],
-                "udas": [
-                    {
-                        "@type": "DocExpressionUda@1",
-                        "expression": {
-                            "@type": "DocFallbackExpression@1",
-                            "renderedCode": "\"lifetime\""
-                        }
-                    }
-                ],
-                "visibility": "public"
+                "udas": [],
+                "visibility": "not explicitly defined"
             }
         ],
         "nestedTypes": [
@@ -2935,8 +2861,14 @@
                             "@type": "DocTypeRef@1",
                             "originalTypeRaw": null,
                             "raw": {
-                                "@type": "DocBasicType@1",
-                                "name": "ulong"
+                                "@type": "DocSymbolReference@1",
+                                "items": [
+                                    {
+                                        "@type": "DocSymbolDirectReference@1",
+                                        "symbolName": "size_t"
+                                    }
+                                ],
+                                "moduleFqnComponents": []
                             },
                             "storageClasses": []
                         }
@@ -2987,8 +2919,14 @@
                             "@type": "DocTypeRef@1",
                             "originalTypeRaw": null,
                             "raw": {
-                                "@type": "DocBasicType@1",
-                                "name": "ulong"
+                                "@type": "DocSymbolReference@1",
+                                "items": [
+                                    {
+                                        "@type": "DocSymbolDirectReference@1",
+                                        "symbolName": "size_t"
+                                    }
+                                ],
+                                "moduleFqnComponents": []
                             },
                             "storageClasses": []
                         }
@@ -3024,7 +2962,7 @@
                 ],
                 "storageClasses": [],
                 "udas": [],
-                "visibility": "public"
+                "visibility": "not explicitly defined"
             },
             {
                 "@type": "DocTemplate@1",
@@ -3090,7 +3028,7 @@
                 ],
                 "storageClasses": [],
                 "udas": [],
-                "visibility": "public"
+                "visibility": "not explicitly defined"
             },
             {
                 "@type": "DocTemplate@1",
@@ -3142,7 +3080,7 @@
                 ],
                 "storageClasses": [],
                 "udas": [],
-                "visibility": "public"
+                "visibility": "not explicitly defined"
             },
             {
                 "@type": "DocTemplate@1",
@@ -3208,7 +3146,7 @@
                 ],
                 "storageClasses": [],
                 "udas": [],
-                "visibility": "public"
+                "visibility": "not explicitly defined"
             },
             {
                 "@type": "DocTemplate@1",
@@ -3260,7 +3198,7 @@
                 ],
                 "storageClasses": [],
                 "udas": [],
-                "visibility": "public"
+                "visibility": "not explicitly defined"
             }
         ]
     }

@@ -50,12 +50,15 @@ DocComment parseDocComment(string comment)
     DocCommentSection currentSection;
     currentSection.title = "__default";
 
+    bool lastItemWasSection = true;
+
     while(context.cursor < context.comment.length)
     {
         const line = readGenericLine(context); // Makes each line O(2n) at least, but it probably doesn't matter
         auto section = trySection(line);
-        if(!section.isNull)
+        if(!section.isNull && !lastItemWasSection)
         {
+            lastItemWasSection = true;
             result.sections ~= currentSection;
             currentSection = section.get;
             continue;
@@ -66,6 +69,7 @@ DocComment parseDocComment(string comment)
             auto block = tryBlock(context, line, isFreshSection);
             if(!block.isNull)
             {
+                lastItemWasSection = false;
                 currentSection.blocks ~= block.get;
                 continue;
             }

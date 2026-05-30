@@ -446,17 +446,65 @@ private ApiPageComponent getOverviewComment(DocCommentT)(DocCommentT comment)
     if(components.length == 0)
         return ApiPageSpan().asComponent;
 
-    return ApiPageSpan(text: "TODO!").asComponent;
+    auto paragraph = findFirstParagraph(components);
+    return paragraph.isNull ? ApiPageSpan(text: "").asComponent : paragraph.get.asComponent;
 }
 
 private ApiPageDlangCodeComponent getOverviewCommentForCode(DocCommentT)(DocCommentT comment)
 {
+    import std.array        : Appender;
+    import std.exception    : assumeUnique;
+    import std.sumtype      : match;
+
     ApiPageRoot.SidebarHeader[] fakeSidebar;
     auto components = convertDocComment(comment, fakeSidebar);
     if(components.length == 0)
         return ApiPageCodeText(ApiPageCodeText.Syntax.comment, "///").asCodeComponent;
 
-    return ApiPageCodeText(ApiPageCodeText.Syntax.comment, "/// TODO").asCodeComponent;
+    auto paragraph = findFirstParagraph(components);
+    if(paragraph.isNull)
+        return ApiPageCodeText(ApiPageCodeText.Syntax.comment, "///").asCodeComponent;
+
+    Appender!(char[]) builder;
+    builder.put("/// ");
+
+    void extractText(ApiPageComponent sum)
+    {
+        sum.match!(
+            (ApiPageHeader comp) { builder.put(comp.text); builder.put(' '); },
+            (ApiPageSpan comp) { builder.put(comp.text); builder.put(' '); },
+            (ApiPageParagraph comp) { foreach(child; comp.components) extractText(child); },
+            (ApiPageTable comp) { /* Ignored */ },
+            (ApiPageList comp) { /* Ignored */ },
+            (ApiPageDlangCode comp) {  /* TODO */ },
+            (ApiPageLink!ApiPageSpan comp) { /* Ignored */ },
+        );
+    }
+
+    foreach(comp; paragraph.get.components)
+        extractText(comp);
+
+    return ApiPageCodeText(ApiPageCodeText.Syntax.comment, builder.data.assumeUnique).asCodeComponent;
+}
+
+private Nullable!ApiPageParagraph findFirstParagraph(ApiPageComponent[] components)
+{
+    import std.sumtype : match;
+
+    foreach(comp; components)
+    {
+        ApiPageParagraph paragraph;
+        bool found;
+        comp.match!(
+            (ApiPageParagraph para) { paragraph = para; found = true; },
+            (_) {}
+        );
+
+        if(found)
+            return typeof(return)(paragraph);
+    }
+
+    return typeof(return).init;
 }
 
 /++ Code block generation ++/
