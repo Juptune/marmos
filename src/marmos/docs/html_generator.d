@@ -67,7 +67,7 @@ private Html buildApiRefBody(SiteRoot site, StagingApiRefGroup group, StagingApi
 {
     return Html(
         tag: "div",
-        classes: [],
+        classes: ["m-4"],
         content: pageModel.components.map!(comp => renderComponent(comp, version_.navRoot)).array,
     );
 }
@@ -121,7 +121,7 @@ private Html buildApiRightSidebar(SiteRoot site, StagingApiRefGroup group, Stagi
             (scope ref Html[] list) { 
                 list ~= Html(
                     tag: "p",
-                    classes: [header.targetHtmlId.length > 0 ? "hover:font-bold" : ""],
+                    classes: header.targetHtmlId.length > 0 ? ["hover:font-bold", "hover:text-rose-300"] : [],
                     content: Html(
                         tag: "a",
                         attributes: ["href": "#"~header.targetHtmlId],
@@ -139,7 +139,7 @@ private Html buildApiRightSidebar(SiteRoot site, StagingApiRefGroup group, Stagi
 
     return Html(
         tag: "div",
-        classes: ["flex", "flex-col", "w-full", "h-full", "pt-4", "bg-gray-300"],
+        classes: ["flex", "flex-col", "w-full", "h-full", "pt-4"],
         content: [
             // "On this page" header
             Html(
@@ -233,7 +233,7 @@ private Html buildApiRefLeftSidebar(SiteRoot site, StagingApiRefGroup group, Sta
             "data-depth": depth.to!string,
         ], content: [
             // Name
-            Html(tag: "div", classes: ["flex", "cursor-pointer", "hover:underline", "select-none"], content: [
+            Html(tag: "div", classes: ["flex", "cursor-pointer", "hover:underline", "select-none", isPartOfNodePath ? "text-rose-300" : ""], content: [
                 Html(tag: "span", classes: ["flex", isPartOfNodePath ? "font-bold" : "", "pr-1"], attributes: ["data-type": "chevron"], content: "v"),
                 Html(tag: "span", classes: ["flex", isPartOfNodePath ? "font-bold" : ""], attributes: ["data-type": "name"], content: nameOf(node)),
             ]),
@@ -278,7 +278,7 @@ private Html buildApiRefLeftSidebar(SiteRoot site, StagingApiRefGroup group, Sta
     return Html(
         // Wrapper
         tag: "div",
-        classes: ["w-full", "h-full", "pt-4", "bg-gray-400"],
+        classes: ["w-full", "h-full", "pt-4"],
         content: [
             // Search bar
             Html(tag: "input", classes: ["w-9/10", "ml-4", "mb-4", "bg-white"], attributes: ["type": "text", "placeholder": "Search..."]),
@@ -294,30 +294,41 @@ private Html buildApiRefLeftSidebar(SiteRoot site, StagingApiRefGroup group, Sta
 
 /++ Component rendering ++/
 
-private Html renderComponent(ApiPageComponent sum, GroupNavRoot nav)
+private Html renderComponent(ApiPageComponent sum, GroupNavRoot nav, bool paragraphInTableEdgeCase = false)
 {
     import std.algorithm : canFind;
     import std.conv      : to;
 
+    const CLASSES_BY_HEADER_LEVEL = [
+        1: ["text-3xl"],
+        2: ["text-2xl"],
+        3: ["text-xl"],
+        4: ["text-lg"],
+    ];
+
+    const CLASSES_BY_SPAN_STYLE = [
+        ApiPageSpan.Style.bold: ["font-bold"],
+        ApiPageSpan.Style.italic: ["font-italic"],
+        ApiPageSpan.Style.code: ["bg-slate-900", "pl-1", "pr-1"],
+    ];
+
     Html renderSpan(ApiPageSpan comp) => Html(
         tag: comp.style.canFind(ApiPageSpan.Style.code) ? "code" : "span",
-        classes: comp.style.map!((style) {
-            final switch(style) with(ApiPageSpan.Style)
-            {
-                case FAILSAFE: assert(false);
-                case code: return ""; // Handled by the tag instead
+        classes: (){
+            string[] classes;
 
-                case bold: return "font-bold";
-                case italic: return "italic";
-            }
-        }).array,
+            foreach(style; comp.style)
+                classes ~= CLASSES_BY_SPAN_STYLE[style];
+
+            return classes;
+        }(),
         content: comp.text,
     );
 
     return sum.match!(
         (ApiPageHeader comp) => Html(
             tag: "h"~comp.level.to!string, 
-            classes: [],
+            classes: ["mb-4", "font-bold"] ~ CLASSES_BY_HEADER_LEVEL[comp.level],
             attributes: [
                 "id": comp.htmlId
             ],
@@ -326,12 +337,12 @@ private Html renderComponent(ApiPageComponent sum, GroupNavRoot nav)
         (ApiPageSpan comp) => renderSpan(comp),
         (ApiPageParagraph comp) => Html(
             tag: "p",
-            classes: [],
+            classes: [paragraphInTableEdgeCase ? "" : "mb-4"],
             content: comp.components.map!(c => renderComponent(c, nav)).array,
         ),
         (ApiPageTable comp) => Html(
             tag: "table",
-            classes: [],
+            classes: ["mb-4", "mt-2", "w-full", "border", "border-collapse", "border-slate-500"],
             content:
                 // Headers
                 [Html(
@@ -342,7 +353,14 @@ private Html renderComponent(ApiPageComponent sum, GroupNavRoot nav)
                         classes: [],
                         content: comp.columns.map!(col => Html(
                             tag: "th",
-                            classes: [],
+                            classes: [
+                                "w-["~(100.0f / comp.columns.length).to!string~"%]", // Each column will take up equal space.
+                                "border",
+                                "border-solid",
+                                "border-slate-500",
+                                "pt-2",
+                                "pb-2",
+                            ],
                             content: renderComponent(col, nav),
                         )).array
                     )
@@ -356,8 +374,15 @@ private Html renderComponent(ApiPageComponent sum, GroupNavRoot nav)
                         classes: [],
                         content: row.map!(cell => Html(
                             tag: "td",
-                            classes: [],
-                            content: renderComponent(cell, nav),
+                            classes: [
+                                "border",
+                                "border-solid",
+                                "border-slate-500",
+                                "pt-2",
+                                "pb-2",
+                                "text-center",
+                            ],
+                            content: renderComponent(cell, nav, paragraphInTableEdgeCase: true),
                         )).array
                     )).array
                 )]
@@ -373,7 +398,7 @@ private Html renderComponent(ApiPageComponent sum, GroupNavRoot nav)
         ),
         (ApiPageLink!ApiPageSpan comp) => Html(
             tag: "a",
-            classes: [],
+            classes: ["underline", "text-rose-300"],
             attributes: [
                 "href": comp.match!(
                     (ApiPageNavLink!ApiPageSpan link) {
@@ -405,11 +430,12 @@ private Html renderCodeBlock(ApiPageDlangCode code, GroupNavRoot nav)
 
     static immutable CLASSES_FOR_SYNTAX = [
         ApiPageCodeText.Syntax.none: [""],
-        ApiPageCodeText.Syntax.keyword: [""],
-        ApiPageCodeText.Syntax.operator: [""],
-        ApiPageCodeText.Syntax.symbol: [""],
-        ApiPageCodeText.Syntax.expression: [""],
-        ApiPageCodeText.Syntax.comment: [""],
+        ApiPageCodeText.Syntax.keyword: ["text-[#569CD6]"],
+        ApiPageCodeText.Syntax.operator: ["text-[#D4D4D4]"],
+        ApiPageCodeText.Syntax.symbol: ["text-[#DCDCAA]"],
+        ApiPageCodeText.Syntax.symbolRef: ["text-[#9CDCFE]"],
+        ApiPageCodeText.Syntax.expression: ["text-[#CE9178]"],
+        ApiPageCodeText.Syntax.comment: ["text-[#7CA668]"],
     ];
 
     const lineCount = 1 + code.components.filter!(comp => comp.match!(
@@ -420,9 +446,9 @@ private Html renderCodeBlock(ApiPageDlangCode code, GroupNavRoot nav)
     bool firstForLine = true;
     uint indent = 0;
 
-    Html renderText(ApiPageCodeText text) => Html(
+    Html renderText(ApiPageCodeText text, string[] extraClasses = []) => Html(
         tag: "span",
-        classes: [] ~ CLASSES_FOR_SYNTAX[text.syntax],
+        classes: extraClasses ~ CLASSES_FOR_SYNTAX[text.syntax],
         content: text.text
     );
 
@@ -443,9 +469,9 @@ private Html renderCodeBlock(ApiPageDlangCode code, GroupNavRoot nav)
                         return node.href;
                     },
                     (ApiPageHrefLink!ApiPageCodeText link) => link.href,
-                )
+                ),
             ],
-            content: renderText(comp.match!(l => l.inner)),
+            content: renderText(comp.match!(l => l.inner), extraClasses: ["underline", "decoration-dashed"]),
         ),
         (ApiPageCodeIndent comp) {
             indent++;
@@ -486,7 +512,7 @@ private Html renderCodeBlock(ApiPageDlangCode code, GroupNavRoot nav)
 
     return Html(
         tag: "code",
-        classes: ["grid", "grid-cols-2"],
+        classes: ["grid", "grid-cols-2", "bg-black", "text-white", "shadow-lg", "rounded-xl", "mb-4"],
         attributes: [
             "style": "grid-template-columns: auto 1fr"
         ],
@@ -494,10 +520,10 @@ private Html renderCodeBlock(ApiPageDlangCode code, GroupNavRoot nav)
             // Line numbers
             Html(
                 tag: "div",
-                classes: ["w-auto"],
+                classes: ["w-auto", "m-2", "border-r-1", "border-solid"],
                 content: iota(0, lineCount).map!(i => Html(
                     tag: "div",
-                    classes: [],
+                    classes: ["pr-2"],
                     content: (i + 1).to!string
                 )).array
             ),
@@ -505,7 +531,7 @@ private Html renderCodeBlock(ApiPageDlangCode code, GroupNavRoot nav)
             // Code
             Html(
                 tag: "div",
-                classes: ["overflow-x-auto"],
+                classes: ["overflow-x-auto", "m-2"],
                 content: Html(
                     tag: "pre",
                     classes: [],
@@ -539,7 +565,7 @@ private Html mainTemplate(
             tag: "body",
             content: [
                 // Main wrapper
-                Html(tag: "div", classes: ["w-full", "min-h-[100dvh]"], content: [
+                Html(tag: "div", classes: ["w-full", "min-h-[100dvh]", "bg-slate-700", "text-stone-200"], content: [
                     navbar(site),
 
                     // Body wrapper
@@ -557,19 +583,19 @@ private Html navbar(
     SiteRoot site
 ) => Html(
     tag: "section",
-    classes: ["grid", "grid-cols-3", "items-center", "w-full", "h-auto", "p-4", "bg-red-300"],
+    classes: ["grid", "grid-cols-3", "items-center", "w-full", "h-auto", "p-4", "bg-slate-800"],
     content: [
         // Left section
         Html(tag: "div", content: [
             // Title
-            Html(tag: "span", classes: ["text-lg"], content: site.config.siteTitle)
+            Html(tag: "span", classes: ["text-xl", "font-bold"], content: site.config.siteTitle)
         ]),
 
         // Middle section
         Html(tag: "div", classes: ["flex", "justify-center"], content: [
             // Root group links
-            Html(tag: "nav", classes: ["flex"], content: site.rootGroups.map!(group =>
-                Html(tag: "a", attributes: ["href": "/"~group.groupUrlName], content: group.groupName)
+            Html(tag: "nav", classes: ["flex", "gap-4"], content: site.rootGroups.map!(group =>
+                Html(tag: "a", classes: ["hover:underline"], attributes: ["href": "/"~group.groupUrlName], content: group.groupName)
             ).array)
         ]),
         

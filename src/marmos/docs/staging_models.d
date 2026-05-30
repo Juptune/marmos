@@ -304,6 +304,7 @@ struct ApiPageCodeText
         keyword = "k",
         operator = "o",
         symbol = "s",
+        symbolRef = "r",
         expression = "e",
         comment = "c",
     }

@@ -1165,7 +1165,7 @@ private void appendTypeRef(DocTypeRef typeRef, scope ref ApiPageDlangCode code, 
                 (DocSymbolDirectReference symbol){
                     symbolStack ~= symbol.symbolName;
 
-                    auto text = ApiPageCodeText(ApiPageCodeText.Syntax.symbol, symbol.symbolName);
+                    auto text = ApiPageCodeText(ApiPageCodeText.Syntax.symbolRef, symbol.symbolName);
                     if(wasResolved)
                         code.add(text.asNavLink(type.moduleFqnComponents ~ symbolStack));
                     else
@@ -1177,7 +1177,7 @@ private void appendTypeRef(DocTypeRef typeRef, scope ref ApiPageDlangCode code, 
                 (DocSymbolInstanceReference symbol){
                     symbolStack ~= symbol.symbolName;
 
-                    auto text = ApiPageCodeText(ApiPageCodeText.Syntax.symbol, symbol.symbolName);
+                    auto text = ApiPageCodeText(ApiPageCodeText.Syntax.symbolRef, symbol.symbolName);
                     if(wasResolved)
                         code.add(text.asNavLink(type.moduleFqnComponents ~ symbolStack));
                     else
