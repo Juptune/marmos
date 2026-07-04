@@ -15,8 +15,9 @@ import std.typecons  : Nullable;
 import marmos.converter.json : docToJson;
 import marmos.converter.model; // Intentionally everything
 
-import marmos.docs.discover : SiteRoot, RootGroup, MarmosDocModelRootGroup;
-import marmos.docs.staging_models;
+import marmos.docs.discover : SiteRoot, RootGroup, MarmosDocModelRootGroup, MarkdownSingleFileRootGroup;
+import marmos.docs.staging_models; // Intentionally everything
+import marmos.docs.markdown_models; // Intentionally everything
 import marmos.converter.convert; // Intentionally everything
 
 void generateAndEmitNavbar(SiteRoot site)
@@ -30,7 +31,7 @@ void generateAndEmitNavbar(SiteRoot site)
 
 void generateAndEmitGroupStagingFiles(SiteRoot site, RootGroup group)
 {
-    import marmos.docs.discover : loadJsonModel, StagingApiRefGroup;
+    import marmos.docs.discover : loadJsonModel, StagingApiRefGroup, StagingSingleFileGroup;
 
     if(auto casted = cast(MarmosDocModelRootGroup)group)
     {
@@ -59,11 +60,27 @@ void generateAndEmitGroupStagingFiles(SiteRoot site, RootGroup group)
         emitFile(site.groupNavFile(group.groupUrlName, "latest"), navRoot.docToJson.toString());
         emitFile(site.groupRootConfigFile(group.groupUrlName), StagingApiRefGroup.ConfigModel().docToJson.toString());
     }
+    else if(auto casted = cast(MarkdownSingleFileRootGroup)group)
+    {
+        import std.file : readText;
+        import marmos.docs.markdown_parser : parseMarkdown;
+
+        // Read in the markdown file, then parse it
+        auto model = readText(casted.indexFilePath).parseMarkdown;
+
+        // Convert the Markdown model into a staging single page model, and emit it.
+        auto components = buildMarkdownComponents(model);
+        auto stagingModel = SingleFilePage(model.metadata.keyValuePairs.get("title", "no title was given"), components);
+        emitFile(site.singleFileIndexFile(group.groupUrlName), docToJson(stagingModel).toString());
+
+        // Output remaining files
+        emitFile(site.groupRootConfigFile(group.groupUrlName), StagingSingleFileGroup.ConfigModel().docToJson.toString()); // @suppress(dscanner.style.long_line)
+    }
     else
-        infof("TODO: Unhandled root group %s", group);
+        assert(false, "Unhandled root group");
 }
 
-/++ Private generators ++/
+/++ Private generators for API reference pages ++/
 
 private GroupNavRoot buildApiRefNavigation(SiteRoot site, MarmosDocModelRootGroup group, SymbolTree!DocModelRoot[] moduleTrees)
 {
@@ -135,7 +152,7 @@ private void buildAndEmitChildPages(DocModelT)(
 
         if(start > i)
             return [];
-        return otherLeaves[start..i];
+        return otherLeaves[start..i + 1];
     }
 
     // NOTE: _Technically_ aggregate types can also have multiple definitions due to conditional compliation... but TODO: for now the last one wins.
@@ -185,17 +202,12 @@ private void buildAndEmitAggregatePage(string TypeName, DocModelT)(
 {
     import std.string : join;
 
-    static if(is(typeof(tree.model) : MaybeTemplated!Underlying, Underlying))
-        auto model = tree.model.model;
-    else
-        auto model = tree.model;
-
     ApiPageRoot page;
 
     // Name; code overview, and then documentation
     page.add(ApiPageHeader(level: 1, htmlId: "", TypeName~" "~tree.memberComponents.join(".")));
     page.add(buildDlangCodeBlock(site, tree));
-    page.add(convertDocComment(model.comment, page.sidebarHeaders));
+    page.add(convertDocComment(tree.model.comment, page.sidebarHeaders));
 
     // Symbol tables
     insertSymbolTables(site, page, tree, nav);
@@ -225,17 +237,12 @@ private void buildAndEmitLeafPage(string TypeName, DocModelT)(
     import std.conv   : to;
     import std.string : join;
 
-    static if(is(typeof(leaf.model) : MaybeTemplated!Underlying, Underlying))
-        auto model = leaf.model.model;
-    else
-        auto model = leaf.model;
-
     ApiPageRoot page;
 
     // Name; code overview, and then documentation
     page.add(ApiPageHeader(level: 1, htmlId: "", TypeName~" "~leaf.memberComponents.join(".")));
     page.add(buildDlangCodeBlock(site, leaf));
-    page.add(convertDocComment(model.comment, page.sidebarHeaders));
+    page.add(convertDocComment(leaf.model.comment, page.sidebarHeaders));
 
     // Do the same for any overrides
     foreach(i, override_; overrides)
@@ -329,7 +336,7 @@ if(is(TreeOrLeafT : SymbolTree!_, _) || is(TreeOrLeafT : SymbolLeaf!_, _))
                 ApiPageSpan(text: model.name).asNavLink(idPath: getNavId(node.module_, node.memberComponents)),
 
                 // Description
-                getOverviewComment(model.comment)
+                getOverviewComment(node.model.comment)
             ];
         }).array
     );
@@ -912,7 +919,11 @@ private void appendRuntimeParams(DocRuntimeParameter[] params, scope ref ApiPage
     foreach(i, param; params)
     {
         if(i > 0)
+        {
             code.add(ApiPageCodeText(ApiPageCodeText.Syntax.operator, ", "));
+            if(!forceSingleLine)
+                code.add(ApiPageCodeNewLine());
+        }
 
         foreach(class_; param.storageClasses)
             code.add(ApiPageCodeText(ApiPageCodeText.Syntax.keyword, (cast(string)class_) ~ " "));
@@ -1348,6 +1359,7 @@ private void appendAggregateStorageClasses(DocStorageClass[] classes, scope ref 
 private struct MaybeTemplated(DocModelT)
 {
     import std.typecons : Nullable;
+    import std.complex;
 
     DocModelT model;
     Nullable!DocTemplate eponymousTemplate;
@@ -1608,7 +1620,162 @@ private struct SymbolTree(DocModelT)
     }
 }
 
+/++ Private generators for Markdown files ++/
+
+private ApiPageComponent[] buildMarkdownComponents(MarkdownRoot root)
+{
+    import std.array        : Appender, array;
+    import std.algorithm    : map;
+    import std.sumtype      : match;
+
+    ApiPageComponent[] components;
+
+    ApiPageComponent[] handleParagraph(MarkdownParagraph paragraph)
+    {
+        ApiPageComponent[] result;
+
+        ApiPageSpan.Style[] styles;
+        string text;
+        string href;
+
+        void handleInline(MarkdownInline* inline)
+        {
+            (*inline).match!(
+                (MarkdownPlainText plain) {
+                    text = plain.text;
+                },
+                (MarkdownBoldText bold) {
+                    styles ~= ApiPageSpan.Style.bold;
+                    handleInline(bold.inner);
+                },
+                (MarkdownItalicText italic) {
+                    styles ~= ApiPageSpan.Style.italic;
+                    handleInline(italic.inner);
+                },
+                (MarkdownCodeText code) {
+                    styles ~= ApiPageSpan.Style.code;
+                    handleInline(code.inner);
+                },
+                (MarkdownLink link) {
+                    text = link.text;
+                    href = link.href;
+                }
+            );
+        }
+
+        foreach(inline; paragraph.inlines)
+        {
+            handleInline(&inline);
+
+            if(href.length == 0)
+                result ~= ApiPageComponent(ApiPageSpan(styles, text));
+            else
+                result ~= ApiPageSpan(styles, text).asHrefLink(href);
+
+            styles = null;
+            text = null;
+            href = null;
+        }
+
+        return result;
+    }
+
+    MarkdownListItem[] listItemQueue;
+    void tryPopList()
+    {
+        if(listItemQueue.length == 0)
+            return;
+
+        ApiPageList nextList()
+        {
+            ApiPageList list;
+            list.isOrdered = listItemQueue[0].isOrdered;
+            const thisLevel = listItemQueue[0].level;
+
+            while(listItemQueue.length > 0 && listItemQueue[0].level >= thisLevel)
+            {
+                if(listItemQueue[0].level == thisLevel)
+                {
+                    list.items ~= ApiPageComponent(ApiPageParagraph(handleParagraph(listItemQueue[0].inner)));
+                    listItemQueue = listItemQueue[1..$];
+                }
+                else
+                    list.items ~= ApiPageComponent(nextList());
+            }
+
+            return list;
+        }
+
+        while(listItemQueue.length > 0)
+            components ~= ApiPageComponent(nextList());
+    }
+
+    foreach(sumtype; root.containers)
+    {
+        sumtype.match!(
+            (MarkdownParagraph container){
+                tryPopList();
+                components ~= ApiPageComponent(ApiPageParagraph(handleParagraph(container)));
+            },
+            (MarkdownHeader container){
+                import std.exception : assumeUnique;
+
+                tryPopList();
+                
+                ApiPageHeader header;
+                header.level = container.level;
+
+                Appender!(char[]) builder;
+                auto innerComps = handleParagraph(container.inner);
+                foreach(comp; innerComps)
+                {
+                    if(builder.data.length != 0)
+                        builder.put(' ');
+
+                    comp.match!(
+                        (ApiPageSpan span){ builder.put(span.text); },
+                        (ApiPageLink!ApiPageSpan link){
+                            link.match!(
+                                (l) { builder.put(l.inner.text); }
+                            );
+                        },
+                        (_) { assert(false, "bug: unhandled inner component?"); }
+                    );
+                }
+                header.text = builder.data.assumeUnique;
+
+                components ~= ApiPageComponent(header);
+            },
+            (MarkdownListItem container){
+                listItemQueue ~= container;
+            },
+            (MarkdownCodeBlock container){
+                import std.string : lineSplitter;
+
+                tryPopList();
+
+                // TODO: Make a generic code block type.
+                // TODO: Could maybe even run code blocks through dmd's frontend so we can build up syntax highlighting.
+                ApiPageDlangCode code;
+                foreach(line; container.rawText.lineSplitter)
+                {
+                    if(code.components.length > 0)
+                        code.add(ApiPageCodeNewLine());
+                    code.add(ApiPageCodeText(ApiPageCodeText.Syntax.none, line));
+                }
+
+                components ~= ApiPageComponent(code);
+            },
+        );
+    }
+    tryPopList();
+
+    return components;
+}
+
 /++ File helpers ++/
+
+private static bool[string] g_dirAlreadyCreatedCache;
 
 private void emitFile(SiteRoot site, string[] pathComponents, const(char)[] text)
 {
@@ -1619,7 +1786,11 @@ private void emitFile(SiteRoot site, string[] pathComponents, const(char)[] text
 
     infof("emitting file: %s", path);
 
-    mkdirRecurse(path.dirName);
+    if(!(path.dirName in g_dirAlreadyCreatedCache))
+    {
+        mkdirRecurse(path.dirName);
+        g_dirAlreadyCreatedCache[path.dirName] = true;
+    }
     writeText(path, text);
 }
 
@@ -1630,7 +1801,11 @@ package void emitFile(string path, const(char)[] text)
 
     infof("emitting file: %s", path);
 
-    mkdirRecurse(path.dirName);
+    if(!(path.dirName in g_dirAlreadyCreatedCache))
+    {
+        mkdirRecurse(path.dirName);
+        g_dirAlreadyCreatedCache[path.dirName] = true;
+    }
     writeText(path, text);
 }
 

@@ -135,6 +135,25 @@ struct ApiPageRoot
     }
 }
 
+@JsonType("S")
+struct SingleFilePage
+{
+    @JsonField("t") string title;
+    @JsonField("c") ApiPageComponent[] components;
+
+    void add(ComponentT)(ComponentT component)
+    if(!is(ComponentT : _[], _))
+    {
+        this.components ~= component.asComponent;
+    }
+
+    void add(ComponentT)(ComponentT[] components)
+    {
+        foreach(component; components)
+            this.components ~= component.asComponent;
+    }
+}
+
 /++ Api page components ++/
 
 alias ApiPageComponent = SumType!(

@@ -11,7 +11,7 @@ import std.array        : array;
 import std.logger       : infof, warningf;
 import std.sumtype      : SumType, match;
 
-import marmos.docs.discover : SiteRoot, StagingRootGroup, StagingApiRefGroup, loadJsonModel;
+import marmos.docs.discover : SiteRoot, StagingRootGroup, StagingApiRefGroup, StagingSingleFileGroup, loadJsonModel;
 import marmos.docs.staging_models; // Intentionally everything
 
 void generateSite(SiteRoot site)
@@ -22,6 +22,8 @@ void generateSite(SiteRoot site)
     {
         if(auto apiRefGroup = cast(StagingApiRefGroup)group)
             generateAndEmitApiRefGroup(site, apiRefGroup);
+        else if(auto singleFileGroup = cast(StagingSingleFileGroup)group)
+            generateAndEmitSingleFileGroup(site, singleFileGroup);
         else
             assert(false, "Unhandled staging type?");
     }
@@ -54,6 +56,24 @@ private void generateAndEmitApiRefPage(SiteRoot site, StagingApiRefGroup group, 
         )
     );
     emitFile(site, page.htmlOutputSubpath, render(html));
+}
+
+private void generateAndEmitSingleFileGroup(SiteRoot site, StagingSingleFileGroup group)
+{
+    infof("[%s] generating as a Single File Page group", group.groupName);
+
+    auto pageModel = loadJsonModel!SingleFilePage(group.indexFilePath);
+    auto html = mainTemplate(
+        site,
+        body: () => bodyWithNoSidebars(
+            body: () => Html(
+                tag: "div",
+                classes: ["p-4"],
+                content: pageModel.components.map!(comp => renderComponent(comp, GroupNavRoot.init)).array
+            ),
+        )
+    );
+    emitFile(site, group.outputHtmlFileSubpath, render(html));
 }
 
 private void emitStaticFiles(SiteRoot site)
@@ -294,7 +314,11 @@ private Html buildApiRefLeftSidebar(SiteRoot site, StagingApiRefGroup group, Sta
 
 /++ Component rendering ++/
 
-private Html renderComponent(ApiPageComponent sum, GroupNavRoot nav, bool paragraphInTableEdgeCase = false)
+private Html renderComponent(
+    ApiPageComponent sum, 
+    GroupNavRoot nav, 
+    bool paragraphInTableEdgeCase = false,
+)
 {
     import std.algorithm : canFind;
     import std.conv      : to;
@@ -308,8 +332,8 @@ private Html renderComponent(ApiPageComponent sum, GroupNavRoot nav, bool paragr
 
     const CLASSES_BY_SPAN_STYLE = [
         ApiPageSpan.Style.bold: ["font-bold"],
-        ApiPageSpan.Style.italic: ["font-italic"],
-        ApiPageSpan.Style.code: ["bg-slate-900", "pl-1", "pr-1"],
+        ApiPageSpan.Style.italic: ["italic"],
+        ApiPageSpan.Style.code: ["bg-slate-900", "pl-2"],
     ];
 
     Html renderSpan(ApiPageSpan comp) => Html(
@@ -323,6 +347,11 @@ private Html renderComponent(ApiPageComponent sum, GroupNavRoot nav, bool paragr
             return classes;
         }(),
         content: comp.text,
+    );
+
+    bool isList(ApiPageComponent comp) => comp.match!(
+        (ApiPageList _) => true,
+        (_) => false,
     );
 
     return sum.match!(
@@ -389,11 +418,16 @@ private Html renderComponent(ApiPageComponent sum, GroupNavRoot nav, bool paragr
         ),
         (ApiPageList comp) => Html(
             tag: comp.isOrdered ? "ol" : "ul",
-            classes: [],
+            classes: [
+                comp.isOrdered ? "list-decimal" : "list-disc",
+            ],
             content: comp.items.map!(c => Html(
                 tag: "li",
-                classes: [],
-                content: renderComponent(c, nav),
+                classes: [
+                    isList(c) ? "ml-8" : "ml-4",  // Nested lists need additional padding to look right
+                    isList(c) ? "list-none" : "", // Nested lists also add their own number/bullet, so we need to disable the wrapping list item's one
+                ],
+                content: renderComponent(c, nav, paragraphInTableEdgeCase: true), // `paragraphInTableEdgeCase` is used to disable paragraph bottom padding, which looks really weird in list items
             )).array,
         ),
         (ApiPageLink!ApiPageSpan comp) => Html(
@@ -557,6 +591,26 @@ private Html mainTemplate(
                 Html(tag: "meta", attributes: ["charset": "UTF-8"]),
                 Html(tag: "meta", attributes: ["name": "viewport", "content": "width=device-width,initial-scale=1"]),
                 Html(tag: "script", attributes: ["src": "https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"]),
+                Html(tag: "style", content: `
+                    /*
+                        Edge case: Lists don't use the normal paragraph bottom padding, which misaligns it when any other
+                                   element follows it.
+                       
+                                   So we have this global hacky rule that forces any element following a list (that isn't also a list)
+                                   to have mt-4 applied to it. (--spacing comes from tailwind's CSS).
+                    */
+                    ul + :not(ul):not(ol),
+                    ol + :not(ul):not(ol) {
+                        margin-top: calc(var(--spacing) * 4);
+                    }
+
+                    /*
+                        Edge case: Similarly, for some reason <code> elements have some misalignment that needs to be fixed globally.
+                    */
+                    code + span {
+                        padding-left: calc(var(--spacing) * 1);
+                    }
+                `)
             ]
             ~ (head is null ? [] : head())
         ),
@@ -602,6 +656,16 @@ private Html navbar(
         // Right section
         Html(tag: "div"),
     ],
+);
+
+private Html bodyWithNoSidebars(
+    scope Html delegate() body,
+) => Html(
+    tag: "div",
+    classes: ["w-full", "min-h-screent"],
+    content: [
+        Html(tag: "section", classes: ["w-full", "h-full"], content: body())
+    ]
 );
 
 private Html bodyWithSidebars(

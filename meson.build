@@ -23,6 +23,8 @@ marmos_lib_srcs = files(
     './src/marmos/docs/command.d',
     './src/marmos/docs/discover.d',
     './src/marmos/docs/html_generator.d',
+    './src/marmos/docs/markdown_models.d',
+    './src/marmos/docs/markdown_parser.d',
     './src/marmos/docs/package.d',
     './src/marmos/docs/staging_generator.d',
     './src/marmos/docs/staging_models.d',

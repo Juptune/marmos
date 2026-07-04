@@ -68,6 +68,9 @@ struct SiteRoot
     string groupStagingDir(string groupName, string apiVersion) => buildNormalizedPath(this.stagingDir, "groups", groupName, apiVersion);
     string groupNavFile(string groupName, string apiVersion) => buildNormalizedPath(this.groupStagingDir(groupName, apiVersion), "navigation.json");
     string groupRootConfigFile(string groupName) => buildNormalizedPath(this.stagingGroupsRootDir, groupName, "_config.json");
+
+    string singleFileStagingDir(string groupName) => buildNormalizedPath(this.stagingDir, "groups", groupName);
+    string singleFileIndexFile(string groupName) => buildNormalizedPath(this.singleFileStagingDir(groupName), StagingSingleFileGroup.INDEX_FILE_NAME);
     
     string groupModuleIndexFile(string groupName, DocModule mod, string apiVersion) 
         => buildNormalizedPath([this.groupStagingDir(groupName, apiVersion)] ~ mod.fqnComponents ~ "index.json");
@@ -97,6 +100,7 @@ struct SiteRoot
     /++ HTML files, dirs, and href helpers ++/
     
     string groupHref(string groupName, string apiVersion) => "/" ~ buildNormalizedPath(groupName, apiVersion);
+    string singleFileHref(string groupName) => "/" ~ groupName;
 
     string groupModuleIndexHref(string groupName, DocModule mod, string apiVersion) 
         => buildNormalizedPath([this.groupHref(groupName, apiVersion)] ~ mod.fqnComponents);
@@ -173,10 +177,48 @@ final class MarmosDocModelRootGroup : RootGroup
     string[] modelFilePaths() => this._modelFilePaths;
 }
 
+final class MarkdownSingleFileRootGroup : RootGroup
+{
+    enum INDEX_FILE_NAME = "index.md";
+
+    private
+    {
+        string _indexFilePath;
+    }
+
+    this(string groupDir)
+    {
+        import std.exception : enforce;
+        import std.file      : SpanMode, DirEntry, dirEntries;
+        import std.format    : format;
+        import std.path      : extension, baseName;
+
+        super(groupDir);
+
+        foreach(DirEntry entry; dirEntries(super.groupDir, SpanMode.shallow))
+        {
+            // Skip stuff like _config.json
+            if(entry.baseName[0] == '_')
+                continue;
+
+            infof("[%s] discovered: %s", super.groupName, entry.name.baseName);
+
+            enforce(!entry.isDir, format("SingleFileGroup does not support subdirectories: %s", entry));
+            enforce(entry.extension == ".md", format("SingleFileGroup only supports .md files: %s", entry));
+            enforce(entry.name.baseName == INDEX_FILE_NAME, format("SingleFileGroup expects ONLY a file called %s, but got: %s", INDEX_FILE_NAME, entry)); // @suppress(dscanner.style.long_line)
+
+            this._indexFilePath = entry.name;
+        }
+    }
+
+    string indexFilePath() => this._indexFilePath;
+}
+
 abstract class StagingRootGroup : RootGroup
 {
     private alias ConfigSumType = SumType!(
-        StagingApiRefGroup.ConfigModel
+        StagingApiRefGroup.ConfigModel,
+        StagingSingleFileGroup.ConfigModel,
     );
 
     this(string groupDir)
@@ -249,6 +291,31 @@ final class StagingApiRefGroup : StagingRootGroup
     Version[string] versionsByName() => this._versionsByName;
 }
 
+final class StagingSingleFileGroup : StagingRootGroup 
+{
+    enum INDEX_FILE_NAME = "index.json";
+
+    struct ConfigModel {}
+
+    private
+    {
+        string _indexFilePath;
+        string _outputFilePath;
+    }
+
+    this(string groupDir)
+    {
+        import std.path : buildNormalizedPath, baseName, setExtension;
+
+        super(groupDir);
+        this._indexFilePath = buildNormalizedPath(groupDir, INDEX_FILE_NAME);
+        this._outputFilePath = buildNormalizedPath(groupDir.baseName, INDEX_FILE_NAME.setExtension(".html"));
+    }
+
+    string indexFilePath() => this._indexFilePath;
+    string outputHtmlFileSubpath() => this._outputFilePath;
+}
+
 /++ Loading ++/
 
 private RootGroup loadRootGroup(string dir)
@@ -257,8 +324,9 @@ private RootGroup loadRootGroup(string dir)
 
     auto rootConfig = loadJsonModel!(conf.RootGroup)(buildNormalizedPath(dir, "_config.json"));
     return rootConfig.kind.match!(
-        (conf.MarmosDocModelGroup _) => new MarmosDocModelRootGroup(dir),
-        (conf.SingleFileGroup _) { infof("TODO"); return null; },
+        // First one needs an explicit cast so the compiler infers the base class as the return type, rather than one of its concrete types.
+        (conf.MarmosDocModelGroup _) => cast(RootGroup)new MarmosDocModelRootGroup(dir),
+        (conf.SingleFileGroup _) => new MarkdownSingleFileRootGroup(dir),
         (conf.GroupOfGroups _) { infof("TODO"); return null; },
     );
 }
@@ -269,7 +337,9 @@ private StagingRootGroup loadStagingRootGroup(string dir)
 
     auto rootConfig = loadJsonModel!(StagingRootGroup.ConfigSumType)(buildNormalizedPath(dir, "_config.json"));
     return rootConfig.match!(
-        (StagingApiRefGroup.ConfigModel _) => new StagingApiRefGroup(dir),
+        // First one needs an explicit cast so the compiler infers the base class as the return type, rather than one of its concrete types.
+        (StagingApiRefGroup.ConfigModel _) => cast(StagingRootGroup)new StagingApiRefGroup(dir),
+        (StagingSingleFileGroup.ConfigModel _) => new StagingSingleFileGroup(dir),
     );
 }
 
