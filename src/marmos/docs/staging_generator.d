@@ -1668,7 +1668,7 @@ private ApiPageComponent[] buildMarkdownComponents(MarkdownRoot root)
             handleInline(&inline);
 
             if(href.length == 0)
-                result ~= ApiPageComponent(ApiPageSpan(styles, text));
+                result ~= ApiPageSpan(styles, text).asComponent;
             else
                 result ~= ApiPageSpan(styles, text).asHrefLink(href);
 
@@ -1696,18 +1696,18 @@ private ApiPageComponent[] buildMarkdownComponents(MarkdownRoot root)
             {
                 if(listItemQueue[0].level == thisLevel)
                 {
-                    list.items ~= ApiPageComponent(ApiPageParagraph(handleParagraph(listItemQueue[0].inner)));
+                    list.items ~= ApiPageParagraph(handleParagraph(listItemQueue[0].inner)).asComponent;
                     listItemQueue = listItemQueue[1..$];
                 }
                 else
-                    list.items ~= ApiPageComponent(nextList());
+                    list.items ~= nextList().asComponent;
             }
 
             return list;
         }
 
         while(listItemQueue.length > 0)
-            components ~= ApiPageComponent(nextList());
+            components ~= nextList().asComponent;
     }
 
     foreach(sumtype; root.containers)
@@ -1715,7 +1715,7 @@ private ApiPageComponent[] buildMarkdownComponents(MarkdownRoot root)
         sumtype.match!(
             (MarkdownParagraph container){
                 tryPopList();
-                components ~= ApiPageComponent(ApiPageParagraph(handleParagraph(container)));
+                components ~= ApiPageParagraph(handleParagraph(container)).asComponent;
             },
             (MarkdownHeader container){
                 import std.exception : assumeUnique;
@@ -1744,7 +1744,7 @@ private ApiPageComponent[] buildMarkdownComponents(MarkdownRoot root)
                 }
                 header.text = builder.data.assumeUnique;
 
-                components ~= ApiPageComponent(header);
+                components ~= header.asComponent;
             },
             (MarkdownListItem container){
                 listItemQueue ~= container;
@@ -1764,7 +1764,7 @@ private ApiPageComponent[] buildMarkdownComponents(MarkdownRoot root)
                     code.add(ApiPageCodeText(ApiPageCodeText.Syntax.none, line));
                 }
 
-                components ~= ApiPageComponent(code);
+                components ~= code.asComponent;
             },
         );
     }

@@ -333,7 +333,7 @@ private Html renderComponent(
     const CLASSES_BY_SPAN_STYLE = [
         ApiPageSpan.Style.bold: ["font-bold"],
         ApiPageSpan.Style.italic: ["italic"],
-        ApiPageSpan.Style.code: ["bg-slate-900", "pl-2"],
+        ApiPageSpan.Style.code: ["bg-slate-900", "pl-2", "pr-2"],
     ];
 
     Html renderSpan(ApiPageSpan comp) => Html(
@@ -605,9 +605,14 @@ private Html mainTemplate(
                     }
 
                     /*
-                        Edge case: Similarly, for some reason <code> elements have some misalignment that needs to be fixed globally.
+                        Edge case: Similarly, for some reason <code> and <a> elements have some misalignment that needs to be fixed globally.
                     */
-                    code + span {
+                    code + span,
+                    code + code,
+                    code + a,
+                    a + span,
+                    a + code,
+                    a + a {
                         padding-left: calc(var(--spacing) * 1);
                     }
                 `)
@@ -756,7 +761,7 @@ string render(Html root)
         code.put(str);
     }
 
-    void put(Html html, uint indent)
+    void put(Html html, uint indent, string parentTag)
     {
         if(html.tag == "__raw")
         {
@@ -767,9 +772,10 @@ string render(Html root)
             return;
         }
 
-        if(html.tag == "pre")
+        // Some tags are really sensitive to being formatted
+        if(html.tag == "pre" || html.tag == "span" || html.tag == "code" || html.tag == "a")
             noFormat++;
-        scope(exit) if(html.tag == "pre")
+        scope(exit) if(html.tag == "pre" || html.tag == "span" || html.tag == "code" || html.tag == "a")
             noFormat--;
 
         putIndent(indent);
@@ -799,11 +805,19 @@ string render(Html root)
             code.put('\n');
 
         html.content.match!(
-            (Html[] children) { foreach(child; children) put(child, indent + 1); },
+            (Html[] children) { foreach(child; children) put(child, indent + 1, parentTag: html.tag); },
             (string text) { putEscaped(text); },
         );
 
-        putIndent(indent);
+        if(html.tag == "span" && code.data[$-1] != ' ' && parentTag != "a")
+            code.put(' '); // Spans should always have a space aftwards to solve certain annoyances (except when inside links)
+
+        if(noFormat == 0)
+        {
+            code.put('\n');
+            putIndent(indent);
+        }
+
         code.put("</");
         code.put(html.tag);
         code.put(">");
@@ -813,7 +827,7 @@ string render(Html root)
     }
     
     root.content.match!(
-        (Html[] children) { foreach(child; children) put(child, indent: 1); },
+        (Html[] children) { foreach(child; children) put(child, indent: 1, parentTag: ""); },
         (string _){},
     );
 
