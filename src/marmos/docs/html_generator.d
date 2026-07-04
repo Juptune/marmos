@@ -654,7 +654,19 @@ private Html navbar(
         Html(tag: "div", classes: ["flex", "justify-center"], content: [
             // Root group links
             Html(tag: "nav", classes: ["flex", "gap-4"], content: site.rootGroups.map!(group =>
-                Html(tag: "a", classes: ["hover:underline"], attributes: ["href": "/"~group.groupUrlName], content: group.groupName)
+                Html(
+                    tag: "a", 
+                    classes: ["hover:underline"], 
+                    attributes: [
+                        "href": (){
+                            import marmos.docs.discover : MarmosDocModelRootGroup;
+                            if(auto apiRefGroup = cast(MarmosDocModelRootGroup)group)
+                                return "/"~group.groupUrlName~"/latest";
+                            return "/"~group.groupUrlName;
+                        }()
+                    ], 
+                    content: group.groupName
+                )
             ).array)
         ]),
         

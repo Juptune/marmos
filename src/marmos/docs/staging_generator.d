@@ -55,6 +55,7 @@ void generateAndEmitGroupStagingFiles(SiteRoot site, RootGroup group)
             buildAndEmitModuleOverviewPage(group, site, moduleTree, navRoot);
             buildAndEmitChildPages(group, site, moduleTree, navRoot);
         }
+        buildAndEmitApiRefLandingPage(group, site, navRoot);
 
         // Output remaining files
         emitFile(site.groupNavFile(group.groupUrlName, "latest"), navRoot.docToJson.toString());
@@ -107,6 +108,21 @@ private GroupNavRoot buildApiRefNavigation(SiteRoot site, MarmosDocModelRootGrou
     }
 
     return nav;
+}
+
+private void buildAndEmitApiRefLandingPage(
+    RootGroup group,
+    SiteRoot site, 
+    scope ref GroupNavRoot nav,
+)
+{
+    ApiPageRoot page;
+    page.add(ApiPageHeader(level: 1, htmlId: "", "API Reference for "~group.groupName));
+    page.add(ApiPageParagraph([
+        ApiPageSpan(style: [], text: "Please use the navigation list on the left to explore the API.").asComponent
+    ]));
+
+    emitFile(site.groupIndexFile(group.groupUrlName, "latest"), docToJson(page).toString());
 }
 
 private void buildAndEmitModuleOverviewPage(

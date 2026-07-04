@@ -67,6 +67,8 @@ struct SiteRoot
     string navbarFile() => buildNormalizedPath(this.stagingDir, "navbar.json");
     string groupStagingDir(string groupName, string apiVersion) => buildNormalizedPath(this.stagingDir, "groups", groupName, apiVersion);
     string groupNavFile(string groupName, string apiVersion) => buildNormalizedPath(this.groupStagingDir(groupName, apiVersion), "navigation.json");
+    string groupIndexFile(string groupName, string apiVersion) => buildNormalizedPath(this.groupStagingDir(groupName, apiVersion), "index.json");
+
     string groupRootConfigFile(string groupName) => buildNormalizedPath(this.stagingGroupsRootDir, groupName, "_config.json");
 
     string singleFileStagingDir(string groupName) => buildNormalizedPath(this.stagingDir, "groups", groupName);
