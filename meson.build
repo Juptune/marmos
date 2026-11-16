@@ -40,7 +40,7 @@ marmos_lib_srcs = files(
 
 subproject('dmd-phobos')
 dmd_dep = subproject('dmd-fe').get_variable('dmd_dep')
-argparse_dep = dependency('argparse', version: '>=2.0.2', method: 'dub')
+argparse_dep = dependency('argparse', version: '>=2.1.0', method: 'dub')
 
 marmos_lib_dep = declare_dependency(
     include_directories: include_directories('src'),

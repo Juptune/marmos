@@ -47,3 +47,11 @@ local_resource(
     resource_deps=['unittests'],
     labels=['development']
 )
+local_resource(
+    'scratchpad_server',
+    serve_cmd='cd scratchpad/server && go run .',
+    labels=['development'],
+    links=[
+        link('http://localhost:3000')
+    ]
+)

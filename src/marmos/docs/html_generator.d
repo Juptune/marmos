@@ -203,7 +203,7 @@ private Html buildApiRefLeftSidebar(SiteRoot site, StagingApiRefGroup group, Sta
                 continue;
             }
 
-            const withoutLeadingSlash = child.href[1..$] ~ "/index.html";
+            const withoutLeadingSlash = child.href[site.config.siteBasePath.length..$][1..$] ~ "/index.html";
             if(withoutLeadingSlash == page.htmlOutputSubpath)
                 return nodePath ~ child;
         }
@@ -307,7 +307,7 @@ private Html buildApiRefLeftSidebar(SiteRoot site, StagingApiRefGroup group, Sta
             Html(tag: "div", classes: ["pl-4", "overflow-x-auto"], content: links),
 
             // Script for collapsing stuff
-            Html(tag: "script", attributes: ["src": "/"~site.apiRefGroupToggleJsPath]),
+            Html(tag: "script", attributes: ["src": site.config.siteBasePath~"/"~site.apiRefGroupToggleJsPath]),
         ],
     );
 }
@@ -660,9 +660,10 @@ private Html navbar(
                     attributes: [
                         "href": (){
                             import marmos.docs.discover : MarmosDocModelRootGroup;
+
                             if(auto apiRefGroup = cast(MarmosDocModelRootGroup)group)
-                                return "/"~group.groupUrlName~"/latest";
-                            return "/"~group.groupUrlName;
+                                return site.config.siteBasePath~"/"~group.groupUrlName~"/latest";
+                            return site.config.siteBasePath~"/"~group.groupUrlName;
                         }()
                     ], 
                     content: group.groupName
@@ -772,7 +773,8 @@ string render(Html root)
         // TODO
         code.put(str);
     }
-
+    
+    bool renderingInCodeBlock;
     void put(Html html, uint indent, string parentTag)
     {
         if(html.tag == "__raw")
@@ -783,6 +785,11 @@ string render(Html root)
             ));
             return;
         }
+
+        if(html.tag == "code")
+            renderingInCodeBlock = true;
+        scope(exit) if(html.tag == "code")
+            renderingInCodeBlock = false;
 
         // Some tags are really sensitive to being formatted
         if(html.tag == "pre" || html.tag == "span" || html.tag == "code" || html.tag == "a")
@@ -821,7 +828,7 @@ string render(Html root)
             (string text) { putEscaped(text); },
         );
 
-        if(html.tag == "span" && code.data[$-1] != ' ' && parentTag != "a")
+        if(html.tag == "span" && code.data[$-1] != ' ' && parentTag != "a" && !renderingInCodeBlock)
             code.put(' '); // Spans should always have a space aftwards to solve certain annoyances (except when inside links)
 
         if(noFormat == 0)

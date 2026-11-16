@@ -24,7 +24,7 @@ void generateAndEmitNavbar(SiteRoot site)
 {
     NavbarRoot navbar;
     foreach(group; site.rootGroups)
-        navbar.entries[group.groupName] = rootGroupIndexUrl(group);
+        navbar.entries[group.groupName] = rootGroupIndexUrl(group, site.config.siteBasePath);
 
     emitFile(site.navbarFile, navbar.docToJson.toPrettyString());
 }
@@ -1827,10 +1827,10 @@ package void emitFile(string path, const(char)[] text)
 
 /++ Url helpers ++/
 
-private string rootGroupIndexUrl(RootGroup group)
+private string rootGroupIndexUrl(RootGroup group, string base)
 {
     import std.path : buildPath;
 
     // Assume the server can resolve e.g. `/api-reference` to `/api-reference/index.html`
-    return buildPath(["/", group.groupUrlName]);
+    return buildPath([base, "/", group.groupUrlName]);
 }

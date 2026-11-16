@@ -101,8 +101,8 @@ struct SiteRoot
 
     /++ HTML files, dirs, and href helpers ++/
     
-    string groupHref(string groupName, string apiVersion) => "/" ~ buildNormalizedPath(groupName, apiVersion);
-    string singleFileHref(string groupName) => "/" ~ groupName;
+    string groupHref(string groupName, string apiVersion) => config.siteBasePath ~ "/" ~ buildNormalizedPath(groupName, apiVersion);
+    string singleFileHref(string groupName) => config.siteBasePath ~ "/" ~ groupName;
 
     string groupModuleIndexHref(string groupName, DocModule mod, string apiVersion) 
         => buildNormalizedPath([this.groupHref(groupName, apiVersion)] ~ mod.fqnComponents);

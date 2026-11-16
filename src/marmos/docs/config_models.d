@@ -14,6 +14,7 @@ import marmos.converter.json : JsonType;
 struct MardocsConfig
 {
     string siteTitle;
+    string siteBasePath;
 }
 
 /++ Root groups ++/
